@@ -1,0 +1,19 @@
+---
+import Base from '../layouts/Base.astro';
+import { ui, routes } from '../i18n/ui';
+const fr = ui.fr;
+const en = ui.en;
+---
+
+<Base lang="fr" title={`${fr.notFoundTitle} | Mille Solutions`} description={fr.notFoundText} noindex>
+  <section class="container-site py-24 sm:py-32">
+    <p class="eyebrow text-stone"><span class="text-navy">404</span></p>
+    <h1 class="mt-4 text-4xl font-semibold sm:text-5xl">{fr.notFoundTitle}</h1>
+    <span aria-hidden="true" class="mt-6 block h-px w-14 bg-azur"></span>
+    <p class="mt-6 text-lg text-navy/85">{fr.notFoundText}</p>
+    <a href={routes.home.fr} class="btn btn-primary mt-8">{fr.backHome}</a>
+    <p lang="en" class="mt-12 text-stone">
+      {en.notFoundTitle}. <a href={routes.home.en} class="link-underline text-navy">{en.backHome}</a>
+    </p>
+  </section>
+</Base>

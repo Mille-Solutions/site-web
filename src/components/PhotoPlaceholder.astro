@@ -1,0 +1,31 @@
+---
+/**
+ * Emplacement photo en attendant les images définitives (style de la charte :
+ * ciel brume, mer, voile sable). Remplacer par <Image> d'astro:assets.
+ */
+interface Props {
+  caption: string;
+  class?: string;
+  variant?: 'sea' | 'portrait';
+}
+const { caption, class: className = '', variant = 'sea' } = Astro.props;
+---
+
+<figure class:list={['relative overflow-hidden rounded-(--radius-card) bg-mist', className]}>
+  {
+    variant === 'sea' ? (
+      <svg class="absolute inset-0 size-full" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <rect width="400" height="500" fill="var(--color-mist)" />
+        <rect y="290" width="400" height="210" fill="var(--color-sea)" />
+        <path d="M300 40 L370 370 L230 370 Z" fill="var(--color-sand)" />
+      </svg>
+    ) : (
+      <svg class="absolute inset-0 size-full" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <rect width="400" height="500" fill="var(--color-mist)" />
+        <circle cx="200" cy="200" r="72" fill="var(--color-sand)" />
+        <path d="M70 500c0-95 58-160 130-160s130 65 130 160Z" fill="var(--color-sand)" />
+      </svg>
+    )
+  }
+  <figcaption class="absolute bottom-4 left-4 rounded-sm bg-navy/70 px-2 py-1 text-xs text-ivory">{caption}</figcaption>
+</figure>

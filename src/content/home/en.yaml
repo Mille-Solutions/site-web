@@ -1,0 +1,90 @@
+# Home page copy — English version
+# ⚠️ BROUILLON : traduction à relire et valider par Charlotte avant publication.
+meta:
+  title: "Mille Solutions — Structure. Prioritize. Deliver. | Monaco"
+  description: "I help small and medium-sized businesses and institutions in Monaco and the surrounding region clarify their needs, structure their projects and coordinate their delivery."
+
+hero:
+  title:
+    - "Move your projects forward."
+    - "Simplify the way you work."
+  lead: "I help small and medium-sized businesses and institutions in Monaco and the surrounding region clarify their needs, structure their projects and coordinate their delivery through to a tangible result."
+  signature: "Structure. Prioritize. Deliver."
+  cta: "Book a free 30-minute call"
+  secondary: "Explore my services"
+  imageCaption: "Port Hercule in the early morning"
+
+situations:
+  eyebrow: "Sound familiar?"
+  title: "Situations I often come across"
+  items:
+    - text: "An important project is moving too slowly."
+      service: "move-a-project-forward"
+      linkLabel: "Move a project forward"
+    - text: "Your teams spend too much time on complicated ways of working."
+      service: "simplify-the-way-you-work"
+      linkLabel: "Simplify the way you work"
+    - text: "You have an idea, but not the time to structure it and make it happen."
+      service: "get-things-moving-again"
+      linkLabel: "Get things moving again"
+
+services:
+  eyebrow: "Services"
+  title: "Three ways I can help"
+  items:
+    - id: "move-a-project-forward"
+      icon: project
+      title: "Move a project forward"
+      text: "Clarify the objective, organise the steps and coordinate everyone involved so your project makes progress."
+    - id: "simplify-the-way-you-work"
+      icon: simplify
+      title: "Simplify the way you work"
+      text: "Review processes, responsibilities and tools to make day-to-day work easier."
+    - id: "get-things-moving-again"
+      icon: unblock
+      title: "Get things moving again"
+      text: "Understand what is holding things back, explore the options and build a realistic way forward."
+
+method:
+  eyebrow: "Method and experience"
+  title: "A simple method, from need to result"
+  steps:
+    - title: "Structure"
+      text: "Clarify the need, the objective and the constraints."
+    - title: "Prioritize"
+      text: "Compare the options and define the actions that matter."
+    - title: "Deliver"
+      text: "Coordinate implementation and prepare for continuity."
+  quote: "Clarity creates alignment. Alignment creates progress."
+
+examples:
+  eyebrow: "Project examples"
+  title: "Three concrete experiences"
+  durationLabel: "Duration"
+  items:
+    - title: "Recruitment tool"
+      duration: "Three months"
+      summary: "Needs analysis, roll-out, training and adaptation of working practices over three months."
+    - title: "Retail software"
+      duration: "Four months"
+      summary: "Scoping the replacement through to budget and schedule approval over four months."
+    - title: "Growing an event"
+      duration: "Several years"
+      summary: "Support over several years: developing networks, enriching the programme and handing over to successors."
+  note: "Experience gained during my salaried career, before founding Mille Solutions."
+
+about:
+  eyebrow: "About me"
+  title: "Charlotte Charles Mille"
+  paragraphs:
+    - "I founded Mille Solutions to put my experience in coordination, management and project leadership at the service of your needs."
+    - "My career — from offshore operations and humanitarian missions to yachting, events, and HR, digital and sustainability projects — fuels my creativity as much as my practical sense."
+  linkedin: "View my LinkedIn profile"
+  portraitCaption: "Portrait — to be supplied"
+
+contact:
+  eyebrow: "Contact"
+  title: "Let’s talk about your situation."
+  text: "Do you have a project to structure, a way of working to simplify or a situation to unblock? A free 30-minute first call helps me understand your needs and see whether I can be of use."
+  cta: "Book a free 30-minute call"
+  formPending: "Contact form — coming soon"

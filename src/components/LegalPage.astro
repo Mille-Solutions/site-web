@@ -1,0 +1,29 @@
+---
+import { getEntry, render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { ui, type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  route: 'legal' | 'privacy';
+  /** Identifiant du fichier Markdown, ex. « fr/mentions-legales ». */
+  entry: string;
+}
+const { lang, route, entry } = Astro.props;
+const page = (await getEntry('legal', entry))!;
+const { Content } = await render(page);
+const t = ui[lang];
+---
+
+<Base lang={lang} route={route} title={`${page.data.title} | Mille Solutions`} description={page.data.description} noindex={page.data.draft}>
+  <article class="container-site py-16 sm:py-24">
+    <header class="max-w-3xl">
+      <h1 class="text-4xl font-semibold tracking-[-0.01em] sm:text-5xl">{page.data.title}</h1>
+      <span aria-hidden="true" class="mt-6 block h-px w-14 bg-azur"></span>
+      <p class="mt-6 text-sm text-stone">{t.updated} : {page.data.updated}</p>
+    </header>
+    <div class="prose-legal mt-12 max-w-3xl">
+      <Content />
+    </div>
+  </article>
+</Base>

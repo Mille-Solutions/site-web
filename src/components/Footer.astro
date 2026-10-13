@@ -1,0 +1,54 @@
+---
+import Logo from './Logo.astro';
+import ExternalLink from './ExternalLink.astro';
+import { ui, routes, sections, type Lang } from '../i18n/ui';
+import { getEntry } from 'astro:content';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = ui[lang];
+const s = sections[lang];
+const home = routes.home[lang];
+const settings = (await getEntry('settings', 'links'))!.data;
+const signature = lang === 'fr' ? 'Structurer. Prioriser. Concrétiser.' : 'Structure. Prioritize. Deliver.';
+---
+
+<footer class="on-navy bg-navy text-ivory">
+  <div class="container-site grid gap-12 py-16 md:grid-cols-[1.4fr_1fr_1fr]">
+    <div>
+      <Logo tone="ivory" accent />
+      <p class="mt-6 text-sm text-ivory/75">{signature}</p>
+      <p class="mt-2 text-sm text-ivory/75">{t.location}</p>
+    </div>
+
+    <nav aria-label={t.footerNav}>
+      <ul class="space-y-3 text-sm">
+        <li><a href={home} class="hover:underline">{t.home}</a></li>
+        <li><a href={`${home}#${s.services}`} class="hover:underline">{t.nav.services}</a></li>
+        <li><a href={`${home}#${s.approach}`} class="hover:underline">{t.nav.approach}</a></li>
+        <li><a href={`${home}#${s.examples}`} class="hover:underline">{t.nav.examples}</a></li>
+        <li><a href={`${home}#${s.contact}`} class="hover:underline">{t.nav.contact}</a></li>
+      </ul>
+    </nav>
+
+    <ul class="space-y-3 text-sm">
+      <li>
+        <ExternalLink href={settings.bookingsUrl} lang={lang} track="footer" class="inline-flex items-center gap-2 hover:underline">
+          {t.book}
+        </ExternalLink>
+      </li>
+      <li>
+        <ExternalLink href={settings.linkedinUrl} lang={lang} class="inline-flex items-center gap-2 hover:underline">
+          LinkedIn
+        </ExternalLink>
+      </li>
+      <li class="pt-3"><a href={routes.legal[lang]} class="hover:underline">{t.legal}</a></li>
+      <li><a href={routes.privacy[lang]} class="hover:underline">{t.privacy}</a></li>
+    </ul>
+  </div>
+  <div class="border-t border-ivory/15">
+    <p class="container-site py-6 text-xs text-ivory/70">© {new Date().getFullYear()} Mille Solutions — Charlotte Charles Mille</p>
+  </div>
+</footer>

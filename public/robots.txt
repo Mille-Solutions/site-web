@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://millesolutions.mc/sitemap-index.xml

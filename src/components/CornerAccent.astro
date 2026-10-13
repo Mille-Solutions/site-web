@@ -1,0 +1,20 @@
+---
+/**
+ * « Angle azur interrompu » : deux courtes lignes fines formant un coin jamais fermé.
+ * Dispositif secondaire — ne jamais superposer au texte ni au logo.
+ */
+interface Props {
+  position: 'top-left' | 'bottom-right';
+  class?: string;
+}
+const { position, class: className = '' } = Astro.props;
+const isTop = position === 'top-left';
+---
+
+<span
+  aria-hidden="true"
+  class:list={['pointer-events-none absolute block size-10', isTop ? '-top-3 -left-3 sm:-top-4 sm:-left-4' : '-right-3 -bottom-3 sm:-right-4 sm:-bottom-4', className]}
+>
+  <span class:list={['absolute h-px w-7 bg-azur', isTop ? 'top-0 left-0' : 'right-0 bottom-0']}></span>
+  <span class:list={['absolute h-7 w-px bg-azur', isTop ? 'top-0 left-0' : 'right-0 bottom-0']}></span>
+</span>

@@ -1,0 +1,7 @@
+# Liens externes utilisés sur tout le site (FR et EN).
+# Modifier ici suffit : aucune autre modification de code n'est nécessaire.
+links:
+  # TODO : lien Microsoft Bookings fourni par Charlotte
+  bookingsUrl: "https://outlook.office.com/bookwithme/"
+  # TODO : URL du profil LinkedIn de Charlotte
+  linkedinUrl: "https://www.linkedin.com/"

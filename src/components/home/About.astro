@@ -1,0 +1,32 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import SectionHeading from '../SectionHeading.astro';
+import PhotoPlaceholder from '../PhotoPlaceholder.astro';
+import ExternalLink from '../ExternalLink.astro';
+import Icon from '../Icon.astro';
+import type { Lang } from '../../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  content: CollectionEntry<'home'>['data']['about'];
+  id: string;
+  linkedinUrl: string;
+}
+const { lang, content, id, linkedinUrl } = Astro.props;
+---
+
+<section id={id} aria-labelledby={`${id}-title`} class="border-y border-line bg-white py-20 sm:py-28">
+  <div class="container-site grid items-center gap-12 md:grid-cols-[0.8fr_1.2fr] md:gap-16">
+    <PhotoPlaceholder caption={content.portraitCaption} variant="portrait" class="reveal mx-auto aspect-[4/5] w-full max-w-sm" />
+    <div>
+      <SectionHeading number="05." eyebrow={content.eyebrow} title={content.title} id={`${id}-title`} />
+      <div class="-mt-4 space-y-5 text-lg leading-relaxed text-navy/85">
+        {content.paragraphs.map((p) => <p>{p}</p>)}
+      </div>
+      <ExternalLink href={linkedinUrl} lang={lang} icon={false} class="link-underline mt-8 inline-flex items-center gap-2 font-medium">
+        <Icon name="linkedin" class="size-5" />
+        {content.linkedin}
+      </ExternalLink>
+    </div>
+  </div>
+</section>

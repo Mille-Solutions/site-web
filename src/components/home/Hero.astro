@@ -1,0 +1,43 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import ExternalLink from '../ExternalLink.astro';
+import PhotoPlaceholder from '../PhotoPlaceholder.astro';
+import CornerAccent from '../CornerAccent.astro';
+import Icon from '../Icon.astro';
+import type { Lang } from '../../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  content: CollectionEntry<'home'>['data']['hero'];
+  bookingsUrl: string;
+  servicesId: string;
+}
+const { lang, content, bookingsUrl, servicesId } = Astro.props;
+---
+
+<section class="container-site grid items-center gap-12 pt-14 pb-20 sm:pt-20 lg:grid-cols-[1.25fr_1fr] lg:gap-16 lg:pt-24 lg:pb-28">
+  <div>
+    <p class="flex items-center gap-3 text-sm font-medium tracking-[0.08em] text-stone uppercase">
+      <span aria-hidden="true" class="block h-px w-8 bg-azur"></span>
+      {content.signature}
+    </p>
+    <h1 class="mt-6 text-[2.5rem] leading-[1.1] font-semibold tracking-[-0.02em] text-balance sm:text-6xl">
+      {content.title.map((line) => <span class="block">{line}</span>)}
+    </h1>
+    <p class="mt-8 max-w-xl text-lg leading-relaxed text-navy/85">{content.lead}</p>
+    <div class="mt-10 flex flex-col items-start gap-5 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-8">
+      <ExternalLink href={bookingsUrl} lang={lang} track="hero" class="btn btn-primary sm:whitespace-nowrap">
+        {content.cta}
+      </ExternalLink>
+      <a href={`#${servicesId}`} class="link-underline inline-flex items-center gap-2 font-medium whitespace-nowrap">
+        {content.secondary}
+        <Icon name="arrow" class="size-4" />
+      </a>
+    </div>
+  </div>
+
+  <div class="relative mx-auto w-full max-w-md lg:max-w-none">
+    <CornerAccent position="top-left" />
+    <PhotoPlaceholder caption={content.imageCaption} class="aspect-[4/5] w-full" />
+  </div>
+</section>

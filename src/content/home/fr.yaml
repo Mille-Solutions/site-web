@@ -1,0 +1,89 @@
+# Textes de la page d'accueil — version française (source : cahier des charges du 12/10/2026)
+meta:
+  title: "Mille Solutions — Structurer. Prioriser. Concrétiser. | Monaco"
+  description: "J’accompagne les TPE, PME et institutions à Monaco et dans la région pour clarifier leurs besoins, structurer leurs projets et coordonner leur mise en œuvre."
+
+hero:
+  title:
+    - "Faire avancer vos projets."
+    - "Simplifier votre fonctionnement."
+  lead: "J’accompagne les TPE, PME et institutions à Monaco et dans la région pour clarifier leurs besoins, structurer leurs projets et coordonner leur mise en œuvre jusqu’à un résultat concret."
+  signature: "Structurer. Prioriser. Concrétiser."
+  cta: "Réserver un échange gratuit de 30 minutes"
+  secondary: "Découvrir mes accompagnements"
+  imageCaption: "Port Hercule tôt le matin"
+
+situations:
+  eyebrow: "Vous vous reconnaissez"
+  title: "Des situations que je rencontre souvent"
+  items:
+    - text: "Un projet important avance trop lentement."
+      service: "faire-avancer-un-projet"
+      linkLabel: "Faire avancer un projet"
+    - text: "Vos équipes consacrent trop de temps à un fonctionnement compliqué."
+      service: "simplifier-le-fonctionnement"
+      linkLabel: "Simplifier le fonctionnement"
+    - text: "Vous avez une idée, mais manquez de temps pour la structurer et la mettre en œuvre."
+      service: "debloquer-une-situation"
+      linkLabel: "Débloquer une situation"
+
+services:
+  eyebrow: "Accompagnements"
+  title: "Trois façons de vous accompagner"
+  items:
+    - id: "faire-avancer-un-projet"
+      icon: project
+      title: "Faire avancer un projet"
+      text: "Clarifier l’objectif, organiser les étapes et coordonner les intervenants pour faire progresser votre projet."
+    - id: "simplifier-le-fonctionnement"
+      icon: simplify
+      title: "Simplifier le fonctionnement"
+      text: "Revoir les processus, les responsabilités et les outils pour faciliter le travail quotidien."
+    - id: "debloquer-une-situation"
+      icon: unblock
+      title: "Débloquer une situation"
+      text: "Comprendre les freins, explorer les options et construire une voie d’action réaliste."
+
+method:
+  eyebrow: "Méthode et expérience"
+  title: "Une méthode simple, du besoin au résultat"
+  steps:
+    - title: "Structurer"
+      text: "Clarifier le besoin, l’objectif et les contraintes."
+    - title: "Prioriser"
+      text: "Comparer les options et définir les actions utiles."
+    - title: "Concrétiser"
+      text: "Coordonner la mise en œuvre et préparer la continuité."
+  quote: "La clarté crée l’alignement. L’alignement crée la progression."
+
+examples:
+  eyebrow: "Exemples de projets"
+  title: "Trois expériences concrètes"
+  durationLabel: "Durée"
+  items:
+    - title: "Outil de recrutement"
+      duration: "Trois mois"
+      summary: "Analyse des besoins, déploiement, formation et adaptation des pratiques sur trois mois."
+    - title: "Logiciel de boutique"
+      duration: "Quatre mois"
+      summary: "Cadrage du remplacement jusqu’à la validation budgétaire et du calendrier sur quatre mois."
+    - title: "Développement d’un événement"
+      duration: "Plusieurs années"
+      summary: "Accompagnement sur plusieurs années, développement des réseaux, enrichissement du programme et transmission aux successeurs."
+  note: "Expériences réalisées dans le cadre de mon parcours salarié, avant la création de Mille Solutions."
+
+about:
+  eyebrow: "Qui suis-je"
+  title: "Charlotte Charles Mille"
+  paragraphs:
+    - "J’ai créé Mille Solutions pour mettre mon expérience de la coordination, du management et du pilotage de projets au service de vos besoins."
+    - "Mon parcours, des opérations offshore et des missions humanitaires au yachting, à l’événementiel et aux projets RH, digitaux et de durabilité, nourrit ma créativité autant que mon sens pratique."
+  linkedin: "Voir mon profil LinkedIn"
+  portraitCaption: "Portrait — à fournir"
+
+contact:
+  eyebrow: "Contact"
+  title: "Parlons de votre situation."
+  text: "Vous avez un projet à structurer, un fonctionnement à simplifier ou une situation à débloquer ? Un premier échange gratuit de 30 minutes permet de comprendre votre besoin et de voir si mon intervention peut vous être utile."
+  cta: "Réserver un échange gratuit de 30 minutes"
+  formPending: "Formulaire de contact — à venir"

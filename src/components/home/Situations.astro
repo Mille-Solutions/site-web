@@ -1,0 +1,30 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import SectionHeading from '../SectionHeading.astro';
+import Icon from '../Icon.astro';
+
+interface Props {
+  content: CollectionEntry<'home'>['data']['situations'];
+}
+const { content } = Astro.props;
+---
+
+<section aria-labelledby="situations-title" class="border-y border-line bg-white py-20 sm:py-24">
+  <div class="container-site">
+    <SectionHeading number="01." eyebrow={content.eyebrow} title={content.title} id="situations-title" />
+    <ul class="grid gap-6 md:grid-cols-3">
+      {
+        content.items.map((item, i) => (
+          <li class="reveal flex flex-col rounded-(--radius-card) border border-line bg-ivory p-7">
+            <span class="text-sm font-medium text-stone">{String(i + 1).padStart(2, '0')}</span>
+            <p class="mt-4 flex-1 text-lg leading-snug font-medium">{item.text}</p>
+            <a href={`#${item.service}`} class="link-underline mt-8 inline-flex items-center gap-2 self-start text-sm font-medium">
+              {item.linkLabel}
+              <Icon name="arrow" class="size-4" />
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

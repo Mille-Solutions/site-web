@@ -1,0 +1,20 @@
+---
+/**
+ * Logotype Mille Solutions — « Mille » en Playfair Display SemiBold, « Solutions » en Inter Light.
+ * La ligne azur est un accent optionnel, jamais une partie obligatoire du logo.
+ */
+interface Props {
+  tone?: 'navy' | 'ivory';
+  accent?: boolean;
+  size?: 'sm' | 'lg';
+}
+const { tone = 'navy', accent = false, size = 'sm' } = Astro.props;
+---
+
+<span class:list={['inline-flex flex-col leading-none', tone === 'ivory' ? 'text-ivory' : 'text-navy']}>
+  <span class="inline-flex items-baseline gap-1.5">
+    <span class:list={['font-wordmark font-semibold tracking-[-0.01em]', size === 'lg' ? 'text-5xl' : 'text-[1.6rem]']}>Mille</span>
+    <span class:list={['font-light', size === 'lg' ? 'text-2xl' : 'text-[0.95rem]']}>Solutions</span>
+  </span>
+  {accent && <span aria-hidden="true" class="mt-2 block h-px w-11 bg-azur"></span>}
+</span>

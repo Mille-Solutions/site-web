@@ -1,0 +1,82 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { ui, routes, type Lang, type RouteKey } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  /** Clé de route pour le sélecteur de langue et les balises hreflang (absente pour la 404). */
+  route?: RouteKey;
+  title: string;
+  description: string;
+  noindex?: boolean;
+}
+const { lang, route = 'home', title, description, noindex = false } = Astro.props;
+const t = ui[lang];
+const site = Astro.site!;
+const canonical = new URL(routes[route][lang], site);
+const ogImage = new URL('/og-image.png', site);
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <script is:inline>document.documentElement.classList.add('js')</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="fr" href={new URL(routes[route].fr, site)} />
+    <link rel="alternate" hreflang="en" href={new URL(routes[route].en, site)} />
+    <link rel="alternate" hreflang="x-default" href={new URL(routes[route].fr, site)} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Mille Solutions" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content={lang === 'fr' ? 'fr_FR' : 'en_GB'} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#FAFAF8" />
+  </head>
+  <body class="flex min-h-dvh flex-col">
+    <a
+      href="#contenu"
+      class="sr-only z-50 rounded-sm bg-navy px-4 py-2 text-ivory focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
+    >
+      {t.skip}
+    </a>
+    <Header lang={lang} route={route} />
+    <main id="contenu" tabindex="-1" class="flex-1 outline-none">
+      <slot />
+    </main>
+    <Footer lang={lang} />
+
+    <script>
+      // Apparition douce des sections (respecte prefers-reduced-motion via CSS).
+      const items = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver(
+          (entries) => {
+            for (const entry of entries) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                io.unobserve(entry.target);
+              }
+            }
+          },
+          { rootMargin: '0px 0px -10% 0px' },
+        );
+        items.forEach((el) => io.observe(el));
+      } else {
+        items.forEach((el) => el.classList.add('is-visible'));
+      }
+    </script>
+  </body>
+</html>

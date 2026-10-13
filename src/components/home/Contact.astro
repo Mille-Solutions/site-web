@@ -1,0 +1,34 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import SectionHeading from '../SectionHeading.astro';
+import ExternalLink from '../ExternalLink.astro';
+import CornerAccent from '../CornerAccent.astro';
+import type { Lang } from '../../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  content: CollectionEntry<'home'>['data']['contact'];
+  id: string;
+  bookingsUrl: string;
+}
+const { lang, content, id, bookingsUrl } = Astro.props;
+---
+
+<section id={id} aria-labelledby={`${id}-title`} class="py-20 sm:py-28">
+  <div class="container-site">
+    <div class="relative card grid gap-12 p-8 sm:p-12 lg:grid-cols-2 lg:gap-16 lg:p-16">
+      <CornerAccent position="bottom-right" class="!right-6 !bottom-6" />
+      <div>
+        <SectionHeading number="06." eyebrow={content.eyebrow} title={content.title} id={`${id}-title`} />
+        <p class="-mt-4 text-lg leading-relaxed text-navy/85">{content.text}</p>
+        <ExternalLink href={bookingsUrl} lang={lang} track="contact" class="btn btn-primary mt-10">
+          {content.cta}
+        </ExternalLink>
+      </div>
+      <!-- Formulaire de contact : traité dans une étape ultérieure -->
+      <div class="flex min-h-64 items-center justify-center rounded-(--radius-card) border border-dashed border-stone/40 bg-ivory p-8 text-center text-sm text-stone">
+        {content.formPending}
+      </div>
+    </div>
+  </div>
+</section>

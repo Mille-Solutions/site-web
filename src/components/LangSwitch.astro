@@ -1,0 +1,51 @@
+---
+/**
+ * Sélecteur « FR / EN ».
+ * Tant que la version anglaise n'est pas validée (settings.yaml → englishEnabled: false),
+ * « EN » reste visible mais inactif : aucun lien vers un contenu non validé.
+ */
+import { ui, routes, type Lang, type RouteKey } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  route: RouteKey;
+  enabled: boolean;
+}
+const { lang, route, enabled } = Astro.props;
+const t = ui[lang];
+const items = (['fr', 'en'] as const).map((code) => ({
+  code,
+  current: code === lang,
+  // Le français reste toujours accessible ; l'anglais seulement une fois validé.
+  href: code === 'fr' || enabled ? routes[route][code] : undefined,
+}));
+---
+
+<p class="flex items-center text-xs font-semibold text-stone">
+  {
+    items.map((item, i) => (
+      <>
+        {i > 0 && (
+          <span aria-hidden="true" class="px-1">
+            /
+          </span>
+        )}
+        {item.current ? (
+          <span aria-current="true" class="inline-flex min-h-11 items-center px-1 text-navy">
+            {item.code.toUpperCase()}
+          </span>
+        ) : item.href ? (
+          <a href={item.href} hreflang={item.code} lang={item.code} class="inline-flex min-h-11 items-center px-1 hover:text-navy">
+            <span aria-hidden="true">{item.code.toUpperCase()}</span>
+            <span class="sr-only">{t.langSwitch}</span>
+          </a>
+        ) : (
+          <span class="inline-flex min-h-11 items-center px-1 opacity-60" title={t.langPending}>
+            <span aria-hidden="true">{item.code.toUpperCase()}</span>
+            <span class="sr-only">{t.langPending}</span>
+          </span>
+        )}
+      </>
+    ))
+  }
+</p>

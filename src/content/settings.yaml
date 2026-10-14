@@ -1,7 +1,12 @@
-# Liens externes utilisés sur tout le site (FR et EN).
-# Modifier ici suffit : aucune autre modification de code n'est nécessaire.
+# Réglages du site (FR et EN). Modifier ici suffit : aucune autre modification de code n'est nécessaire.
 links:
   # TODO : lien Microsoft Bookings fourni par Charlotte
   bookingsUrl: "https://outlook.office.com/bookwithme/"
   # TODO : URL du profil LinkedIn de Charlotte
   linkedinUrl: "https://www.linkedin.com/"
+  # Adresse qui reçoit les envois du formulaire (service ou script côté serveur).
+  # Vide = formulaire affiché mais désactivé, avec un message invitant à réserver un échange.
+  contactFormEndpoint: ""
+  # Passer à true uniquement quand la version anglaise a été relue et validée par Charlotte.
+  # Tant que false : le sélecteur « EN » est inactif et les pages /en/ ne sont pas indexées.
+  englishEnabled: false

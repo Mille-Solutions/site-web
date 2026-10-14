@@ -1,20 +1,15 @@
 ---
-/** En-tête de section façon charte : numéro, sur-titre en capitales, titre et filet. */
+/** En-tête de section du site : repère (Inter SemiBold 14, Stone) puis titre H2. */
 interface Props {
-  number: string;
   eyebrow: string;
   title: string;
   id?: string;
-  tone?: 'navy' | 'ivory';
+  class?: string;
 }
-const { number, eyebrow, title, id, tone = 'navy' } = Astro.props;
+const { eyebrow, title, id, class: className = '' } = Astro.props;
 ---
 
-<div class="mb-10 sm:mb-14">
-  <p class:list={['eyebrow', tone === 'ivory' ? 'text-ivory/70' : 'text-stone']}>
-    <span class={tone === 'ivory' ? 'text-ivory' : 'text-navy'}>{number}</span>
-    <span>{eyebrow}</span>
-  </p>
-  <h2 id={id} class="mt-4 max-w-3xl text-3xl font-semibold tracking-[-0.01em] text-balance sm:text-4xl">{title}</h2>
-  <span aria-hidden="true" class="mt-6 block h-px w-14 bg-azur"></span>
+<div class:list={['flex flex-col gap-4', className]}>
+  <p class="eyebrow">{eyebrow}</p>
+  <h2 id={id} class="h2">{title}</h2>
 </div>

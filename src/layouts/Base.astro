@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { getEntry } from 'astro:content';
 import { ui, routes, type Lang, type RouteKey } from '../i18n/ui';
 
 interface Props {
@@ -12,7 +13,10 @@ interface Props {
   description: string;
   noindex?: boolean;
 }
-const { lang, route = 'home', title, description, noindex = false } = Astro.props;
+const { lang, route = 'home', title, description, noindex: noindexProp = false } = Astro.props;
+const { englishEnabled } = (await getEntry('settings', 'links'))!.data;
+// Tant que l'anglais n'est pas validé, les pages /en/ existent mais ne sont ni liées ni indexées.
+const noindex = noindexProp || (lang === 'en' && !englishEnabled);
 const t = ui[lang];
 const site = Astro.site!;
 const canonical = new URL(routes[route][lang], site);
@@ -29,9 +33,15 @@ const ogImage = new URL('/og-image.png', site);
     <meta name="description" content={description} />
     {noindex && <meta name="robots" content="noindex" />}
     <link rel="canonical" href={canonical} />
-    <link rel="alternate" hreflang="fr" href={new URL(routes[route].fr, site)} />
-    <link rel="alternate" hreflang="en" href={new URL(routes[route].en, site)} />
-    <link rel="alternate" hreflang="x-default" href={new URL(routes[route].fr, site)} />
+    {
+      englishEnabled && (
+        <>
+          <link rel="alternate" hreflang="fr" href={new URL(routes[route].fr, site)} />
+          <link rel="alternate" hreflang="en" href={new URL(routes[route].en, site)} />
+          <link rel="alternate" hreflang="x-default" href={new URL(routes[route].fr, site)} />
+        </>
+      )
+    }
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="sitemap" href="/sitemap-index.xml" />
 

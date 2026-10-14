@@ -11,19 +11,44 @@ interface Props {
 }
 const { lang, route, entry } = Astro.props;
 const page = (await getEntry('legal', entry))!;
-const { Content } = await render(page);
+const { Content, headings } = await render(page);
+const toc = headings.filter((h) => h.depth === 2);
 const t = ui[lang];
 ---
 
 <Base lang={lang} route={route} title={`${page.data.title} | Mille Solutions`} description={page.data.description} noindex={page.data.draft}>
-  <article class="container-site py-16 sm:py-24">
-    <header class="max-w-3xl">
-      <h1 class="text-4xl font-semibold tracking-[-0.01em] sm:text-5xl">{page.data.title}</h1>
-      <span aria-hidden="true" class="mt-6 block h-px w-14 bg-azur"></span>
-      <p class="mt-6 text-sm text-stone">{t.updated} : {page.data.updated}</p>
-    </header>
-    <div class="prose-legal mt-12 max-w-3xl">
-      <Content />
+  <header class="bg-ivory pt-14 pb-10 lg:pt-20 lg:pb-12">
+    <div class="container-site">
+      <p class="eyebrow">{t.legalEyebrow}</p>
+      <h1 class="mt-4 text-[2.5rem] leading-[1.2] font-semibold lg:text-5xl">{page.data.title}</h1>
+      <p class="mt-6 text-stone">{t.updated} : {page.data.updated}</p>
+      {
+        page.data.draft && (
+          <p class="mt-6 rounded-(--radius-card) border border-azur bg-azur-mist px-6 py-6 font-medium">{t.draftWarning}</p>
+        )
+      }
     </div>
-  </article>
+  </header>
+
+  <div class="container-site grid gap-10 pb-20 lg:grid-cols-[15rem_1fr] lg:gap-20 lg:pb-30">
+    {
+      toc.length > 1 && (
+        <nav aria-labelledby="toc-title" class="lg:sticky lg:top-32 lg:self-start">
+          <p id="toc-title" class="eyebrow">{t.toc}</p>
+          <ol class="mt-4 space-y-2 text-sm">
+            {toc.map((h) => (
+              <li>
+                <a href={`#${h.slug}`} class="inline-flex min-h-8 items-center text-stone hover:text-navy hover:underline">
+                  {h.text}
+                </a>
+              </li>
+            ))}
+          </ol>
+        </nav>
+      )
+    }
+    <article class="prose-legal">
+      <Content />
+    </article>
+  </div>
 </Base>

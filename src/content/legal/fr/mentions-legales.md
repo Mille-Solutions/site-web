@@ -5,7 +5,7 @@ updated: "12/10/2026"
 draft: true
 ---
 
-<!-- Version de travail : les éléments entre crochets sont à compléter et vérifier avant publication. -->
+<!-- Version de travail : les éléments <span class="missing">[entre crochets]</span> sont à compléter et vérifier avant publication. -->
 
 ## Éditeur du site
 
@@ -17,7 +17,7 @@ Téléphone professionnel : +377 37 70 77 55
 
 Numéro d’immatriculation au Registre du Commerce et de l’Industrie de Monaco : 26P11048
 
-Contact : \[lien direct vers le formulaire de contact\]
+Contact : <span class="missing">[lien direct vers le formulaire de contact]</span>
 
 ## Direction de la publication
 
@@ -25,15 +25,15 @@ La direction de la publication est assurée par Charlotte CHARLES MILLE.
 
 ## Hébergement
 
-Prestataire contractuel d’hébergement : \[dénomination confirmée\]
+Prestataire contractuel d’hébergement : <span class="missing">[dénomination confirmée]</span>
 
-Adresse : \[adresse complète\]
+Adresse : <span class="missing">[adresse complète]</span>
 
-Téléphone : \[numéro\]
+Téléphone : <span class="missing">[numéro]</span>
 
-Site internet : \[URL\] Assistance : \[adresse ou lien\]
+Site internet : <span class="missing">[URL]</span> Assistance : <span class="missing">[adresse ou lien]</span>
 
-Infrastructure sous-jacente : \[prestataire et localisation confirmés pour millesolutions.mc\]
+Infrastructure sous-jacente : <span class="missing">[prestataire et localisation confirmés pour millesolutions.mc]</span>
 
 ## Objet du site
 

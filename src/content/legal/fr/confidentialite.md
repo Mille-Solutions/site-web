@@ -5,7 +5,7 @@ updated: "12/10/2026"
 draft: true
 ---
 
-<!-- Version de travail : les éléments entre crochets sont à compléter et vérifier avant publication. -->
+<!-- Version de travail : les éléments <span class="missing">[entre crochets]</span> sont à compléter et vérifier avant publication. -->
 
 La présente politique explique comment Mille Solutions traite les données personnelles liées à l’utilisation du site millesolutions.mc, aux demandes de contact et aux réservations de rendez-vous.
 
@@ -21,7 +21,7 @@ Adresse professionnelle : 9 avenue d’Ostende, 98000 Monaco
 
 Téléphone : +377 37 70 77 55
 
-Contact relatif aux données personnelles : \[lien direct vers le formulaire de contact\] ou courrier à Charlotte CHARLES MILLE — Mille Solutions, 9 avenue d’Ostende, 98000 Monaco.
+Contact relatif aux données personnelles : <span class="missing">[lien direct vers le formulaire de contact]</span> ou courrier à Charlotte CHARLES MILLE — Mille Solutions, 9 avenue d’Ostende, 98000 Monaco.
 
 ## 2. Demandes de contact
 
@@ -41,9 +41,9 @@ Fondement juridique : mesures précontractuelles prises à votre demande lorsque
 
 Si un traitement repose sur l’intérêt légitime, Mille Solutions prend en compte les droits et intérêts des personnes concernées.
 
-Transmission et stockage : les demandes sont recueillies au moyen de Microsoft Forms et conservées dans l’environnement Microsoft associé au compte professionnel de Mille Solutions. Elles sont également transmises à la messagerie professionnelle assurée par SMASH. \[Si effectivement pratiqué : les informations nécessaires au suivi sont enregistrées dans un fichier Excel conservé sur — préciser l’emplacement.\] Des sauvegardes sont réalisées au moyen de \[service\], selon les modalités décrites à la section 9.
+Transmission et stockage : les demandes sont recueillies au moyen de Microsoft Forms et conservées dans l’environnement Microsoft associé au compte professionnel de Mille Solutions. Elles sont également transmises à la messagerie professionnelle assurée par SMASH. <span class="missing">[Si effectivement pratiqué : les informations nécessaires au suivi sont enregistrées dans un fichier Excel conservé sur — préciser l’emplacement.]</span> Des sauvegardes sont réalisées au moyen de <span class="missing">[service]</span>, selon les modalités décrites à la section 9.
 
-Durée de conservation : pour les demandes ne donnant pas lieu à une mission, les données sont conservées pendant 12 mois à compter du dernier échange relatif à la demande, puis supprimées des espaces de travail actifs. Cette règle s’applique aux réponses Forms, aux messages, aux éventuels fichiers de suivi et aux autres copies actives. Les copies de sauvegarde disparaissent selon le cycle de rotation décrit à la section 9. La suppression est réalisée selon \[procédure manuelle ou automatique à confirmer\].
+Durée de conservation : pour les demandes ne donnant pas lieu à une mission, les données sont conservées pendant 12 mois à compter du dernier échange relatif à la demande, puis supprimées des espaces de travail actifs. Cette règle s’applique aux réponses Forms, aux messages, aux éventuels fichiers de suivi et aux autres copies actives. Les copies de sauvegarde disparaissent selon le cycle de rotation décrit à la section 9. La suppression est réalisée selon <span class="missing">[procédure manuelle ou automatique à confirmer]</span>.
 
 Lorsqu’une demande conduit à une mission, les données nécessaires à la relation contractuelle sont conservées selon les CGV, sous réserve des obligations légales applicables et de la défense des droits de Mille Solutions.
 
@@ -66,9 +66,9 @@ Ces données servent à gérer la réservation, à communiquer avec vous et à p
 
 Fondement juridique : mesures précontractuelles prises à votre demande pour organiser l’échange.
 
-Service utilisé : Microsoft Bookings Personnel. Prestataire contractuel : \[entité figurant dans le contrat Microsoft\].
+Service utilisé : Microsoft Bookings Personnel. Prestataire contractuel : <span class="missing">[entité figurant dans le contrat Microsoft]</span>.
 
-Durée de conservation : \[durée confirmée des données de réservation et des confirmations, avec point de départ\].
+Durée de conservation : <span class="missing">[durée confirmée des données de réservation et des confirmations, avec point de départ]</span>.
 
 Information Microsoft : https://www.microsoft.com/en-US/privacy/privacystatement. Les champs obligatoires et facultatifs, les lieux de stockage, les accès de support et le fondement juridique correspondant aux usages réels doivent être confirmés avant publication.
 
@@ -78,19 +78,19 @@ Les lieux de traitement et les garanties relatives aux éventuels transferts son
 
 Lors de votre navigation ou de l’utilisation du formulaire, certaines données techniques peuvent être traitées pour assurer le fonctionnement du site, prévenir les envois automatisés et détecter les incidents.
 
-Données concernées : \[données techniques réellement collectées par le site, le formulaire et le dispositif de protection effectivement activé\].
+Données concernées : <span class="missing">[données techniques réellement collectées par le site, le formulaire et le dispositif de protection effectivement activé]</span>.
 
 Fondement juridique : intérêt légitime de Mille Solutions à assurer la disponibilité et la sécurité du site, à prévenir les utilisations abusives du formulaire et à détecter, analyser et traiter les incidents techniques, sous réserve d’une mise en balance documentée avec les droits et libertés des personnes concernées.
 
-Prestataires concernés : \[prestataire contractuel d’hébergement\], Microsoft pour Microsoft Forms et Microsoft Bookings, SMASH pour la messagerie et le stockage des e-mails, \[outil de statistiques\], \[dispositif anti-abus\] et \[autres intervenants ayant effectivement accès aux données\].
+Prestataires concernés : <span class="missing">[prestataire contractuel d’hébergement]</span>, Microsoft pour Microsoft Forms et Microsoft Bookings, SMASH pour la messagerie et le stockage des e-mails, <span class="missing">[outil de statistiques]</span>, <span class="missing">[dispositif anti-abus]</span> et <span class="missing">[autres intervenants ayant effectivement accès aux données]</span>.
 
-Durée de conservation : les journaux techniques sont conservés pendant \[durée\] à compter de leur création, puis supprimés ou anonymisés selon \[modalité effective\]. En cas d’incident, les éléments nécessaires à son investigation peuvent être conservés pendant \[durée ou critère précis\].
+Durée de conservation : les journaux techniques sont conservés pendant <span class="missing">[durée]</span> à compter de leur création, puis supprimés ou anonymisés selon <span class="missing">[modalité effective]</span>. En cas d’incident, les éléments nécessaires à son investigation peuvent être conservés pendant <span class="missing">[durée ou critère précis]</span>.
 
 Mille Solutions n’utilise pas ces données techniques pour établir un profil publicitaire individuel, suivre les visiteurs à des fins commerciales entre plusieurs sites ou revendre leurs données de navigation.
 
 ## 5. Statistiques de visite
 
-Mille Solutions utilise \[nom de l’outil\], fourni par \[prestataire\], pour mesurer l’utilisation du site, sous réserve de la configuration et du régime de traceurs décrits ci-dessous.
+Mille Solutions utilise <span class="missing">[nom de l’outil]</span>, fourni par <span class="missing">[prestataire]</span>, pour mesurer l’utilisation du site, sous réserve de la configuration et du régime de traceurs décrits ci-dessous.
 
 Selon la configuration retenue, les statistiques portent sur :
 
@@ -105,15 +105,15 @@ Le nom, l’adresse électronique et le contenu des messages du formulaire ne so
 
 Les clics vers Microsoft Bookings indiquent une utilisation du lien de réservation ; ils ne prouvent pas qu’un rendez-vous a été réservé.
 
-Données et garanties : \[données réellement traitées\] ; \[paramètres de protection activés\] ; \[lieux de traitement et garanties de transfert\].
+Données et garanties : <span class="missing">[données réellement traitées]</span> ; <span class="missing">[paramètres de protection activés]</span> ; <span class="missing">[lieux de traitement et garanties de transfert]</span>.
 
-Fondement juridique et régime des traceurs : \[fondement et régime vérifiés\]. Si le dispositif nécessite un consentement, il est activé après votre consentement. Vous pouvez l’accepter, le refuser ou modifier votre choix à tout moment via \[lien permanent vers les préférences\].
+Fondement juridique et régime des traceurs : <span class="missing">[fondement et régime vérifiés]</span>. Si le dispositif nécessite un consentement, il est activé après votre consentement. Vous pouvez l’accepter, le refuser ou modifier votre choix à tout moment via <span class="missing">[lien permanent vers les préférences]</span>.
 
-Durée de conservation : \[durées confirmées pour les données de mesure d’audience et les statistiques agrégées\].
+Durée de conservation : <span class="missing">[durées confirmées pour les données de mesure d’audience et les statistiques agrégées]</span>.
 
-Cookies ou autres identifiants : \[inventaire technique réel, finalité et régime applicable à chaque technologie\].
+Cookies ou autres identifiants : <span class="missing">[inventaire technique réel, finalité et régime applicable à chaque technologie]</span>.
 
-Gestion de votre choix : \[lien permanent vers les préférences, uniquement si le module existe et a été testé\].
+Gestion de votre choix : <span class="missing">[lien permanent vers les préférences, uniquement si le module existe et a été testé]</span>.
 
 Mille Solutions n’utilise pas d’enregistrement de sessions, de suivi publicitaire entre plusieurs sites ou de revente des données de visite.
 
@@ -139,7 +139,7 @@ Certaines données peuvent également être communiquées aux autorités compét
 
 ## 7. Lieux de traitement et transferts
 
-Les lieux de stockage, les accès de support et le fondement des éventuels transferts doivent être confirmés service par service : hébergement du site \[lieux et mécanisme\] ; sauvegardes \[lieux et mécanisme\] ; Microsoft Forms et Bookings \[lieux du compte et mécanisme applicable depuis Monaco\] ; messagerie et stockage des e-mails SMASH \[lieux et mécanisme\] ; statistiques et protection \[lieux et mécanisme\].
+Les lieux de stockage, les accès de support et le fondement des éventuels transferts doivent être confirmés service par service : hébergement du site <span class="missing">[lieux et mécanisme]</span> ; sauvegardes <span class="missing">[lieux et mécanisme]</span> ; Microsoft Forms et Bookings <span class="missing">[lieux du compte et mécanisme applicable depuis Monaco]</span> ; messagerie et stockage des e-mails SMASH <span class="missing">[lieux et mécanisme]</span> ; statistiques et protection <span class="missing">[lieux et mécanisme]</span>.
 
 Les accès de support depuis l’étranger, lorsqu’ils existent, sont inclus dans cette analyse. Aucun transfert ni aucune garantie contractuelle ne doit être annoncé sans identification du mécanisme effectivement utilisé et vérification de sa validité dans le cadre monégasque.
 
@@ -147,7 +147,7 @@ Vous pouvez demander des informations sur ces garanties via le formulaire de con
 
 ## 8. Cookies et technologies similaires
 
-Le site utilise \[inventaire confirmé des cookies et technologies similaires effectivement déposés ou lus\]. Une ligne distincte doit être renseignée pour chaque technologie avec son nom, son fournisseur, sa finalité, sa durée et son régime applicable.
+Le site utilise <span class="missing">[inventaire confirmé des cookies et technologies similaires effectivement déposés ou lus]</span>. Une ligne distincte doit être renseignée pour chaque technologie avec son nom, son fournisseur, sa finalité, sa durée et son régime applicable.
 
 Les technologies strictement nécessaires au fonctionnement sont distinguées des technologies facultatives.
 
@@ -155,7 +155,7 @@ Les technologies strictement nécessaires au fonctionnement sont distinguées de
 |---|---|---|---|---|
 | Technologies techniques du site | Mille Solutions et ses prestataires techniques | Fonctionnement, sécurité et maintien des préférences | Durée strictement nécessaire à leur finalité, selon la technologie concernée | Nécessaire au fonctionnement ; les technologies facultatives, si elles sont activées, sont soumises au choix de l’utilisateur |
 
-Lorsque le consentement est requis, les technologies concernées sont bloquées avant l’accord. L’utilisateur peut les accepter, les refuser globalement ou par finalité et retirer son choix via \[lien permanent vers les préférences, à renseigner uniquement si le dispositif existe et fonctionne\].
+Lorsque le consentement est requis, les technologies concernées sont bloquées avant l’accord. L’utilisateur peut les accepter, les refuser globalement ou par finalité et retirer son choix via <span class="missing">[lien permanent vers les préférences, à renseigner uniquement si le dispositif existe et fonctionne]</span>.
 
 Le refus des technologies facultatives n’empêche pas l’utilisation des fonctions essentielles du site.
 
@@ -167,7 +167,7 @@ Mille Solutions met en œuvre des mesures techniques et organisationnelles adapt
 
 Ces mesures comprennent notamment la limitation des accès, l’authentification des services, les mises à jour de sécurité, la sauvegarde des données utiles et la gestion des incidents, selon les moyens effectivement déployés.
 
-Les sauvegardes sont conservées selon un cycle de rotation de \[durée\]. Les données supprimées des espaces actifs peuvent subsister dans ces sauvegardes jusqu’à leur expiration. En cas de restauration, les suppressions intervenues depuis la sauvegarde sont réappliquées \[confirmer que cette procédure peut être mise en œuvre\].
+Les sauvegardes sont conservées selon un cycle de rotation de <span class="missing">[durée]</span>. Les données supprimées des espaces actifs peuvent subsister dans ces sauvegardes jusqu’à leur expiration. En cas de restauration, les suppressions intervenues depuis la sauvegarde sont réappliquées <span class="missing">[confirmer que cette procédure peut être mise en œuvre]</span>.
 
 Aucune mesure ne peut garantir une sécurité absolue.
 
@@ -186,7 +186,7 @@ Lorsque le traitement repose sur votre consentement, vous pouvez le retirer à t
 
 Vous pouvez également vous opposer au traitement de vos données à des fins de prospection.
 
-Pour exercer vos droits, utilisez \[lien direct vers le formulaire\] ou adressez votre demande par courrier à Charlotte CHARLES MILLE — Mille Solutions, 9 avenue d’Ostende, 98000 Monaco, en précisant votre demande et les informations utiles pour retrouver les données concernées.
+Pour exercer vos droits, utilisez <span class="missing">[lien direct vers le formulaire]</span> ou adressez votre demande par courrier à Charlotte CHARLES MILLE — Mille Solutions, 9 avenue d’Ostende, 98000 Monaco, en précisant votre demande et les informations utiles pour retrouver les données concernées.
 
 Des éléments supplémentaires peuvent être demandés en cas de doute raisonnable sur votre identité. Une copie de pièce d’identité n’est pas exigée systématiquement.
 

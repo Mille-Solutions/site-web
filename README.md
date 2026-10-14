@@ -1,7 +1,8 @@
 # Site Mille Solutions — millesolutions.mc
 
 Site vitrine statique (FR / EN) construit avec [Astro](https://astro.build) et Tailwind CSS,
-d'après la charte graphique Figma « Mille Solutions Charte Graphique » et le cahier des charges du 12/10/2026.
+d'après la charte Figma « Mille Solutions — Brand Guidelines 2026 », la maquette « Mille Solutions - Site
+Internet REAL » et le cahier des charges du 12/10/2026.
 
 ## Démarrer
 
@@ -21,7 +22,7 @@ Le guide complet de mise en ligne et de modification se trouve dans [docs/GUIDE.
 
 | Quoi | Où |
 |---|---|
-| Lien Microsoft Bookings, LinkedIn | `src/content/settings.yaml` |
+| Liens Bookings et LinkedIn, adresse du formulaire, activation de l'anglais | `src/content/settings.yaml` |
 | Textes de l'accueil | `src/content/home/fr.yaml` et `en.yaml` |
 | Mentions légales, confidentialité | `src/content/legal/<langue>/*.md` |
 | Libellés de navigation, menus, adresses des pages | `src/i18n/ui.ts` |
@@ -29,7 +30,7 @@ Le guide complet de mise en ligne et de modification se trouve dans [docs/GUIDE.
 
 ## Structure
 
-- `src/components/home/` — une section de l'accueil par fichier (réutilisables pour les pages de phase 2)
+- `src/components/home/` — sections de l'accueil (réutilisables pour les pages de phase 2)
 - `src/components/` — logo, en-tête, pied de page, icônes, éléments graphiques de la charte
 - `src/pages/` — routes : `/` (FR), `/en/` (EN), pages légales, 404
 
@@ -37,8 +38,9 @@ Le guide complet de mise en ligne et de modification se trouve dans [docs/GUIDE.
 
 - [ ] Lien Bookings et LinkedIn définitifs (`settings.yaml`)
 - [ ] Portrait et photos (actuellement des emplacements réservés)
-- [ ] Formulaire de contact
-- [ ] Relecture et validation de la traduction anglaise par Charlotte ; pages légales en anglais
+- [ ] Formulaire de contact : service d'envoi côté serveur (`contactFormEndpoint`)
+- [ ] Relecture et validation de la traduction anglaise par Charlotte, puis `englishEnabled: true` ; pages légales en anglais
+- [ ] Validation du tracé de l'icône « Solutions » (redessinée, non récupérée de Figma)
 - [ ] Compléter les informations entre crochets des pages légales, puis retirer `draft: true`
 - [ ] Outil de statistiques (suivi des clics Bookings déjà balisé via `data-track`)
 - [ ] Image de partage `public/og-image.png` (1200×630)

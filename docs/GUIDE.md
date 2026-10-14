@@ -194,18 +194,19 @@ VS Code…).
 | Je veux modifier… | Fichier |
 |---|---|
 | Le lien **Microsoft Bookings** ou **LinkedIn** | `src/content/settings.yaml` |
+| L'adresse d'envoi du **formulaire**, l'activation de l'**anglais** | `src/content/settings.yaml` (`contactFormEndpoint`, `englishEnabled`) |
 | Un texte de la **page d'accueil** | `src/content/home/fr.yaml` · `src/content/home/en.yaml` |
 | Le **titre et la description** affichés dans Google et sur LinkedIn | `meta:` en haut de `fr.yaml` / `en.yaml` |
 | Les **mentions légales** ou la **confidentialité** | `src/content/legal/fr/*.md` · `src/content/legal/en/*.md` |
-| Les **libellés du menu**, du pied de page, de la page 404 | `src/i18n/ui.ts` |
+| Les **libellés du menu**, du pied de page, des pages légales, de la page 404, les erreurs de champ du formulaire | `src/i18n/ui.ts` |
 | Les **adresses (URL) des pages** et des ancres de sections | `src/i18n/ui.ts` (`routes` et `sections`) |
 
 ### 4.2 Règles d'écriture YAML
 
 ```yaml
-hero:
-  lead: "Le texte se met entre guillemets droits."
-  title:
+about:
+  title: "Le texte se met entre guillemets droits."
+  paragraphs:
     - "Une liste commence par un tiret,"
     - "avec la même indentation pour chaque élément."
 ```
@@ -225,13 +226,23 @@ links:
   bookingsUrl: "https://outlook.office.com/bookwithme/user/…"
 ```
 
+**Activer la version anglaise**, une fois relue et validée par Charlotte :
+
+```yaml
+# src/content/settings.yaml
+links:
+  englishEnabled: true
+```
+
+Tant que la valeur est `false`, « EN » reste visible mais inactif dans l'en-tête, les pages `/en/` ne
+sont pas indexées et n'apparaissent ni dans le plan du site ni dans les balises `hreflang`.
+
 **Ajouter un exemple de projet sur l'accueil** : copier un bloc existant sous `examples: items:`
 dans `fr.yaml` **et** `en.yaml`.
 
 ```yaml
     - title: "Nouveau projet"
-      duration: "Six mois"
-      summary: "Résumé en une ou deux phrases."
+      text: "Résumé en une ou deux phrases."
 ```
 
 Avec quatre exemples, la grille passe sur deux lignes. Pour un affichage équilibré, garder trois ou six exemples, ou adapter la grille (section 5.3).
@@ -247,13 +258,22 @@ Paragraphe de texte. Un [lien](/confidentialite/).
 - autre élément.
 ```
 
-En haut du fichier, `updated:` correspond à la date affichée et `draft: true` empêche l'indexation
-par les moteurs de recherche. Retirer cette ligne quand le texte est validé.
+En haut du fichier, `updated:` correspond à la date affichée et `draft: true` affiche l'avertissement
+« Brouillon non publiable » et empêche l'indexation. Retirer cette ligne quand le texte est validé.
+
+Les informations encore à compléter sont balisées ainsi, ce qui les met en évidence sur la page :
+
+```markdown
+Prestataire d'hébergement : <span class="missing">[dénomination confirmée]</span>
+```
+
+Une fois l'information connue, remplacer toute la balise par le texte définitif. Le sommaire de la
+page est construit automatiquement à partir des titres `##`.
 
 ### 4.4 Ce qu'il ne faut pas modifier sans vérifier
 
-- Les champs `id:` et `service:` de `fr.yaml` / `en.yaml` relient les situations aux accompagnements. Ils doivent rester identiques entre eux.
-- Le champ `icon:` n'accepte que `project`, `simplify` ou `unblock`.
+- Les champs `id:` des accompagnements servent d'ancres (liens directs vers une carte) : éviter de les changer une fois le site publié.
+- Le champ `icon:` n'accepte que `coordination`, `structuration`, `priorisation` (les exemples utilisent automatiquement `solutions`).
 - Le français et l'anglais doivent garder la **même structure** (même nombre d'éléments dans les listes), sinon les deux versions ne se correspondent plus.
 
 ---
@@ -270,28 +290,33 @@ src/
 ├── styles/global.css      ← charte : couleurs, polices, boutons, styles communs
 ├── layouts/Base.astro     ← squelette commun : <head>, SEO, hreflang, en-tête, pied de page
 ├── components/
-│   ├── Header.astro, Footer.astro
-│   ├── Logo.astro         ← logotype « Mille Solutions » (variantes navy / ivory, ligne azur)
-│   ├── Icon.astro         ← icônes au trait 1,5 px
-│   ├── CornerAccent.astro ← angle azur interrompu
+│   ├── Header.astro, Footer.astro, LangSwitch.astro (sélecteur FR / EN)
+│   ├── Logo.astro         ← logotype « Mille Solutions » (taille réglable, filet Azure optionnel)
+│   ├── Icon.astro         ← icônes de la charte 2026 (grille 24 px, trait 1,75 px)
+│   ├── CornerAccent.astro ← angle ouvert : deux traits Azure qui ne se touchent pas
 │   ├── PhotoPlaceholder.astro ← emplacements photo provisoires
-│   ├── SectionHeading.astro   ← « 01. SUR-TITRE », titre et filet azur
+│   ├── SectionHeading.astro   ← repère de section et titre H2
 │   ├── ExternalLink.astro     ← lien externe (nouvel onglet annoncé, attribut de suivi)
 │   ├── HomePage.astro         ← assemble les sections de l'accueil
 │   ├── LegalPage.astro        ← gabarit des pages légales
-│   └── home/              ← une section de l'accueil par fichier
+│   └── home/              ← Hero, CardSection (situations, accompagnements, méthode, exemples),
+│                            About, Contact, ContactForm
 └── pages/                 ← une page = un fichier = une URL
 ```
 
 ### 5.2 Charte graphique
 
-Les couleurs et les polices sont définies **une seule fois** dans `src/styles/global.css`, bloc `@theme` :
+Référence : charte Figma « Mille Solutions — Brand Guidelines 2026 » et maquette « Mille Solutions -
+Site Internet REAL ». Les couleurs et les polices sont définies **une seule fois** dans
+`src/styles/global.css`, bloc `@theme` :
 
 ```css
---color-navy: #0f172a;   /* bleu nuit — texte, fonds sombres, boutons */
---color-ivory: #fafaf8;  /* blanc cassé — fond principal */
---color-stone: #6b7280;  /* gris pierre — textes secondaires */
---color-azur: #4ea8c8;   /* accent — filets et repères uniquement */
+--color-navy: #0f172a;      /* Navy — logo, titres, texte principal */
+--color-ivory: #fafaf8;     /* Ivory — fond principal */
+--color-white: #ffffff;     /* White — fond alternatif, cartes */
+--color-stone: #6b7280;     /* Stone Grey — informations secondaires */
+--color-azur: #4ea8c8;      /* Mediterranean Azure — filets, angle, boutons d'action */
+--color-azur-mist: #e6f4f8; /* pastilles d'icônes (maquette du site) */
 ```
 
 Modifier une valeur la change sur tout le site. Dans le code, ces couleurs s'emploient sous la forme
@@ -299,17 +324,19 @@ Modifier une valeur la change sur tout le site. Dans le code, ces couleurs s'emp
 
 Rappels de la charte à respecter :
 
-- l'**azur** reste un accent (10 à 15 % maximum) et ne sert **jamais au texte courant**. Il manque d'ailleurs de contraste pour être lisible sur fond clair ;
-- **Playfair Display** est réservé au mot « Mille » du logo, **Inter** sert à tout le reste ;
-- pas de dégradé, pas d'or, pas d'ombre marquée.
+- l'**Azure** reste un accent (10 à 15 % maximum) et ne sert **jamais au texte courant** : contraste insuffisant sur fond clair. Sur les boutons, le texte est en Navy ;
+- **Playfair Display** est réservé au mot « Mille » du logo, **Inter** sert à tout le reste. « Mille » et « Solutions » restent sur une ligne ;
+- pas de fond de page sombre, pas de dégradé, pas d'or, pas d'ombre marquée ;
+- l'angle ouvert reste dans une marge, à au moins 24 px du contenu, et ses deux traits ne se touchent jamais.
 
 ### 5.3 Modifier une section de l'accueil
 
-Chaque section est un fichier dans `src/components/home/` : `Hero`, `Situations`, `Services`,
-`Method`, `Examples`, `About`, `Contact`. La mise en page se règle avec des classes Tailwind
-directement dans ces fichiers. Exemples :
+Les sections sont dans `src/components/home/` : `Hero`, `CardSection` (utilisé pour les situations,
+les accompagnements, la méthode et les exemples), `About`, `Contact` et `ContactForm`. La mise en page
+se règle avec des classes Tailwind directement dans ces fichiers. Exemples :
 
-- grille des exemples sur 2 colonnes au lieu de 3 : dans `Examples.astro`, remplacer `md:grid-cols-3` par `md:grid-cols-2` ;
+- fond d'une section à cartes : attribut `tone="white"` ou `tone="ivory"` dans `HomePage.astro` ;
+- grille sur 2 colonnes au lieu de 3 : dans `CardSection.astro`, remplacer `md:grid-cols-3` par `md:grid-cols-2` ;
 - changer l'ordre des sections : déplacer les lignes correspondantes dans `HomePage.astro`.
 
 Pour **ajouter une section** :
@@ -381,13 +408,29 @@ pour ajouter une fiche, il suffit alors d'ajouter un fichier.
 
 ---
 
-## 6. Fonctionnalités prévues mais pas encore en place
+## 6. Fonctionnalités prévues mais pas encore terminées
 
 ### 6.1 Formulaire de contact
 
-Un site statique ne peut pas envoyer d'e-mail lui-même. Il faut un service ou un script côté serveur.
-Le cahier des charges impose une adresse destinataire cachée, une validation côté serveur, une
-protection anti-robots et des messages d'erreur et de confirmation bilingues.
+La partie visible est **en place** (`src/components/home/ContactForm.astro`) : champs de la maquette,
+validation dans le navigateur avec messages près des champs, messages exacts de succès et d'échec,
+saisie conservée en cas d'échec, annonce du résultat aux lecteurs d'écran, champ piège anti-robots
+(`website`).
+
+Il manque **l'envoi** : un site statique ne peut pas envoyer d'e-mail lui-même. Tant que
+`contactFormEndpoint` est vide dans `settings.yaml`, le formulaire est affiché mais désactivé, avec
+un message invitant à réserver un échange. Une fois le service choisi, renseigner son adresse :
+
+```yaml
+links:
+  contactFormEndpoint: "https://millesolutions.mc/contact.php"
+```
+
+Le formulaire envoie alors une requête `POST` (champs `name`, `email`, `organisation`, `message`,
+`website`, `lang`) et attend une réponse HTTP 2xx en cas de succès. Le service doit, côté serveur :
+valider les champs, formats et longueurs ; rejeter les envois dont `website` est rempli ; limiter les
+envois ; garder l'adresse destinataire secrète ; envoyer depuis une adresse autorisée avec le visiteur
+en Reply-To.
 
 | Solution | Avantages | Points d'attention |
 |---|---|---|
@@ -396,8 +439,8 @@ protection anti-robots et des messages d'erreur et de confirmation bilingues.
 | **Service de formulaire** (Formspree, Basin…) | Mise en place très rapide | Abonnement possible, données hors de Monaco |
 | **Microsoft Forms intégré** (prévu dans les mentions légales) | Déjà dans l'environnement Microsoft de Charlotte | Ne respecte ni la charte, ni la confirmation personnalisée, ni le bilinguisme demandés |
 
-L'emplacement est réservé dans `src/components/home/Contact.astro`. Quel que soit le choix, il faudra
-mettre à jour la section 2 de la politique de confidentialité et le tableau des prestataires.
+Quel que soit le choix, il faudra mettre à jour la section 2 de la politique de confidentialité et le
+tableau des prestataires.
 
 ### 6.2 Statistiques de visite
 
@@ -411,8 +454,9 @@ comparaison de périodes et comptage des clics vers Bookings.
 | **Umami** auto-hébergé ou cloud | Gratuit / palier gratuit | Selon le choix |
 
 Le suivi des clics est **déjà préparé** : chaque bouton Bookings porte un attribut `data-track`
-indiquant son emplacement (`header`, `hero`, `contact`, `footer`, `menu-mobile`). Il suffira de
-relier ces attributs aux événements de l'outil retenu. Ne jamais envoyer de nom, d'e-mail ni de
+indiquant son emplacement (`header`, `menu-mobile`, `hero`, `contact`). Un envoi réussi du formulaire
+déclenche l'événement `contact:sent`, sans aucun contenu du message. Il suffira de relier ces
+attributs et cet événement à l'outil retenu. Ne jamais envoyer de nom, d'e-mail ni de
 contenu de message à l'outil de statistiques. La politique de confidentialité (sections 5 et 8)
 doit décrire l'outil réellement installé.
 

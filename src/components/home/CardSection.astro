@@ -1,0 +1,48 @@
+---
+/**
+ * Section à cartes de l'accueil (situations, accompagnements, méthode, exemples) :
+ * repère + titre, puis trois cartes blanches à filet Azure avec pastille d'icône.
+ */
+import SectionHeading from '../SectionHeading.astro';
+import Icon from '../Icon.astro';
+import CornerAccent from '../CornerAccent.astro';
+
+type IconName = 'coordination' | 'structuration' | 'priorisation' | 'solutions';
+interface Props {
+  id: string;
+  eyebrow: string;
+  title: string;
+  items: { icon: IconName; title: string; text: string; id?: string }[];
+  /** Ordre significatif (étapes de la méthode). */
+  ordered?: boolean;
+  tone?: 'ivory' | 'white';
+  /** Angle ouvert dans la marge haute droite de la section. */
+  corner?: boolean;
+  note?: string;
+}
+const { id, eyebrow, title, items, ordered = false, tone = 'ivory', corner = false, note } = Astro.props;
+const List = ordered ? 'ol' : 'ul';
+---
+
+<section id={id} aria-labelledby={`${id}-title`} class:list={['section relative', tone === 'white' ? 'bg-white' : 'bg-ivory']}>
+  {corner && <CornerAccent size={50} class="top-6 right-6 hidden lg:block" />}
+  <div class="container-site">
+    <SectionHeading eyebrow={eyebrow} title={title} id={`${id}-title`} />
+    <List class="mt-8 grid items-start gap-4 md:grid-cols-3 lg:mt-16 lg:gap-8">
+      {
+        items.map((item) => (
+          <li id={item.id} class="reveal card flex flex-col gap-5 lg:gap-6">
+            <span class="icon-badge">
+              <Icon name={item.icon} class="size-6" />
+            </span>
+            <div class="flex flex-col gap-3">
+              <h3 class="h3">{item.title}</h3>
+              <p class="leading-[1.6] text-stone">{item.text}</p>
+            </div>
+          </li>
+        ))
+      }
+    </List>
+    {note && <p class="mt-8 text-stone lg:mt-16 lg:text-lg">{note}</p>}
+  </div>
+</section>

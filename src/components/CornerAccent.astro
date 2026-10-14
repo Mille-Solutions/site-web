@@ -1,20 +1,20 @@
 ---
 /**
- * « Angle azur interrompu » : deux courtes lignes fines formant un coin jamais fermé.
- * Dispositif secondaire — ne jamais superposer au texte ni au logo.
+ * « Angle ouvert » (Signature graphique 2026) : deux traits Azure indépendants qui ne se touchent jamais.
+ * Construction type : cadre 64 × 64 ; trait horizontal 46 × 1,5 en haut à gauche ;
+ * trait vertical 1,5 × 46 sur le bord droit, démarrant à 18 px du haut.
+ * Placé dans une marge, à au moins 24 px de tout contenu important.
  */
 interface Props {
-  position: 'top-left' | 'bottom-right';
+  /** Côté du cadre en pixels (64 par défaut). */
+  size?: number;
   class?: string;
 }
-const { position, class: className = '' } = Astro.props;
-const isTop = position === 'top-left';
+const { size = 64, class: className = '' } = Astro.props;
+const k = size / 64;
 ---
 
-<span
-  aria-hidden="true"
-  class:list={['pointer-events-none absolute block size-10', isTop ? '-top-3 -left-3 sm:-top-4 sm:-left-4' : '-right-3 -bottom-3 sm:-right-4 sm:-bottom-4', className]}
->
-  <span class:list={['absolute h-px w-7 bg-azur', isTop ? 'top-0 left-0' : 'right-0 bottom-0']}></span>
-  <span class:list={['absolute h-7 w-px bg-azur', isTop ? 'top-0 left-0' : 'right-0 bottom-0']}></span>
+<span aria-hidden="true" class:list={['pointer-events-none absolute block', className]} style={`width:${size}px;height:${size}px`}>
+  <span class="absolute top-0 left-0 bg-azur" style={`width:${46 * k}px;height:1.5px`}></span>
+  <span class="absolute right-0 bg-azur" style={`top:${18 * k}px;width:1.5px;height:${46 * k}px`}></span>
 </span>

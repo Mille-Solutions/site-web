@@ -1,8 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import SectionHeading from '../SectionHeading.astro';
 import ExternalLink from '../ExternalLink.astro';
-import CornerAccent from '../CornerAccent.astro';
+import ContactForm from './ContactForm.astro';
 import type { Lang } from '../../i18n/ui';
 
 interface Props {
@@ -10,25 +9,28 @@ interface Props {
   content: CollectionEntry<'home'>['data']['contact'];
   id: string;
   bookingsUrl: string;
+  formEndpoint: string;
 }
-const { lang, content, id, bookingsUrl } = Astro.props;
+const { lang, content, id, bookingsUrl, formEndpoint } = Astro.props;
 ---
 
-<section id={id} aria-labelledby={`${id}-title`} class="py-20 sm:py-28">
+<section id={id} aria-labelledby={`${id}-title`} class="section bg-white">
   <div class="container-site">
-    <div class="relative card grid gap-12 p-8 sm:p-12 lg:grid-cols-2 lg:gap-16 lg:p-16">
-      <CornerAccent position="bottom-right" class="!right-6 !bottom-6" />
-      <div>
-        <SectionHeading number="06." eyebrow={content.eyebrow} title={content.title} id={`${id}-title`} />
-        <p class="-mt-4 text-lg leading-relaxed text-navy/85">{content.text}</p>
-        <ExternalLink href={bookingsUrl} lang={lang} track="contact" class="btn btn-primary mt-10">
-          {content.cta}
+    <h2 id={`${id}-title`} class="text-[2.5rem] leading-[1.2] font-semibold text-balance lg:text-[4.5rem]">{content.title}</h2>
+    <p class="mt-6 max-w-[53rem] text-lg leading-[1.6] text-stone lg:mt-6">{content.text}</p>
+
+    <div class="mt-8 grid items-start gap-6 lg:mt-16 lg:grid-cols-[515fr_733fr] lg:gap-8">
+      <div class="card flex flex-col gap-6 lg:sticky lg:top-32">
+        <div class="flex flex-col gap-4">
+          <p class="eyebrow">{content.booking.eyebrow}</p>
+          <p class="text-lg leading-[1.45]">{content.booking.text}</p>
+        </div>
+        <ExternalLink href={bookingsUrl} lang={lang} icon={false} track="contact" class="btn btn-primary w-full">
+          {content.booking.cta}
         </ExternalLink>
       </div>
-      <!-- Formulaire de contact : traité dans une étape ultérieure -->
-      <div class="flex min-h-64 items-center justify-center rounded-(--radius-card) border border-dashed border-stone/40 bg-ivory p-8 text-center text-sm text-stone">
-        {content.formPending}
-      </div>
+
+      <ContactForm lang={lang} content={content.form} endpoint={formEndpoint} />
     </div>
   </div>
 </section>

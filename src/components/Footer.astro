@@ -1,8 +1,6 @@
 ---
 import Logo from './Logo.astro';
-import ExternalLink from './ExternalLink.astro';
 import { ui, routes, sections, type Lang } from '../i18n/ui';
-import { getEntry } from 'astro:content';
 
 interface Props {
   lang: Lang;
@@ -11,44 +9,57 @@ const { lang } = Astro.props;
 const t = ui[lang];
 const s = sections[lang];
 const home = routes.home[lang];
-const settings = (await getEntry('settings', 'links'))!.data;
-const signature = lang === 'fr' ? 'Structurer. Prioriser. Concrétiser.' : 'Structure. Prioritize. Deliver.';
+const navItems = [
+  { label: t.home, href: home },
+  { label: t.nav.services, href: `${home}#${s.services}` },
+  { label: t.nav.approach, href: `${home}#${s.approach}` },
+  { label: t.nav.examples, href: `${home}#${s.examples}` },
+  { label: t.nav.contact, href: `${home}#${s.contact}` },
+];
 ---
 
-<footer class="on-navy bg-navy text-ivory">
-  <div class="container-site grid gap-12 py-16 md:grid-cols-[1.4fr_1fr_1fr]">
-    <div>
-      <Logo tone="ivory" accent />
-      <p class="mt-6 text-sm text-ivory/75">{signature}</p>
-      <p class="mt-2 text-sm text-ivory/75">{t.location}</p>
+<footer class="bg-ivory">
+  <div class="container-site pt-16 pb-10 lg:pt-24">
+    <div class="h-px bg-azur" aria-hidden="true"></div>
+
+    <div class="flex flex-col gap-12 pt-12 lg:flex-row lg:justify-between lg:pt-16">
+      <div class="flex flex-col gap-6">
+        <Logo size={24} />
+        <p class="text-lg font-medium">{t.signature}</p>
+      </div>
+
+      <div class="flex flex-col gap-10 sm:flex-row sm:gap-20">
+        <nav aria-labelledby="footer-nav">
+          <p id="footer-nav" class="eyebrow">{t.footerNav}</p>
+          <ul class="mt-5 space-y-1 text-sm">
+            {
+              navItems.map((item) => (
+                <li>
+                  <a href={item.href} class="inline-flex min-h-8 items-center hover:underline">
+                    {item.label}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </nav>
+        <div>
+          <p class="eyebrow">{t.footerContact}</p>
+          <address class="mt-5 space-y-1 text-sm leading-relaxed not-italic">
+            {t.footerContactLines.map((line) => <p>{line}</p>)}
+          </address>
+        </div>
+      </div>
     </div>
 
-    <nav aria-label={t.footerNav}>
-      <ul class="space-y-3 text-sm">
-        <li><a href={home} class="hover:underline">{t.home}</a></li>
-        <li><a href={`${home}#${s.services}`} class="hover:underline">{t.nav.services}</a></li>
-        <li><a href={`${home}#${s.approach}`} class="hover:underline">{t.nav.approach}</a></li>
-        <li><a href={`${home}#${s.examples}`} class="hover:underline">{t.nav.examples}</a></li>
-        <li><a href={`${home}#${s.contact}`} class="hover:underline">{t.nav.contact}</a></li>
-      </ul>
-    </nav>
-
-    <ul class="space-y-3 text-sm">
-      <li>
-        <ExternalLink href={settings.bookingsUrl} lang={lang} track="footer" class="inline-flex items-center gap-2 hover:underline">
-          {t.book}
-        </ExternalLink>
-      </li>
-      <li>
-        <ExternalLink href={settings.linkedinUrl} lang={lang} class="inline-flex items-center gap-2 hover:underline">
-          LinkedIn
-        </ExternalLink>
-      </li>
-      <li class="pt-3"><a href={routes.legal[lang]} class="hover:underline">{t.legal}</a></li>
-      <li><a href={routes.privacy[lang]} class="hover:underline">{t.privacy}</a></li>
-    </ul>
-  </div>
-  <div class="border-t border-ivory/15">
-    <p class="container-site py-6 text-xs text-ivory/70">© {new Date().getFullYear()} Mille Solutions — Charlotte Charles Mille</p>
+    <div class="mt-16 flex flex-col gap-4 text-xs text-stone sm:flex-row sm:items-center sm:justify-between">
+      <p class="tracking-wide uppercase">© {new Date().getFullYear()} Mille Solutions. {t.rights}</p>
+      <nav aria-label={t.legalNav}>
+        <ul class="flex gap-6">
+          <li><a href={routes.legal[lang]} class="inline-flex min-h-8 items-center hover:text-navy hover:underline">{t.legal}</a></li>
+          <li><a href={routes.privacy[lang]} class="inline-flex min-h-8 items-center hover:text-navy hover:underline">{t.privacy}</a></li>
+        </ul>
+      </nav>
+    </div>
   </div>
 </footer>

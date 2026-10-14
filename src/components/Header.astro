@@ -1,9 +1,10 @@
 ---
+import { getEntry } from 'astro:content';
 import Logo from './Logo.astro';
 import Icon from './Icon.astro';
 import ExternalLink from './ExternalLink.astro';
-import { ui, routes, sections, otherLang, type Lang, type RouteKey } from '../i18n/ui';
-import { getEntry } from 'astro:content';
+import LangSwitch from './LangSwitch.astro';
+import { ui, routes, sections, type Lang, type RouteKey } from '../i18n/ui';
 
 interface Props {
   lang: Lang;
@@ -17,85 +18,80 @@ const settings = (await getEntry('settings', 'links'))!.data;
 
 // Phase 1 : le menu renvoie aux sections de l'accueil.
 const navItems = [
+  { label: t.home, href: home },
   { label: t.nav.services, href: `${home}#${s.services}` },
   { label: t.nav.approach, href: `${home}#${s.approach}` },
   { label: t.nav.examples, href: `${home}#${s.examples}` },
   { label: t.nav.contact, href: `${home}#${s.contact}` },
 ];
-const alt = otherLang(lang);
 ---
 
-<header class="sticky top-0 z-40 border-b border-line/80 bg-ivory/95 backdrop-blur-sm">
-  <div class="container-site flex h-18 items-center justify-between gap-6">
-    <a href={home} aria-label={t.logoHome} class="shrink-0 rounded-sm">
-      <Logo accent />
-    </a>
+<header class="sticky top-0 z-40 border-b border-azur bg-ivory">
+  <div class="container-site flex h-[5.5rem] items-center justify-between gap-6">
+    <div class="flex items-center gap-4 sm:gap-6">
+      <a href={home} aria-label={t.logoHome} class="shrink-0">
+        <Logo size={24} />
+      </a>
+      <LangSwitch lang={lang} route={route} enabled={settings.englishEnabled} />
+    </div>
 
-    <nav aria-label={t.mainNav} class="hidden lg:block">
-      <ul class="flex items-center gap-7 text-[0.92rem]">
-        {navItems.map((item) => (
-          <li>
-            <a href={item.href} class="rounded-sm py-2 hover:text-stone">
-              {item.label}
-            </a>
-          </li>
-        ))}
+    <nav aria-label={t.mainNav} class="hidden xl:block">
+      <ul class="flex items-center gap-8 text-sm text-stone">
+        {
+          navItems.map((item) => (
+            <li>
+              <a href={item.href} class="py-3 hover:text-navy">
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+        <li>
+          <ExternalLink href={settings.bookingsUrl} lang={lang} icon={false} track="header" class="btn btn-primary">
+            {t.book}
+          </ExternalLink>
+        </li>
       </ul>
     </nav>
 
-    <div class="flex items-center gap-3">
-      <a
-        href={routes[route][alt]}
-        hreflang={alt}
-        lang={alt}
-        class="rounded-sm px-2 py-2 text-sm font-medium tracking-wide"
-      >
-        <span aria-hidden="true">{alt.toUpperCase()}</span>
-        <span class="sr-only">{t.langSwitch}</span>
-      </a>
-      <ExternalLink
-        href={settings.bookingsUrl}
-        lang={lang}
-        icon={false}
-        track="header"
-        class="btn btn-primary hidden !py-2.5 text-sm sm:inline-flex"
-      >
-        {t.book}
-      </ExternalLink>
-      <button
-        type="button"
-        class="-mr-2 rounded-sm p-2 lg:hidden"
-        aria-expanded="false"
-        aria-controls="mobile-menu"
-        data-menu-toggle
-        data-label-open={t.menuOpen}
-        data-label-close={t.menuClose}
-      >
-        <span class="sr-only" data-menu-label>{t.menuOpen}</span>
-        <span data-icon-open><Icon name="menu" class="size-6" /></span>
-        <span data-icon-close class="hidden"><Icon name="close" class="size-6" /></span>
-      </button>
-    </div>
+    <button
+      type="button"
+      class="-mr-2 inline-flex min-h-11 items-center gap-2 px-2 text-sm font-medium xl:hidden"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      data-menu-toggle
+      data-labels={JSON.stringify({ open: t.menuOpen, close: t.menuClose, menu: t.menuLabel, closeText: t.closeLabel })}
+    >
+      <span data-menu-text aria-hidden="true">{t.menuLabel}</span>
+      <span class="sr-only" data-menu-label>{t.menuOpen}</span>
+      <span data-icon-open><Icon name="menu" class="size-[18px]" /></span>
+      <span data-icon-close class="hidden"><Icon name="close" class="size-[18px]" /></span>
+    </button>
   </div>
 
-  <nav id="mobile-menu" aria-label={t.mainNav} class="hidden border-t border-line bg-ivory lg:hidden" data-menu>
-    <ul class="container-site flex flex-col py-4">
-      <li>
-        <a href={home} class="block py-3 text-lg">{t.home}</a>
-      </li>
-      {navItems.map((item) => (
-        <li>
-          <a href={item.href} class="block py-3 text-lg">
-            {item.label}
-          </a>
-        </li>
-      ))}
-      <li class="pt-4 pb-2">
-        <ExternalLink href={settings.bookingsUrl} lang={lang} track="menu-mobile" class="btn btn-primary w-full">
-          {t.book}
-        </ExternalLink>
-      </li>
-    </ul>
+  <nav
+    id="mobile-menu"
+    aria-label={t.mainNav}
+    class="hidden h-[calc(100dvh-5.5rem)] overflow-y-auto bg-ivory xl:hidden"
+    data-menu
+  >
+    <div class="container-site flex flex-col pt-12 pb-10">
+      <ul>
+        {
+          navItems.map((item) => (
+            <li>
+              <a href={item.href} class="flex min-h-20 items-center text-[1.75rem] leading-tight font-semibold">
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <ExternalLink href={settings.bookingsUrl} lang={lang} icon={false} track="menu-mobile" class="btn btn-primary mt-8 w-full">
+        {t.book}
+      </ExternalLink>
+      <p class="mt-8 text-sm font-medium text-stone">{t.signature}</p>
+    </div>
   </nav>
 </header>
 
@@ -103,13 +99,18 @@ const alt = otherLang(lang);
   const toggle = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
   const menu = document.querySelector<HTMLElement>('[data-menu]');
   if (toggle && menu) {
+    const html = document.documentElement;
     const label = toggle.querySelector('[data-menu-label]')!;
+    const text = toggle.querySelector('[data-menu-text]')!;
+    const labels = JSON.parse(toggle.dataset.labels!) as { open: string; close: string; menu: string; closeText: string };
     const setOpen = (open: boolean) => {
       toggle.setAttribute('aria-expanded', String(open));
       menu.classList.toggle('hidden', !open);
+      html.classList.toggle('overflow-hidden', open);
       toggle.querySelector('[data-icon-open]')?.classList.toggle('hidden', open);
       toggle.querySelector('[data-icon-close]')?.classList.toggle('hidden', !open);
-      label.textContent = open ? toggle.dataset.labelClose! : toggle.dataset.labelOpen!;
+      label.textContent = open ? labels.close : labels.open;
+      text.textContent = open ? labels.closeText : labels.menu;
     };
     toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
     menu.addEventListener('click', (e) => {
@@ -121,6 +122,6 @@ const alt = otherLang(lang);
         toggle.focus();
       }
     });
-    matchMedia('(min-width: 64rem)').addEventListener('change', (e) => e.matches && setOpen(false));
+    matchMedia('(min-width: 80rem)').addEventListener('change', (e) => e.matches && setOpen(false));
   }
 </script>

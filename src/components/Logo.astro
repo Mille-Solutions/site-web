@@ -1,20 +1,22 @@
 ---
 /**
- * Logotype Mille Solutions — « Mille » en Playfair Display SemiBold, « Solutions » en Inter Light.
- * La ligne azur est un accent optionnel, jamais une partie obligatoire du logo.
+ * Logotype Mille Solutions (charte 2026).
+ * « Mille » : Playfair Display SemiBold 600 ; « Solutions » : Inter Light 300, à 61 % de la taille de « Mille ».
+ * Les deux mots restent sur une ligne. Le filet Azure est optionnel, indépendant, espacé d'au moins 12 px.
  */
 interface Props {
-  tone?: 'navy' | 'ivory';
+  /** Taille de « Mille » en pixels. */
+  size?: number;
   accent?: boolean;
-  size?: 'sm' | 'lg';
+  class?: string;
 }
-const { tone = 'navy', accent = false, size = 'sm' } = Astro.props;
+const { size = 26, accent = false, class: className = '' } = Astro.props;
 ---
 
-<span class:list={['inline-flex flex-col leading-none', tone === 'ivory' ? 'text-ivory' : 'text-navy']}>
-  <span class="inline-flex items-baseline gap-1.5">
-    <span class:list={['font-wordmark font-semibold tracking-[-0.01em]', size === 'lg' ? 'text-5xl' : 'text-[1.6rem]']}>Mille</span>
-    <span class:list={['font-light', size === 'lg' ? 'text-2xl' : 'text-[0.95rem]']}>Solutions</span>
+<span class:list={['inline-flex flex-col items-start text-navy', className]} style={`--logo:${size}px`}>
+  <span class="inline-flex items-baseline gap-[calc(var(--logo)*0.13)] leading-[1.15] whitespace-nowrap">
+    <span class="font-wordmark text-[length:var(--logo)] font-semibold">Mille</span>
+    <span class="text-[length:calc(var(--logo)*0.61)] font-light">Solutions</span>
   </span>
-  {accent && <span aria-hidden="true" class="mt-2 block h-px w-11 bg-azur"></span>}
+  {accent && <span aria-hidden="true" class="mt-3 block h-px w-[calc(var(--logo)*3.3)] bg-azur"></span>}
 </span>

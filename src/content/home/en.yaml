@@ -1,90 +1,108 @@
 # Home page copy — English version
-# ⚠️ BROUILLON : traduction à relire et valider par Charlotte avant publication.
+# ⚠️ BROUILLON non validé : traduction à relire et valider par Charlotte.
+# Rester désactivée (settings.yaml → englishEnabled: false) tant qu'elle n'est pas validée.
 meta:
   title: "Mille Solutions — Structure. Prioritize. Deliver. | Monaco"
   description: "I help small and medium-sized businesses and institutions in Monaco and the surrounding region clarify their needs, structure their projects and coordinate their delivery."
 
 hero:
-  title:
-    - "Move your projects forward."
-    - "Simplify the way you work."
+  title: "Move your projects forward. Simplify the way you work."
   lead: "I help small and medium-sized businesses and institutions in Monaco and the surrounding region clarify their needs, structure their projects and coordinate their delivery through to a tangible result."
+  engagementLabel: "My commitment"
   signature: "Structure. Prioritize. Deliver."
   cta: "Book a free 30-minute call"
   secondary: "Explore my services"
-  imageCaption: "Port Hercule in the early morning"
+  imageCaption: "View of Monaco — photo to be supplied"
 
 situations:
   eyebrow: "Sound familiar?"
-  title: "Situations I often come across"
+  title: "Three situations where I can help."
   items:
-    - text: "An important project is moving too slowly."
-      service: "move-a-project-forward"
-      linkLabel: "Move a project forward"
-    - text: "Your teams spend too much time on complicated ways of working."
-      service: "simplify-the-way-you-work"
-      linkLabel: "Simplify the way you work"
-    - text: "You have an idea, but not the time to structure it and make it happen."
-      service: "get-things-moving-again"
-      linkLabel: "Get things moving again"
+    - icon: coordination
+      title: "Your important project is moving too slowly."
+      text: "I help you clarify the objective, organise the steps and coordinate everyone involved so your project makes progress."
+    - icon: structuration
+      title: "Your teams spend too much time on complicated ways of working."
+      text: "I help you review processes, responsibilities and tools to make day-to-day work easier."
+    - icon: priorisation
+      title: "You have an idea, but not the time to structure it and make it happen."
+      text: "I help you understand what is holding things back, explore the options and build a realistic way forward."
 
 services:
-  eyebrow: "Services"
-  title: "Three ways I can help"
+  eyebrow: "Three services"
+  title: "Targeted support to meet your needs."
   items:
     - id: "move-a-project-forward"
-      icon: project
+      icon: coordination
       title: "Move a project forward"
       text: "Clarify the objective, organise the steps and coordinate everyone involved so your project makes progress."
     - id: "simplify-the-way-you-work"
-      icon: simplify
+      icon: structuration
       title: "Simplify the way you work"
       text: "Review processes, responsibilities and tools to make day-to-day work easier."
     - id: "get-things-moving-again"
-      icon: unblock
+      icon: priorisation
       title: "Get things moving again"
       text: "Understand what is holding things back, explore the options and build a realistic way forward."
 
 method:
-  eyebrow: "Method and experience"
-  title: "A simple method, from need to result"
+  eyebrow: "Approach and background"
+  title: "A simple, structured method adapted to your context."
   steps:
-    - title: "Structure"
+    - icon: structuration
+      title: "Structure"
       text: "Clarify the need, the objective and the constraints."
-    - title: "Prioritize"
+    - icon: priorisation
+      title: "Prioritize"
       text: "Compare the options and define the actions that matter."
-    - title: "Deliver"
+    - icon: coordination
+      title: "Deliver"
       text: "Coordinate implementation and prepare for continuity."
-  quote: "Clarity creates alignment. Alignment creates progress."
 
 examples:
   eyebrow: "Project examples"
-  title: "Three concrete experiences"
-  durationLabel: "Duration"
+  title: "Three concrete situations."
   items:
     - title: "Recruitment tool"
-      duration: "Three months"
-      summary: "Needs analysis, roll-out, training and adaptation of working practices over three months."
+      text: "Needs analysis, roll-out, training and adaptation of working practices over three months."
     - title: "Retail software"
-      duration: "Four months"
-      summary: "Scoping the replacement through to budget and schedule approval over four months."
-    - title: "Growing an event"
-      duration: "Several years"
-      summary: "Support over several years: developing networks, enriching the programme and handing over to successors."
+      text: "Scoping the replacement through to budget and schedule approval over four months."
+    - title: "Growing an event and its ecosystem"
+      text: "Support over several years: developing networks, enriching the programme and handing over to successors."
   note: "Experience gained during my salaried career, before founding Mille Solutions."
 
 about:
-  eyebrow: "About me"
-  title: "Charlotte Charles Mille"
+  eyebrow: "About"
+  title: "Who am I?"
   paragraphs:
     - "I founded Mille Solutions to put my experience in coordination, management and project leadership at the service of your needs."
     - "My career — from offshore operations and humanitarian missions to yachting, events, and HR, digital and sustainability projects — fuels my creativity as much as my practical sense."
-  linkedin: "View my LinkedIn profile"
-  portraitCaption: "Portrait — to be supplied"
+  cta: "Discover my background"
+  portraitCaption: "Portrait of Charlotte to be supplied"
 
 contact:
-  eyebrow: "Contact"
   title: "Let’s talk about your situation."
   text: "Do you have a project to structure, a way of working to simplify or a situation to unblock? A free 30-minute first call helps me understand your needs and see whether I can be of use."
-  cta: "Book a free 30-minute call"
-  formPending: "Contact form — coming soon"
+  booking:
+    eyebrow: "External booking"
+    text: "Microsoft Bookings — opens in a new tab."
+    cta: "Free 30-minute call"
+  form:
+    eyebrow: "Form"
+    name: "Name"
+    namePlaceholder: "Your name"
+    email: "Email address"
+    emailPlaceholder: "you@example.com"
+    organisation: "Organisation"
+    organisationPlaceholder: "Optional"
+    message: "Message"
+    messagePlaceholder: "Briefly describe your situation or need."
+    submit: "Send my message"
+    sending: "Sending…"
+    notice: "Your information is used to respond to your request. See the"
+    noticeLink: "Privacy page"
+    requiredNote: "Fields marked with an asterisk are required."
+    success: "Your message has been sent. Thank you for getting in touch."
+    error: "Something went wrong. Your message could not be sent. What you typed has been kept in this form. Please try again in a few moments."
+    invalid: "Please check the highlighted fields."
+    unavailable: "The form will be available soon. In the meantime, you can book a free 30-minute call."

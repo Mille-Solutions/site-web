@@ -2,10 +2,7 @@
 import { getEntry } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import Hero from './home/Hero.astro';
-import Situations from './home/Situations.astro';
-import Services from './home/Services.astro';
-import Method from './home/Method.astro';
-import Examples from './home/Examples.astro';
+import CardSection from './home/CardSection.astro';
 import About from './home/About.astro';
 import Contact from './home/Contact.astro';
 import { sections, type Lang } from '../i18n/ui';
@@ -17,14 +14,22 @@ const { lang } = Astro.props;
 const content = (await getEntry('home', lang))!.data;
 const settings = (await getEntry('settings', 'links'))!.data;
 const s = sections[lang];
+const { situations, services, method, examples } = content;
 ---
 
 <Base lang={lang} route="home" title={content.meta.title} description={content.meta.description}>
   <Hero lang={lang} content={content.hero} bookingsUrl={settings.bookingsUrl} servicesId={s.services} />
-  <Situations content={content.situations} />
-  <Services content={content.services} id={s.services} />
-  <Method content={content.method} id={s.approach} />
-  <Examples content={content.examples} id={s.examples} />
+  <CardSection id={s.situations} eyebrow={situations.eyebrow} title={situations.title} items={situations.items} />
+  <CardSection id={s.services} eyebrow={services.eyebrow} title={services.title} items={services.items} tone="white" />
+  <CardSection id={s.approach} eyebrow={method.eyebrow} title={method.title} items={method.steps} ordered corner />
+  <CardSection
+    id={s.examples}
+    eyebrow={examples.eyebrow}
+    title={examples.title}
+    items={examples.items.map((item) => ({ ...item, icon: 'solutions' as const }))}
+    note={examples.note}
+    tone="white"
+  />
   <About lang={lang} content={content.about} id={s.about} linkedinUrl={settings.linkedinUrl} />
-  <Contact lang={lang} content={content.contact} id={s.contact} bookingsUrl={settings.bookingsUrl} />
+  <Contact lang={lang} content={content.contact} id={s.contact} bookingsUrl={settings.bookingsUrl} formEndpoint={settings.contactFormEndpoint} />
 </Base>

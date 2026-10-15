@@ -194,7 +194,8 @@ VS Code…).
 | Je veux modifier… | Fichier |
 |---|---|
 | Le lien **Microsoft Bookings** ou **LinkedIn** | `src/content/settings.yaml` |
-| L'adresse d'envoi du **formulaire**, l'activation de l'**anglais** | `src/content/settings.yaml` (`contactFormEndpoint`, `englishEnabled`) |
+| L'adresse d'envoi du **formulaire**, l'activation de l'**anglais** ou de la **phase 2** | `src/content/settings.yaml` (`contactFormEndpoint`, `englishEnabled`, `phase2Enabled`) |
+| Les textes des **pages de phase 2** | `src/content/accompagnements/`, `approche/`, `exemples/`, `contact/` |
 | Un texte de la **page d'accueil** | `src/content/home/fr.yaml` · `src/content/home/en.yaml` |
 | Le **titre et la description** affichés dans Google et sur LinkedIn | `meta:` en haut de `fr.yaml` / `en.yaml` |
 | Les **mentions légales** ou la **confidentialité** | `src/content/legal/fr/*.md` · `src/content/legal/en/*.md` |
@@ -273,7 +274,7 @@ page est construit automatiquement à partir des titres `##`.
 ### 4.4 Ce qu'il ne faut pas modifier sans vérifier
 
 - Les champs `id:` des accompagnements servent d'ancres (liens directs vers une carte) : éviter de les changer une fois le site publié.
-- Le champ `icon:` n'accepte que `coordination`, `structuration`, `priorisation` (les exemples utilisent automatiquement `solutions`).
+- Le champ `icon:` n'accepte que `coordination`, `structuration`, `priorisation`, `solutions`, `collaboration` ou `resultats` (sur l'accueil, les exemples utilisent automatiquement `solutions`).
 - Le français et l'anglais doivent garder la **même structure** (même nombre d'éléments dans les listes), sinon les deux versions ne se correspondent plus.
 
 ---
@@ -349,6 +350,11 @@ Pour **ajouter une section** :
 
 ### 5.4 Remplacer les emplacements photo par de vraies images
 
+La photo de Monaco de l'accueil (`src/assets/hero-monaco.png`) est **provisoire** : elle provient de
+la maquette Figma, sans information sur son origine. Ses droits sont à vérifier, ou elle est à
+remplacer avant publication. Les autres images (portrait, pages de phase 2) sont encore des
+emplacements réservés.
+
 1. Placer les images dans `src/assets/` (par ex. `src/assets/portrait.jpg`), en grande taille. Astro les redimensionne et les compresse lui-même, en WebP et en plusieurs tailles.
 2. Dans la section concernée (`Hero.astro`, `About.astro`), remplacer `<PhotoPlaceholder … />` par :
 
@@ -379,25 +385,41 @@ Elle est déjà référencée par toutes les pages.
 
 ### 5.6 Phase 2 : pages Accompagnements, Approche et parcours, Exemples, Contact
 
-Le site est prévu pour cette évolution :
+Les quatre pages sont **construites en français** d'après les maquettes Figma « Accompagnements — FR »,
+« Approche et parcours — FR », « Exemples de projets — FR » et « Contact — FR » :
 
-1. **Contenus** : créer une collection par page (ou des fichiers Markdown) dans `src/content/`, en FR et EN. Les textes complets figurent déjà dans le cahier des charges (sections 5 à 7).
-2. **Routes** : ajouter les pages dans `src/i18n/ui.ts` → `routes`, par exemple :
+| Page | Adresse | Contenus |
+|---|---|---|
+| Accompagnements | `/accompagnements/` | `src/content/accompagnements/fr.yaml` |
+| Approche et parcours | `/approche-et-parcours/` | `src/content/approche/fr.yaml` |
+| Exemples de projets | `/exemples-de-projets/` | `src/content/exemples/fr.yaml` |
+| Contact | `/contact/` | `src/content/contact/fr.yaml` (+ titre, texte et formulaire de `home/fr.yaml`) |
 
-   ```ts
-   services: { fr: '/accompagnements/', en: '/en/services/' },
-   approach: { fr: '/approche-et-parcours/', en: '/en/approach/' },
-   examples: { fr: '/exemples-de-projets/', en: '/en/project-examples/' },
-   contact:  { fr: '/contact/', en: '/en/contact/' },
-   ```
+Elles restent **non publiées** tant que `phase2Enabled: false` dans `settings.yaml` : elles sont
+consultables pour la prévisualisation, mais ni liées, ni indexées, ni listées dans le plan du site.
+Pour les publier :
 
-   Le sélecteur FR / EN et les balises `hreflang` fonctionnent alors automatiquement.
-3. **Pages** : créer `src/pages/accompagnements.astro`, `src/pages/en/services.astro`… en réutilisant `Base.astro`, `SectionHeading`, les cartes et la ligne de progression.
-4. **Menu** : dans `Header.astro` et `Footer.astro`, remplacer les liens d'ancre (`#accompagnements`) par les routes des pages.
-5. **Accueil** : il reste autonome. Ajouter dans chaque section un lien « En savoir plus » vers la page détaillée.
+```yaml
+# src/content/settings.yaml
+links:
+  phase2Enabled: true
+```
 
-Les **fiches d'exemples** peuvent devenir une collection Markdown (`src/content/exemples/fr/*.md`) :
-pour ajouter une fiche, il suffit alors d'ajouter un fichier.
+Le menu et le pied de page pointent alors vers ces pages au lieu des sections de l'accueil, et les
+pages entrent dans le plan du site. L'accueil reste autonome.
+
+Les fichiers des pages sont dans `src/pages/` (`accompagnements.astro`…) et leurs composants dans
+`src/components/page/` : `PageHero`, `Statement` (bandeau de déclaration), `CtaSection` (appel final),
+`Chips` (étiquettes besoins / livrables), `AzureDivider`.
+
+**Ajouter une fiche d'exemple** : copier un bloc sous `projects: items:` dans
+`src/content/exemples/fr.yaml`, puis renseigner `title`, `duration`, `situation`, `role`, `actions`
+(liste) et `results`. Garder les organisations anonymes et des résultats qualitatifs.
+
+**Version anglaise des pages de phase 2** : à créer (`src/content/<page>/en.yaml` et
+`src/pages/en/…`), puis à déclarer dans `src/i18n/ui.ts` → `routes` (remplacer `en: null` par
+l'adresse anglaise). Tant que `en: null`, le sélecteur de langue n'affiche pas de lien anglais pour ces
+pages.
 
 ### 5.7 Ajouter une langue
 
@@ -454,7 +476,7 @@ comparaison de périodes et comptage des clics vers Bookings.
 | **Umami** auto-hébergé ou cloud | Gratuit / palier gratuit | Selon le choix |
 
 Le suivi des clics est **déjà préparé** : chaque bouton Bookings porte un attribut `data-track`
-indiquant son emplacement (`header`, `menu-mobile`, `hero`, `contact`). Un envoi réussi du formulaire
+indiquant son emplacement (`header`, `menu-mobile`, `hero`, `contact`, et sur les pages de phase 2 `services-hero`, `services-cta`, `approach-hero`, `approach-cta`, `examples-cta`). Un envoi réussi du formulaire
 déclenche l'événement `contact:sent`, sans aucun contenu du message. Il suffira de relier ces
 attributs et cet événement à l'outil retenu. Ne jamais envoyer de nom, d'e-mail ni de
 contenu de message à l'outil de statistiques. La politique de confidentialité (sections 5 et 8)

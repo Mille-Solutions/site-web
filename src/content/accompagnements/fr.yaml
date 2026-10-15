@@ -1,0 +1,98 @@
+# Page « Accompagnements » (phase 2) — maquette Figma « Accompagnements — FR », textes du cahier des charges.
+meta:
+  title: "Accompagnements | Mille Solutions — Monaco"
+  description: "Faire avancer un projet, simplifier le fonctionnement, débloquer une situation : trois accompagnements adaptés à votre contexte, à Monaco et dans la région."
+
+hero:
+  title: "Mes accompagnements"
+  lead: "Vous avez un projet à lancer ou à conduire, mais manquez de temps, de méthode ou de coordination pour le faire avancer. Je vous aide à clarifier l’objectif, définir les priorités et organiser la mise en œuvre. Selon vos besoins, j’interviens ponctuellement ou j’assure la coordination du projet dans la durée."
+  primary: "Réserver un échange gratuit"
+  secondary: "Découvrir mon approche"
+  imageCaption: "Photo à fournir — droits à valider"
+
+statement: "Chaque mission est adaptée à votre contexte, à vos ressources et à vos priorités. Nous définissons ensemble le périmètre, les livrables et les modalités d’intervention avant de démarrer."
+
+list:
+  eyebrow: "Les accompagnements"
+  title: "Trois façons d’agir selon votre besoin"
+  needsLabel: "Besoins"
+  interventionLabel: "Intervention"
+  deliverablesLabel: "Livrables possibles"
+  items:
+    - id: "faire-avancer-un-projet"
+      icon: solutions
+      title: "Faire avancer un projet"
+      text: "Vous avez un projet à lancer ou à conduire, mais manquez de temps, de méthode ou de coordination pour le faire avancer. Je vous aide à clarifier l’objectif, définir les priorités et organiser la mise en œuvre. Selon vos besoins, j’interviens ponctuellement ou j’assure la coordination du projet dans la durée."
+      needs:
+        - "Passer d’une idée à un projet concret"
+        - "Lancer un outil ou service"
+        - "Coordonner équipes et prestataires"
+        - "Renforcer le pilotage"
+      intervention: "Clarification du besoin et du périmètre, comparaison des options, préparation des arbitrages, définition des étapes et responsabilités, coordination et suivi de l’avancement."
+      deliverables:
+        - "Note de cadrage"
+        - "Cahier des charges"
+        - "Feuille de route"
+        - "Planning"
+        - "Répartition des responsabilités"
+        - "Tableau de suivi"
+        - "Bilan et supports de transmission"
+    - id: "simplifier-le-fonctionnement"
+      icon: structuration
+      title: "Simplifier le fonctionnement"
+      text: "Des tâches se répètent, les informations circulent difficilement ou les responsabilités manquent de clarté. J’analyse avec vous et vos équipes le fonctionnement existant pour identifier les améliorations utiles, simplifier les processus et mettre en place des outils adaptés au quotidien."
+      needs:
+        - "Réduire les doubles saisies"
+        - "Clarifier les responsabilités"
+        - "Fiabiliser un suivi"
+        - "Améliorer la circulation de l’information"
+        - "Structurer une activité qui grandit"
+      intervention: "Écoute des équipes, analyse des pratiques, identification des points de friction, priorisation des améliorations, adaptation des processus et outils, accompagnement à la prise en main."
+      deliverables:
+        - "Diagnostic ciblé"
+        - "Schéma de processus"
+        - "Répartition des rôles"
+        - "Procédure courte"
+        - "Modèles de documents"
+        - "Tableau de bord"
+        - "Expression des besoins pour un outil"
+        - "Supports de prise en main"
+    - id: "debloquer-une-situation"
+      icon: resultats
+      title: "Débloquer une situation"
+      text: "Un projet stagne, un outil ne répond plus aux besoins ou une difficulté opérationnelle revient sans trouver de solution durable. J’apporte un regard extérieur pour comprendre les freins, examiner les options et vous aider à décider de la suite. Je peux ensuite accompagner la mise en œuvre des actions retenues."
+      needs:
+        - "Relancer un projet"
+        - "Comprendre des dysfonctionnements"
+        - "Réexaminer un outil"
+        - "Clarifier des priorités contradictoires"
+        - "Identifier comment reprendre un sujet bloqué"
+      intervention: "Analyse de la situation et des décisions, recueil des points de vue, identification des causes et contraintes, comparaison des scénarios, facilitation des arbitrages et organisation de la reprise."
+      deliverables:
+        - "Synthèse des freins"
+        - "Analyse des options"
+        - "Recommandation argumentée"
+        - "Priorités d’action"
+        - "Plan de reprise"
+        - "Relevé des décisions"
+        - "Tableau de suivi"
+
+approach:
+  eyebrow: "Une approche personnelle"
+  title: "Structurer. Prioriser. Concrétiser."
+  items:
+    - icon: structuration
+      title: "Structurer"
+      text: "Je recherche des solutions proportionnées, utilisables par les équipes et durables dans leur fonctionnement. Selon le sujet, j’intègre les enjeux humains, environnementaux, de confidentialité et de gouvernance dans les choix proposés."
+    - icon: priorisation
+      title: "Prioriser"
+      text: "Nous définissons ensemble le périmètre, les livrables et les modalités d’intervention avant de démarrer. Cela permet de clarifier les attentes, de hiérarchiser les actions et de préparer une mise en œuvre réaliste."
+    - icon: coordination
+      title: "Concrétiser"
+      text: "J’accompagne le projet jusqu’à sa réalisation, en coordonnant les étapes et les personnes concernées. Tout au long de la mission, je prépare la transmission des connaissances, des outils et des méthodes pour que vos équipes puissent prendre le relais et poursuivre de manière autonome après notre collaboration."
+
+cta:
+  title: "Parlons de votre projet."
+  text: "Votre besoin se situe à la croisée de plusieurs sujets ? Le premier échange permet de préciser la situation et d’identifier l’accompagnement utile."
+  button: "Réserver un échange gratuit de 30 minutes"
+  note: "Ouverture dans un nouvel onglet."

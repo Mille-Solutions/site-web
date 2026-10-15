@@ -6,13 +6,16 @@ meta:
   description: "I help small and medium-sized businesses and institutions in Monaco and the surrounding region clarify their needs, structure their projects and coordinate their delivery."
 
 hero:
-  title: "Move your projects forward. Simplify the way you work."
+  title:
+    - "Move your projects forward."
+    - "Simplify the way you work."
   lead: "I help small and medium-sized businesses and institutions in Monaco and the surrounding region clarify their needs, structure their projects and coordinate their delivery through to a tangible result."
   engagementLabel: "My commitment"
   signature: "Structure. Prioritize. Deliver."
   cta: "Book a free 30-minute call"
   secondary: "Explore my services"
-  imageCaption: "View of Monaco — photo to be supplied"
+  # Photo provisoire issue de la maquette Figma : origine et droits à valider avant publication.
+  imageAlt: "View of Monaco: the city, Port Hercule and the sea in the morning light."
 
 situations:
   eyebrow: "Sound familiar?"
@@ -102,7 +105,7 @@ contact:
     notice: "Your information is used to respond to your request. See the"
     noticeLink: "Privacy page"
     requiredNote: "Fields marked with an asterisk are required."
-    success: "Your message has been sent. Thank you for getting in touch."
+    success: "Your message has been sent. Thank you for getting in touch. I will reply as soon as possible."
     error: "Something went wrong. Your message could not be sent. What you typed has been kept in this form. Please try again in a few moments."
-    invalid: "Please check the highlighted fields."
+    invalid: "Please complete the fields marked with an asterisk. Name, email address and message are needed to send your request."
     unavailable: "The form will be available soon. In the meantime, you can book a free 30-minute call."

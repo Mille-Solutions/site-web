@@ -1,0 +1,64 @@
+---
+import { getEntry } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/page/PageHero.astro';
+import Statement from '../components/page/Statement.astro';
+import CtaSection from '../components/page/CtaSection.astro';
+import AzureDivider from '../components/page/AzureDivider.astro';
+import CardSection from '../components/home/CardSection.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import { routes } from '../i18n/ui';
+
+const lang = 'fr';
+const page = (await getEntry('approach', lang))!.data;
+const settings = (await getEntry('settings', 'links'))!.data;
+const [first, ...rest] = page.intro.paragraphs;
+---
+
+<Base lang={lang} route="approach" title={page.meta.title} description={page.meta.description}>
+  <PageHero
+    lang={lang}
+    layout="split"
+    title={page.hero.title}
+    lead={page.hero.lead}
+    primary={page.hero.primary}
+    secondary={page.hero.secondary ? { label: page.hero.secondary, href: routes.services.fr } : undefined}
+    bookingsUrl={settings.bookingsUrl}
+    imageCaption={page.hero.imageCaption}
+    track="approach-hero"
+  />
+
+  <Statement text={page.statement.title} secondary={page.statement.text} />
+
+  <section aria-labelledby="approche-intro" class="section bg-ivory">
+    <div class="container-site grid items-center gap-10 lg:grid-cols-[39rem_1fr] lg:gap-8">
+      <p id="approche-intro" class="text-[2.5rem] leading-[1.2] font-semibold lg:text-[5rem] lg:leading-[1.2]">{page.intro.name}</p>
+      <div class="flex max-w-[34rem] flex-col gap-10">
+        <p class="eyebrow">{page.intro.eyebrow}</p>
+        <p class="text-xl leading-[1.6]">{first}</p>
+        {
+          rest.map((p) => (
+            <div class="flex gap-3">
+              <AzureDivider class="mt-[0.9em] w-10 shrink-0" />
+              <p class="text-lg leading-[1.6] text-stone">{p}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <CardSection id="methode" title={page.method.title} subtitle={page.method.subtitle} items={page.method.steps} ordered tone="white" />
+  <CardSection id="principes" title={page.principles.title} subtitle={page.principles.subtitle} items={page.principles.items} corner />
+
+  <section aria-labelledby="parcours-title" class="section bg-white">
+    <div class="container-site">
+      <SectionHeading title={page.background.title} subtitle={page.background.subtitle} id="parcours-title" />
+      <div class="mt-8 flex max-w-[53rem] flex-col gap-8 text-lg leading-[1.6] lg:mt-16">
+        {page.background.paragraphs.map((p) => <p>{p}</p>)}
+      </div>
+    </div>
+  </section>
+
+  <CtaSection lang={lang} {...page.cta} bookingsUrl={settings.bookingsUrl} track="approach-cta" />
+</Base>

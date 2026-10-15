@@ -1,0 +1,57 @@
+---
+/**
+ * Premier écran des pages de phase 2.
+ * - layout « stacked » : texte puis grande image (Accompagnements, Exemples) ;
+ * - layout « split » : texte à gauche, image à droite (Approche et parcours).
+ */
+import ExternalLink from '../ExternalLink.astro';
+import PhotoPlaceholder from '../PhotoPlaceholder.astro';
+import type { Lang } from '../../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  title: string;
+  lead: string;
+  primary?: string;
+  secondary?: { label: string; href: string };
+  bookingsUrl: string;
+  imageCaption: string;
+  layout?: 'stacked' | 'split';
+  track: string;
+}
+const { lang, title, lead, primary, secondary, bookingsUrl, imageCaption, layout = 'stacked', track } = Astro.props;
+const split = layout === 'split';
+---
+
+<section class="bg-ivory py-14 lg:py-24">
+  <div class:list={['container-site', split && 'grid items-center gap-10 lg:grid-cols-[35rem_1fr] lg:gap-20']}>
+    <div class="flex max-w-[53rem] flex-col gap-8">
+      <slot name="before" />
+      <h1 class:list={['font-semibold tracking-[-0.015em] text-balance', split ? 'text-[2.5rem] leading-[1.1] lg:text-[4rem] lg:leading-[1.15]' : 'text-[2.5rem] leading-[1.2] lg:text-5xl']}>
+        {title}
+      </h1>
+      <p class="text-lg leading-[1.6] text-stone">{lead}</p>
+      <slot />
+      {
+        (primary || secondary) && (
+          <div class="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
+            {primary && (
+              <ExternalLink href={bookingsUrl} lang={lang} icon={false} track={track} class="btn btn-dark">
+                {primary}
+              </ExternalLink>
+            )}
+            {secondary && (
+              <a href={secondary.href} class="btn btn-secondary">
+                {secondary.label}
+              </a>
+            )}
+          </div>
+        )
+      }
+    </div>
+    <PhotoPlaceholder
+      caption={imageCaption}
+      class:list={[split ? 'aspect-[342/320] w-full lg:aspect-[720/688]' : 'mt-8 aspect-[342/240] w-full lg:mt-14 lg:aspect-[1280/520]']}
+    />
+  </div>
+</section>

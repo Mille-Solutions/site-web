@@ -1,0 +1,73 @@
+# Page « Approche et parcours » (phase 2) — maquette Figma « Approche et parcours — FR », textes du cahier des charges.
+meta:
+  title: "Approche et parcours | Mille Solutions — Monaco"
+  description: "Ma méthode, mes principes d’intervention et mon parcours : des idées pour avancer, une méthode pour concrétiser."
+
+hero:
+  title: "Des idées pour avancer, une méthode pour concrétiser"
+  lead: "J’ai créé Mille Solutions pour mettre mon expérience de la coordination, du management et du pilotage de projets au service des TPE, PME et institutions."
+  primary: "Réserver un échange gratuit"
+  secondary: "Voir mes accompagnements"
+  imageCaption: "Portrait ou photo à fournir — droits à valider"
+
+statement:
+  title: "Parce qu’il existe mille façons d’avancer."
+  text: "Chaque projet est unique. Les solutions doivent l’être aussi."
+
+intro:
+  name: "Charlotte Charles Mille"
+  eyebrow: "Mon approche"
+  paragraphs:
+    - "J’aime partir d’une idée, d’un besoin encore flou ou d’une difficulté opérationnelle, explorer plusieurs chemins et imaginer des solutions adaptées. Ma curiosité et mon énergie créative nourrissent cette recherche ; ma méthode permet de la traduire en actions concrètes."
+    - "Clarifier l’objectif, réunir les bonnes personnes, définir les priorités et accompagner la mise en œuvre constituent le fil conducteur de mon travail. J’interviens également pour redonner de l’élan à un projet qui stagne ou repenser un fonctionnement devenu compliqué."
+
+method:
+  title: "Ma méthode"
+  subtitle: "Trois étapes pour transformer une idée en plan d’action."
+  steps:
+    - icon: structuration
+      title: "Structurer"
+      text: "Je clarifie avec vous le besoin, l’objectif et les contraintes. J’écoute les personnes concernées et rassemble les informations utiles pour définir un cadre de travail partagé."
+    - icon: priorisation
+      title: "Prioriser"
+      text: "J’examine les options et leurs implications pour vous aider à arbitrer. Nous définissons les actions prioritaires, les ressources nécessaires et les responsabilités de chacun."
+    - icon: coordination
+      title: "Concrétiser"
+      text: "Je coordonne les étapes, suis les décisions et accompagne la mise en œuvre. Selon la mission, je prépare également la prise en main et la transmission aux équipes."
+
+principles:
+  title: "Mes principes d’intervention"
+  subtitle: "Une approche personnelle, structurée et adaptée à chaque contexte."
+  items:
+    - icon: solutions
+      title: "Comprendre avant de proposer"
+      text: "Je pars de votre fonctionnement réel, de vos contraintes et de l’expérience des équipes pour construire une réponse adaptée."
+    - icon: collaboration
+      title: "Ouvrir les possibilités"
+      text: "J’apporte un regard neuf et questionne les habitudes pour faire émerger d’autres façons d’avancer. Avec vous et les équipes concernées, j’explore les pistes, compare leurs implications et retiens celles qui répondent le mieux au besoin et aux moyens disponibles."
+    - icon: coordination
+      title: "Dimensionner l’intervention au besoin"
+      text: "Un cadrage ponctuel, un renfort de coordination ou un accompagnement dans la durée : le périmètre est défini selon ce qui vous est utile et les ressources disponibles."
+    - icon: collaboration
+      title: "Associer les personnes concernées"
+      text: "J’implique les équipes et les interlocuteurs nécessaires pour éclairer les décisions et faciliter l’utilisation des solutions retenues."
+    - icon: solutions
+      title: "Mobiliser les bonnes compétences"
+      text: "Je coordonne les expertises nécessaires et fais appel à des spécialistes lorsque le sujet le demande, en concertation avec vous."
+    - icon: resultats
+      title: "Préparer la continuité"
+      text: "Je veille à formaliser et transmettre ce qui permettra aux équipes de poursuivre le travail : responsabilités, outils, procédures et connaissances."
+
+background:
+  title: "Mon parcours"
+  subtitle: "Une diversité d’expériences qui nourrit ma capacité à adapter des idées à des contextes différents."
+  paragraphs:
+    - "Mon parcours m’a conduite des opérations offshore et des missions humanitaires au yachting et à l’événementiel, puis à des projets liés aux ressources humaines, à la digitalisation et à la durabilité."
+    - "Dans ces environnements, j’ai encadré des équipes, coordonné des interlocuteurs aux attentes différentes et accompagné des projets de leur cadrage à leur mise en œuvre."
+    - "La diversité de mon parcours nourrit ma créativité autant que mon sens pratique. Elle m’aide à faire des liens entre des univers différents, à poser des questions et à adapter des idées à un nouveau contexte. J’aime ce passage entre la réflexion et l’action, lorsque les possibilités prennent forme et deviennent un projet que l’on peut concrétiser."
+
+cta:
+  title: "Parlons de votre prochain projet."
+  text: "Que vous souhaitiez structurer un projet, renforcer votre organisation ou accompagner une transformation, je serai ravie d’échanger avec vous."
+  button: "Réserver un échange gratuit de 30 minutes"
+  note: "Ouverture dans un nouvel onglet."

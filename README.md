@@ -32,16 +32,17 @@ Le guide complet de mise en ligne et de modification se trouve dans [docs/GUIDE.
 
 - `src/components/home/` — sections de l'accueil (réutilisables pour les pages de phase 2)
 - `src/components/` — logo, en-tête, pied de page, icônes, éléments graphiques de la charte
-- `src/pages/` — routes : `/` (FR), `/en/` (EN), pages légales, 404
+- `src/components/page/` — composants des pages de phase 2
+- `src/pages/` — routes : `/` (FR), `/en/` (EN), pages légales, pages de phase 2, 404
 
 ## Reste à faire
 
 - [ ] Lien Bookings et LinkedIn définitifs (`settings.yaml`)
-- [ ] Portrait et photos (actuellement des emplacements réservés)
+- [ ] Portrait et photos (emplacements réservés ; photo de Monaco de l'accueil provisoire, droits à vérifier)
 - [ ] Formulaire de contact : service d'envoi côté serveur (`contactFormEndpoint`)
 - [ ] Relecture et validation de la traduction anglaise par Charlotte, puis `englishEnabled: true` ; pages légales en anglais
-- [ ] Validation du tracé de l'icône « Solutions » (redessinée, non récupérée de Figma)
+- [ ] Validation des tracés des icônes « Solutions », « Collaboration » et « Résultats » (redessinées)
 - [ ] Compléter les informations entre crochets des pages légales, puis retirer `draft: true`
 - [ ] Outil de statistiques (suivi des clics Bookings déjà balisé via `data-track`)
 - [ ] Image de partage `public/og-image.png` (1200×630)
-- [ ] Phase 2 : pages Accompagnements, Approche et parcours, Exemples de projets, Contact
+- [ ] Phase 2 : pages FR construites (non publiées, `phase2Enabled`) ; styles détaillés à confirmer sur Figma ; versions anglaises

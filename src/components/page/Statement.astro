@@ -1,0 +1,18 @@
+---
+/** Bandeau de déclaration centré (« statement-band » de la maquette). */
+interface Props {
+  text: string;
+  secondary?: string;
+  tone?: 'ivory' | 'white';
+}
+const { text, secondary, tone = 'white' } = Astro.props;
+---
+
+<section class:list={['py-20 lg:py-40', tone === 'white' ? 'bg-white' : 'bg-ivory']}>
+  <div class="container-site">
+    <div class="mx-auto flex max-w-[53rem] flex-col gap-4 text-center">
+      <p class="text-[2rem] leading-[1.25] font-semibold text-balance lg:text-[3.5rem] lg:leading-[1.2]">{text}</p>
+      {secondary && <p class="text-[1.75rem] leading-[1.3] font-medium text-balance text-stone lg:text-[3rem]">{secondary}</p>}
+    </div>
+  </div>
+</section>

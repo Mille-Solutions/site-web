@@ -1,0 +1,27 @@
+---
+/** Appel final centré vers Microsoft Bookings (« cta-section » de la maquette). */
+import ExternalLink from '../ExternalLink.astro';
+import type { Lang } from '../../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  title: string;
+  text: string;
+  button: string;
+  note?: string;
+  bookingsUrl: string;
+  track: string;
+}
+const { lang, title, text, button, note, bookingsUrl, track } = Astro.props;
+---
+
+<section aria-labelledby={`${track}-title`} class="bg-ivory py-20 lg:py-40">
+  <div class="container-site flex flex-col items-center text-center">
+    <h2 id={`${track}-title`} class="max-w-[53rem] text-[2.5rem] leading-[1.2] font-semibold text-balance lg:text-[5rem]">{title}</h2>
+    <p class="mt-6 max-w-[32rem] text-lg leading-[1.6] text-stone">{text}</p>
+    <ExternalLink href={bookingsUrl} lang={lang} icon={false} track={track} class="btn btn-dark mt-10 w-full sm:w-auto sm:min-w-[22rem]">
+      {button}
+    </ExternalLink>
+    {note && <p aria-hidden="true" class="mt-6 text-sm text-stone">{note}</p>}
+  </div>
+</section>

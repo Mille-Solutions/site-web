@@ -1,0 +1,9 @@
+---
+/** « Azure Divider » : filet Azure court, accent optionnel sous un titre ou en fin de carte. */
+interface Props {
+  class?: string;
+}
+const { class: className = '' } = Astro.props;
+---
+
+<span aria-hidden="true" class:list={['block h-px w-16 bg-azur', className]}></span>

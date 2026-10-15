@@ -1,0 +1,21 @@
+---
+import { getEntry } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Contact from '../components/home/Contact.astro';
+
+const lang = 'fr';
+const page = (await getEntry('contactPage', lang))!.data;
+const home = (await getEntry('home', lang))!.data;
+const settings = (await getEntry('settings', 'links'))!.data;
+---
+
+<Base lang={lang} route="contact" title={page.meta.title} description={page.meta.description}>
+  <Contact
+    lang={lang}
+    content={{ ...home.contact, booking: page.booking }}
+    id="contact"
+    bookingsUrl={settings.bookingsUrl}
+    formEndpoint={settings.contactFormEndpoint}
+    headingLevel="h1"
+  />
+</Base>

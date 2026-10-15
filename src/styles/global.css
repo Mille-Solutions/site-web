@@ -89,6 +89,10 @@
   .btn-primary {
     @apply bg-azur text-navy hover:bg-[#62b4d1];
   }
+  /* Appel principal du premier écran (maquette : Navy, texte Ivory) */
+  .btn-dark {
+    @apply bg-navy text-ivory hover:bg-[#1e293b];
+  }
   .btn-secondary {
     @apply border border-navy text-navy hover:bg-white;
   }

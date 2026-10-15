@@ -1,0 +1,10 @@
+# Page « Contact » (phase 2) — maquette Figma « Contact — FR ».
+# Titre, texte et formulaire : repris de la section contact de l'accueil (src/content/home/fr.yaml).
+meta:
+  title: "Contact | Mille Solutions — Monaco"
+  description: "Réservez un échange gratuit de 30 minutes ou écrivez-moi pour parler de votre projet."
+
+booking:
+  eyebrow: "Réservation externe Microsoft Bookings"
+  text: "Échange gratuit de 30 minutes — ouverture dans un nouvel onglet."
+  cta: "Réserver un échange gratuit de 30 minutes"

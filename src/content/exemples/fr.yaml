@@ -1,0 +1,66 @@
+# Page « Exemples de projets » (phase 2) — maquette Figma « Exemples de projets — FR », textes du cahier des charges.
+# Organisations anonymes : aucun nom, logo ni nom d'événement. Résultats qualitatifs uniquement.
+meta:
+  title: "Exemples de projets | Mille Solutions — Monaco"
+  description: "Trois projets issus de mon parcours salarié : la situation, mon rôle, les actions menées et les résultats."
+
+hero:
+  eyebrow: "Mon expérience en pratique"
+  title: "Exemples de projets"
+  lead: "Trois exemples concrets issus de mon parcours salarié, avant la création de Mille Solutions."
+  signature: "Structurer. Prioriser. Concrétiser."
+  signatureText: "Clarifier le besoin, définir les priorités et accompagner la mise en œuvre."
+  imageCaption: "Photo à fournir — droits à valider"
+
+projects:
+  eyebrow: "Exemples de projets"
+  title: "Trois fiches complètes, issues de mon parcours salarié."
+  subtitle: "Découvrez la situation, mon rôle, les actions menées et les résultats de chaque projet."
+  roleLabel: "Mon rôle"
+  actionsLabel: "Actions"
+  resultsLabel: "Résultats"
+  note: "Projet réalisé dans le cadre de mon parcours salarié, avant la création de Mille Solutions."
+  items:
+    - icon: structuration
+      title: "Structurer le recrutement et déployer un outil adapté"
+      duration: "Durée : trois mois, en parallèle d’autres responsabilités."
+      situation: "Les recrutements étaient traités par e-mail, ce qui compliquait le suivi des candidatures et la coordination entre les ressources humaines et les managers. Ce fonctionnement limitait l’automatisation des tâches et soulevait des difficultés de protection des données personnelles et de présentation des offres aux candidats."
+      role: "J’ai piloté la démarche, de l’identification des risques et de l’étude des solutions jusqu’au déploiement de l’outil et à la formation des équipes, en coordination avec les services RH, communication et systèmes d’information."
+      actions:
+        - "Analyse des besoins et étude des solutions possibles."
+        - "Mise en place et intégration de l’outil ; coordination technique."
+        - "Création d’un microsite présentant les offres d’emploi."
+        - "Formation, manuel d’utilisation et adaptation de la procédure interne."
+      results: "Un suivi plus efficace, des postes plus visibles et une coordination simplifiée entre RH et managers. Le traitement des candidatures a été structuré pour mieux encadrer la gestion des données personnelles."
+    - icon: priorisation
+      title: "Préparer le remplacement d’un logiciel de boutique inadapté"
+      duration: "Durée : quatre mois, en parallèle d’autres responsabilités."
+      situation: "Le logiciel ne répondait pas aux besoins de la boutique et imposait des doubles saisies. Ce fonctionnement alourdissait le travail et contribuait à la fatigue et à la démotivation de l’équipe."
+      role: "J’ai structuré le projet de remplacement et porté le besoin en interne, en réunissant les attentes de la boutique, des SI et de la comptabilité. J’ai accompagné son avancement avec le service SI jusqu’à la validation budgétaire par la Direction."
+      actions:
+        - "Analyse des besoins réels et des difficultés rencontrées."
+        - "Cahier des charges technique intégrant les exigences des départements."
+        - "Coordination avec les SI et mobilisation des parties prenantes."
+        - "Suivi jusqu’à la décision budgétaire."
+        - "Coordination du calendrier avec le prestataire, les SI, la boutique et la comptabilité."
+      results: "Une solution validée, un budget approuvé et un calendrier d’implémentation partagé et validé par toutes les parties prenantes."
+    - icon: collaboration
+      title: "Développer un événement et fédérer son écosystème"
+      duration: "Durée : plusieurs années."
+      situation: "Initialement organisé dans un format plus simple, l’événement présentait un potentiel de développement : enrichir le programme, élargir la participation universitaire et renforcer les liens avec l’industrie et le yachting."
+      role: "En tant que cheffe de projet, j’ai assuré la coordination interne et externe et contribué au développement de l’événement, de son écosystème et de nouveaux formats. J’ai également participé au recrutement et à la formation des personnes qui ont repris mes responsabilités."
+      actions:
+        - "Pilotage et coordination des équipes, partenaires et intervenants."
+        - "Développement des réseaux universitaires et industriels ; suivi des équipes participantes."
+        - "Nouveaux formats : forum emploi, exposition et conférences techniques."
+        - "Contribution à de nouvelles classes de bateaux, prix et règlements."
+        - "Coordination du jury et des équipes techniques."
+        - "Représentation internationale, conférences et interventions."
+        - "Recrutement de mes successeurs, formation et transmission des connaissances."
+      results: "Mon travail a contribué à l’enrichissement du programme, à la création de nouvelles classes de bateaux et de leurs règlements, à l’augmentation de la participation étudiante et au développement des collaborations entre étudiants et industrie. Il a également accompagné le rayonnement de l’événement auprès d’un réseau plus large d’acteurs du yachting."
+
+cta:
+  title: "Parlons de votre situation."
+  text: "Que vous souhaitiez structurer un projet, renforcer votre organisation ou accompagner une transformation, je serai ravie d’échanger avec vous."
+  button: "Réserver un échange gratuit de 30 minutes"
+  note: "Ouverture dans un nouvel onglet."

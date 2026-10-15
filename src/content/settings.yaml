@@ -10,3 +10,8 @@ links:
   # Passer à true uniquement quand la version anglaise a été relue et validée par Charlotte.
   # Tant que false : le sélecteur « EN » est inactif et les pages /en/ ne sont pas indexées.
   englishEnabled: false
+  # Phase 2 : passer à true pour publier les pages Accompagnements, Approche et parcours,
+  # Exemples de projets et Contact. Le menu renvoie alors vers ces pages au lieu des sections
+  # de l'accueil. Tant que false, les pages existent pour la prévisualisation mais ne sont ni liées
+  # ni indexées.
+  phase2Enabled: false

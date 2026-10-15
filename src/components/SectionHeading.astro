@@ -1,15 +1,17 @@
 ---
-/** En-tête de section du site : repère (Inter SemiBold 14, Stone) puis titre H2. */
+/** En-tête de section : repère facultatif (Inter SemiBold 14, Stone), titre H2 et sous-titre facultatif. */
 interface Props {
-  eyebrow: string;
+  eyebrow?: string;
   title: string;
+  subtitle?: string;
   id?: string;
   class?: string;
 }
-const { eyebrow, title, id, class: className = '' } = Astro.props;
+const { eyebrow, title, subtitle, id, class: className = '' } = Astro.props;
 ---
 
-<div class:list={['flex flex-col gap-4', className]}>
-  <p class="eyebrow">{eyebrow}</p>
+<div class:list={['flex max-w-[53rem] flex-col gap-4', className]}>
+  {eyebrow && <p class="eyebrow">{eyebrow}</p>}
   <h2 id={id} class="h2">{title}</h2>
+  {subtitle && <p class="text-lg leading-[1.6] text-stone">{subtitle}</p>}
 </div>

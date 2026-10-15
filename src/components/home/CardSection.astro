@@ -7,11 +7,12 @@ import SectionHeading from '../SectionHeading.astro';
 import Icon from '../Icon.astro';
 import CornerAccent from '../CornerAccent.astro';
 
-type IconName = 'coordination' | 'structuration' | 'priorisation' | 'solutions';
+type IconName = 'coordination' | 'structuration' | 'priorisation' | 'solutions' | 'collaboration' | 'resultats';
 interface Props {
   id: string;
-  eyebrow: string;
+  eyebrow?: string;
   title: string;
+  subtitle?: string;
   items: { icon: IconName; title: string; text: string; id?: string }[];
   /** Ordre significatif (étapes de la méthode). */
   ordered?: boolean;
@@ -20,14 +21,14 @@ interface Props {
   corner?: boolean;
   note?: string;
 }
-const { id, eyebrow, title, items, ordered = false, tone = 'ivory', corner = false, note } = Astro.props;
+const { id, eyebrow, title, subtitle, items, ordered = false, tone = 'ivory', corner = false, note } = Astro.props;
 const List = ordered ? 'ol' : 'ul';
 ---
 
 <section id={id} aria-labelledby={`${id}-title`} class:list={['section relative', tone === 'white' ? 'bg-white' : 'bg-ivory']}>
   {corner && <CornerAccent size={50} class="top-6 right-6 hidden lg:block" />}
   <div class="container-site">
-    <SectionHeading eyebrow={eyebrow} title={title} id={`${id}-title`} />
+    <SectionHeading eyebrow={eyebrow} title={title} subtitle={subtitle} id={`${id}-title`} />
     <List class="mt-8 grid items-start gap-4 md:grid-cols-3 lg:mt-16 lg:gap-8">
       {
         items.map((item) => (

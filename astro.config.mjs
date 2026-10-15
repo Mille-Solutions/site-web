@@ -5,7 +5,11 @@ import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
 // Les pages anglaises ne sont listées dans le plan du site qu'une fois validées (settings.yaml).
-const englishEnabled = /^\s*englishEnabled:\s*true\b/m.test(readFileSync('./src/content/settings.yaml', 'utf8'));
+const settings = readFileSync('./src/content/settings.yaml', 'utf8');
+const englishEnabled = /^\s*englishEnabled:\s*true\b/m.test(settings);
+// Idem pour les pages de phase 2 (phase2Enabled).
+const phase2Enabled = /^\s*phase2Enabled:\s*true\b/m.test(settings);
+const phase2Paths = ['/accompagnements/', '/approche-et-parcours/', '/exemples-de-projets/', '/contact/'];
 
 export default defineConfig({
   site: 'https://millesolutions.mc',
@@ -18,7 +22,10 @@ export default defineConfig({
   integrations: [
     sitemap({
       i18n: { defaultLocale: 'fr', locales: { fr: 'fr-FR', en: 'en-GB' } },
-      filter: (page) => !page.includes('/404') && (englishEnabled || !page.includes('/en/')),
+      filter: (page) =>
+        !page.includes('/404') &&
+        (englishEnabled || !page.includes('/en/')) &&
+        (phase2Enabled || !phase2Paths.some((p) => page.endsWith(p))),
     }),
   ],
   devToolbar: { enabled: false },

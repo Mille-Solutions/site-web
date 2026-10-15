@@ -1,21 +1,15 @@
 ---
+import { getEntry } from 'astro:content';
 import Logo from './Logo.astro';
-import { ui, routes, sections, type Lang } from '../i18n/ui';
+import { ui, routes, navItems, type Lang } from '../i18n/ui';
 
 interface Props {
   lang: Lang;
 }
 const { lang } = Astro.props;
 const t = ui[lang];
-const s = sections[lang];
-const home = routes.home[lang];
-const navItems = [
-  { label: t.home, href: home },
-  { label: t.nav.services, href: `${home}#${s.services}` },
-  { label: t.nav.approach, href: `${home}#${s.approach}` },
-  { label: t.nav.examples, href: `${home}#${s.examples}` },
-  { label: t.nav.contact, href: `${home}#${s.contact}` },
-];
+const settings = (await getEntry('settings', 'links'))!.data;
+const items = navItems(lang, settings.phase2Enabled);
 ---
 
 <footer class="bg-ivory">
@@ -33,7 +27,7 @@ const navItems = [
           <p id="footer-nav" class="eyebrow">{t.footerNav}</p>
           <ul class="mt-5 space-y-1 text-sm">
             {
-              navItems.map((item) => (
+              items.map((item) => (
                 <li>
                   <a href={item.href} class="inline-flex min-h-8 items-center hover:underline">
                     {item.label}

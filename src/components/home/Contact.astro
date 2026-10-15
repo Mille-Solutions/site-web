@@ -10,13 +10,16 @@ interface Props {
   id: string;
   bookingsUrl: string;
   formEndpoint: string;
+  /** h1 sur la page Contact, h2 sur l'accueil. */
+  headingLevel?: 'h1' | 'h2';
 }
-const { lang, content, id, bookingsUrl, formEndpoint } = Astro.props;
+const { lang, content, id, bookingsUrl, formEndpoint, headingLevel = 'h2' } = Astro.props;
+const Heading = headingLevel;
 ---
 
 <section id={id} aria-labelledby={`${id}-title`} class="section bg-white">
   <div class="container-site">
-    <h2 id={`${id}-title`} class="text-[2.5rem] leading-[1.2] font-semibold text-balance lg:text-[4.5rem]">{content.title}</h2>
+    <Heading id={`${id}-title`} class="text-[2.5rem] leading-[1.2] font-semibold text-balance lg:text-[4.5rem]">{content.title}</Heading>
     <p class="mt-6 max-w-[53rem] text-lg leading-[1.6] text-stone lg:mt-6">{content.text}</p>
 
     <div class="mt-8 grid items-start gap-6 lg:mt-16 lg:grid-cols-[515fr_733fr] lg:gap-8">

@@ -17,7 +17,7 @@ const items = (['fr', 'en'] as const).map((code) => ({
   code,
   current: code === lang,
   // Le français reste toujours accessible ; l'anglais seulement une fois validé.
-  href: code === 'fr' || enabled ? routes[route][code] : undefined,
+  href: code === 'fr' ? routes[route].fr : enabled ? (routes[route].en ?? undefined) : undefined,
 }));
 ---
 

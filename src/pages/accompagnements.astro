@@ -9,6 +9,8 @@ import CardSection from '../components/home/CardSection.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import Icon from '../components/Icon.astro';
 import { routes } from '../i18n/ui';
+// Photo reprise de la maquette Figma « Accompagnements — FR » : droits à confirmer.
+import heroImage from '../assets/accompagnements-monaco.jpg';
 
 const lang = 'fr';
 const page = (await getEntry('services', lang))!.data;
@@ -25,29 +27,34 @@ const { list } = page;
     secondary={page.hero.secondary ? { label: page.hero.secondary, href: routes.approach.fr } : undefined}
     bookingsUrl={settings.bookingsUrl}
     imageCaption={page.hero.imageCaption}
+    image={heroImage}
+    imageAlt={page.hero.imageAlt}
     track="services-hero"
   />
 
   <Statement text={page.statement} />
 
-  <section aria-labelledby="liste-title" class="section bg-ivory">
+  <section aria-labelledby="liste-title" class="bg-ivory py-20 lg:py-40">
     <div class="container-site">
-      <SectionHeading eyebrow={list.eyebrow} title={list.title} id="liste-title" />
+      <SectionHeading eyebrow={list.eyebrow} title={list.title} id="liste-title" size="md" />
       <ul class="mt-8 grid items-start gap-4 lg:mt-20 lg:grid-cols-3 lg:gap-8">
         {
           list.items.map((item) => (
-            <li id={item.id} class="reveal card flex scroll-mt-28 flex-col gap-8 lg:p-10">
+            <li id={item.id} class="reveal card-square flex scroll-mt-28 flex-col gap-8">
               <div class="flex items-center gap-4">
-                <span class="icon-badge size-14">
+                <span class="icon-badge-azur">
                   <Icon name={item.icon} class="size-6" />
                 </span>
-                <h3 class="text-xl leading-[1.3] font-semibold">{item.title}</h3>
+                <div class="flex flex-col gap-1">
+                  <p class="eyebrow">{list.needsLabel}</p>
+                  <h3 class="text-xl leading-[1.3] font-medium">{item.title}</h3>
+                </div>
               </div>
-              <p class="leading-[1.6] text-stone">{item.text}</p>
+              <p class="leading-6 text-stone">{item.text}</p>
               <Chips label={list.needsLabel} items={item.needs} />
-              <div class="flex flex-col gap-3">
+              <div class="flex flex-col gap-3 text-stone">
                 <p class="eyebrow">{list.interventionLabel}</p>
-                <p class="leading-[1.6]">{item.intervention}</p>
+                <p class="leading-6">{item.intervention}</p>
               </div>
               <Chips label={list.deliverablesLabel} items={item.deliverables} />
             </li>
@@ -57,7 +64,7 @@ const { list } = page;
     </div>
   </section>
 
-  <CardSection id="approche" eyebrow={page.approach.eyebrow} title={page.approach.title} items={page.approach.items} tone="white" corner />
+  <CardSection id="approche" eyebrow={page.approach.eyebrow} title={page.approach.title} items={page.approach.items} variant="square" />
 
   <CtaSection lang={lang} {...page.cta} bookingsUrl={settings.bookingsUrl} track="services-cta" />
 </Base>

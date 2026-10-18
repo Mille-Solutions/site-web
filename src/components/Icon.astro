@@ -1,9 +1,8 @@
 ---
 /**
  * Icônes de la charte 2026 (Figma « 07b — Iconographie ») : grille 24 × 24 px, trait 1,75 px,
- * extrémités arrondies, sans remplissage. Coordination, Structuration, Priorisation et Solutions reprennent
- * les tracés Figma ; Collaboration et Résultats sont redessinées dans le même style
- * (tracés à faire valider).
+ * extrémités arrondies, sans remplissage. Coordination, Structuration, Priorisation, Solutions et Résultats reprennent
+ * les tracés Figma ; Collaboration est redessinée dans le même style (tracé à faire valider).
  */
 interface Props {
   name: 'coordination' | 'structuration' | 'priorisation' | 'solutions' | 'collaboration' | 'resultats' | 'arrow' | 'external' | 'menu' | 'close';
@@ -76,9 +75,9 @@ const ui = ['arrow', 'external', 'menu', 'close'].includes(name);
   {
     name === 'resultats' && (
       <>
-        <path d="M3.5 3.5v17h17" />
-        <path d="m7.5 15 4-4.5 3 2.5 5-6" />
-        <path d="M15.5 7h4v4" />
+        <circle cx="12.43" cy="11.57" r="9.57" />
+        <circle cx="12.43" cy="11.57" r="5.22" />
+        <path d="M2 22 9.38 14.62M6.24 12.76l3.69 3.69" />
       </>
     )
   }

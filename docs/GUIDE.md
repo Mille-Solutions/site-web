@@ -350,10 +350,12 @@ Pour **ajouter une section** :
 
 ### 5.4 Remplacer les emplacements photo par de vraies images
 
-La photo de Monaco de l'accueil (`src/assets/hero-monaco.png`) est **provisoire** : elle provient de
-la maquette Figma, sans information sur son origine. Ses droits sont à vérifier, ou elle est à
-remplacer avant publication. Les autres images (portrait, pages de phase 2) sont encore des
-emplacements réservés.
+Deux photos proviennent de la maquette Figma : `src/assets/hero-monaco.png` (accueil, origine non
+indiquée) et `src/assets/accompagnements-monaco.jpg` (page Accompagnements, photo prise à l'iPhone,
+métadonnées retirées). Leurs droits sont à confirmer avant publication. Les autres images (portrait,
+pages Approche et Exemples) sont encore des emplacements réservés. Pour ajouter une photo au premier
+écran d'une page de phase 2, passer `image={…}` et `imageAlt` à `PageHero` (voir
+`src/pages/accompagnements.astro`).
 
 1. Placer les images dans `src/assets/` (par ex. `src/assets/portrait.jpg`), en grande taille. Astro les redimensionne et les compresse lui-même, en WebP et en plusieurs tailles.
 2. Dans la section concernée (`Hero.astro`, `About.astro`), remplacer `<PhotoPlaceholder … />` par :

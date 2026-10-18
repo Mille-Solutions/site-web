@@ -5,13 +5,15 @@ interface Props {
   title: string;
   subtitle?: string;
   id?: string;
+  /** « lg » : accueil (H2 48 px) ; « md » : pages de phase 2 (repère 12 px, H2 32 px). */
+  size?: 'lg' | 'md';
   class?: string;
 }
-const { eyebrow, title, subtitle, id, class: className = '' } = Astro.props;
+const { eyebrow, title, subtitle, id, size = 'lg', class: className = '' } = Astro.props;
 ---
 
 <div class:list={['flex max-w-[53rem] flex-col gap-4', className]}>
-  {eyebrow && <p class="eyebrow">{eyebrow}</p>}
-  <h2 id={id} class="h2">{title}</h2>
+  {eyebrow && <p class:list={['eyebrow', size === 'md' && 'text-xs']}>{eyebrow}</p>}
+  <h2 id={id} class:list={[size === 'md' ? 'text-[1.75rem] leading-[1.25] font-semibold lg:text-[2rem]' : 'h2']}>{title}</h2>
   {subtitle && <p class="text-lg leading-[1.6] text-stone">{subtitle}</p>}
 </div>

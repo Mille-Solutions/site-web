@@ -16,6 +16,8 @@ const home = routes.home[lang];
 const settings = (await getEntry('settings', 'links'))!.data;
 
 const items = navItems(lang, settings.phase2Enabled);
+// Page active (pages de phase 2 uniquement : sur l'accueil, le menu renvoie à des sections).
+const isCurrent = (key: RouteKey) => key === route && key !== 'home';
 ---
 
 <header class="sticky top-0 z-40 border-b border-azur bg-ivory">
@@ -32,7 +34,11 @@ const items = navItems(lang, settings.phase2Enabled);
         {
           items.map((item) => (
             <li>
-              <a href={item.href} class="py-3 hover:text-navy">
+              <a
+                href={item.href}
+                aria-current={isCurrent(item.key) ? 'page' : undefined}
+                class:list={['py-3 hover:text-navy', isCurrent(item.key) && 'font-semibold text-navy']}
+              >
                 {item.label}
               </a>
             </li>
@@ -72,7 +78,11 @@ const items = navItems(lang, settings.phase2Enabled);
         {
           items.map((item) => (
             <li>
-              <a href={item.href} class="flex min-h-20 items-center text-[1.75rem] leading-tight font-semibold">
+              <a
+                href={item.href}
+                aria-current={isCurrent(item.key) ? 'page' : undefined}
+                class:list={['flex min-h-20 items-center text-[1.75rem] leading-tight font-semibold', isCurrent(item.key) && 'underline decoration-azur decoration-2 underline-offset-8']}
+              >
                 {item.label}
               </a>
             </li>

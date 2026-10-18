@@ -27,15 +27,15 @@ const { projects } = page;
     </div>
   </PageHero>
 
-  <section aria-labelledby="fiches-title" class="section bg-white">
+  <section aria-labelledby="fiches-title" class="bg-ivory py-20 lg:py-40">
     <div class="container-site">
-      <SectionHeading eyebrow={projects.eyebrow} title={projects.title} subtitle={projects.subtitle} id="fiches-title" />
+      <SectionHeading eyebrow={projects.eyebrow} title={projects.title} subtitle={projects.subtitle} id="fiches-title" size="md" />
       <ol class="mt-8 grid items-start gap-4 lg:mt-20 lg:grid-cols-3 lg:gap-8">
         {
           projects.items.map((item, i) => (
-            <li class="reveal card flex flex-col gap-8 lg:p-10">
+            <li class="reveal card-square flex flex-col gap-8">
               <div class="flex items-center justify-between">
-                <span class="icon-badge size-14">
+                <span class="icon-badge-azur">
                   <Icon name={item.icon} class="size-6" />
                 </span>
                 <span class="text-sm font-semibold text-stone">{String(i + 1).padStart(2, '0')}</span>

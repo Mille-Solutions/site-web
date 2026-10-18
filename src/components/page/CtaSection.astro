@@ -1,5 +1,8 @@
 ---
-/** Appel final centré vers Microsoft Bookings (« cta-section » de la maquette). */
+/**
+ * Appel final centré vers Microsoft Bookings (« cta-section » de la maquette) :
+ * fond Navy, halo Azure très léger en haut, titre 80 px Ivory, bouton Azure.
+ */
 import ExternalLink from '../ExternalLink.astro';
 import type { Lang } from '../../i18n/ui';
 
@@ -15,13 +18,17 @@ interface Props {
 const { lang, title, text, button, note, bookingsUrl, track } = Astro.props;
 ---
 
-<section aria-labelledby={`${track}-title`} class="bg-ivory py-20 lg:py-40">
-  <div class="container-site flex flex-col items-center text-center">
-    <h2 id={`${track}-title`} class="max-w-[53rem] text-[2.5rem] leading-[1.2] font-semibold text-balance lg:text-[5rem]">{title}</h2>
-    <p class="mt-6 max-w-[32rem] text-lg leading-[1.6] text-stone">{text}</p>
-    <ExternalLink href={bookingsUrl} lang={lang} icon={false} track={track} class="btn btn-dark mt-10 w-full sm:w-auto sm:min-w-[22rem]">
+<section aria-labelledby={`${track}-title`} class="relative overflow-hidden bg-navy py-24 text-ivory lg:py-40">
+  <span aria-hidden="true" class="pointer-events-none absolute -top-50 left-1/2 h-100 w-200 max-w-full -translate-x-1/2 rounded-full bg-azur/10 blur-[50px]"></span>
+  <div class="container-site relative flex flex-col items-center gap-10 text-center">
+    <div class="flex flex-col items-center gap-6">
+      <h2 id={`${track}-title`} class="max-w-[53rem] text-[2.5rem] leading-[1.2] font-semibold text-balance lg:text-[5rem]">{title}</h2>
+      <!-- Maquette : Stone sur Navy ; éclairci ici pour atteindre le contraste AA (4,5:1). -->
+      <p class="max-w-[32rem] text-lg leading-[1.6] text-ivory/75">{text}</p>
+    </div>
+    <ExternalLink href={bookingsUrl} lang={lang} icon={false} track={track} class="btn btn-primary w-full font-medium sm:w-auto">
       {button}
     </ExternalLink>
-    {note && <p aria-hidden="true" class="mt-6 text-sm text-stone">{note}</p>}
+    {note && <p aria-hidden="true" class="-mt-4 text-sm text-ivory/70">{note}</p>}
   </div>
 </section>

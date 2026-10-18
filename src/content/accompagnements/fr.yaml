@@ -9,6 +9,8 @@ hero:
   primary: "Réserver un échange gratuit"
   secondary: "Découvrir mon approche"
   imageCaption: "Photo à fournir — droits à valider"
+  # Photo issue de la maquette Figma (src/assets/accompagnements-monaco.jpg) : droits à confirmer.
+  imageAlt: "Monaco vu depuis les hauteurs : le port, les immeubles et la mer."
 
 statement: "Chaque mission est adaptée à votre contexte, à vos ressources et à vos priorités. Nous définissons ensemble le périmètre, les livrables et les modalités d’intervention avant de démarrer."
 

@@ -101,6 +101,17 @@
     @apply rounded-(--radius-card) border border-azur bg-white p-6 lg:p-8;
   }
 
+  /* Cartes des pages de phase 2 (maquette « Accompagnements — FR ») : angles droits, fond Ivory */
+  .card-square {
+    @apply border border-azur bg-ivory p-6 lg:p-10;
+  }
+  .icon-badge-azur {
+    @apply inline-flex size-14 shrink-0 items-center justify-center rounded-full bg-azur text-navy;
+  }
+  .chip {
+    @apply rounded-full border border-azur bg-ivory px-3 py-2 text-sm leading-tight text-navy;
+  }
+
   .icon-badge {
     @apply inline-flex size-12 shrink-0 items-center justify-center rounded-full bg-azur-mist text-navy;
   }

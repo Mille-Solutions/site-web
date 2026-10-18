@@ -38,10 +38,10 @@ Le guide complet de mise en ligne et de modification se trouve dans [docs/GUIDE.
 ## Reste à faire
 
 - [ ] Lien Bookings et LinkedIn définitifs (`settings.yaml`)
-- [ ] Portrait et photos (emplacements réservés ; photo de Monaco de l'accueil provisoire, droits à vérifier)
+- [ ] Portrait et photos (emplacements réservés ; photos de l'accueil et de la page Accompagnements reprises de Figma, droits à vérifier)
 - [ ] Formulaire de contact : service d'envoi côté serveur (`contactFormEndpoint`)
 - [ ] Relecture et validation de la traduction anglaise par Charlotte, puis `englishEnabled: true` ; pages légales en anglais
-- [ ] Validation des tracés des icônes « Collaboration » et « Résultats » (redessinées)
+- [ ] Validation du tracé de l'icône « Collaboration » (redessinée)
 - [ ] Compléter les informations entre crochets des pages légales, puis retirer `draft: true`
 - [ ] Outil de statistiques (suivi des clics Bookings déjà balisé via `data-track`)
 - [ ] Image de partage `public/og-image.png` (1200×630)

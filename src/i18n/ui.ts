@@ -135,11 +135,11 @@ export function navItems(lang: Lang, phase2: boolean) {
   const target = (route: RouteKey, anchor: string) =>
     phase2 && (lang === 'fr' || routes[route][lang]) ? pathFor(route, lang) : `${home}#${anchor}`;
   return [
-    { label: t.home, href: home },
-    { label: t.nav.services, href: target('services', s.services) },
-    { label: t.nav.approach, href: target('approach', s.approach) },
-    { label: t.nav.examples, href: target('examples', s.examples) },
-    { label: t.nav.contact, href: target('contact', s.contact) },
+    { key: 'home' as RouteKey, label: t.home, href: home },
+    { key: 'services' as RouteKey, label: t.nav.services, href: target('services', s.services) },
+    { key: 'approach' as RouteKey, label: t.nav.approach, href: target('approach', s.approach) },
+    { key: 'examples' as RouteKey, label: t.nav.examples, href: target('examples', s.examples) },
+    { key: 'contact' as RouteKey, label: t.nav.contact, href: target('contact', s.contact) },
   ];
 }
 

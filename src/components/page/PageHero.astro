@@ -5,6 +5,8 @@
  * - layout « split » : texte à gauche, image à droite (Approche et parcours).
  */
 import ExternalLink from '../ExternalLink.astro';
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
 import PhotoPlaceholder from '../PhotoPlaceholder.astro';
 import type { Lang } from '../../i18n/ui';
 
@@ -16,10 +18,13 @@ interface Props {
   secondary?: { label: string; href: string };
   bookingsUrl: string;
   imageCaption: string;
+  /** Photo du premier écran ; à défaut, un emplacement réservé est affiché. */
+  image?: ImageMetadata;
+  imageAlt?: string;
   layout?: 'stacked' | 'split';
   track: string;
 }
-const { lang, title, lead, primary, secondary, bookingsUrl, imageCaption, layout = 'stacked', track } = Astro.props;
+const { lang, title, lead, primary, secondary, bookingsUrl, imageCaption, image, imageAlt = '', layout = 'stacked', track } = Astro.props;
 const split = layout === 'split';
 ---
 
@@ -30,7 +35,7 @@ const split = layout === 'split';
       <h1 class:list={['font-semibold tracking-[-0.015em] text-balance', split ? 'text-[2.5rem] leading-[1.1] lg:text-[4rem] lg:leading-[1.15]' : 'text-[2.5rem] leading-[1.2] lg:text-5xl']}>
         {title}
       </h1>
-      <p class="text-lg leading-[1.6] text-stone">{lead}</p>
+      <p class:list={['text-stone', split ? 'text-lg leading-[1.6]' : 'leading-6']}>{lead}</p>
       <slot />
       {
         (primary || secondary) && (
@@ -49,9 +54,24 @@ const split = layout === 'split';
         )
       }
     </div>
-    <PhotoPlaceholder
-      caption={imageCaption}
-      class:list={[split ? 'aspect-[342/320] w-full lg:aspect-[720/688]' : 'mt-8 aspect-[342/240] w-full lg:mt-14 lg:aspect-[1280/520]']}
-    />
+    {
+      image ? (
+        <Image
+          src={image}
+          alt={imageAlt}
+          width={1920}
+          widths={[640, 1280, 1920]}
+          sizes="(min-width: 1440px) 1280px, calc(100vw - 3rem)"
+          loading="eager"
+          fetchpriority="high"
+          class:list={[split ? 'aspect-[342/320] w-full object-cover lg:aspect-[720/688]' : 'mt-8 aspect-[342/240] w-full object-cover lg:mt-16 lg:aspect-[1280/520]']}
+        />
+      ) : (
+        <PhotoPlaceholder
+          caption={imageCaption}
+          class:list={[split ? 'aspect-[342/320] w-full lg:aspect-[720/688]' : 'mt-8 aspect-[342/240] w-full lg:mt-16 lg:aspect-[1280/520]']}
+        />
+      )
+    }
   </div>
 </section>

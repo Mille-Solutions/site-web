@@ -86,6 +86,7 @@ const hero = z.object({
   primary: z.string(),
   secondary: z.string().optional(),
   imageCaption: z.string(),
+  imageAlt: z.string().optional(),
 });
 
 const services = defineCollection({

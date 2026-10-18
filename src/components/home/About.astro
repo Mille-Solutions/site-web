@@ -1,7 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import SectionHeading from '../SectionHeading.astro';
-import PhotoPlaceholder from '../PhotoPlaceholder.astro';
 import ExternalLink from '../ExternalLink.astro';
 import type { Lang } from '../../i18n/ui';
 
@@ -18,13 +17,16 @@ const [first, ...rest] = content.paragraphs;
 <section id={id} aria-labelledby={`${id}-title`} class="section bg-ivory">
   <div class="container-site">
     <SectionHeading eyebrow={content.eyebrow} title={content.title} id={`${id}-title`} />
-    <div class="mt-8 grid gap-8 lg:mt-16 lg:grid-cols-[22.5rem_1fr] lg:gap-8">
-      <PhotoPlaceholder caption={content.portraitCaption} class="reveal aspect-[342/380] w-full lg:aspect-[3/4]" />
+    <div class="mt-8 grid items-start gap-8 lg:mt-16 lg:grid-cols-[22.5rem_1fr]">
+      <!-- Emplacement du portrait réel de Charlotte (à fournir, droits à valider) -->
+      <div class="reveal aspect-[342/380] w-full rounded-(--radius-card) bg-[#e8f0f2] p-6 lg:aspect-[360/480]">
+        <p class="max-w-[16rem] text-lg font-semibold text-stone">{content.portraitCaption}</p>
+      </div>
       <div class="flex flex-col items-start gap-6">
-        <p class="text-2xl leading-[1.45] font-medium lg:text-[1.75rem] lg:leading-[1.35]">{first}</p>
+        <p class="text-2xl leading-[1.25] font-semibold lg:text-[2rem] lg:leading-[1.2]">{first}</p>
         {rest.map((p) => <p class="text-lg leading-[1.6] text-stone">{p}</p>)}
         <!-- Phase 1 : LinkedIn ; phase 2 : page « Approche et parcours » -->
-        <ExternalLink href={linkedinUrl} lang={lang} icon={false} class="btn btn-secondary w-full sm:w-auto">
+        <ExternalLink href={linkedinUrl} lang={lang} icon={false} class="btn btn-primary w-full sm:w-auto">
           {content.cta}
         </ExternalLink>
       </div>

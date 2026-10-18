@@ -15,8 +15,10 @@ interface Props {
   lang: Lang;
   content: CollectionEntry<'home'>['data']['contact']['form'];
   endpoint: string;
+  /** Filet Azure autour de la carte (fond clair) ; sans filet sur fond Navy. */
+  bordered?: boolean;
 }
-const { lang, content: f, endpoint } = Astro.props;
+const { lang, content: f, endpoint, bordered = true } = Astro.props;
 const t = ui[lang];
 const enabled = endpoint.trim() !== '';
 
@@ -26,11 +28,11 @@ const fields = [
   { name: 'organisation', label: f.organisation, placeholder: f.organisationPlaceholder, type: 'text', required: false, autocomplete: 'organization', maxlength: 160 },
 ] as const;
 const inputClass =
-  'w-full border border-stone/50 bg-white px-4 py-4 text-base text-navy placeholder:text-stone/80 aria-invalid:border-[#b42318] disabled:cursor-not-allowed disabled:bg-ivory';
+  'w-full rounded-lg border border-azur bg-white px-4 py-4 text-base text-navy placeholder:text-stone aria-invalid:border-[#b42318] disabled:cursor-not-allowed disabled:bg-ivory';
 ---
 
 <form
-  class="card relative flex flex-col gap-6"
+  class:list={['card relative flex flex-col gap-6 text-navy', !bordered && 'border-0']}
   action={enabled ? endpoint : undefined}
   method="post"
   novalidate
@@ -98,7 +100,7 @@ const inputClass =
     </div>
     <input type="hidden" name="lang" value={lang} />
 
-    <button type="submit" class="btn btn-primary w-full disabled:cursor-not-allowed disabled:opacity-60" data-submit>
+    <button type="submit" class="btn btn-dark w-full disabled:cursor-not-allowed disabled:opacity-60" data-submit>
       {f.submit}
     </button>
   </fieldset>

@@ -12,28 +12,30 @@ interface Props {
   formEndpoint: string;
   /** h1 sur la page Contact, h2 sur l'accueil. */
   headingLevel?: 'h1' | 'h2';
+  /** « dark » : fond Navy de la maquette d'accueil ; « light » : fond blanc. */
+  tone?: 'dark' | 'light';
 }
-const { lang, content, id, bookingsUrl, formEndpoint, headingLevel = 'h2' } = Astro.props;
+const { lang, content, id, bookingsUrl, formEndpoint, headingLevel = 'h2', tone = 'light' } = Astro.props;
 const Heading = headingLevel;
+const dark = tone === 'dark';
 ---
 
-<section id={id} aria-labelledby={`${id}-title`} class="section bg-white">
+<section id={id} aria-labelledby={`${id}-title`} class:list={['section', dark ? 'bg-navy text-ivory' : 'bg-white']}>
   <div class="container-site">
-    <Heading id={`${id}-title`} class="text-[2.5rem] leading-[1.2] font-semibold text-balance lg:text-[4.5rem]">{content.title}</Heading>
-    <p class="mt-6 max-w-[53rem] text-lg leading-[1.6] text-stone lg:mt-6">{content.text}</p>
+    <Heading id={`${id}-title`} class="text-[2.5rem] leading-[1.1] font-semibold text-balance lg:text-[5rem]">{content.title}</Heading>
+    <!-- Maquette : Stone sur Navy ; éclairci ici pour atteindre le contraste AA (4,5:1). -->
+    <p class:list={['mt-6 max-w-[53rem] text-lg leading-[1.6]', dark ? 'text-ivory/75' : 'text-stone']}>{content.text}</p>
 
     <div class="mt-8 grid items-start gap-6 lg:mt-16 lg:grid-cols-[515fr_733fr] lg:gap-8">
-      <div class="card flex flex-col gap-6 lg:sticky lg:top-32">
-        <div class="flex flex-col gap-4">
-          <p class="eyebrow">{content.booking.eyebrow}</p>
-          <p class="text-lg leading-[1.45]">{content.booking.text}</p>
-        </div>
+      <div class:list={['card flex flex-col gap-6 text-navy lg:sticky lg:top-32', dark && 'border-0']}>
+        <p class="eyebrow">{content.booking.eyebrow}</p>
+        <p class="leading-[1.6] text-stone">{content.booking.text}</p>
         <ExternalLink href={bookingsUrl} lang={lang} icon={false} track="contact" class="btn btn-primary w-full">
           {content.booking.cta}
         </ExternalLink>
       </div>
 
-      <ContactForm lang={lang} content={content.form} endpoint={formEndpoint} />
+      <ContactForm lang={lang} content={content.form} endpoint={formEndpoint} bordered={!dark} />
     </div>
   </div>
 </section>

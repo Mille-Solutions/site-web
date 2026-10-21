@@ -13,6 +13,8 @@ import type { Lang } from '../../i18n/ui';
 interface Props {
   lang: Lang;
   title: string;
+  /** Titre découpé en lignes (prioritaire sur `title`). */
+  titleLines?: string[];
   lead: string;
   primary?: string;
   secondary?: { label: string; href: string };
@@ -24,16 +26,16 @@ interface Props {
   layout?: 'stacked' | 'split';
   track: string;
 }
-const { lang, title, lead, primary, secondary, bookingsUrl, imageCaption, image, imageAlt = '', layout = 'stacked', track } = Astro.props;
+const { lang, title, titleLines, lead, primary, secondary, bookingsUrl, imageCaption, image, imageAlt = '', layout = 'stacked', track } = Astro.props;
 const split = layout === 'split';
 ---
 
 <section class="bg-ivory py-14 lg:py-24">
-  <div class:list={['container-site', split && 'grid items-center gap-10 lg:grid-cols-[35rem_1fr] lg:gap-20']}>
-    <div class="flex max-w-[53rem] flex-col gap-8">
+  <div class:list={['container-site', split && 'grid items-center gap-10 lg:min-h-[43rem] lg:grid-cols-[35rem_1fr] lg:gap-0']}>
+    <div class:list={['flex min-w-0 flex-col gap-8', split ? 'lg:max-w-[33rem]' : 'max-w-[53rem]']}>
       <slot name="before" />
-      <h1 class:list={['font-semibold tracking-[-0.015em] text-balance', split ? 'text-[2.5rem] leading-[1.1] lg:text-[4rem] lg:leading-[1.15]' : 'text-[2.5rem] leading-[1.2] lg:text-5xl']}>
-        {title}
+      <h1 class:list={['font-semibold tracking-[-0.015em]', split ? 'text-[2.5rem] leading-[1.1] lg:text-[4.5rem] lg:leading-[1.05]' : 'text-[2.5rem] leading-[1.2] text-balance lg:text-5xl']}>
+        {titleLines ? titleLines.map((line) => <span class="block">{line}</span>) : title}
       </h1>
       <p class:list={['text-stone', split ? 'text-lg leading-[1.6]' : 'leading-6']}>{lead}</p>
       <slot />
@@ -64,7 +66,7 @@ const split = layout === 'split';
           sizes="(min-width: 1440px) 1280px, calc(100vw - 3rem)"
           loading="eager"
           fetchpriority="high"
-          class:list={[split ? 'aspect-[342/320] w-full object-cover lg:aspect-[720/688]' : 'mt-8 aspect-[342/240] w-full object-cover lg:mt-16 lg:aspect-[1280/520]']}
+          class:list={[split ? 'aspect-[342/320] w-full object-cover lg:aspect-auto lg:h-full' : 'mt-8 aspect-[342/240] w-full object-cover lg:mt-16 lg:aspect-[1280/520]']}
         />
       ) : (
         <PhotoPlaceholder

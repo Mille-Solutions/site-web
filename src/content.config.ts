@@ -82,6 +82,8 @@ const cta = z.object({ title: z.string(), text: z.string(), button: z.string(), 
 const hero = z.object({
   eyebrow: z.string().optional(),
   title: z.string(),
+  /** Titre découpé en lignes, si la maquette impose les retours à la ligne. */
+  titleLines: z.array(z.string()).optional(),
   lead: z.string(),
   primary: z.string(),
   secondary: z.string().optional(),

@@ -26,6 +26,8 @@
 
   /* Teinte Azure très claire des pastilles d'icônes (maquette du site) */
   --color-azur-mist: #e6f4f8;
+  /* Bordure des cartes de la page Approche et parcours (maquette) */
+  --color-line: #e5e7eb;
   /* Fond des emplacements photo provisoires */
   --color-mist: #e3e8eb;
 
@@ -110,6 +112,14 @@
   }
   .chip {
     @apply rounded-full border border-azur bg-ivory px-3 py-2 text-sm leading-tight text-navy;
+  }
+
+  /* Cartes de la page Approche et parcours : arrondies, fond blanc, bordure gris clair */
+  .card-soft {
+    @apply rounded-(--radius-card) border border-line bg-white p-6 lg:p-8;
+  }
+  .icon-badge-soft {
+    @apply inline-flex size-14 shrink-0 items-center justify-center rounded-full bg-azur-mist text-azur;
   }
 
   .icon-badge {

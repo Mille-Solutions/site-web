@@ -4,19 +4,24 @@ meta:
   description: "Ma méthode, mes principes d’intervention et mon parcours : des idées pour avancer, une méthode pour concrétiser."
 
 hero:
-  title: "Des idées pour avancer, une méthode pour concrétiser"
+  title: "Des idées pour avancer, une méthode pour concrétiser."
+  titleLines:
+    - "Des idées pour avancer,"
+    - "une méthode pour concrétiser."
   lead: "J’ai créé Mille Solutions pour mettre mon expérience de la coordination, du management et du pilotage de projets au service des TPE, PME et institutions."
   primary: "Réserver un échange gratuit"
-  secondary: "Voir mes accompagnements"
+  secondary: "Découvrir mon approche"
   imageCaption: "Portrait ou photo à fournir — droits à valider"
+  # Photo issue de la maquette Figma (src/assets/approche-monaco.jpg) : droits à confirmer.
+  imageAlt: "Monaco au lever du jour : le port et les bateaux sous un ciel orangé."
 
 statement:
   title: "Parce qu’il existe mille façons d’avancer."
-  text: "Chaque projet est unique. Les solutions doivent l’être aussi."
+  text: "Trouvons ensemble la vôtre."
 
 intro:
   name: "Charlotte Charles Mille"
-  eyebrow: "Mon approche"
+  eyebrow: "Ma méthode"
   paragraphs:
     - "J’aime partir d’une idée, d’un besoin encore flou ou d’une difficulté opérationnelle, explorer plusieurs chemins et imaginer des solutions adaptées. Ma curiosité et mon énergie créative nourrissent cette recherche ; ma méthode permet de la traduire en actions concrètes."
     - "Clarifier l’objectif, réunir les bonnes personnes, définir les priorités et accompagner la mise en œuvre constituent le fil conducteur de mon travail. J’interviens également pour redonner de l’élan à un projet qui stagne ou repenser un fonctionnement devenu compliqué."
@@ -70,4 +75,3 @@ cta:
   title: "Parlons de votre prochain projet."
   text: "Que vous souhaitiez structurer un projet, renforcer votre organisation ou accompagner une transformation, je serai ravie d’échanger avec vous."
   button: "Réserver un échange gratuit de 30 minutes"
-  note: "Ouverture dans un nouvel onglet."

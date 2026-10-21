@@ -350,10 +350,11 @@ Pour **ajouter une section** :
 
 ### 5.4 Remplacer les emplacements photo par de vraies images
 
-Deux photos proviennent de la maquette Figma : `src/assets/hero-monaco.png` (accueil, origine non
-indiquée) et `src/assets/accompagnements-monaco.jpg` (page Accompagnements, photo prise à l'iPhone,
-métadonnées retirées). Leurs droits sont à confirmer avant publication. Les autres images (portrait,
-pages Approche et Exemples) sont encore des emplacements réservés. Pour ajouter une photo au premier
+Trois photos proviennent de la maquette Figma : `src/assets/hero-monaco.png` (accueil, origine non
+indiquée), `src/assets/accompagnements-monaco.jpg` et `src/assets/approche-monaco.jpg` (pages
+Accompagnements et Approche et parcours, photos prises à l'iPhone, métadonnées retirées). Leurs droits
+sont à confirmer avant publication. Les autres images (portrait, page Exemples) sont encore des
+emplacements réservés. Pour ajouter une photo au premier
 écran d'une page de phase 2, passer `image={…}` et `imageAlt` à `PageHero` (voir
 `src/pages/accompagnements.astro`).
 

@@ -7,7 +7,8 @@ import CtaSection from '../components/page/CtaSection.astro';
 import AzureDivider from '../components/page/AzureDivider.astro';
 import CardSection from '../components/home/CardSection.astro';
 import SectionHeading from '../components/SectionHeading.astro';
-import { routes } from '../i18n/ui';
+// Photo reprise de la maquette Figma « Approche et parcours — FR » : droits à confirmer.
+import heroImage from '../assets/approche-monaco.jpg';
 
 const lang = 'fr';
 const page = (await getEntry('approach', lang))!.data;
@@ -20,27 +21,33 @@ const [first, ...rest] = page.intro.paragraphs;
     lang={lang}
     layout="split"
     title={page.hero.title}
+    titleLines={page.hero.titleLines}
     lead={page.hero.lead}
     primary={page.hero.primary}
-    secondary={page.hero.secondary ? { label: page.hero.secondary, href: routes.services.fr } : undefined}
+    secondary={page.hero.secondary ? { label: page.hero.secondary, href: '#methode' } : undefined}
     bookingsUrl={settings.bookingsUrl}
     imageCaption={page.hero.imageCaption}
+    image={heroImage}
+    imageAlt={page.hero.imageAlt}
     track="approach-hero"
   />
 
   <Statement text={page.statement.title} secondary={page.statement.text} />
 
-  <section aria-labelledby="approche-intro" class="section bg-ivory">
+  <section aria-labelledby="approche-intro" class="bg-ivory py-20 lg:py-40">
     <div class="container-site grid items-center gap-10 lg:grid-cols-[39rem_1fr] lg:gap-8">
-      <p id="approche-intro" class="text-[2.5rem] leading-[1.2] font-semibold lg:text-[5rem] lg:leading-[1.2]">{page.intro.name}</p>
-      <div class="flex max-w-[34rem] flex-col gap-10">
-        <p class="eyebrow">{page.intro.eyebrow}</p>
-        <p class="text-xl leading-[1.6]">{first}</p>
+      <!-- Nom en retrait (30 % d'opacité dans la maquette) : élément décoratif, le nom reste lisible par les lecteurs d'écran -->
+      <p id="approche-intro" class="text-[2rem] leading-[1.2] font-semibold text-navy/30 lg:text-[2.5rem]">
+        {page.intro.name.split(' ').slice(0, 1).join(' ')}<br />{page.intro.name.split(' ').slice(1).join(' ')}
+      </p>
+      <div class="flex max-w-[32rem] flex-col gap-10">
+        <p class="eyebrow text-xs">{page.intro.eyebrow}</p>
+        <p class="text-xl leading-[1.5] font-semibold lg:text-2xl">{first}</p>
         {
           rest.map((p) => (
-            <div class="flex gap-3">
-              <AzureDivider class="mt-[0.9em] w-10 shrink-0" />
-              <p class="text-lg leading-[1.6] text-stone">{p}</p>
+            <div class="flex items-center gap-3">
+              <AzureDivider class="w-10 shrink-0" />
+              <p class="text-lg leading-[1.6] font-semibold">{p}</p>
             </div>
           ))
         }
@@ -48,13 +55,13 @@ const [first, ...rest] = page.intro.paragraphs;
     </div>
   </section>
 
-  <CardSection id="methode" title={page.method.title} subtitle={page.method.subtitle} items={page.method.steps} ordered variant="square" />
-  <CardSection id="principes" title={page.principles.title} subtitle={page.principles.subtitle} items={page.principles.items} variant="square" />
+  <CardSection id="methode" title={page.method.title} subtitle={page.method.subtitle} items={page.method.steps} ordered variant="soft" />
+  <CardSection id="principes" title={page.principles.title} subtitle={page.principles.subtitle} items={page.principles.items} variant="soft" />
 
-  <section aria-labelledby="parcours-title" class="section bg-white">
+  <section aria-labelledby="parcours-title" class="bg-ivory py-20 lg:py-40">
     <div class="container-site">
       <SectionHeading title={page.background.title} subtitle={page.background.subtitle} id="parcours-title" />
-      <div class="mt-8 flex max-w-[53rem] flex-col gap-8 text-lg leading-[1.6] lg:mt-16">
+      <div class="mt-8 flex max-w-[53rem] flex-col gap-8 text-lg leading-[1.6] text-stone lg:mt-16">
         {page.background.paragraphs.map((p) => <p>{p}</p>)}
       </div>
     </div>

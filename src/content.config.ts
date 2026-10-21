@@ -144,6 +144,7 @@ const examples = defineCollection({
       signature: z.string(),
       signatureText: z.string(),
       imageCaption: z.string(),
+      imageAlt: z.string().optional(),
     }),
     projects: z.object({
       ...section,

@@ -7,6 +7,8 @@ import AzureDivider from '../components/page/AzureDivider.astro';
 import CornerAccent from '../components/CornerAccent.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import Icon from '../components/Icon.astro';
+// Photo reprise de la maquette Figma « Exemples de projets — FR » : droits à confirmer.
+import heroImage from '../assets/exemples-monaco.jpg';
 
 const lang = 'fr';
 const page = (await getEntry('examples', lang))!.data;
@@ -15,66 +17,64 @@ const { projects } = page;
 ---
 
 <Base lang={lang} route="examples" title={page.meta.title} description={page.meta.description}>
-  <PageHero lang={lang} title={page.hero.title} lead={page.hero.lead} bookingsUrl={settings.bookingsUrl} imageCaption={page.hero.imageCaption} track="examples-hero">
-    <p slot="before" class="relative flex min-h-16 items-center pl-20 text-sm font-semibold text-stone">
+  <PageHero
+    lang={lang}
+    title={page.hero.title}
+    lead={page.hero.lead}
+    bookingsUrl={settings.bookingsUrl}
+    imageCaption={page.hero.imageCaption}
+    image={heroImage}
+    imageAlt={page.hero.imageAlt}
+    imageRatio="1280/480"
+    track="examples-hero"
+  >
+    <!-- Maquette : repère en Azure 12 px ; passé en Navy, l'Azure n'étant pas lisible en petit texte sur Ivory. -->
+    <p slot="before" class="relative flex min-h-16 items-center pl-19 text-xs leading-[1.5]">
       <CornerAccent class="top-0 left-0" />
       {page.hero.eyebrow}
     </p>
     <div class="flex flex-col gap-4">
-      <AzureDivider class="w-40" />
-      <p class="text-xl leading-[1.3] font-semibold">{page.hero.signature}</p>
-      <p class="text-sm text-stone">{page.hero.signatureText}</p>
+      <span aria-hidden="true" class="flex h-16 items-center"><AzureDivider class="w-40" /></span>
+      <p class="text-xl leading-[1.3] font-medium">{page.hero.signature}</p>
+      <p class="text-xs leading-[1.5] text-stone">{page.hero.signatureText}</p>
     </div>
   </PageHero>
 
-  <section aria-labelledby="fiches-title" class="bg-ivory py-20 lg:py-40">
+  <section aria-labelledby="fiches-title" class="bg-ivory py-20 lg:py-30">
     <div class="container-site">
       <SectionHeading eyebrow={projects.eyebrow} title={projects.title} subtitle={projects.subtitle} id="fiches-title" size="md" />
       <ol class="mt-8 grid items-start gap-4 lg:mt-20 lg:grid-cols-3 lg:gap-8">
         {
           projects.items.map((item, i) => (
-            <li class="reveal card-square flex flex-col gap-8">
+            <li class="reveal card flex flex-col gap-8 lg:p-10">
               <div class="flex items-center justify-between">
-                <span class="icon-badge-azur">
+                <span class="inline-flex size-14 items-center justify-center rounded-full bg-ivory">
                   <Icon name={item.icon} class="size-6" />
                 </span>
-                <span class="text-sm font-semibold text-stone">{String(i + 1).padStart(2, '0')}</span>
+                <span class="text-xs text-stone">{String(i + 1).padStart(2, '0')}</span>
               </div>
-              <div class="flex flex-col gap-4">
-                <h3 class="text-xl leading-[1.3] font-semibold">{item.title}</h3>
-                <p class="text-sm text-stone">{item.duration}</p>
-                <p class="leading-[1.6] text-stone">{item.situation}</p>
+              <div class="flex flex-col gap-5">
+                <h3 class="text-xl leading-[1.3] font-medium">{item.title}</h3>
+                <p class="text-xs leading-[1.5] text-stone">{item.duration}</p>
+                <p class="leading-6 text-stone">{item.situation}</p>
               </div>
-              <dl class="flex flex-col gap-4 text-sm leading-[1.55]">
-                <div class="flex gap-3">
-                  <Icon name="coordination" class="mt-0.5 size-5 shrink-0" />
-                  <div>
-                    <dt class="inline font-semibold">{projects.roleLabel} : </dt>
-                    <dd class="inline">{item.role}</dd>
-                  </div>
-                </div>
-                <div class="flex gap-3">
-                  <Icon name="solutions" class="mt-0.5 size-5 shrink-0" />
-                  <div>
-                    <dt class="font-semibold">{projects.actionsLabel} :</dt>
-                    <dd>
-                      <ul class="mt-1 list-disc space-y-1 pl-4 marker:text-azur">
-                        {item.actions.map((a) => <li>{a}</li>)}
-                      </ul>
-                    </dd>
-                  </div>
-                </div>
-                <div class="flex gap-3">
-                  <Icon name="resultats" class="mt-0.5 size-5 shrink-0" />
-                  <div>
-                    <dt class="inline font-semibold">{projects.resultsLabel} : </dt>
-                    <dd class="inline">{item.results}</dd>
-                  </div>
-                </div>
-              </dl>
+              <ul class="flex flex-col gap-4 text-xs leading-[1.5]">
+                <li class="flex items-center gap-3">
+                  <Icon name="coordination" class="size-6 shrink-0" />
+                  <p>{projects.roleLabel} : {item.role}</p>
+                </li>
+                <li class="flex items-center gap-3">
+                  <Icon name="solutions" class="size-6 shrink-0" />
+                  <p>{projects.actionsLabel} : {item.actions.join(' ')}</p>
+                </li>
+                <li class="flex items-center gap-3">
+                  <Icon name="resultats" class="size-6 shrink-0" />
+                  <p>{projects.resultsLabel} : {item.results}</p>
+                </li>
+              </ul>
               <div class="flex flex-col gap-3">
-                <AzureDivider class="w-40" />
-                <p class="text-[0.8125rem] leading-snug text-stone">{projects.note}</p>
+                <span aria-hidden="true" class="flex h-16 items-center"><AzureDivider class="w-40" /></span>
+                <p class="text-xs leading-[1.5] text-stone">{projects.note}</p>
               </div>
             </li>
           ))
@@ -83,5 +83,5 @@ const { projects } = page;
     </div>
   </section>
 
-  <CtaSection lang={lang} {...page.cta} bookingsUrl={settings.bookingsUrl} track="examples-cta" />
+  <CtaSection lang={lang} {...page.cta} bookingsUrl={settings.bookingsUrl} track="examples-cta" size="md" />
 </Base>

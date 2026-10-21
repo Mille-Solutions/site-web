@@ -11,6 +11,8 @@ hero:
   signature: "Structurer. Prioriser. Concrétiser."
   signatureText: "Clarifier le besoin, définir les priorités et accompagner la mise en œuvre."
   imageCaption: "Photo à fournir — droits à valider"
+  # Photo issue de la maquette Figma (src/assets/exemples-monaco.jpg) : droits à confirmer.
+  imageAlt: "Architecture contemporaine en front de mer à Monaco, avec le port et les collines en arrière-plan."
 
 projects:
   eyebrow: "Exemples de projets"
@@ -63,4 +65,3 @@ cta:
   title: "Parlons de votre situation."
   text: "Que vous souhaitiez structurer un projet, renforcer votre organisation ou accompagner une transformation, je serai ravie d’échanger avec vous."
   button: "Réserver un échange gratuit de 30 minutes"
-  note: "Ouverture dans un nouvel onglet."

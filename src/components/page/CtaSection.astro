@@ -14,17 +14,25 @@ interface Props {
   note?: string;
   bookingsUrl: string;
   track: string;
+  /** « lg » : titre 80 px ; « md » : titre 48 px, texte 16 px (maquette Exemples de projets). */
+  size?: 'lg' | 'md';
 }
-const { lang, title, text, button, note, bookingsUrl, track } = Astro.props;
+const { lang, title, text, button, note, bookingsUrl, track, size = 'lg' } = Astro.props;
+const md = size === 'md';
 ---
 
 <section aria-labelledby={`${track}-title`} class="relative overflow-hidden bg-navy py-24 text-ivory lg:py-40">
   <span aria-hidden="true" class="pointer-events-none absolute -top-50 left-1/2 h-100 w-200 max-w-full -translate-x-1/2 rounded-full bg-azur/10 blur-[50px]"></span>
   <div class="container-site relative flex flex-col items-center gap-10 text-center">
     <div class="flex flex-col items-center gap-6">
-      <h2 id={`${track}-title`} class="max-w-[53rem] text-[2.5rem] leading-[1.2] font-semibold text-balance lg:text-[5rem]">{title}</h2>
+      <h2
+        id={`${track}-title`}
+        class:list={['max-w-[53rem] font-semibold text-balance', md ? 'text-[2.25rem] leading-[1.2] lg:text-5xl' : 'text-[2.5rem] leading-[1.2] lg:text-[5rem]']}
+      >
+        {title}
+      </h2>
       <!-- Maquette : Stone sur Navy ; éclairci ici pour atteindre le contraste AA (4,5:1). -->
-      <p class="max-w-[32rem] text-lg leading-[1.6] text-ivory/75">{text}</p>
+      <p class:list={['max-w-[32rem] text-ivory/75', md ? 'leading-6' : 'text-lg leading-[1.6]']}>{text}</p>
     </div>
     <ExternalLink href={bookingsUrl} lang={lang} icon={false} track={track} class="btn btn-primary w-full font-medium sm:w-auto">
       {button}

@@ -24,9 +24,12 @@ interface Props {
   image?: ImageMetadata;
   imageAlt?: string;
   layout?: 'stacked' | 'split';
+  /** Format de l'image en mode « stacked » sur grand écran (1280 × 520 par défaut, 1280 × 480 pour Exemples). */
+  imageRatio?: '1280/520' | '1280/480';
   track: string;
 }
-const { lang, title, titleLines, lead, primary, secondary, bookingsUrl, imageCaption, image, imageAlt = '', layout = 'stacked', track } = Astro.props;
+const { lang, title, titleLines, lead, primary, secondary, bookingsUrl, imageCaption, image, imageAlt = '', layout = 'stacked', imageRatio = '1280/520', track } = Astro.props;
+const stackedImage = imageRatio === '1280/480' ? 'mt-8 aspect-[342/240] w-full lg:mt-14 lg:aspect-[1280/480]' : 'mt-8 aspect-[342/240] w-full lg:mt-16 lg:aspect-[1280/520]';
 const split = layout === 'split';
 ---
 
@@ -66,12 +69,12 @@ const split = layout === 'split';
           sizes="(min-width: 1440px) 1280px, calc(100vw - 3rem)"
           loading="eager"
           fetchpriority="high"
-          class:list={[split ? 'aspect-[342/320] w-full object-cover lg:aspect-auto lg:h-full' : 'mt-8 aspect-[342/240] w-full object-cover lg:mt-16 lg:aspect-[1280/520]']}
+          class:list={['object-cover', split ? 'aspect-[342/320] w-full lg:aspect-auto lg:h-full' : stackedImage]}
         />
       ) : (
         <PhotoPlaceholder
           caption={imageCaption}
-          class:list={[split ? 'aspect-[342/320] w-full lg:aspect-[720/688]' : 'mt-8 aspect-[342/240] w-full lg:mt-16 lg:aspect-[1280/520]']}
+          class:list={[split ? 'aspect-[342/320] w-full lg:aspect-[720/688]' : stackedImage]}
         />
       )
     }

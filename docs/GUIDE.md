@@ -340,6 +340,23 @@ se règle avec des classes Tailwind directement dans ces fichiers. Exemples :
 - grille sur 2 colonnes au lieu de 3 : dans `CardSection.astro`, remplacer `md:grid-cols-3` par `md:grid-cols-2` ;
 - changer l'ordre des sections : déplacer les lignes correspondantes dans `HomePage.astro`.
 
+**Version mobile** (maquette « Accueil mobile — FR », 390 px) : les classes **sans préfixe** règlent
+le mobile, les classes `sm:` rétablissent les valeurs de la tablette et de l'ordinateur, et les
+classes `lg:` / `xl:` règlent l'ordinateur. Pour retoucher le mobile sans toucher à l'ordinateur,
+modifier une classe sans préfixe et, si besoin, ajouter son équivalent `sm:`. Points propres au
+mobile :
+
+- titres H1 et « Parlons de votre situation » en 32 px, textes courants en 16 px, titres de cartes
+  en 20 px Medium, 20 px entre titre et texte des cartes ;
+- boutons pleine largeur de 56 px de haut (`.btn` dans `global.css`) ;
+- sous le bouton de réservation du premier écran, mention « Microsoft Bookings — ouverture dans un
+  nouvel onglet. », reprise de `contact.booking.text` (masquée à partir de 640 px) ;
+- en-tête : logo, FR / EN et Menu répartis sur toute la largeur ;
+- pied de page : liens de 44 px de haut (cible tactile), liens légaux en 14 px Navy.
+
+Ces réglages s'appliquent aussi aux autres pages qui utilisent les mêmes composants (en-tête, pied
+de page, section contact de la page Contact).
+
 Pour **ajouter une section** :
 
 1. créer `src/components/home/NouvelleSection.astro` (s'inspirer d'une section existante) ;

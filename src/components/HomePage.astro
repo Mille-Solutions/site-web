@@ -18,7 +18,7 @@ const { situations, services, method, examples } = content;
 ---
 
 <Base lang={lang} route="home" title={content.meta.title} description={content.meta.description}>
-  <Hero lang={lang} content={content.hero} bookingsUrl={settings.bookingsUrl} servicesId={s.services} />
+  <Hero lang={lang} content={content.hero} bookingsUrl={settings.bookingsUrl} servicesId={s.services} bookingNote={content.contact.booking.text} />
   <CardSection id={s.situations} eyebrow={situations.eyebrow} title={situations.title} items={situations.items} />
   <CardSection id={s.services} eyebrow={services.eyebrow} title={services.title} items={services.items} />
   <CardSection id={s.approach} eyebrow={method.eyebrow} title={method.title} items={method.steps} ordered />

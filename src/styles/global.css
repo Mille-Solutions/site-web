@@ -84,9 +84,9 @@
     @apply text-xl leading-[1.3] font-semibold lg:text-[1.75rem] lg:leading-[1.2];
   }
 
-  /* Boutons : angles droits, cible tactile ≥ 44 px */
+  /* Boutons : angles droits, cible tactile ≥ 44 px (56 px sur mobile, maquette « Accueil mobile — FR ») */
   .btn {
-    @apply inline-flex min-h-[3.3rem] items-center justify-center gap-2 px-5 py-3 text-center text-sm font-semibold transition-colors sm:px-8;
+    @apply inline-flex min-h-14 items-center justify-center gap-2 px-5 py-4 text-center text-sm font-semibold transition-colors sm:min-h-[3.3rem] sm:px-8 sm:py-3;
   }
   .btn-primary {
     @apply bg-azur text-navy hover:bg-[#62b4d1];

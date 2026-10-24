@@ -11,27 +11,31 @@ interface Props {
   content: CollectionEntry<'home'>['data']['hero'];
   bookingsUrl: string;
   servicesId: string;
+  /** « Microsoft Bookings — ouverture dans un nouvel onglet. » (repris de la section contact) */
+  bookingNote: string;
 }
-const { lang, content, bookingsUrl, servicesId } = Astro.props;
+const { lang, content, bookingsUrl, servicesId, bookingNote } = Astro.props;
 ---
 
-<section class="bg-ivory py-14 lg:py-24">
+<section class="bg-ivory pt-14 pb-8 sm:pb-14 lg:py-24">
   <div class="container-site">
     <div class="flex max-w-[53rem] flex-col gap-8">
-      <h1 class="text-[2.5rem] leading-[1.1] font-semibold tracking-[-0.015em] sm:text-5xl lg:text-[4rem] lg:leading-[1.05]">
+      <h1 class="text-[2rem] leading-[1.25] font-semibold sm:text-5xl sm:leading-[1.1] sm:tracking-[-0.015em] lg:text-[4rem] lg:leading-[1.05]">
         {content.title.map((line) => <span class="block">{line}</span>)}
       </h1>
-      <p class="text-lg leading-[1.6] text-stone lg:text-xl">{content.lead}</p>
+      <p class="leading-6 text-stone sm:text-lg sm:leading-[1.6] lg:text-xl">{content.lead}</p>
 
       <div class="flex flex-col gap-3">
         <p class="eyebrow">{content.engagementLabel}</p>
-        <p class="text-2xl leading-[1.2] font-semibold lg:text-[2rem]">{content.signature}</p>
+        <p class="text-xl leading-[1.3] font-medium sm:text-2xl sm:leading-[1.2] sm:font-semibold lg:text-[2rem]">{content.signature}</p>
       </div>
 
-      <div class="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
+      <div class="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
         <ExternalLink href={bookingsUrl} lang={lang} icon={false} track="hero" class="btn btn-dark sm:min-w-80">
           {content.cta}
         </ExternalLink>
+        <!-- Maquette mobile : mention Bookings sous le bouton principal (absente sur ordinateur). -->
+        <p class="text-sm leading-[1.6] text-stone sm:hidden" aria-hidden="true">{bookingNote}</p>
         <a href={`#${servicesId}`} class="btn btn-secondary sm:min-w-70">{content.secondary}</a>
       </div>
     </div>

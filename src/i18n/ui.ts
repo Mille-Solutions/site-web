@@ -83,7 +83,8 @@ export const ui = {
     backHome: 'Revenir à l’accueil',
     required: 'obligatoire',
     fieldRequired: 'Ce champ est obligatoire.',
-    fieldEmail: 'Vérifiez votre adresse e-mail : le format saisi ne semble pas correct.',
+    // Maquette « États du formulaire » : état « Adresse e-mail invalide »
+    fieldEmail: 'Vérifiez votre adresse e-mail avant de réessayer. Le format saisi ne semble pas correct. Corrigez-le pour continuer.',
   },
   en: {
     skip: 'Skip to content',
@@ -121,7 +122,7 @@ export const ui = {
     backHome: 'Back to home page',
     required: 'required',
     fieldRequired: 'This field is required.',
-    fieldEmail: 'Check your email address: the format does not look right.',
+    fieldEmail: 'Check your email address before trying again. The format does not look right. Please correct it to continue.',
   },
 } as const;
 

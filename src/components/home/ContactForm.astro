@@ -148,7 +148,9 @@ const inputClass =
 
       const invalid = controls.filter((el) => !validate(el));
       if (invalid.length) {
-        showStatus(messages.invalid, 'error');
+        // Champ obligatoire manquant → message général ; sinon seule l'adresse e-mail est en cause.
+        const missing = invalid.some((el) => el.validity.valueMissing || el.validity.tooShort);
+        showStatus(missing ? messages.invalid : messages.email, 'error');
         invalid[0].focus();
         return;
       }

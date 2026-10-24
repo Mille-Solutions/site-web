@@ -415,6 +415,14 @@ Les fichiers des pages sont dans `src/pages/` (`accompagnements.astro`…) et le
 `src/components/page/` : `PageHero`, `Statement` (bandeau de déclaration), `CtaSection` (appel final),
 `Chips` (étiquettes besoins / livrables), `AzureDivider`.
 
+**Page Contact** : elle réutilise la section contact de l'accueil (`Contact.astro` avec
+`tone="dark"` et `headingLevel="h1"`) : fond Navy, cartes blanches sans filet, comme la maquette.
+Seuls les libellés de la carte de réservation diffèrent (`src/content/contact/fr.yaml` → `booking`).
+Écarts volontaires avec la maquette : texte d'introduction en Ivory à 75 % au lieu de Stone (contraste
+AA sur Navy) ; mention de confidentialité commune avec l'accueil (« Consultez la page Confidentialité »,
+sans le mot « uniquement » des calques, choix validé) et
+complétée par la phrase sur les astérisques ; titre aligné à gauche comme sur l'accueil.
+
 **Ajouter une fiche d'exemple** : copier un bloc sous `projects: items:` dans
 `src/content/exemples/fr.yaml`, puis renseigner `title`, `duration`, `situation`, `role`, `actions`
 (liste) et `results`. Garder les organisations anonymes et des résultats qualitatifs.
@@ -438,7 +446,9 @@ pages.
 ### 6.1 Formulaire de contact
 
 La partie visible est **en place** (`src/components/home/ContactForm.astro`) : champs de la maquette,
-validation dans le navigateur avec messages près des champs, messages exacts de succès et d'échec,
+validation dans le navigateur avec messages près des champs, messages exacts de succès, d'échec, d'adresse e-mail invalide et de champ obligatoire (cadre « États du
+formulaire » de la maquette « Contact — FR » ; textes dans `home/<langue>.yaml` → `form` et
+`src/i18n/ui.ts` → `fieldRequired`, `fieldEmail`),
 saisie conservée en cas d'échec, annonce du résultat aux lecteurs d'écran, champ piège anti-robots
 (`website`).
 

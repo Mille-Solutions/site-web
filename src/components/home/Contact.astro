@@ -12,7 +12,7 @@ interface Props {
   formEndpoint: string;
   /** h1 sur la page Contact, h2 sur l'accueil. */
   headingLevel?: 'h1' | 'h2';
-  /** « dark » : fond Navy de la maquette d'accueil ; « light » : fond blanc. */
+  /** « dark » : fond Navy des maquettes « Accueil — FR » et « Contact — FR » ; « light » : fond blanc. */
   tone?: 'dark' | 'light';
 }
 const { lang, content, id, bookingsUrl, formEndpoint, headingLevel = 'h2', tone = 'light' } = Astro.props;

@@ -268,8 +268,15 @@ Les informations encore à compléter sont balisées ainsi, ce qui les met en é
 Prestataire d'hébergement : <span class="missing">[dénomination confirmée]</span>
 ```
 
-Une fois l'information connue, remplacer toute la balise par le texte définitif. Le sommaire de la
-page est construit automatiquement à partir des titres `##`.
+Le paragraphe qui contient une telle balise s'affiche dans un encadré « Champ à compléter » (fond
+Azure très clair, comme dans la maquette Figma) et l'information manquante est soulignée en
+pointillé. Pour que l'encadré reste lisible, placer chaque information à compléter dans un
+paragraphe court, séparé par une ligne vide. Une fois l'information connue, remplacer toute la
+balise par le texte définitif : l'encadré disparaît de lui-même.
+
+Le sommaire (colonne de 240 px sur ordinateur, au-dessus du texte sur mobile) est construit
+automatiquement à partir des titres `##`. Chaque titre `##` ouvre une rubrique séparée par un filet.
+Les tableaux défilent horizontalement dans leur cadre sur mobile, sans élargir la page.
 
 ### 4.4 Ce qu'il ne faut pas modifier sans vérifier
 

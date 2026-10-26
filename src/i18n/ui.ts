@@ -76,6 +76,7 @@ export const ui = {
     updated: 'Dernière mise à jour',
     legalEyebrow: 'Informations légales',
     toc: 'Sommaire',
+    draftStatus: 'Non publiable',
     draftWarning:
       'Brouillon non publiable : les informations signalées sont à compléter et le texte doit être vérifié avant la mise en ligne.',
     notFoundTitle: 'Page introuvable',
@@ -116,6 +117,7 @@ export const ui = {
     updated: 'Last updated',
     legalEyebrow: 'Legal information',
     toc: 'Contents',
+    draftStatus: 'Not for publication',
     draftWarning: 'Draft — not for publication: the highlighted information must be completed and checked before going live.',
     notFoundTitle: 'Page not found',
     notFoundText: 'This page does not exist or has been moved.',

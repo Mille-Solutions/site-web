@@ -28,6 +28,8 @@
   --color-azur-mist: #e6f4f8;
   /* Bordure des cartes de la page Approche et parcours (maquette) */
   --color-line: #e5e7eb;
+  /* Filet séparant les rubriques des pages légales (maquette) */
+  --color-rule: #cfdde2;
   /* Fond des emplacements photo provisoires */
   --color-mist: #e3e8eb;
 
@@ -146,34 +148,56 @@
   }
 }
 
-/* Pages légales (Markdown) */
+/* Pages légales (Markdown) — maquette « Mentions légales — brouillon non publiable » :
+   chaque rubrique ## est ouverte par un filet, titre 20/26 Medium, texte courant 16/24 Stone. */
 .prose-legal {
-  @apply max-w-[60rem] leading-relaxed text-navy;
+  @apply max-w-[60rem] leading-6 text-stone;
 }
 .prose-legal h2 {
-  @apply mt-12 mb-4 scroll-mt-28 text-xl leading-[1.3] font-semibold first:mt-0;
+  @apply mt-10 mb-4 scroll-mt-28 border-t border-rule pt-6 text-xl leading-[1.625rem] font-medium text-navy first:mt-0;
+}
+.prose-legal h3 {
+  @apply mt-6 mb-3 font-semibold text-navy;
+}
+.prose-legal strong {
+  @apply font-semibold text-navy;
 }
 .prose-legal p,
-.prose-legal ul {
+.prose-legal ul,
+.prose-legal ol {
   @apply mb-4;
 }
 .prose-legal ul {
   @apply list-disc space-y-1 pl-6 marker:text-stone;
 }
-.prose-legal a {
-  @apply underline decoration-azur decoration-1 underline-offset-4;
+.prose-legal ol {
+  @apply list-decimal space-y-1 pl-6;
 }
+.prose-legal a {
+  @apply text-navy underline decoration-azur decoration-1 underline-offset-4;
+}
+/* Tableau : défile horizontalement dans son propre cadre sur mobile, jamais la page */
 .prose-legal table {
-  @apply mb-6 block w-full overflow-x-auto border-collapse text-sm md:table;
+  @apply mb-6 block w-full overflow-x-auto border-collapse text-sm text-navy md:table;
 }
 .prose-legal th,
 .prose-legal td {
-  @apply border border-stone/30 px-3 py-2 text-left align-top;
+  @apply min-w-40 border border-rule px-3 py-2 text-left align-top md:min-w-0;
 }
 .prose-legal th {
-  @apply bg-ivory font-semibold;
+  @apply bg-azur-mist font-semibold;
 }
-/* Informations à compléter : <span class="missing">[…]</span> dans les fichiers Markdown */
+/* Informations à compléter : <span class="missing">[…]</span> dans les fichiers Markdown.
+   Le paragraphe qui en contient devient un encadré « Champ à compléter » (fond Azure très clair,
+   20 px de marge interne, texte Navy) ; l'information elle-même reste soulignée en pointillé,
+   en plus des crochets, pour ne pas reposer sur la seule couleur. */
+.prose-legal p:has(.missing) {
+  @apply bg-azur-mist p-5 text-navy;
+}
 .prose-legal .missing {
-  @apply rounded-sm bg-azur-mist px-1 py-0.5 text-navy outline outline-azur/60;
+  @apply font-medium text-navy underline decoration-azur decoration-dotted decoration-2 underline-offset-4;
+}
+.prose-legal li .missing,
+.prose-legal td .missing {
+  @apply bg-azur-mist px-1;
 }

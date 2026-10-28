@@ -68,6 +68,7 @@ const isCurrent = (key: RouteKey) => key === route && key !== 'home';
     </button>
   </div>
 
+  <!-- Menu mobile ouvert (maquette « Menu mobile ouvert — FR ») : rubriques 32 px séparées d'un filet, bouton Navy pleine largeur -->
   <nav
     id="mobile-menu"
     aria-label={t.mainNav}
@@ -82,7 +83,7 @@ const isCurrent = (key: RouteKey) => key === route && key !== 'home';
               <a
                 href={item.href}
                 aria-current={isCurrent(item.key) ? 'page' : undefined}
-                class:list={['flex min-h-20 items-center text-[1.75rem] leading-tight font-semibold', isCurrent(item.key) && 'underline decoration-azur decoration-2 underline-offset-8']}
+                class:list={['flex min-h-20 items-center border-b border-rule py-2 text-[2rem] leading-tight font-semibold', isCurrent(item.key) && 'underline decoration-azur decoration-2 underline-offset-8']}
               >
                 {item.label}
               </a>
@@ -90,10 +91,10 @@ const isCurrent = (key: RouteKey) => key === route && key !== 'home';
           ))
         }
       </ul>
-      <ExternalLink href={settings.bookingsUrl} lang={lang} icon={false} track="menu-mobile" class="btn btn-primary mt-8 w-full">
+      <ExternalLink href={settings.bookingsUrl} lang={lang} icon={false} track="menu-mobile" class="btn btn-dark mt-8 w-full">
         {t.book}
       </ExternalLink>
-      <p class="mt-8 text-sm font-medium text-stone">{t.signature}</p>
+      <p class="mt-8 text-sm text-stone">{t.signature}</p>
     </div>
   </nav>
 </header>

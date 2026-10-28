@@ -40,7 +40,7 @@ const items = (['fr', 'en'] as const).map((code) => ({
             <span class="sr-only">{t.langSwitch}</span>
           </a>
         ) : (
-          <span class="inline-flex min-h-11 items-center px-1 opacity-60" title={t.langPending}>
+          <span class="inline-flex min-h-11 items-center px-1 xl:opacity-60" title={t.langPending}>
             <span aria-hidden="true">{item.code.toUpperCase()}</span>
             <span class="sr-only">{t.langPending}</span>
           </span>

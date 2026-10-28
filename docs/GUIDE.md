@@ -358,7 +358,11 @@ mobile :
 - boutons pleine largeur de 56 px de haut (`.btn` dans `global.css`) ;
 - sous le bouton de réservation du premier écran, mention « Microsoft Bookings — ouverture dans un
   nouvel onglet. », reprise de `contact.booking.text` (masquée à partir de 640 px) ;
-- en-tête : logo, FR / EN et Menu répartis sur toute la largeur ;
+- en-tête : logo, FR / EN et Menu répartis sur toute la largeur ; « EN » inactif en Stone (il
+  n'est atténué qu'à partir de 1280 px) ;
+- menu ouvert (maquette « Menu mobile ouvert — FR », dans `Header.astro`) : rubriques en 32 px
+  SemiBold, 80 px de haut, séparées par un filet `border-rule` ; bouton « Réserver un échange »
+  Navy pleine largeur (`btn-dark`) ; signature en 14 px Regular Stone ;
 - pied de page : liens de 44 px de haut (cible tactile), liens légaux en 14 px Navy.
 
 Ces réglages s'appliquent aussi aux autres pages qui utilisent les mêmes composants (en-tête, pied

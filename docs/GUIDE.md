@@ -314,6 +314,9 @@ src/
 
 ### 5.2 Charte graphique
 
+Le design system complet (couleurs, typographie, composants, accessibilité, écarts assumés par
+rapport à la maquette) est décrit dans [`DESIGN-SYSTEM.md`](DESIGN-SYSTEM.md).
+
 Référence : charte Figma « Mille Solutions — Brand Guidelines 2026 » et maquette « Mille Solutions -
 Site Internet REAL ». Les couleurs et les polices sont définies **une seule fois** dans
 `src/styles/global.css`, bloc `@theme` :

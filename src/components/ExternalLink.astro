@@ -8,7 +8,6 @@ interface Props extends HTMLAttributes<'a'> {
   href: string;
   lang: Lang;
   icon?: boolean;
-  /** Emplacement du bouton, transmis à l'outil de statistiques (clics Bookings). */
   track?: string;
 }
 const { href, lang, icon = true, track, class: className, ...rest } = Astro.props;

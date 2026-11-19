@@ -2,11 +2,10 @@ import { defineCollection } from 'astro:content';
 import { file, glob } from 'astro/loaders';
 import { z } from 'astro/zod';
 
-/** Réglages modifiables sans toucher au code (Bookings, LinkedIn, formulaire, anglais). */
+/** Réglages modifiables sans toucher au code (LinkedIn, formulaire, anglais). */
 const settings = defineCollection({
   loader: file('src/content/settings.yaml'),
   schema: z.object({
-    bookingsUrl: z.string(),
     linkedinUrl: z.string(),
     contactFormEndpoint: z.string().default(''),
     englishEnabled: z.boolean().default(false),
@@ -30,8 +29,6 @@ const home = defineCollection({
       leadSecondary: z.string().optional(),
       engagementLabel: z.string(),
       signature: z.string(),
-      cta: z.string(),
-      secondary: z.string(),
       imageAlt: z.string(),
     }),
     situations: z.object({ ...section, items: z.array(card) }),
@@ -53,7 +50,6 @@ const home = defineCollection({
       eyebrow: z.string().optional(),
       title: z.string(),
       text: z.string(),
-      booking: z.object({ eyebrow: z.string(), text: z.string(), cta: z.string() }),
       form: z.object({
         eyebrow: z.string(),
         intro: z.string().optional(),
@@ -82,15 +78,12 @@ const home = defineCollection({
 /* ---------- Phase 2 : pages complémentaires (src/content/<page>/<langue>.yaml) ---------- */
 
 const meta = z.object({ title: z.string(), description: z.string() });
-const cta = z.object({ title: z.string(), text: z.string(), button: z.string(), note: z.string().optional() });
 const hero = z.object({
   eyebrow: z.string().optional(),
   title: z.string(),
   /** Titre découpé en lignes, si la maquette impose les retours à la ligne. */
   titleLines: z.array(z.string()).optional(),
   lead: z.string(),
-  primary: z.string(),
-  secondary: z.string().optional(),
   imageCaption: z.string(),
   imageAlt: z.string().optional(),
 });
@@ -119,7 +112,6 @@ const services = defineCollection({
       ),
     }),
     approach: z.object({ ...section, items: z.array(card) }),
-    cta,
   }),
 });
 
@@ -133,7 +125,6 @@ const approach = defineCollection({
     method: z.object({ title: z.string(), subtitle: z.string(), steps: z.array(card) }),
     principles: z.object({ title: z.string(), subtitle: z.string(), items: z.array(card) }),
     background: z.object({ title: z.string(), subtitle: z.string(), paragraphs: z.array(z.string()) }),
-    cta,
   }),
 });
 
@@ -169,7 +160,6 @@ const examples = defineCollection({
         }),
       ),
     }),
-    cta,
   }),
 });
 
@@ -177,7 +167,6 @@ const contactPage = defineCollection({
   loader: glob({ pattern: '*.yaml', base: 'src/content/contact' }),
   schema: z.object({
     meta,
-    booking: z.object({ eyebrow: z.string(), text: z.string(), cta: z.string() }),
   }),
 });
 

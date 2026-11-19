@@ -9,72 +9,88 @@ hero:
   title:
     - "Move your projects forward."
     - "Simplify the way you work."
-  lead: "I help small and medium-sized businesses and institutions in Monaco and the surrounding region clarify their needs, structure their projects and coordinate their delivery through to a tangible result."
+  lead: "I support companies and organisations with project management, improving how they operate and implementing practical solutions."
+  leadSecondary: "I also assist with one-off operational needs when you lack time, resources or simply an outside perspective to move forward."
   engagementLabel: "My commitment"
   signature: "Structure. Prioritize. Deliver."
-  cta: "Book a free 30-minute call"
-  secondary: "Explore my approach"
   # Photo provisoire issue de la maquette Figma : origine et droits à valider avant publication.
   imageAlt: "View of Monaco: the city, Port Hercule and the sea in the morning light."
 
 situations:
-  eyebrow: "Sound familiar?"
-  title: "Three situations where I can help."
+  eyebrow: "Your needs"
+  title: "Do you need to move a subject forward?"
   items:
     - icon: coordination
-      title: "Your important project is moving too slowly."
-      text: "I help you clarify the objective, organise the steps and coordinate everyone involved so your project makes progress."
+      title: "A project that is struggling to move forward"
+      text: ""
+      paragraphs:
+        - "Objectives may lack clarity, decisions may be delayed or stakeholders may struggle to coordinate."
+        - "I help identify the blockers, organise the next steps and get the project moving again."
     - icon: structuration
-      title: "Your teams spend too much time on complicated ways of working."
-      text: "I help you review processes, responsibilities and tools to make day-to-day work easier."
+      title: "An organisation that could operate more simply"
+      text: ""
+      paragraphs:
+        - "Complex processes, unsuitable tools, repetitive tasks or unclear responsibilities complicate day-to-day work."
+        - "I help identify useful improvements and put them in place."
     - icon: priorisation
-      title: "You have an idea, but not the time to structure it and make it happen."
-      text: "I help you understand what is holding things back, explore the options and build a realistic way forward."
+      title: "A one-off need, but not the resources to address it"
+      text: ""
+      paragraphs:
+        - "A study to conduct, an event to prepare, an opportunity to explore or an action to coordinate?"
+        - "I can take responsibility for these assignments, from preparation through to delivery."
 
 method:
-  eyebrow: "Approach"
-  title: "A simple, structured method adapted to your context."
+  eyebrow: "My approach"
+  title: "A practical approach, from need to delivery."
   steps:
     - icon: structuration
-      title: "Structure"
-      text: "Clarify the need, the objective and the constraints."
+      title: "01 — Structure"
+      text: "Understand your situation, clarify objectives and identify constraints and stakeholders."
     - icon: priorisation
-      title: "Prioritize"
-      text: "Compare the options and define the actions that matter."
+      title: "02 — Prioritize"
+      text: "Explore options, define essential actions and build a realistic plan."
     - icon: coordination
-      title: "Deliver"
-      text: "Coordinate implementation and prepare for continuity."
+      title: "03 — Deliver"
+      text: "Implement actions, coordinate stakeholders and monitor delivery through to a concrete result."
+  note: "Every assignment is different. I can work on an entire project or a specific stage or one-off operational need, in collaboration with your teams and partners."
 
 examples:
-  eyebrow: "Project examples"
-  title: "Three concrete situations."
+  eyebrow: "Examples of work"
+  title: "A few examples of concrete projects."
   items:
-    - title: "Growing an event and its ecosystem"
-      text: "Support over several years: developing networks, enriching the programme and handing over to successors."
-    - title: "Recruitment tool"
-      text: "Needs analysis, roll-out, training and adaptation of working practices over three months."
-    - title: "Commercial & event development"
-      text: "Identifying new commercial opportunities and building a targeted prospecting database in the yachting sector. Creating a follow-up tool for institutional and regional prospects."
-  note: "Experience gained during my salaried career, before founding Mille Solutions."
+    - title: "Development of an international event focused on maritime innovation"
+      category: "Project management · Events · Innovation"
+      text: "Project coordination, development of new initiatives, mobilisation of industry and university stakeholders, programme enhancement and handover of activities."
+      context: "Experience gained over several years as part of my salaried career."
+    - title: "Digitalisation of the recruitment process"
+      category: "Human resources · Digitalisation · Organisation"
+      text: "Needs analysis, deployment of an applicant management tool, adaptation of internal practices and user training."
+      context: "Project completed in three months as part of my salaried career."
+    - title: "Commercial prospecting and preparation of management tools"
+      category: "Business development · Operational coordination"
+      text: "Study of commercial opportunities in the yachting sector, identification of prospects and institutional contacts, creation of targeted contact databases and monitoring tools."
+      context: "Assignment completed within Mille Solutions."
+  note: ""
 
 about:
   eyebrow: "About"
-  title: "Who am I?"
+  title: "Hands-on experience in the service of your projects."
+  introTitle: "Who am I?"
   paragraphs:
-    - "I founded Mille Solutions to put my experience in coordination, management and project leadership at the service of your needs."
-    - "My career — from offshore operations and humanitarian missions to yachting, events, and HR, digital and sustainability projects — fuels my creativity as much as my practical sense."
+    - "I founded Mille Solutions to apply my experience in project management, team coordination and organisational improvement to the needs of companies and professionals."
+    - "My career has taken me through very different environments: offshore operations, humanitarian missions, yachting, events, human resources, digitalisation and sustainability."
+    - "What connects these experiences is the ability to understand a situation quickly, bring together the right people, find practical solutions and move projects forward to delivery."
+    - "Based in Monaco, I work with organisations with varied needs and resources."
   cta: "Discover my background"
-  portraitCaption: "Portrait of Charlotte to be supplied"
+  portraitCaption: "Portrait of Charlotte"
 
 contact:
-  title: "Let’s talk about your situation."
-  text: "Do you have a project to structure, a way of working to simplify or a situation to unblock? A free 30-minute first call helps me understand your needs and see whether I can be of use."
-  booking:
-    eyebrow: "External booking"
-    text: "Microsoft Bookings — opens in a new tab."
-    cta: "Free 30-minute call"
+  eyebrow: "Contact"
+  title: "Let’s talk about your project."
+  text: "Do you have a project to launch, an organisation to improve or a one-off need to address? Present me with your situation and needs. We can discuss possible solutions and how I can support you."
   form:
-    eyebrow: "Form"
+    eyebrow: "Prefer to write?"
+    intro: "Present me with your needs using the form below."
     name: "Name"
     namePlaceholder: "Your name"
     email: "Email address"
@@ -85,10 +101,10 @@ contact:
     messagePlaceholder: "Briefly describe your situation or need."
     submit: "Send my message"
     sending: "Sending…"
-    notice: "Your information is used to respond to your request. See the"
-    noticeLink: "Privacy page"
+    notice: "Your information is used to respond to your request."
+    noticeLink: "See our privacy policy"
     requiredNote: "Fields marked with an asterisk are required."
     success: "Your message has been sent. Thank you for getting in touch. I will reply as soon as possible."
     error: "Something went wrong. Your message could not be sent. What you typed has been kept in this form. Please try again in a few moments."
     invalid: "Please complete the fields marked with an asterisk. Name, email address and message are needed to send your request."
-    unavailable: "The form will be available soon. In the meantime, you can book a free 30-minute call."
+    unavailable: "The form will be available soon."

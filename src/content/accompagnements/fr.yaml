@@ -6,8 +6,6 @@ meta:
 hero:
   title: "Mes accompagnements"
   lead: "Vous avez un projet à lancer ou à conduire, mais manquez de temps, de méthode ou de coordination pour le faire avancer. Je vous aide à clarifier l’objectif, définir les priorités et organiser la mise en œuvre. Selon vos besoins, j’interviens ponctuellement ou j’assure la coordination du projet dans la durée."
-  primary: "Réserver un échange gratuit"
-  secondary: "Découvrir mon approche"
   imageCaption: "Photo à fournir — droits à valider"
   # Photo issue de la maquette Figma (src/assets/accompagnements-monaco.jpg) : droits à confirmer.
   imageAlt: "Monaco vu depuis les hauteurs : le port, les immeubles et la mer."
@@ -93,8 +91,3 @@ approach:
       title: "Concrétiser"
       text: "J’accompagne le projet jusqu’à sa réalisation, en coordonnant les étapes et les personnes concernées. Tout au long de la mission, je prépare la transmission des connaissances, des outils et des méthodes pour que vos équipes puissent prendre le relais et poursuivre de manière autonome après notre collaboration."
 
-cta:
-  title: "Parlons de votre projet."
-  text: "Votre besoin se situe à la croisée de plusieurs sujets ? Le premier échange permet de préciser la situation et d’identifier l’accompagnement utile."
-  button: "Réserver un échange gratuit de 30 minutes"
-  note: "Ouverture dans un nouvel onglet."

@@ -9,8 +9,6 @@ hero:
     - "Des idées pour avancer,"
     - "une méthode pour concrétiser."
   lead: "J’ai créé Mille Solutions pour mettre mon expérience de la coordination, du management et du pilotage de projets au service des TPE, PME et institutions."
-  primary: "Réserver un échange gratuit"
-  secondary: "Découvrir mon approche"
   imageCaption: "Portrait ou photo à fournir — droits à valider"
   # Photo issue de la maquette Figma (src/assets/approche-monaco.jpg) : droits à confirmer.
   imageAlt: "Monaco au lever du jour : le port et les bateaux sous un ciel orangé."
@@ -71,7 +69,3 @@ background:
     - "Dans ces environnements, j’ai encadré des équipes, coordonné des interlocuteurs aux attentes différentes et accompagné des projets de leur cadrage à leur mise en œuvre."
     - "La diversité de mon parcours nourrit ma créativité autant que mon sens pratique. Elle m’aide à faire des liens entre des univers différents, à poser des questions et à adapter des idées à un nouveau contexte. J’aime ce passage entre la réflexion et l’action, lorsque les possibilités prennent forme et deviennent un projet que l’on peut concrétiser."
 
-cta:
-  title: "Parlons de votre prochain projet."
-  text: "Que vous souhaitiez structurer un projet, renforcer votre organisation ou accompagner une transformation, je serai ravie d’échanger avec vous."
-  button: "Réserver un échange gratuit de 30 minutes"

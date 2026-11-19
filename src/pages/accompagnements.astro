@@ -3,18 +3,15 @@ import { getEntry } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/page/PageHero.astro';
 import Statement from '../components/page/Statement.astro';
-import CtaSection from '../components/page/CtaSection.astro';
 import Chips from '../components/page/Chips.astro';
 import CardSection from '../components/home/CardSection.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import Icon from '../components/Icon.astro';
-import { routes } from '../i18n/ui';
 // Photo reprise de la maquette Figma « Accompagnements — FR » : droits à confirmer.
 import heroImage from '../assets/accompagnements-monaco.jpg';
 
 const lang = 'fr';
 const page = (await getEntry('services', lang))!.data;
-const settings = (await getEntry('settings', 'links'))!.data;
 const { list } = page;
 ---
 
@@ -23,13 +20,9 @@ const { list } = page;
     lang={lang}
     title={page.hero.title}
     lead={page.hero.lead}
-    primary={page.hero.primary}
-    secondary={page.hero.secondary ? { label: page.hero.secondary, href: routes.approach.fr } : undefined}
-    bookingsUrl={settings.bookingsUrl}
     imageCaption={page.hero.imageCaption}
     image={heroImage}
     imageAlt={page.hero.imageAlt}
-    track="services-hero"
   />
 
   <Statement text={page.statement} />
@@ -66,5 +59,4 @@ const { list } = page;
 
   <CardSection id="approche" eyebrow={page.approach.eyebrow} title={page.approach.title} items={page.approach.items} variant="square" />
 
-  <CtaSection lang={lang} {...page.cta} bookingsUrl={settings.bookingsUrl} track="services-cta" />
 </Base>

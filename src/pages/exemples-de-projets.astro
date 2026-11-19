@@ -2,7 +2,6 @@
 import { getEntry } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/page/PageHero.astro';
-import CtaSection from '../components/page/CtaSection.astro';
 import AzureDivider from '../components/page/AzureDivider.astro';
 import CornerAccent from '../components/CornerAccent.astro';
 import SectionHeading from '../components/SectionHeading.astro';
@@ -12,7 +11,6 @@ import heroImage from '../assets/exemples-monaco.jpg';
 
 const lang = 'fr';
 const page = (await getEntry('examples', lang))!.data;
-const settings = (await getEntry('settings', 'links'))!.data;
 const { projects } = page;
 ---
 
@@ -21,12 +19,10 @@ const { projects } = page;
     lang={lang}
     title={page.hero.title}
     lead={page.hero.lead}
-    bookingsUrl={settings.bookingsUrl}
     imageCaption={page.hero.imageCaption}
     image={heroImage}
     imageAlt={page.hero.imageAlt}
     imageRatio="1280/480"
-    track="examples-hero"
   >
     <!-- Maquette : repère en Azure 12 px ; passé en Navy, l'Azure n'étant pas lisible en petit texte sur Ivory. -->
     <p slot="before" class="relative flex min-h-16 items-center pl-19 text-xs leading-[1.5]">
@@ -83,5 +79,4 @@ const { projects } = page;
     </div>
   </section>
 
-  <CtaSection lang={lang} {...page.cta} bookingsUrl={settings.bookingsUrl} track="examples-cta" size="md" />
 </Base>

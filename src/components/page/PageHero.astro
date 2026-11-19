@@ -4,7 +4,6 @@
  * - layout « stacked » : texte puis grande image (Accompagnements, Exemples) ;
  * - layout « split » : texte à gauche, image à droite (Approche et parcours).
  */
-import ExternalLink from '../ExternalLink.astro';
 import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 import PhotoPlaceholder from '../PhotoPlaceholder.astro';
@@ -16,9 +15,6 @@ interface Props {
   /** Titre découpé en lignes (prioritaire sur `title`). */
   titleLines?: string[];
   lead: string;
-  primary?: string;
-  secondary?: { label: string; href: string };
-  bookingsUrl: string;
   imageCaption: string;
   /** Photo du premier écran ; à défaut, un emplacement réservé est affiché. */
   image?: ImageMetadata;
@@ -26,9 +22,8 @@ interface Props {
   layout?: 'stacked' | 'split';
   /** Format de l'image en mode « stacked » sur grand écran (1280 × 520 par défaut, 1280 × 480 pour Exemples). */
   imageRatio?: '1280/520' | '1280/480';
-  track: string;
 }
-const { lang, title, titleLines, lead, primary, secondary, bookingsUrl, imageCaption, image, imageAlt = '', layout = 'stacked', imageRatio = '1280/520', track } = Astro.props;
+const { title, titleLines, lead, imageCaption, image, imageAlt = '', layout = 'stacked', imageRatio = '1280/520' } = Astro.props;
 const stackedImage = imageRatio === '1280/480' ? 'mt-8 aspect-[342/240] w-full lg:mt-14 lg:aspect-[1280/480]' : 'mt-8 aspect-[342/240] w-full lg:mt-16 lg:aspect-[1280/520]';
 const split = layout === 'split';
 ---
@@ -42,22 +37,6 @@ const split = layout === 'split';
       </h1>
       <p class:list={['text-stone', split ? 'text-lg leading-[1.6]' : 'leading-6']}>{lead}</p>
       <slot />
-      {
-        (primary || secondary) && (
-          <div class="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
-            {primary && (
-              <ExternalLink href={bookingsUrl} lang={lang} icon={false} track={track} class="btn btn-dark">
-                {primary}
-              </ExternalLink>
-            )}
-            {secondary && (
-              <a href={secondary.href} class="btn btn-secondary">
-                {secondary.label}
-              </a>
-            )}
-          </div>
-        )
-      }
     </div>
     {
       image ? (

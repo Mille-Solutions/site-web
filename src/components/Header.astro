@@ -2,7 +2,6 @@
 import { getEntry } from 'astro:content';
 import Logo from './Logo.astro';
 import Icon from './Icon.astro';
-import ExternalLink from './ExternalLink.astro';
 import LangSwitch from './LangSwitch.astro';
 import { ui, routes, navItems, type Lang, type RouteKey } from '../i18n/ui';
 
@@ -46,11 +45,6 @@ const isCurrent = (key: RouteKey | 'about') => key === route && key !== 'home';
             </li>
           ))
         }
-        <li>
-          <ExternalLink href={settings.bookingsUrl} lang={lang} icon={false} track="header" class="btn btn-primary">
-            {t.book}
-          </ExternalLink>
-        </li>
       </ul>
     </nav>
 
@@ -92,9 +86,6 @@ const isCurrent = (key: RouteKey | 'about') => key === route && key !== 'home';
           ))
         }
       </ul>
-      <ExternalLink href={settings.bookingsUrl} lang={lang} icon={false} track="menu-mobile" class="btn btn-dark mt-8 w-full">
-        {t.book}
-      </ExternalLink>
       <p class="mt-8 text-sm text-stone">{t.signature}</p>
     </div>
   </nav>

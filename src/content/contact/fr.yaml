@@ -2,9 +2,4 @@
 # Titre, texte et formulaire : repris de la section contact de l'accueil (src/content/home/fr.yaml).
 meta:
   title: "Contact | Mille Solutions — Monaco"
-  description: "Réservez un échange gratuit de 30 minutes ou écrivez-moi pour parler de votre projet."
-
-booking:
-  eyebrow: "Réservation externe"
-  text: ""
-  cta: "Réserver un échange gratuit de 30 minutes"
+  description: "Écrivez-moi pour parler de votre projet."

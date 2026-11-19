@@ -1,76 +1,38 @@
 ---
 title: "Mentions légales"
-description: "Éditeur, hébergement, propriété intellectuelle et conditions d’utilisation du site Mille Solutions."
-updated: "12/10/2026"
-draft: true
+description: "Informations légales relatives à l’éditeur et à l’hébergement du site Mille Solutions."
+updated: "19/11/2026"
+draft: false
 ---
 
-<!-- Version de travail : les éléments <span class="missing">[entre crochets]</span> sont à compléter et vérifier avant publication. -->
+# Mentions légales
 
-## Éditeur du site
+### Éditeur du site
+Le site **millesolutions.mc** est édité par Charlotte CHARLES MILLE, exerçant en nom personnel sous le nom commercial **Mille Solutions**.
 
-Le site millesolutions.mc est édité par Charlotte CHARLES MILLE, exerçant une activité indépendante en nom personnel sous le nom commercial Mille Solutions, à Monaco.
+Adresse : 9 avenue d'Ostende, 98000 Monaco
+Téléphone : +377 37 70 77 55
+RCI Monaco : 26P11048
 
-Adresse : 9 avenue d’Ostende, 98000 Monaco
+### Direction de la publication
+Charlotte CHARLES MILLE.
 
-Téléphone professionnel : +377 37 70 77 55
+### Hébergement
+Le site est hébergé par :
 
-Numéro d’immatriculation au Registre du Commerce et de l’Industrie de Monaco : 26P11048
+**Numerica SARL — SMASH**
+4/6 avenue Albert II, Monaco Boost
+98000 Monaco
+Téléphone : +377 92 00 20 98
 
-Contact : <span class="missing">[lien direct vers le formulaire de contact]</span>
+Infrastructure d'hébergement : Monaco Cloud, Monaco.
 
-## Direction de la publication
+### Propriété intellectuelle
+Les contenus du site, notamment les textes, photographies, logos et éléments graphiques, sont protégés par les droits de propriété intellectuelle applicables.
 
-La direction de la publication est assurée par Charlotte CHARLES MILLE.
-
-## Hébergement
-
-Prestataire contractuel d’hébergement : <span class="missing">[dénomination confirmée]</span>
-
-Adresse : <span class="missing">[adresse complète]</span>
-
-Téléphone : <span class="missing">[numéro]</span>
-
-Site internet : <span class="missing">[URL]</span> Assistance : <span class="missing">[adresse ou lien]</span>
-
-Infrastructure sous-jacente : <span class="missing">[prestataire et localisation confirmés pour millesolutions.mc]</span>
-
-## Objet du site
-
-Le site présente les activités et les accompagnements proposés par Mille Solutions, ainsi que l’approche et l’expérience professionnelle de sa fondatrice.
-
-Les exemples de projets identifiés comme antérieurs à la création de Mille Solutions ont été réalisés dans le cadre de son parcours salarié. Ils ne constituent pas des références clients de Mille Solutions.
-
-Les informations publiées présentent les possibilités d’accompagnement. Le périmètre, les livrables, les modalités d’intervention et les conditions financières de chaque mission sont définis dans un accord distinct.
-
-La réservation d’un premier échange gratuit de 30 minutes ne constitue pas une commande de prestation ni un engagement à conclure une mission.
-
-## Propriété intellectuelle
-
-Les textes, photographies, logos, éléments graphiques et autres contenus du site sont protégés par les droits de propriété intellectuelle applicables. Ils appartiennent à Mille Solutions ou sont utilisés avec les autorisations nécessaires.
-
-Sauf autorisation préalable ou exception prévue par les textes applicables, leur reproduction, adaptation, diffusion ou exploitation est interdite.
-
-Les marques et contenus appartenant à des tiers restent la propriété de leurs titulaires respectifs.
+Toute reproduction ou utilisation non autorisée est interdite, sauf exception prévue par la loi.
 
 Crédits photographiques et graphiques : Mille Solutions et Daniel Mille.
 
-## Informations et disponibilité
-
-Mille Solutions veille à fournir des informations exactes et à jour. Les contenus peuvent être modifiés pour tenir compte de l’évolution de l’activité.
-
-Le site peut être temporairement indisponible, notamment pour des opérations de maintenance ou en raison d’un incident technique.
-
-Pour signaler une erreur ou un dysfonctionnement, vous pouvez utiliser le formulaire de contact du site.
-
-## Liens vers des services externes
-
-Le site comporte notamment des liens vers LinkedIn et Microsoft Bookings.
-
-Lorsque vous suivez ces liens, vous accédez à des services externes disposant de leurs propres conditions d’utilisation et politiques de confidentialité. Mille Solutions ne contrôle pas l’ensemble des contenus et du fonctionnement de ces services.
-
-Les traitements de données réalisés pour le compte de Mille Solutions dans le cadre de la réservation de rendez-vous sont présentés dans sa politique de confidentialité.
-
-## Protection des données personnelles
-
-Les modalités de traitement des données liées au site, au formulaire de contact, à la réservation de rendez-vous et à la mesure d’audience sont décrites dans la page Confidentialité et cookies.
+### Données personnelles
+Les informations relatives au traitement des données personnelles sont disponibles dans la [Politique de confidentialité](/confidentialite/).

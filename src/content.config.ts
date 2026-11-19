@@ -28,7 +28,7 @@ const home = defineCollection({
       title: z.array(z.string()).min(1),
       lead: z.string(),
       leadSecondary: z.string().optional(),
-      engagementLabel: z.string(),
+      engagementLabel: z.string().optional(),
       signature: z.string(),
       imageAlt: z.string(),
     }),

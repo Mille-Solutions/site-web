@@ -10,24 +10,23 @@ hero:
     - "Move your projects forward."
     - "Simplify the way you work."
   lead: "I help businesses and organisations manage projects, improve the way they operate and turn ideas into practical results."
-  leadSecondary: "I also take on specific operational assignments, providing additional support when time, resources or expertise are limited."
-  engagementLabel: "My commitment"
+  leadSecondary: "I also take on one-off operational assignments, providing extra support when time, resources or expertise are limited."
   signature: "Structure. Prioritize. Deliver."
   # Photo provisoire issue de la maquette Figma : origine et droits à valider avant publication.
   imageAlt: "View of Monaco: the city, Port Hercule and the sea in the morning light."
 
 situations:
   eyebrow: "Your needs"
-  title: "Need to get something moving?"
+  title: "Need help moving things forward?"
   items:
     - icon: coordination
-      title: "A project that's not moving forward"
+      title: "A project that's lost momentum"
       text: ""
       paragraphs:
         - "Unclear objectives, delayed decisions or difficulties coordinating the people involved can slow progress."
         - "I help identify what's holding things back, organise the next steps and get things moving again."
     - icon: structuration
-      title: "Ways of working that could be simpler"
+      title: "Making everyday work simpler"
       text: ""
       paragraphs:
         - "Complex processes, unsuitable tools, repetitive tasks or unclear responsibilities can make everyday work unnecessarily difficult."
@@ -41,7 +40,7 @@ situations:
 
 method:
   eyebrow: "My approach"
-  title: "A practical approach, from planning to delivery."
+  title: "A practical approach, from idea to delivery"
   steps:
     - icon: structuration
       title: "01 — Structure"
@@ -58,6 +57,10 @@ examples:
   eyebrow: "Selected projects"
   title: "A few examples of my work."
   items:
+    - title: "Structuring a maritime decarbonisation project"
+      category: "Project Management · Organisation · Operational Coordination"
+      text: "Supporting the preparation of a maritime decarbonisation project, including project planning, resource allocation, budget preparation and coordination of organisational and operational requirements."
+      context: "Preparatory assignment underway through Mille Solutions."
     - title: "Developing an international maritime innovation event"
       category: "Project management · Events · Innovation"
       text: "Project coordination, development of new initiatives, engagement with industry and academic partners, programme development and handover to new teams."
@@ -74,8 +77,8 @@ examples:
 
 about:
   eyebrow: "About"
-  title: "Practical experience, applied to your projects."
-  introTitle: "Who am I?"
+  title: "Hands-on experience to support your projects"
+  introTitle: "About me"
   paragraphs:
     - "I founded Mille Solutions to bring my experience in project management, coordination and organisational improvement to businesses and professionals who need practical support."
     - "My career has taken me across very different sectors, from offshore operations and humanitarian missions to yachting, events, human resources, digitalisation and sustainability."
@@ -89,8 +92,8 @@ contact:
   title: "Let’s talk about your project."
   text: "Have a project to launch, a process to improve or a specific task that needs attention?\n\nTell me about your situation and what you're looking to achieve. We can discuss how I might be able to help."
   form:
-    eyebrow: "Get in touch"
-    intro: "Use the contact form to tell me a little more about your needs."
+    eyebrow: ""
+    intro: ""
     name: "Name"
     namePlaceholder: "Your name"
     email: "Email address"
@@ -102,8 +105,8 @@ contact:
     submit: "Send my message"
     sending: "Sending…"
     notice: "Your information will only be used to respond to your enquiry."
-    noticeLink: "Please refer to our Privacy Policy"
-    requiredNote: "Fields marked with an asterisk are required."
+    noticeLink: "Privacy Policy"
+    requiredNote: ""
     success: "Your message has been sent. Thank you for getting in touch. I will reply as soon as possible."
     error: "Something went wrong. Your message could not be sent. What you typed has been kept in this form. Please try again in a few moments."
     invalid: "Please complete the fields marked with an asterisk. Name, email address and message are needed to send your request."

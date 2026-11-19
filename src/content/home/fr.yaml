@@ -57,6 +57,10 @@ examples:
   eyebrow: "Exemples de réalisations"
   title: "Quelques exemples de projets concrets."
   items:
+    - title: "Structuration d’un projet industriel de décarbonation maritime"
+      category: "Gestion de projet · Organisation · Pilotage opérationnel"
+      text: "Accompagnement à la préparation d’un projet de décarbonation maritime : structuration des étapes, élaboration de plans de charge, préparation budgétaire et coordination des besoins organisationnels et opérationnels."
+      context: "Mission de préparation en cours dans le cadre de Mille Solutions."
     - title: "Développement d’un événement international dédié à l’innovation maritime"
       category: "Gestion de projet · Événementiel · Innovation"
       text: "Coordination de projets, développement de nouvelles initiatives, mobilisation d’acteurs industriels et universitaires, enrichissement du programme et transmission des activités."

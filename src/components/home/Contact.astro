@@ -27,8 +27,8 @@ const dark = tone === 'dark';
 
     <div class="mt-8 max-w-[45.8125rem] lg:mt-16">
       <div class:list={['card flex flex-col gap-5 text-navy', dark && 'border-0']}>
-        <p class="eyebrow">{content.form.eyebrow}</p>
-        <p class="leading-6 text-stone">{content.form.intro}</p>
+        {content.form.eyebrow && <p class="eyebrow">{content.form.eyebrow}</p>}
+        {content.form.intro && <p class="leading-6 text-stone">{content.form.intro}</p>}
         <ExternalLink
           href={formsUrl}
           lang={lang}
@@ -36,12 +36,12 @@ const dark = tone === 'dark';
           track="contact-form"
           class="btn btn-primary w-full sm:w-auto"
         >
-          {lang === 'fr' ? 'Remplir le formulaire' : 'Fill in the form'}
+          {lang === 'fr' ? 'Remplir le formulaire' : 'Contact form'}
         </ExternalLink>
         <p class="text-sm leading-relaxed text-stone">
           {content.form.notice}
           <a href={routes.privacy[lang]} class="link-underline text-navy"> {content.form.noticeLink}</a>.
-          {content.form.requiredNote}
+          {lang === 'fr' && content.form.requiredNote && <span> {content.form.requiredNote}</span>}
         </p>
       </div>
     </div>

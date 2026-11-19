@@ -95,8 +95,8 @@ export const ui = {
     home: 'Home',
     nav: {
       services: 'Services',
-      approach: 'Approach and background',
-      approachSection: 'Approach',
+      approach: 'My approach',
+      approachSection: 'My approach',
       needs: 'Your needs',
       examples: 'Selected projects',
       about: 'About',

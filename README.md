@@ -17,6 +17,7 @@ Le dossier `dist/` contient uniquement des fichiers HTML/CSS/JS : il se dépose 
 n'importe quel hébergement statique (FTP/SFTP, Netlify, etc.).
 
 Le guide complet de mise en ligne et de modification se trouve dans [docs/GUIDE.md](docs/GUIDE.md).
+Pour modifier les textes, liens et photos sans toucher au code : [docs/MODIFIER-LES-CONTENUS.md](docs/MODIFIER-LES-CONTENUS.md).
 
 ## Modifier les contenus
 

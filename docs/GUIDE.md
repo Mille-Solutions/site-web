@@ -185,6 +185,8 @@ l'indexation **sur la prévisualisation uniquement**.
 
 ## 4. Modifier le contenu (sans toucher au code)
 
+> Version pas à pas, page par page et depuis GitHub : [MODIFIER-LES-CONTENUS.md](MODIFIER-LES-CONTENUS.md).
+
 Les textes sont dans des fichiers **YAML** (accueil, liens) et **Markdown** (pages légales), un
 fichier par langue. Ils s'ouvrent avec n'importe quel éditeur de texte (TextEdit en mode texte brut,
 VS Code…).

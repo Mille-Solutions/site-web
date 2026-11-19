@@ -1,3 +1,6 @@
+import fr from '../content/ui/fr.json';
+import en from '../content/ui/en.json';
+
 export const languages = { fr: 'Français', en: 'English' } as const;
 export type Lang = keyof typeof languages;
 
@@ -45,93 +48,11 @@ export const sections = {
   },
 } as const;
 
-export const ui = {
-  fr: {
-    skip: 'Aller au contenu',
-    home: 'Accueil',
-    nav: {
-      services: 'Accompagnements',
-      // Page « Approche et parcours » (phase 2) ; la section de l'accueil ne traite que de l'approche.
-      approach: 'Approche et parcours',
-      approachSection: 'Approche',
-      examples: 'Exemples de projets',
-      about: 'À propos',
-      contact: 'Contact',
-    },
-    book: 'Réserver un échange',
-    menuOpen: 'Ouvrir le menu',
-    menuClose: 'Fermer le menu',
-    menuLabel: 'Menu',
-    closeLabel: 'Fermer',
-    mainNav: 'Navigation principale',
-    langSwitch: 'Read this page in English',
-    langPending: 'Version anglaise en préparation',
-    newTab: '(s’ouvre dans un nouvel onglet)',
-    logoHome: 'Mille Solutions — retour à l’accueil',
-    footerNav: 'Navigation',
-    footerContact: 'Contact',
-    footerContactLines: ['Charlotte Charles Mille', 'Monaco et sa région', 'millesolutions.mc'],
-    legalNav: 'Informations légales',
-    legal: 'Mentions légales',
-    privacy: 'Confidentialité',
-    rights: 'Tous droits réservés.',
-    signature: 'Structurer. Prioriser. Concrétiser.',
-    updated: 'Dernière mise à jour',
-    legalEyebrow: 'Informations légales',
-    toc: 'Sommaire',
-    draftStatus: 'Non publiable',
-    draftWarning:
-      'Brouillon non publiable : les informations signalées sont à compléter et le texte doit être vérifié avant la mise en ligne.',
-    notFoundTitle: 'Page introuvable',
-    notFoundText: 'Cette page n’existe pas ou a été déplacée.',
-    backHome: 'Revenir à l’accueil',
-    required: 'obligatoire',
-    fieldRequired: 'Ce champ est obligatoire.',
-    // Maquette « États du formulaire » : état « Adresse e-mail invalide »
-    fieldEmail: 'Vérifiez votre adresse e-mail avant de réessayer. Le format saisi ne semble pas correct. Corrigez-le pour continuer.',
-  },
-  en: {
-    skip: 'Skip to content',
-    home: 'Home',
-    nav: {
-      services: 'Services',
-      approach: 'Approach and background',
-      approachSection: 'Approach',
-      examples: 'Project examples',
-      about: 'About',
-      contact: 'Contact',
-    },
-    book: 'Book a call',
-    menuOpen: 'Open menu',
-    menuClose: 'Close menu',
-    menuLabel: 'Menu',
-    closeLabel: 'Close',
-    mainNav: 'Main navigation',
-    langSwitch: 'Lire cette page en français',
-    langPending: 'Version française',
-    newTab: '(opens in a new tab)',
-    logoHome: 'Mille Solutions — back to home page',
-    footerNav: 'Navigation',
-    footerContact: 'Contact',
-    footerContactLines: ['Charlotte Charles Mille', 'Monaco and the surrounding region', 'millesolutions.mc'],
-    legalNav: 'Legal information',
-    legal: 'Legal notice',
-    privacy: 'Privacy',
-    rights: 'All rights reserved.',
-    signature: 'Structure. Prioritize. Deliver.',
-    updated: 'Last updated',
-    legalEyebrow: 'Legal information',
-    toc: 'Contents',
-    draftStatus: 'Not for publication',
-    draftWarning: 'Draft — not for publication: the highlighted information must be completed and checked before going live.',
-    notFoundTitle: 'Page not found',
-    notFoundText: 'This page does not exist or has been moved.',
-    backHome: 'Back to home page',
-    required: 'required',
-    fieldRequired: 'This field is required.',
-    fieldEmail: 'Check your email address before trying again. The format does not look right. Please correct it to continue.',
-  },
-} as const;
+/**
+ * Libellés d'interface (menu, pied de page, pages légales, formulaire…), modifiables dans l'éditeur
+ * de contenus (npm run admin) : src/content/ui/fr.json et en.json, de structure identique.
+ */
+export const ui = { fr, en } satisfies Record<Lang, typeof fr>;
 
 /**
  * Entrées du menu : sections de l'accueil en phase 1, pages dédiées en phase 2.

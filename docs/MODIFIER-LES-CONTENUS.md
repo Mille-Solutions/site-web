@@ -1,17 +1,77 @@
 # Modifier les contenus du site Mille Solutions
 
-Ce document indique **quel fichier modifier** pour changer un texte, un lien ou une photo du site,
-sans toucher au code. Tous les chemins partent de la racine du dépôt
-`github.com/Mille-Solutions/site-web`.
+Ce document explique comment changer un texte, un lien ou une photo du site sans toucher au code :
+d'abord avec l'**éditeur de contenus** (méthode recommandée), puis directement dans les fichiers.
+Tous les chemins partent de la racine du dépôt `github.com/Mille-Solutions/site-web`.
 
-> **Important** : pour l'instant, enregistrer une modification sur GitHub **ne met pas le site en
-> ligne à jour**. Le site doit ensuite être reconstruit et republié (voir
+> **Important** : enregistrer une modification, dans l'éditeur ou sur GitHub, **ne met pas le site
+> en ligne à jour**. Le site doit ensuite être reconstruit et republié (voir
 > [GUIDE.md](GUIDE.md), § 3.7). Prévenir la personne qui gère la mise en ligne après chaque
 > modification.
 
 ---
 
-## 1. Modifier un fichier sur GitHub
+## 1. Méthode recommandée : l'éditeur de contenus
+
+L'éditeur (Sveltia CMS) présente chaque page sous forme de formulaires : un champ par texte, avec
+une aide sous les champs sensibles. Il fonctionne **sur l'ordinateur**, dans le dossier du site, et
+enregistre directement dans les fichiers de contenu. Il n'est jamais publié avec le site.
+
+### 1.1 Installation (une seule fois)
+
+1. Installer **Node.js** version 22.12 ou plus récente (nodejs.org, version « LTS »).
+2. Installer **Google Chrome** ou **Microsoft Edge** : l'éditeur a besoin de l'un de ces deux
+   navigateurs pour enregistrer dans le dossier (Safari et Firefox ne le permettent pas).
+3. Récupérer le dossier du site (dépôt Git `Mille-Solutions/site-web`), par exemple avec
+   **GitHub Desktop** (« Clone repository »), qui servira aussi à envoyer les modifications.
+4. Dans un terminal ouvert dans ce dossier, lancer une fois :
+
+   ```bash
+   npm install
+   ```
+
+### 1.2 Utilisation
+
+1. Dans un terminal ouvert dans le dossier du site, lancer :
+
+   ```bash
+   npm run admin
+   ```
+
+   L'éditeur s'ouvre dans Chrome (ou Edge) sur `http://localhost:4321/admin/`. L'aperçu du site
+   est sur `http://localhost:4321/` et se met à jour à chaque enregistrement.
+2. Cliquer sur **Travailler avec un dépôt local**, puis choisir le **dossier du site**
+   (`site-web`, celui qui contient `package.json`) et autoriser l'accès en modification. Le
+   navigateur s'en souvient ; il peut redemander l'autorisation à l'ouverture suivante.
+3. Choisir une rubrique à gauche (Accueil, Pages détaillées, Pages légales, Menu et libellés,
+   Réglages), puis la page à modifier. Les sections se déplient d'un clic.
+4. Modifier les textes, puis cliquer sur **Enregistrer** en haut à droite.
+5. Vérifier le résultat dans l'onglet de l'aperçu.
+6. Pour arrêter : fermer l'onglet, puis **Ctrl+C** dans le terminal.
+
+### 1.3 Après les modifications
+
+Les fichiers modifiés sont enregistrés dans le dossier, mais pas encore sur GitHub. Dans
+**GitHub Desktop** : écrire un court résumé (ex. « Accueil : nouveau texte d'introduction »),
+cliquer sur **Commit to main**, puis sur **Push origin**. Prévenir ensuite la personne qui gère la
+mise en ligne.
+
+### 1.4 Bon à savoir
+
+- Les **photos** ne se changent pas dans l'éditeur (voir § 4, « Photos »).
+- Les entrées marquées **« anglais (à valider) »** ne sont visibles sur le site qu'une fois la
+  version anglaise activée dans les réglages ; garder la même structure qu'en français (même
+  nombre d'éléments dans chaque liste).
+- Les **pages légales** s'écrivent en Markdown dans le champ « Texte » (voir § 3, « Fichiers
+  Markdown ») ; l'aide sous le champ rappelle l'essentiel.
+- Les **pages détaillées (phase 2)** se préparent dans l'éditeur, mais ne sont publiées qu'une fois
+  l'option « Publier les pages détaillées » activée dans les réglages.
+- L'éditeur réécrit les fichiers dans un format homogène : les notes internes (lignes commençant
+  par `#`) des fichiers YAML disparaissent au premier enregistrement. C'est normal.
+
+---
+
+## 2. Autre méthode : modifier un fichier sur GitHub
 
 1. Ouvrir le dépôt sur github.com et naviguer jusqu'au fichier (ex. `src/content/home/fr.yaml`).
 2. Cliquer sur l'icône **crayon** (« Edit this file ») en haut à droite du fichier.
@@ -22,7 +82,7 @@ sans toucher au code. Tous les chemins partent de la racine du dépôt
 Pour retrouver un texte rapidement : touche **T** dans le dépôt pour chercher un fichier, ou la
 barre de recherche GitHub pour chercher une phrase dans tout le dépôt.
 
-## 2. Règles à respecter
+## 3. Règles à respecter
 
 ### Fichiers YAML (`.yaml`) — la plupart des textes
 
@@ -58,7 +118,9 @@ doivent garder **la même structure** (même nombre d'éléments dans chaque lis
 
 ---
 
-## 3. Où se trouve chaque contenu
+## 4. Où se trouve chaque contenu
+
+Dans l'éditeur, les rubriques reprennent ce découpage ; sur GitHub, voici les fichiers à ouvrir.
 
 ### Réglages généraux — `src/content/settings.yaml`
 
@@ -110,10 +172,10 @@ Ces pages ne sont publiées qu'une fois `phase2Enabled: true` dans les réglages
   `<span class="missing">[adresse complète]</span>`. Remplacer **toute la balise** (y compris
   `<span …>` et `</span>`) par le texte définitif ; l'encadré bleu disparaît de lui-même.
 
-### Menu, pied de page et petits libellés — `src/i18n/ui.ts`
+### Menu, pied de page et petits libellés — `src/content/ui/fr.json` (anglais : `en.json`)
 
-Ce fichier contient du code : ne modifier que le texte **entre apostrophes** `'…'`, en gardant
-les virgules en fin de ligne. Pour écrire une apostrophe dans un texte, utiliser `’`.
+Fichiers JSON : ne modifier que le texte **entre guillemets** `"…"`, en gardant les virgules en
+fin de ligne. Pour écrire une apostrophe dans un texte, utiliser `’`.
 
 | Je veux changer…                                           | Champ                           |
 | ---------------------------------------------------------- | ------------------------------- |
@@ -124,8 +186,6 @@ les virgules en fin de ligne. Pour écrire une apostrophe dans un texte, utilise
 | Le texte de copyright                                      | `rights`                        |
 | Les messages d'erreur des champs du formulaire             | `fieldRequired`, `fieldEmail`   |
 | La page « Page introuvable »                               | `notFoundTitle`, `notFoundText`, `backHome` |
-
-Le bloc `fr: { … }` contient le français, le bloc `en: { … }` l'anglais.
 
 ### Photos — `src/assets/`
 
@@ -144,7 +204,7 @@ photos demandent une petite modification de code (voir [GUIDE.md](GUIDE.md), § 
 
 ---
 
-## 4. À ne pas modifier sans précaution
+## 5. À ne pas modifier sans précaution
 
 - Les noms de champs (avant les deux-points) et les noms de fichiers.
 - Les champs `id:` des accompagnements : ils servent de liens directs vers une carte.
@@ -154,8 +214,14 @@ photos demandent une petite modification de code (voir [GUIDE.md](GUIDE.md), § 
 - Tout ce qui se trouve dans `src/components/`, `src/pages/`, `src/layouts/` et `src/styles/` :
   c'est le code et la mise en forme du site.
 
-## 5. En cas d'erreur
+## 6. En cas d'erreur
 
-Une faute de syntaxe (guillemet manquant, espace en trop en début de ligne) empêche la
-reconstruction du site, qui indique alors le fichier et la ligne en cause. L'historique de
-chaque fichier sur GitHub (« History ») permet de revoir et d'annuler une modification.
+- **Dans l'éditeur** : les champs obligatoires laissés vides sont signalés en rouge et bloquent
+  l'enregistrement. Pour annuler des modifications pas encore envoyées sur GitHub : dans GitHub
+  Desktop, clic droit sur le fichier → **Discard changes**.
+- **Sur GitHub** : une faute de syntaxe (guillemet manquant, espace en trop en début de ligne)
+  empêche la reconstruction du site, qui indique alors le fichier et la ligne en cause.
+- Dans tous les cas, l'historique de chaque fichier sur GitHub (« History ») permet de revoir et
+  d'annuler une modification.
+- L'aperçu `http://localhost:4321/` ne répond plus ou l'éditeur reste blanc : arrêter avec
+  **Ctrl+C** dans le terminal et relancer `npm run admin`.

@@ -1,0 +1,456 @@
+# Configuration de l'éditeur de contenus (Sveltia CMS), utilisé en local avec `npm run admin`.
+# Chaque collection décrit un fichier de src/content/ champ par champ, dans l'ordre du fichier.
+# L'éditeur réécrit les fichiers à partir de cette description : tout champ ajouté au contenu
+# (src/content.config.ts) doit aussi être ajouté ici, sinon il serait supprimé à l'enregistrement.
+
+backend:
+  # Nécessaire au démarrage de l'éditeur ; en local, il travaille directement sur le dossier
+  # du dépôt (« Travailler avec un dépôt local ») sans se connecter à GitHub.
+  name: github
+  repo: Mille-Solutions/site-web
+  branch: main
+
+app_title: Mille Solutions — contenus
+site_url: http://localhost:4321/
+media_folder: src/assets
+public_folder: /src/assets
+
+editor:
+  preview: false
+
+output:
+  omit_empty_optional_fields: true
+  yaml:
+    quote: double
+
+# Les blocs communs (icône, cartes, référencement, bandeau final…) sont définis à leur première
+# utilisation avec une ancre YAML (&nom) puis réutilisés ailleurs (*nom).
+
+collections:
+  - name: accueil
+    label: Accueil
+    icon: home
+    files:
+      - name: fr
+        label: Accueil — français
+        file: src/content/home/fr.yaml
+        fields: &home_fields
+        - &meta
+          name: meta
+          label: Référencement (Google, LinkedIn)
+          widget: object
+          collapsed: true
+          fields:
+            - { name: title, label: "Titre de l'onglet et du résultat Google", widget: string }
+            - { name: description, label: Description du résultat Google, widget: text, hint: "Environ 150 caractères." }
+        - name: hero
+          label: Premier écran
+          widget: object
+          fields:
+            - name: title
+              label: Grand titre
+              label_singular: ligne
+              widget: list
+              hint: Une ligne par élément.
+              field: { name: line, label: Ligne, widget: string }
+            - { name: lead, label: Texte d'introduction, widget: text }
+            - { name: engagementLabel, label: "Repère « Mon engagement »", widget: string }
+            - { name: signature, label: Signature, widget: string }
+            - { name: cta, label: Bouton de réservation, widget: string }
+            - { name: secondary, label: Bouton secondaire, widget: string }
+            - { name: imageAlt, label: Description de la photo (lecteurs d'écran), widget: text }
+        - name: situations
+          label: "Section « Vous vous reconnaissez »"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: eyebrow, label: Repère, widget: string }
+            - { name: title, label: Titre, widget: string }
+            - name: items
+              label: Cartes
+              label_singular: carte
+              widget: list
+              summary: "{{fields.title}}"
+              fields: &card_fields
+              - &icon
+                name: icon
+                label: Icône
+                widget: select
+                options:
+                  - { label: "Coordination (trois points reliés)", value: coordination }
+                  - { label: "Structuration (quatre carrés)", value: structuration }
+                  - { label: "Priorisation (barres)", value: priorisation }
+                  - { label: "Solutions (ampoule)", value: solutions }
+                  - { label: "Collaboration (personnes)", value: collaboration }
+                  - { label: "Résultats (cible)", value: resultats }
+              - { name: title, label: Titre, widget: string }
+              - { name: text, label: Texte, widget: text }
+        - name: services
+          label: "Section « Trois accompagnements »"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: eyebrow, label: Repère, widget: string }
+            - { name: title, label: Titre, widget: string }
+            - name: items
+              label: Cartes
+              label_singular: carte
+              widget: list
+              summary: "{{fields.title}}"
+              fields:
+                - { name: id, label: Identifiant (ancre), widget: string, hint: "Ne pas modifier une fois le site publié : sert de lien direct vers la carte." }
+                - *icon
+                - { name: title, label: Titre, widget: string }
+                - { name: text, label: Texte, widget: text }
+        - name: method
+          label: "Section « Approche »"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: eyebrow, label: Repère, widget: string }
+            - { name: title, label: Titre, widget: string }
+            - { name: steps, label: Étapes, label_singular: étape, widget: list, summary: "{{fields.title}}", fields: *card_fields }
+        - name: examples
+          label: "Section « Exemples de projets »"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: eyebrow, label: Repère, widget: string }
+            - { name: title, label: Titre, widget: string }
+            - name: items
+              label: Exemples
+              label_singular: exemple
+              widget: list
+              summary: "{{fields.title}}"
+              hint: Garder trois exemples (ou six) pour une grille équilibrée.
+              fields:
+                - { name: title, label: Titre, widget: string }
+                - { name: text, label: Résumé, widget: text }
+            - { name: note, label: Mention sous les exemples, widget: text }
+        - name: about
+          label: "Section « À propos »"
+          widget: object
+          collapsed: true
+          fields:
+            - { name: eyebrow, label: Repère, widget: string }
+            - { name: title, label: Titre, widget: string }
+            - name: paragraphs
+              label: Paragraphes
+              label_singular: paragraphe
+              widget: list
+              hint: Le premier paragraphe est affiché en grand.
+              field: { name: paragraph, label: Paragraphe, widget: text }
+            - { name: cta, label: Bouton, widget: string }
+            - { name: portraitCaption, label: "Légende de l'emplacement du portrait", widget: string }
+        - name: contact
+          label: "Section « Parlons de votre situation »"
+          widget: object
+          collapsed: true
+          hint: Également utilisée sur la page Contact.
+          fields:
+            - { name: title, label: Titre, widget: string }
+            - { name: text, label: Texte, widget: text }
+            - name: booking
+              label: Encadré de réservation
+              widget: object
+              fields:
+                - { name: eyebrow, label: Repère, widget: string }
+                - { name: text, label: Texte, widget: string }
+                - { name: cta, label: Bouton, widget: string }
+            - name: form
+              label: Formulaire
+              widget: object
+              collapsed: true
+              fields:
+                - { name: eyebrow, label: Repère, widget: string }
+                - { name: name, label: "Champ « Nom »", widget: string }
+                - { name: namePlaceholder, label: "Exemple dans le champ « Nom »", widget: string }
+                - { name: email, label: "Champ « Adresse e-mail »", widget: string }
+                - { name: emailPlaceholder, label: "Exemple dans le champ « Adresse e-mail »", widget: string }
+                - { name: organisation, label: "Champ « Organisation »", widget: string }
+                - { name: organisationPlaceholder, label: "Exemple dans le champ « Organisation »", widget: string }
+                - { name: message, label: "Champ « Message »", widget: string }
+                - { name: messagePlaceholder, label: "Exemple dans le champ « Message »", widget: string }
+                - { name: submit, label: "Bouton d'envoi", widget: string }
+                - { name: sending, label: "Bouton pendant l'envoi", widget: string }
+                - { name: notice, label: Mention de confidentialité, widget: text }
+                - { name: noticeLink, label: Texte du lien vers la page Confidentialité, widget: string }
+                - { name: requiredNote, label: Mention des champs obligatoires, widget: string }
+                - { name: success, label: Message de confirmation, widget: text }
+                - { name: error, label: "Message en cas d'échec de l'envoi", widget: text }
+                - { name: invalid, label: Message si des champs obligatoires manquent, widget: text }
+                - { name: unavailable, label: Message tant que le formulaire est désactivé, widget: text }
+      - name: en
+        label: Accueil — anglais (à valider)
+        file: src/content/home/en.yaml
+        fields: *home_fields
+
+  - name: pages
+    label: Pages détaillées (phase 2)
+    icon: description
+    description: "Publiées seulement quand « Publier les pages détaillées » est coché dans les réglages."
+    files:
+      - name: accompagnements
+        label: Accompagnements
+        file: src/content/accompagnements/fr.yaml
+        fields:
+          - *meta
+          - &page_hero
+            name: hero
+            label: Premier écran
+            widget: object
+            fields:
+              - { name: eyebrow, label: Repère au-dessus du titre, widget: string, required: false }
+              - { name: title, label: Titre, widget: string }
+              - name: titleLines
+                label: Titre découpé en lignes
+                label_singular: ligne
+                widget: list
+                required: false
+                hint: "Facultatif : s'il est rempli, remplace le titre ci-dessus, une ligne par élément."
+                field: { name: line, label: Ligne, widget: string }
+              - { name: lead, label: Texte d'introduction, widget: text }
+              - { name: primary, label: Bouton de réservation, widget: string }
+              - { name: secondary, label: Bouton secondaire, widget: string, required: false }
+              - { name: imageCaption, label: "Légende de l'emplacement photo (si pas de photo)", widget: string }
+              - { name: imageAlt, label: Description de la photo (lecteurs d'écran), widget: text, required: false }
+          - { name: statement, label: Phrase centrale, widget: text }
+          - name: list
+            label: Les trois accompagnements
+            widget: object
+            fields:
+              - { name: eyebrow, label: Repère, widget: string }
+              - { name: title, label: Titre, widget: string }
+              - { name: needsLabel, label: "Intitulé « Besoins »", widget: string }
+              - { name: interventionLabel, label: "Intitulé « Intervention »", widget: string }
+              - { name: deliverablesLabel, label: "Intitulé « Livrables possibles »", widget: string }
+              - name: items
+                label: Accompagnements
+                label_singular: accompagnement
+                widget: list
+                summary: "{{fields.title}}"
+                fields:
+                  - { name: id, label: Identifiant (ancre), widget: string, hint: "Ne pas modifier une fois le site publié : sert de lien direct." }
+                  - *icon
+                  - { name: title, label: Titre, widget: string }
+                  - { name: text, label: Texte, widget: text }
+                  - { name: needs, label: Besoins, label_singular: besoin, widget: list, field: { name: need, label: Besoin, widget: string } }
+                  - { name: intervention, label: Intervention, widget: text }
+                  - { name: deliverables, label: Livrables possibles, label_singular: livrable, widget: list, field: { name: deliverable, label: Livrable, widget: string } }
+          - name: approach
+            label: "Section « Une approche personnelle »"
+            widget: object
+            fields:
+              - { name: eyebrow, label: Repère, widget: string }
+              - { name: title, label: Titre, widget: string }
+              - { name: items, label: Cartes, label_singular: carte, widget: list, summary: "{{fields.title}}", fields: *card_fields }
+          - &cta
+            name: cta
+            label: Bandeau final (fond bleu nuit)
+            widget: object
+            fields:
+              - { name: title, label: Titre, widget: string }
+              - { name: text, label: Texte, widget: text }
+              - { name: button, label: Bouton de réservation, widget: string }
+              - { name: note, label: Mention sous le bouton, widget: string, required: false }
+
+      - name: approche
+        label: Approche et parcours
+        file: src/content/approche/fr.yaml
+        fields:
+          - *meta
+          - *page_hero
+          - name: statement
+            label: Phrase centrale
+            widget: object
+            fields:
+              - { name: title, label: Première phrase, widget: string }
+              - { name: text, label: Seconde phrase, widget: string }
+          - name: intro
+            label: "Section « Ma méthode » (introduction)"
+            widget: object
+            fields:
+              - { name: name, label: Nom, widget: string }
+              - { name: eyebrow, label: Repère, widget: string }
+              - { name: paragraphs, label: Paragraphes, label_singular: paragraphe, widget: list, min: 2, field: { name: paragraph, label: Paragraphe, widget: text } }
+          - name: method
+            label: "Section « Ma méthode » (étapes)"
+            widget: object
+            fields:
+              - { name: title, label: Titre, widget: string }
+              - { name: subtitle, label: Sous-titre, widget: string }
+              - { name: steps, label: Étapes, label_singular: étape, widget: list, summary: "{{fields.title}}", fields: *card_fields }
+          - name: principles
+            label: "Section « Mes principes d'intervention »"
+            widget: object
+            fields:
+              - { name: title, label: Titre, widget: string }
+              - { name: subtitle, label: Sous-titre, widget: string }
+              - { name: items, label: Principes, label_singular: principe, widget: list, summary: "{{fields.title}}", fields: *card_fields }
+          - name: background
+            label: "Section « Mon parcours »"
+            widget: object
+            fields:
+              - { name: title, label: Titre, widget: string }
+              - { name: subtitle, label: Sous-titre, widget: text }
+              - { name: paragraphs, label: Paragraphes, label_singular: paragraphe, widget: list, field: { name: paragraph, label: Paragraphe, widget: text } }
+          - *cta
+
+      - name: exemples
+        label: Exemples de projets
+        file: src/content/exemples/fr.yaml
+        fields:
+          - *meta
+          - name: hero
+            label: Premier écran
+            widget: object
+            fields:
+              - { name: eyebrow, label: Repère, widget: string }
+              - { name: title, label: Titre, widget: string }
+              - { name: lead, label: Texte d'introduction, widget: text }
+              - { name: signature, label: Signature, widget: string }
+              - { name: signatureText, label: Texte sous la signature, widget: text }
+              - { name: imageCaption, label: "Légende de l'emplacement photo (si pas de photo)", widget: string }
+              - { name: imageAlt, label: Description de la photo (lecteurs d'écran), widget: text, required: false }
+          - name: projects
+            label: Fiches projets
+            widget: object
+            fields:
+              - { name: eyebrow, label: Repère, widget: string }
+              - { name: title, label: Titre, widget: string }
+              - { name: subtitle, label: Sous-titre, widget: text }
+              - { name: roleLabel, label: "Intitulé « Mon rôle »", widget: string }
+              - { name: actionsLabel, label: "Intitulé « Actions »", widget: string }
+              - { name: resultsLabel, label: "Intitulé « Résultats »", widget: string }
+              - { name: note, label: Mention sur chaque fiche, widget: text }
+              - name: items
+                label: Projets
+                label_singular: projet
+                widget: list
+                summary: "{{fields.title}}"
+                fields:
+                  - *icon
+                  - { name: title, label: Titre, widget: string }
+                  - { name: duration, label: Durée, widget: string }
+                  - { name: situation, label: Situation, widget: text }
+                  - { name: role, label: Mon rôle, widget: text }
+                  - { name: actions, label: Actions, label_singular: action, widget: list, field: { name: action, label: Action, widget: string } }
+                  - { name: results, label: Résultats, widget: text }
+          - *cta
+
+      - name: contact
+        label: Contact
+        file: src/content/contact/fr.yaml
+        fields:
+          - *meta
+          - name: booking
+            label: Encadré de réservation
+            widget: object
+            hint: "Le titre, le texte et le formulaire de cette page sont ceux de l'accueil (section « Parlons de votre situation »)."
+            fields:
+              - { name: eyebrow, label: Repère, widget: string }
+              - { name: text, label: Texte, widget: string }
+              - { name: cta, label: Bouton, widget: string }
+
+  - name: legal_fr
+    label: Pages légales — français
+    icon: gavel
+    folder: src/content/legal/fr
+    extension: md
+    format: yaml-frontmatter
+    create: false
+    delete: false
+    identifier_field: title
+    fields: &legal_fields
+    - { name: title, label: Titre, widget: string }
+    - { name: description, label: Description du résultat Google, widget: text }
+    - { name: updated, label: Date de dernière mise à jour, widget: string, hint: "Format JJ/MM/AAAA." }
+    - { name: draft, label: Brouillon non publiable, widget: boolean, default: false, hint: "Désactiver une fois le texte validé : retire l'avertissement et autorise l'indexation par Google." }
+    - name: body
+      label: Texte
+      widget: markdown
+      modes: [raw]
+      hint: >-
+        « ## Titre » crée une rubrique et une entrée du sommaire ; une ligne vide sépare deux
+        paragraphes ; « - » crée une liste ; **texte** met en gras. Une information à compléter
+        s'écrit <span class="missing">[…]</span> : remplacer toute la balise par le texte définitif.
+
+  - name: legal_en
+    label: Pages légales — anglais (à valider)
+    icon: gavel
+    folder: src/content/legal/en
+    extension: md
+    format: yaml-frontmatter
+    create: false
+    delete: false
+    identifier_field: title
+    fields: *legal_fields
+
+  - name: interface
+    label: Menu, pied de page et libellés
+    icon: menu
+    files:
+      - name: fr
+        label: Libellés — français
+        file: src/content/ui/fr.json
+        fields: &ui_fields
+          - { name: skip, label: "Lien d'évitement (« Aller au contenu »)", widget: string }
+          - { name: home, label: "Menu : Accueil", widget: string }
+          - name: nav
+            label: Rubriques du menu
+            widget: object
+            fields:
+              - { name: services, label: Accompagnements, widget: string }
+              - { name: approach, label: "Approche (page détaillée, phase 2)", widget: string }
+              - { name: approachSection, label: "Approche (section de l'accueil, phase 1)", widget: string }
+              - { name: examples, label: Exemples de projets, widget: string }
+              - { name: about, label: "À propos (phase 1)", widget: string }
+              - { name: contact, label: Contact, widget: string }
+          - { name: book, label: "Bouton « Réserver un échange » (en-tête et menu)", widget: string }
+          - { name: menuOpen, label: "Bouton menu : texte lu « ouvrir »", widget: string }
+          - { name: menuClose, label: "Bouton menu : texte lu « fermer »", widget: string }
+          - { name: menuLabel, label: "Bouton menu : texte affiché « Menu »", widget: string }
+          - { name: closeLabel, label: "Bouton menu : texte affiché « Fermer »", widget: string }
+          - { name: mainNav, label: Nom de la navigation (lecteurs d'écran), widget: string }
+          - { name: langSwitch, label: "Sélecteur de langue : lien vers l'autre langue", widget: string }
+          - { name: langPending, label: "Sélecteur de langue : langue pas encore disponible", widget: string }
+          - { name: newTab, label: "Mention « nouvel onglet » (lecteurs d'écran)", widget: string }
+          - { name: logoHome, label: Logo (lecteurs d'écran), widget: string }
+          - { name: footerNav, label: "Pied de page : titre « Navigation »", widget: string }
+          - { name: footerContact, label: "Pied de page : titre « Contact »", widget: string }
+          - { name: footerContactLines, label: "Pied de page : lignes « Contact »", label_singular: ligne, widget: list, field: { name: line, label: Ligne, widget: string } }
+          - { name: legalNav, label: Nom des liens légaux (lecteurs d'écran), widget: string }
+          - { name: legal, label: "Lien « Mentions légales »", widget: string }
+          - { name: privacy, label: "Lien « Confidentialité »", widget: string }
+          - { name: rights, label: Texte de copyright, widget: string }
+          - { name: signature, label: Signature, widget: string }
+          - { name: updated, label: "Pages légales : « Dernière mise à jour »", widget: string }
+          - { name: legalEyebrow, label: "Pages légales : repère", widget: string }
+          - { name: toc, label: "Pages légales : « Sommaire »", widget: string }
+          - { name: draftStatus, label: "Pages légales : mention « Non publiable »", widget: string }
+          - { name: draftWarning, label: "Pages légales : avertissement de brouillon", widget: text }
+          - { name: notFoundTitle, label: "Page introuvable : titre", widget: string }
+          - { name: notFoundText, label: "Page introuvable : texte", widget: string }
+          - { name: backHome, label: "Page introuvable : bouton", widget: string }
+          - { name: required, label: "Formulaire : « obligatoire »", widget: string }
+          - { name: fieldRequired, label: "Formulaire : erreur champ vide", widget: string }
+          - { name: fieldEmail, label: "Formulaire : erreur adresse e-mail", widget: text }
+      - { name: en, label: Libellés — anglais (à valider), file: src/content/ui/en.json, fields: *ui_fields }
+
+  - name: reglages
+    label: Réglages
+    icon: settings
+    files:
+      - name: links
+        label: Liens et options
+        file: src/content/settings.yaml
+        fields:
+          - name: links
+            label: Liens et options
+            widget: object
+            fields:
+              - { name: bookingsUrl, label: Lien Microsoft Bookings, widget: string, hint: "Utilisé par tous les boutons « Réserver »." }
+              - { name: linkedinUrl, label: Lien du profil LinkedIn, widget: string }
+              - { name: contactFormEndpoint, label: "Adresse d'envoi du formulaire", widget: string, required: false, hint: "Laisser vide tant qu'aucun service d'envoi n'est configuré : le formulaire reste affiché mais désactivé." }
+              - { name: englishEnabled, label: Activer la version anglaise, widget: boolean, default: false, hint: "À activer uniquement une fois la traduction relue et validée." }
+              - { name: phase2Enabled, label: Publier les pages détaillées (phase 2), widget: boolean, default: false, hint: "Le menu renvoie alors vers les pages Accompagnements, Approche et parcours, Exemples et Contact au lieu des sections de l'accueil." }

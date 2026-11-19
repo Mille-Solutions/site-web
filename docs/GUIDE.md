@@ -33,6 +33,8 @@ npm run dev       # aperçu en direct sur http://localhost:4321 (rechargement au
 npm run build     # construit le site final dans dist/
 npm run preview   # sert dist/ en local pour vérifier le résultat exact avant envoi
 npm run check     # vérifie les erreurs de types et de contenu
+npm run admin     # éditeur de contenus (Sveltia CMS) dans Chrome ou Edge, voir § 6.3
+npm run check:admin  # vérifie que l'éditeur décrit toutes les clés des contenus
 ```
 
 Si un fichier de contenu est mal rempli (champ manquant, faute de syntaxe YAML), `npm run build`
@@ -201,7 +203,7 @@ VS Code…).
 | Un texte de la **page d'accueil** | `src/content/home/fr.yaml` · `src/content/home/en.yaml` |
 | Le **titre et la description** affichés dans Google et sur LinkedIn | `meta:` en haut de `fr.yaml` / `en.yaml` |
 | Les **mentions légales** ou la **confidentialité** | `src/content/legal/fr/*.md` · `src/content/legal/en/*.md` |
-| Les **libellés du menu**, du pied de page, des pages légales, de la page 404, les erreurs de champ du formulaire | `src/i18n/ui.ts` |
+| Les **libellés du menu**, du pied de page, des pages légales, de la page 404, les erreurs de champ du formulaire | `src/content/ui/fr.json` · `src/content/ui/en.json` |
 | Les **adresses (URL) des pages** et des ancres de sections | `src/i18n/ui.ts` (`routes` et `sections`) |
 
 ### 4.2 Règles d'écriture YAML
@@ -296,7 +298,7 @@ Les tableaux défilent horizontalement dans leur cadre sur mobile, sans élargir
 src/
 ├── content/               ← CONTENUS (voir section 4)
 ├── content.config.ts      ← structure attendue des contenus (champs obligatoires)
-├── i18n/ui.ts             ← langues, URL des pages, libellés d'interface
+├── i18n/ui.ts             ← langues, URL des pages, menu (libellés : content/ui/*.json)
 ├── styles/global.css      ← charte : couleurs, polices, boutons, styles communs
 ├── layouts/Base.astro     ← squelette commun : <head>, SEO, hreflang, en-tête, pied de page
 ├── components/
@@ -468,7 +470,7 @@ pages.
 ### 5.7 Ajouter une langue
 
 1. Ajouter la langue dans `astro.config.mjs` (`i18n.locales` et `sitemap.i18n.locales`).
-2. L'ajouter dans `src/i18n/ui.ts` : `languages`, chaque entrée de `routes`, `sections` et `ui`.
+2. L'ajouter dans `src/i18n/ui.ts` (`languages`, chaque entrée de `routes`, `sections` et `ui`) et créer ses libellés `src/content/ui/<langue>.json`.
 3. Créer `src/content/home/<langue>.yaml` et les pages dans `src/pages/<langue>/`.
 4. Le sélecteur actuel bascule entre deux langues. Avec trois langues ou plus, le transformer en liste.
 
@@ -481,7 +483,7 @@ pages.
 La partie visible est **en place** (`src/components/home/ContactForm.astro`) : champs de la maquette,
 validation dans le navigateur avec messages près des champs, messages exacts de succès, d'échec, d'adresse e-mail invalide et de champ obligatoire (cadre « États du
 formulaire » de la maquette « Contact — FR » ; textes dans `home/<langue>.yaml` → `form` et
-`src/i18n/ui.ts` → `fieldRequired`, `fieldEmail`),
+`src/content/ui/fr.json` → `fieldRequired`, `fieldEmail`),
 saisie conservée en cas d'échec, annonce du résultat aux lecteurs d'écran, champ piège anti-robots
 (`website`).
 
@@ -528,13 +530,27 @@ attributs et cet événement à l'outil retenu. Ne jamais envoyer de nom, d'e-ma
 contenu de message à l'outil de statistiques. La politique de confidentialité (sections 5 et 8)
 doit décrire l'outil réellement installé.
 
-### 6.3 Édition des contenus depuis un navigateur (optionnel)
+### 6.3 Éditeur de contenus (Sveltia CMS)
 
-Si Charlotte préfère modifier les textes sans éditeur de texte ni Git, on peut ajouter une interface
-d'administration légère, sans base de données, qui écrit directement dans les fichiers YAML et
-Markdown du dépôt. Exemples : **Sveltia CMS** ou **Decap CMS**, accessibles sur `/admin/`. Cela
-suppose un dépôt Git hébergé (GitHub ou GitLab) et, de préférence, une publication automatique
-(option B).
+En place, en **mode local** : `npm run admin` démarre le site et ouvre l'éditeur sur
+`http://localhost:4321/admin/` dans Chrome ou Edge, qui enregistre directement dans le dossier du
+dépôt. Mode d'emploi pour la personne qui édite : [MODIFIER-LES-CONTENUS.md](MODIFIER-LES-CONTENUS.md), § 1.
+
+Fonctionnement :
+
+- `admin/config.yml` décrit chaque fichier de contenu champ par champ (libellés, aides, listes) ;
+- `admin/dev-server.mjs` sert l'éditeur sur `/admin/` en développement seulement : il n'est jamais
+  copié dans `dist/` ni publié ;
+- `scripts/admin.mjs` lance le serveur et ouvre le navigateur ;
+- Sveltia CMS est installé en dépendance de développement, version figée (`package.json`).
+
+**Après toute modification de `src/content.config.ts` ou de la structure d'un fichier de contenu**,
+mettre à jour `admin/config.yml` puis lancer `npm run check:admin` : l'éditeur réécrit les fichiers
+à partir de sa configuration, et une clé qui n'y serait pas décrite serait supprimée au premier
+enregistrement.
+
+Évolution possible : avec une publication automatique (option B), l'éditeur peut aussi être mis en
+ligne sur `/admin/` avec une connexion GitHub, pour éditer sans installation.
 
 ---
 

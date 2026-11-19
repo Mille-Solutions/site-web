@@ -3,6 +3,7 @@ import { readFileSync } from 'node:fs';
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
+import { contentEditor } from './admin/dev-server.mjs';
 
 // Les pages anglaises ne sont listées dans le plan du site qu'une fois validées (settings.yaml).
 const settings = readFileSync('./src/content/settings.yaml', 'utf8');
@@ -29,5 +30,6 @@ export default defineConfig({
     }),
   ],
   devToolbar: { enabled: false },
-  vite: { plugins: [tailwindcss()] },
+  // contentEditor : éditeur de contenus sur /admin/, en développement seulement (npm run admin).
+  vite: { plugins: [tailwindcss(), contentEditor()] },
 });

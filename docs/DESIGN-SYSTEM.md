@@ -196,7 +196,7 @@ en `text-ivory/70`, halo décoratif `bg-azur/10 blur-[50px]`.
 ## 11. Rédaction et contenus
 
 - Textes dans `src/content/` (YAML / Markdown), jamais en dur dans les composants ; libellés
-  d'interface dans `src/i18n/ui.ts`, en français **et** en anglais.
+  d'interface dans `src/content/ui/fr.json` et `en.json`, en français **et** en anglais.
 - Typographie française : guillemets « … » avec espaces insécables, espace insécable avant
   `: ; ? !`, heures au format « 19 h », apostrophe typographique ’.
 - Ton : vouvoiement, phrases courtes, concret, sans superlatifs.

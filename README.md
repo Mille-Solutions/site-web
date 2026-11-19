@@ -17,7 +17,7 @@ Le dossier `dist/` contient uniquement des fichiers HTML/CSS/JS : il se dépose 
 n'importe quel hébergement statique (FTP/SFTP, Netlify, etc.).
 
 Le guide complet de mise en ligne et de modification se trouve dans [docs/GUIDE.md](docs/GUIDE.md).
-Pour modifier les textes, liens et photos sans toucher au code : [docs/MODIFIER-LES-CONTENUS.md](docs/MODIFIER-LES-CONTENUS.md).
+Pour modifier les textes, liens et photos sans toucher au code : `npm run admin` (éditeur de contenus) et [docs/MODIFIER-LES-CONTENUS.md](docs/MODIFIER-LES-CONTENUS.md).
 
 ## Modifier les contenus
 
@@ -26,7 +26,8 @@ Pour modifier les textes, liens et photos sans toucher au code : [docs/MODIFIER-
 | Liens Bookings et LinkedIn, adresse du formulaire, activation de l'anglais | `src/content/settings.yaml` |
 | Textes de l'accueil | `src/content/home/fr.yaml` et `en.yaml` |
 | Mentions légales, confidentialité | `src/content/legal/<langue>/*.md` |
-| Libellés de navigation, menus, adresses des pages | `src/i18n/ui.ts` |
+| Libellés de navigation, menus | `src/content/ui/fr.json`, `en.json` |
+| Adresses des pages, ancres | `src/i18n/ui.ts` |
 | Couleurs, typographies (charte) | `src/styles/global.css` (`@theme`) |
 
 ## Structure

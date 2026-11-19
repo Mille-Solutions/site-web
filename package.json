@@ -6,7 +6,9 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "check": "astro check"
+    "check": "astro check",
+    "admin": "node scripts/admin.mjs",
+    "check:admin": "node scripts/check-admin.mjs"
   },
   "repository": {
     "type": "git",
@@ -30,6 +32,8 @@
   "private": true,
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
-    "typescript": "^6.0.3"
+    "@sveltia/cms": "0.259.0",
+    "typescript": "^6.0.3",
+    "yaml": "2.9.1"
   }
 }

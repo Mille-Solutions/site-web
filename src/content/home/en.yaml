@@ -9,8 +9,8 @@ hero:
   title:
     - "Move your projects forward."
     - "Simplify the way you work."
-  lead: "I support companies and organisations with project management, improving how they operate and implementing practical solutions."
-  leadSecondary: "I also assist with one-off operational needs when you lack time, resources or simply an outside perspective to move forward."
+  lead: "I help companies and organisations structure their projects, improve how they operate and turn their ideas into reality."
+  leadSecondary: "I also take on one-off operational assignments, according to your needs and available resources."
   engagementLabel: "My commitment"
   signature: "Structure. Prioritize. Deliver."
   # Photo provisoire issue de la maquette Figma : origine et droits à valider avant publication.
@@ -33,11 +33,11 @@ situations:
         - "Complex processes, unsuitable tools, repetitive tasks or unclear responsibilities complicate day-to-day work."
         - "I help identify useful improvements and put them in place."
     - icon: priorisation
-      title: "A one-off need, but not the resources to address it"
+      title: "A one-off need to deliver"
       text: ""
       paragraphs:
         - "A study to conduct, an event to prepare, an opportunity to explore or an action to coordinate?"
-        - "I can take responsibility for these assignments, from preparation through to delivery."
+        - "I can take responsibility for preparing, organising and monitoring these assignments according to your needs."
 
 method:
   eyebrow: "My approach"
@@ -52,7 +52,7 @@ method:
     - icon: coordination
       title: "03 — Deliver"
       text: "Implement actions, coordinate stakeholders and monitor delivery through to a concrete result."
-  note: "Every assignment is different. I can work on an entire project or a specific stage or one-off operational need, in collaboration with your teams and partners."
+  note: "Every assignment is different. I work on a complete project, a specific stage or a one-off operational need, in collaboration with your teams and partners."
 
 examples:
   eyebrow: "Examples of work"
@@ -66,10 +66,10 @@ examples:
       category: "Human resources · Digitalisation · Organisation"
       text: "Needs analysis, deployment of an applicant management tool, adaptation of internal practices and user training."
       context: "Project completed in three months as part of my salaried career."
-    - title: "Commercial prospecting and preparation of management tools"
+    - title: "Business development and prospecting structure"
       category: "Business development · Operational coordination"
-      text: "Study of commercial opportunities in the yachting sector, identification of prospects and institutional contacts, creation of targeted contact databases and monitoring tools."
-      context: "Assignment completed within Mille Solutions."
+      text: "Review of opportunities in the yachting sector, identification of commercial and institutional prospects, creation of targeted contact databases and monitoring tools to prepare and organise commercial and event activities."
+      context: "Assignment completed as part of Mille Solutions."
   note: ""
 
 about:
@@ -77,20 +77,20 @@ about:
   title: "Hands-on experience in the service of your projects."
   introTitle: "Who am I?"
   paragraphs:
-    - "I founded Mille Solutions to apply my experience in project management, team coordination and organisational improvement to the needs of companies and professionals."
-    - "My career has taken me through very different environments: offshore operations, humanitarian missions, yachting, events, human resources, digitalisation and sustainability."
-    - "What connects these experiences is the ability to understand a situation quickly, bring together the right people, find practical solutions and move projects forward to delivery."
-    - "Based in Monaco, I work with organisations with varied needs and resources."
+    - "I founded Mille Solutions to apply my experience in project management, coordination and organisational improvement to the needs of companies and professionals."
+    - "My career has taken me through very different worlds: offshore operations, humanitarian missions, yachting, events, human resources, digitalisation and sustainability."
+    - "These experiences have taught me to adapt quickly, work with a wide range of stakeholders and find practical solutions, even in complex situations."
+    - "Based in Monaco, I work with organisations of all sizes, on strategic projects as well as one-off needs."
   cta: "Discover my background"
   portraitCaption: "Portrait of Charlotte"
 
 contact:
   eyebrow: "Contact"
   title: "Let’s talk about your project."
-  text: "Do you have a project to launch, an organisation to improve or a one-off need to address? Present me with your situation and needs. We can discuss possible solutions and how I can support you."
+  text: "Do you have a project to launch, an organisation to improve or a one-off need to address?\n\nPresent me with your situation and needs. We can discuss how I can support you."
   form:
-    eyebrow: "Prefer to write?"
-    intro: "Present me with your needs using the form below."
+    eyebrow: "Contact me"
+    intro: "Use the form below to present me with your request."
     name: "Name"
     namePlaceholder: "Your name"
     email: "Email address"

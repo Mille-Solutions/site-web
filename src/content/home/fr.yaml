@@ -8,8 +8,8 @@ hero:
   title:
     - "Faire avancer vos projets."
     - "Simplifier votre fonctionnement."
-  lead: "J’accompagne les entreprises et les organisations dans la gestion de leurs projets, l’amélioration de leur fonctionnement et la mise en œuvre de solutions concrètes."
-  leadSecondary: "J’interviens également sur des besoins opérationnels ponctuels, lorsque vous manquez de temps, de ressources ou simplement d’un regard extérieur pour avancer."
+  lead: "J’aide les entreprises et les organisations à structurer leurs projets, améliorer leur fonctionnement et concrétiser leurs idées."
+  leadSecondary: "J’interviens également sur des missions opérationnelles ponctuelles, en fonction de vos besoins et des ressources disponibles."
   engagementLabel: "Mon engagement"
   signature: "Structurer. Prioriser. Concrétiser."
   # Photo provisoire issue de la maquette Figma : origine et droits à valider avant publication.
@@ -32,11 +32,11 @@ situations:
         - "Processus complexes, outils inadaptés, tâches répétitives ou responsabilités mal définies compliquent votre quotidien."
         - "Je vous accompagne pour identifier les améliorations utiles et les mettre en place."
     - icon: priorisation
-      title: "Un besoin ponctuel, mais pas les ressources pour le traiter"
+      title: "Un besoin ponctuel à concrétiser"
       text: ""
       paragraphs:
         - "Une étude à réaliser, un événement à préparer, une opportunité à explorer ou une action à coordonner ?"
-        - "Je peux prendre en charge ces missions, de leur préparation jusqu’à leur réalisation."
+        - "Je peux prendre en charge la préparation, l’organisation et le suivi de ces missions, en fonction de vos besoins."
 
 method:
   eyebrow: "Mon approche"
@@ -51,7 +51,7 @@ method:
     - icon: coordination
       title: "03 — Concrétiser"
       text: "Mettre en œuvre les actions, coordonner les intervenants et assurer le suivi jusqu’à un résultat concret."
-  note: "Chaque mission est différente. J’interviens aussi bien sur un projet complet que sur une étape précise ou un besoin opérationnel ponctuel, en collaboration avec vos équipes et partenaires."
+  note: "Chaque mission est différente. J’interviens sur un projet complet, une étape précise ou un besoin opérationnel ponctuel, en collaboration avec vos équipes et partenaires."
 
 examples:
   eyebrow: "Exemples de réalisations"
@@ -65,9 +65,9 @@ examples:
       category: "Ressources humaines · Digitalisation · Organisation"
       text: "Analyse des besoins, déploiement d’un outil de gestion des candidatures, adaptation des pratiques internes et formation des utilisateurs."
       context: "Projet réalisé en trois mois dans le cadre de mon parcours salarié."
-    - title: "Prospection commerciale et préparation d’élément de pilotage"
+    - title: "Développement commercial et structuration de la prospection"
       category: "Développement commercial · Coordination opérationnelle"
-      text: "Étude d’opportunités commerciales dans le secteur du yachting, identification de prospects et d’interlocuteurs institutionnels, constitution de bases de contacts ciblées et création d’outils de suivi."
+      text: "Étude d’opportunités dans le secteur du yachting, identification de prospects commerciaux et institutionnels, constitution de bases de contacts ciblées et création d’outils de suivi pour préparer et organiser les actions commerciales et événementielles."
       context: "Mission réalisée dans le cadre de Mille Solutions."
   note: ""
 
@@ -76,10 +76,10 @@ about:
   title: "Une expérience de terrain au service de vos projets."
   introTitle: "Qui suis-je ?"
   paragraphs:
-    - "J’ai créé Mille Solutions pour mettre mon expérience en gestion de projets, coordination d’équipes et amélioration des organisations au service des entreprises et des professionnels."
-    - "Mon parcours m’a amenée à évoluer dans des environnements très différents : opérations offshore, missions humanitaires, yachting, événementiel, ressources humaines, digitalisation et durabilité."
-    - "Ce qui relie ces expériences : comprendre rapidement une situation, réunir les bonnes personnes, trouver des solutions pratiques et faire avancer les projets jusqu’à leur réalisation."
-    - "Basée à Monaco, j’interviens auprès d’organisations aux besoins et aux moyens variés."
+    - "J’ai créé Mille Solutions pour mettre mon expérience en gestion de projets, coordination et amélioration des organisations au service des entreprises et des professionnels."
+    - "Mon parcours m’a amenée à évoluer dans des univers très différents : opérations offshore, missions humanitaires, yachting, événementiel, ressources humaines, digitalisation et durabilité."
+    - "Ces expériences m’ont appris à m’adapter rapidement, à travailler avec des interlocuteurs variés et à trouver des solutions pratiques, même dans des situations complexes."
+    - "Basée à Monaco, j’interviens auprès d’organisations de toutes tailles, sur des projets structurants comme sur des besoins ponctuels."
   # Phase 1 : ouvre le profil LinkedIn ; phase 2 : page « Approche et parcours ».
   cta: "Découvrir mon parcours"
   portraitCaption: "Portrait de Charlotte à fournir"
@@ -87,10 +87,10 @@ about:
 contact:
   eyebrow: "Contact"
   title: "Parlons de votre projet."
-  text: "Vous avez un projet à lancer, une organisation à améliorer ou un besoin ponctuel à traiter ? Présentez-moi votre situation et vos besoins. Nous pourrons échanger sur les solutions envisageables et la manière dont je peux vous accompagner."
+  text: "Vous avez un projet à lancer, une organisation à améliorer ou un besoin ponctuel à traiter ?\n\nPrésentez-moi votre situation et vos besoins. Nous pourrons échanger sur la manière dont je peux vous accompagner."
   form:
-    eyebrow: "Vous préférez m’écrire ?"
-    intro: "Présentez-moi votre besoin à l’aide du formulaire ci-dessous."
+    eyebrow: "Contactez-moi"
+    intro: "Utilisez le formulaire ci-dessous pour me présenter votre demande."
     name: "Nom"
     namePlaceholder: "Votre nom"
     email: "Adresse e-mail"

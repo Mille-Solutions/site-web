@@ -16,7 +16,7 @@ const settings = (await getEntry('settings', 'links'))!.data;
 
 const items = navItems(lang, settings.phase2Enabled);
 // Page active (pages de phase 2 uniquement : sur l'accueil, le menu renvoie à des sections).
-const isCurrent = (key: RouteKey | 'about') => key === route && key !== 'home';
+const isCurrent = (key: RouteKey | 'about' | 'situations') => key === route && key !== 'home';
 ---
 
 <header class="sticky top-0 z-40 border-b border-azur bg-ivory">

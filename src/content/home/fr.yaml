@@ -8,12 +8,11 @@ hero:
   title:
     - "Faire avancer vos projets."
     - "Simplifier votre fonctionnement."
-  lead: "J’aide les entreprises et les organisations à structurer leurs projets, améliorer leur fonctionnement et concrétiser leurs idées."
-  leadSecondary: "J’interviens également sur des missions opérationnelles ponctuelles, en fonction de vos besoins et des ressources disponibles."
-  engagementLabel: "Mon engagement"
+  lead: "J’aide les entreprises et les organisations à piloter leurs projets, améliorer leur fonctionnement et transformer leurs idées en résultats concrets."
+  leadSecondary: "J’interviens également sur des missions opérationnelles ponctuelles, pour apporter un soutien supplémentaire lorsque le temps, les ressources ou les compétences disponibles sont limités."
   signature: "Structurer. Prioriser. Concrétiser."
   # Photo provisoire issue de la maquette Figma : origine et droits à valider avant publication.
-  imageAlt: "Portrait de Charlotte Charles Mille."
+  imageAlt: "Vue de Monaco."
 
 situations:
   eyebrow: "Vos besoins"

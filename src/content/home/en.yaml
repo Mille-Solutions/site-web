@@ -13,7 +13,7 @@ hero:
   engagementLabel: "My commitment"
   signature: "Structure. Prioritize. Deliver."
   cta: "Book a free 30-minute call"
-  secondary: "Explore my services"
+  secondary: "Explore my approach"
   # Photo provisoire issue de la maquette Figma : origine et droits à valider avant publication.
   imageAlt: "View of Monaco: the city, Port Hercule and the sea in the morning light."
 
@@ -30,23 +30,6 @@ situations:
     - icon: priorisation
       title: "You have an idea, but not the time to structure it and make it happen."
       text: "I help you understand what is holding things back, explore the options and build a realistic way forward."
-
-services:
-  eyebrow: "Three services"
-  title: "Targeted support to meet your needs."
-  items:
-    - id: "move-a-project-forward"
-      icon: coordination
-      title: "Move a project forward"
-      text: "Clarify the objective, organise the steps and coordinate everyone involved so your project makes progress."
-    - id: "simplify-the-way-you-work"
-      icon: structuration
-      title: "Simplify the way you work"
-      text: "Review processes, responsibilities and tools to make day-to-day work easier."
-    - id: "get-things-moving-again"
-      icon: priorisation
-      title: "Get things moving again"
-      text: "Understand what is holding things back, explore the options and build a realistic way forward."
 
 method:
   eyebrow: "Approach"
@@ -66,12 +49,12 @@ examples:
   eyebrow: "Project examples"
   title: "Three concrete situations."
   items:
-    - title: "Recruitment tool"
-      text: "Needs analysis, roll-out, training and adaptation of working practices over three months."
-    - title: "Retail software"
-      text: "Scoping the replacement through to budget and schedule approval over four months."
     - title: "Growing an event and its ecosystem"
       text: "Support over several years: developing networks, enriching the programme and handing over to successors."
+    - title: "Recruitment tool"
+      text: "Needs analysis, roll-out, training and adaptation of working practices over three months."
+    - title: "Commercial & event development"
+      text: "Identifying new commercial opportunities and building a targeted prospecting database in the yachting sector. Creating a follow-up tool for institutional and regional prospects."
   note: "Experience gained during my salaried career, before founding Mille Solutions."
 
 about:

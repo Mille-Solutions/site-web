@@ -3,6 +3,8 @@ import type { CollectionEntry } from 'astro:content';
 import SectionHeading from '../SectionHeading.astro';
 import ExternalLink from '../ExternalLink.astro';
 import type { Lang } from '../../i18n/ui';
+import { Image } from 'astro:assets';
+import portraitImage from '../../assets/charlotte-charles-mille.jpeg';
 
 interface Props {
   lang: Lang;
@@ -18,10 +20,14 @@ const [first, ...rest] = content.paragraphs;
   <div class="container-site">
     <SectionHeading eyebrow={content.eyebrow} title={content.title} id={`${id}-title`} />
     <div class="mt-8 grid items-start gap-8 lg:mt-16 lg:grid-cols-[22.5rem_1fr]">
-      <!-- Emplacement du portrait réel de Charlotte (à fournir, droits à valider) -->
-      <div class="reveal flex aspect-[342/380] w-full items-center justify-center rounded-(--radius-card) bg-[#e8f0f2] p-6 text-center sm:block sm:text-left lg:aspect-[360/480]">
-        <p class="max-w-[16rem] text-lg font-semibold text-stone">{content.portraitCaption}</p>
-      </div>
+      <Image
+        src={portraitImage}
+        alt="Portrait de Charlotte Charles Mille"
+        widths={[360, 720]}
+        sizes="(min-width: 1024px) 360px, calc(100vw - 3rem)"
+        loading="lazy"
+        class="reveal aspect-[342/380] w-full rounded-(--radius-card) object-cover object-top lg:aspect-[360/480]"
+      />
       <div class="flex flex-col items-start gap-8 sm:gap-6">
         <p class="text-xl leading-[1.3] font-medium sm:text-2xl sm:leading-[1.25] sm:font-semibold lg:text-[2rem] lg:leading-[1.2]">{first}</p>
         {rest.map((p) => <p class="leading-6 text-stone sm:text-lg sm:leading-[1.6]">{p}</p>)}

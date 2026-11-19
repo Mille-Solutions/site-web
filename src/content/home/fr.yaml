@@ -8,11 +8,11 @@ hero:
   title:
     - "Faire avancer vos projets."
     - "Simplifier votre fonctionnement."
-  lead: "J’accompagne les TPE, PME et institutions à Monaco et dans la région pour clarifier leurs besoins, structurer leurs projets et coordonner leur mise en œuvre jusqu’à un résultat concret."
+  lead: "J’accompagne les TPE, PME et institutions pour clarifier leurs besoins, structurer leurs projets et coordonner leur mise en œuvre jusqu’à un résultat concret."
   engagementLabel: "Mon engagement"
   signature: "Structurer. Prioriser. Concrétiser."
   cta: "Réserver un échange gratuit de 30 minutes"
-  secondary: "Découvrir mes accompagnements"
+  secondary: "Découvrir mon approche"
   # Photo provisoire issue de la maquette Figma : origine et droits à valider avant publication.
   imageAlt: "Vue de Monaco : la ville, le port Hercule et la mer en lumière du matin."
 
@@ -21,7 +21,7 @@ situations:
   title: "Trois situations où mon accompagnement peut vous aider."
   items:
     - icon: coordination
-      title: "Votre projet important avance trop lentement."
+      title: "Votre projet  avance trop lentement."
       text: "Je vous aide à clarifier l’objectif, organiser les étapes et coordonner les intervenants pour faire progresser votre projet."
     - icon: structuration
       title: "Vos équipes consacrent trop de temps à un fonctionnement compliqué."
@@ -29,23 +29,6 @@ situations:
     - icon: priorisation
       title: "Vous avez une idée, mais manquez de temps pour la structurer et la mettre en œuvre."
       text: "Je vous aide à comprendre les freins, explorer les options et construire une voie d’action réaliste."
-
-services:
-  eyebrow: "Trois accompagnements"
-  title: "Des interventions ciblées pour répondre à vos besoins."
-  items:
-    - id: "faire-avancer-un-projet"
-      icon: coordination
-      title: "Faire avancer un projet"
-      text: "Clarifier l’objectif, organiser les étapes et coordonner les intervenants pour faire progresser votre projet."
-    - id: "simplifier-le-fonctionnement"
-      icon: structuration
-      title: "Simplifier le fonctionnement"
-      text: "Revoir les processus, les responsabilités et les outils pour faciliter le travail quotidien."
-    - id: "debloquer-une-situation"
-      icon: priorisation
-      title: "Débloquer une situation"
-      text: "Comprendre les freins, explorer les options et construire une voie d’action réaliste."
 
 method:
   eyebrow: "Approche"
@@ -65,13 +48,13 @@ examples:
   eyebrow: "Exemples de projets"
   title: "Trois exemples de situations concrètes."
   items:
-    - title: "Outil de recrutement"
+    - title: "Développement d’un événement lié à l’innovation dans le yachting et de son écosystème*"
+      text: "Accompagnement sur plusieurs années, développement des réseaux industrie et universitaire, enrichissement du programme et transmission aux successeurs."
+    - title: "Outil de recrutement*"
       text: "Analyse des besoins, déploiement, formation et adaptation des pratiques sur trois mois."
-    - title: "Logiciel de boutique"
-      text: "Cadrage du remplacement jusqu’à la validation budgétaire et du calendrier sur quatre mois."
-    - title: "Développement d’un événement et de son écosystème"
-      text: "Accompagnement sur plusieurs années, développement des réseaux, enrichissement du programme et transmission aux successeurs."
-  note: "Expériences réalisées dans le cadre de mon parcours salarié, avant la création de Mille Solutions."
+    - title: "Développement commercial & évènementiel"
+      text: "Identification de nouvelles opportunités commerciales et constitution d’une base de prospection ciblée dans le secteur du yachting. Création d’un outil de suivi pour prospects institutionnels entre Monaco et St-Tropez."
+  note: "* Expériences réalisées dans le cadre de mon parcours salarié, avant la création de Mille Solutions."
 
 about:
   eyebrow: "À propos"

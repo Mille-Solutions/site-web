@@ -2,8 +2,7 @@
 links:
   # TODO : lien Microsoft Bookings fourni par Charlotte
   bookingsUrl: "https://outlook.office.com/bookwithme/"
-  # TODO : URL du profil LinkedIn de Charlotte
-  linkedinUrl: "https://www.linkedin.com/"
+  linkedinUrl: "https://www.linkedin.com/in/charlotte-charles-mille-70913144/"
   # Adresse qui reçoit les envois du formulaire (service ou script côté serveur).
   # Vide = formulaire affiché mais désactivé, avec un message invitant à réserver un échange.
   contactFormEndpoint: ""

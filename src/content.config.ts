@@ -34,7 +34,7 @@ const home = defineCollection({
       imageAlt: z.string(),
     }),
     situations: z.object({ ...section, items: z.array(card) }),
-    services: z.object({ ...section, items: z.array(card.extend({ id: z.string() })) }),
+    services: z.object({ ...section, items: z.array(card.extend({ id: z.string() })) }).optional(),
     method: z.object({ ...section, steps: z.array(card) }),
     examples: z.object({
       ...section,

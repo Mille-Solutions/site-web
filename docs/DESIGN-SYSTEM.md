@@ -93,9 +93,10 @@ en `text-ivory/70`, halo décoratif `bg-azur/10 blur-[50px]`.
 - Points de rupture : Tailwind par défaut (`sm` 640, `md` 768, `lg` 1024, `xl` 1280). La navigation
   complète apparaît en `xl` ; en dessous, bouton « Menu ». Liens du menu sur une seule ligne
   (`whitespace-nowrap`), espacés de 24 px jusqu'à 1440 px puis de 32 px (maquette).
-- Menu en phase 1 (sections de l'accueil) : Accueil, Approche, Exemples de projets, À propos,
-  Contact. Pas de bouton dans l'en-tête ni dans le menu mobile. En phase 2 (pages) : « Approche et parcours » remplace « Approche » et
-  « À propos » disparaît, le parcours étant présenté sur cette page.
+- Menu en phase 1 (sections de l'accueil) : Accueil, Vos besoins, Approche, Exemples de projets,
+  À propos, Contact. Pas de bouton dans l'en-tête ni dans le menu mobile. En phase 2 (pages) :
+  « Vos besoins » pointe toujours vers la section de l'accueil, « Approche et parcours » remplace
+  « Approche » et « À propos » disparaît, le parcours étant présenté sur cette page.
 - En-tête collant de 88 px (`h-[5.5rem]`), filet Azure en bas ; `scroll-padding-top: 6.5rem`.
 - Rayon unique : `--radius-card` = 16 px (cartes arrondies, images, emplacements photo). Champs de
   formulaire : 8 px. Boutons, cartes carrées et chips de bord : angles droits (les chips sont en

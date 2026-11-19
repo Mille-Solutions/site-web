@@ -7,6 +7,7 @@ const settings = defineCollection({
   loader: file('src/content/settings.yaml'),
   schema: z.object({
     linkedinUrl: z.string(),
+    contactFormsUrl: z.string().default(''),
     contactFormEndpoint: z.string().default(''),
     englishEnabled: z.boolean().default(false),
     phase2Enabled: z.boolean().default(false),

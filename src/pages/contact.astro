@@ -14,7 +14,7 @@ const settings = (await getEntry('settings', 'links'))!.data;
     lang={lang}
     content={home.contact}
     id="contact"
-    formEndpoint={settings.contactFormEndpoint}
+    formsUrl={settings.contactFormsUrl}
     headingLevel="h1"
     tone="dark"
   />

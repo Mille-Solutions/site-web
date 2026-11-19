@@ -1,19 +1,19 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import ContactForm from './ContactForm.astro';
-import type { Lang } from '../../i18n/ui';
+import ExternalLink from '../ExternalLink.astro';
+import { routes, type Lang } from '../../i18n/ui';
 
 interface Props {
   lang: Lang;
   content: CollectionEntry<'home'>['data']['contact'];
   id: string;
-  formEndpoint: string;
+  formsUrl: string;
   /** h1 sur la page Contact, h2 sur l'accueil. */
   headingLevel?: 'h1' | 'h2';
   /** « dark » : fond Navy des maquettes « Accueil — FR » et « Contact — FR » ; « light » : fond blanc. */
   tone?: 'dark' | 'light';
 }
-const { lang, content, id, formEndpoint, headingLevel = 'h2', tone = 'light' } = Astro.props;
+const { lang, content, id, formsUrl, headingLevel = 'h2', tone = 'light' } = Astro.props;
 const Heading = headingLevel;
 const dark = tone === 'dark';
 ---
@@ -26,7 +26,24 @@ const dark = tone === 'dark';
     <p class:list={['mt-8 max-w-[53rem] leading-6 sm:mt-6 sm:text-lg sm:leading-[1.6]', dark ? 'text-ivory/75' : 'text-stone']}>{content.text}</p>
 
     <div class="mt-8 max-w-[45.8125rem] lg:mt-16">
-      <ContactForm lang={lang} content={content.form} endpoint={formEndpoint} bordered={!dark} />
+      <div class:list={['card flex flex-col gap-5 text-navy', dark && 'border-0']}>
+        <p class="eyebrow">{content.form.eyebrow}</p>
+        <p class="leading-6 text-stone">{content.form.intro}</p>
+        <ExternalLink
+          href={formsUrl}
+          lang={lang}
+          icon={false}
+          track="contact-form"
+          class="btn btn-primary w-full sm:w-auto"
+        >
+          {lang === 'fr' ? 'Remplir le formulaire' : 'Fill in the form'}
+        </ExternalLink>
+        <p class="text-sm leading-relaxed text-stone">
+          {content.form.notice}
+          <a href={routes.privacy[lang]} class="link-underline text-navy"> {content.form.noticeLink}</a>.
+          {content.form.requiredNote}
+        </p>
+      </div>
     </div>
   </div>
 </section>

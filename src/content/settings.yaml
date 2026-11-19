@@ -1,6 +1,7 @@
 # Réglages du site (FR et EN). Modifier ici suffit : aucune autre modification de code n'est nécessaire.
 links:
   linkedinUrl: "https://www.linkedin.com/in/charlotte-charles-mille-70913144/"
+  contactFormsUrl: "https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=0_74U9ITU0KPen2UcNhdlJfZI9WWvINJn8H-kMHojwtUNjVKN04zRUNSSTdGSldOSkozTEVEUVdYNy4u"
   # Adresse qui reçoit les envois du formulaire (service ou script côté serveur).
   # Vide = formulaire affiché mais désactivé.
   contactFormEndpoint: ""

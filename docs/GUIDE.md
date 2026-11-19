@@ -152,10 +152,8 @@ l'indexation **sur la prévisualisation uniquement**.
 ### 3.6 Liste de contrôle avant publication
 
 - [ ] `npm run build` se termine sans erreur
-- [ ] Lien **Bookings** définitif dans `src/content/settings.yaml`, puis parcours testé depuis un navigateur privé
-      sans compte Microsoft (réservation, confirmation, modification, annulation)
 - [ ] Lien **LinkedIn** définitif
-- [ ] Portrait et photos en place, avec les droits vérifiés
+- [ ] Droits des photos vérifiés (portrait et photos reprises de Figma)
 - [ ] Traduction anglaise relue et validée par Charlotte
 - [ ] Informations entre crochets `[…]` complétées dans les pages légales, puis `draft: true` retiré
 - [ ] Image de partage `public/og-image.png` (1200 × 630 px) ajoutée
@@ -195,7 +193,7 @@ VS Code…).
 
 | Je veux modifier… | Fichier |
 |---|---|
-| Le lien **Microsoft Bookings** ou **LinkedIn** | `src/content/settings.yaml` |
+| Le lien **LinkedIn** | `src/content/settings.yaml` |
 | L'adresse d'envoi du **formulaire**, l'activation de l'**anglais** ou de la **phase 2** | `src/content/settings.yaml` (`contactFormEndpoint`, `englishEnabled`, `phase2Enabled`) |
 | Les textes des **pages de phase 2** | `src/content/accompagnements/`, `approche/`, `exemples/`, `contact/` |
 | Un texte de la **page d'accueil** | `src/content/home/fr.yaml` · `src/content/home/en.yaml` |
@@ -221,12 +219,12 @@ about:
 
 ### 4.3 Exemples courants
 
-**Changer le lien de réservation**, utilisé partout sur le site (en-tête, accueil, contact, pied de page) :
+**Changer le lien LinkedIn** (bouton de la section « À propos ») :
 
 ```yaml
 # src/content/settings.yaml
 links:
-  bookingsUrl: "https://outlook.office.com/bookwithme/user/…"
+  linkedinUrl: "https://www.linkedin.com/in/…"
 ```
 
 **Activer la version anglaise**, une fois relue et validée par Charlotte :
@@ -361,13 +359,10 @@ mobile :
 - titres H1 et « Parlons de votre situation » en 32 px, textes courants en 16 px, titres de cartes
   en 20 px Medium, 20 px entre titre et texte des cartes ;
 - boutons pleine largeur de 56 px de haut (`.btn` dans `global.css`) ;
-- sous le bouton de réservation du premier écran, mention « Microsoft Bookings — ouverture dans un
-  nouvel onglet. », reprise de `contact.booking.text` (masquée à partir de 640 px) ;
 - en-tête : logo, FR / EN et Menu répartis sur toute la largeur ; « EN » inactif en Stone (il
   n'est atténué qu'à partir de 1280 px) ;
 - menu ouvert (maquette « Menu mobile ouvert — FR », dans `Header.astro`) : rubriques en 32 px
-  SemiBold, 80 px de haut, séparées par un filet `border-rule` ; bouton « Réserver un échange »
-  Navy pleine largeur (`btn-dark`) ; signature en 14 px Regular Stone ;
+  SemiBold, 80 px de haut, séparées par un filet `border-rule` ; signature en 14 px Regular Stone ;
 - pied de page : liens de 44 px de haut (cible tactile), liens légaux en 14 px Navy.
 
 Ces réglages s'appliquent aussi aux autres pages qui utilisent les mêmes composants (en-tête, pied
@@ -386,8 +381,9 @@ Pour **ajouter une section** :
 Quatre photos proviennent de la maquette Figma : `src/assets/hero-monaco.png` (accueil, origine non
 indiquée), `src/assets/accompagnements-monaco.jpg`, `src/assets/approche-monaco.jpg` et
 `src/assets/exemples-monaco.jpg` (pages de phase 2, photos prises à l'iPhone, métadonnées retirées).
-Leurs droits sont à confirmer avant publication. Le portrait de Charlotte est encore un emplacement
-réservé. Pour ajouter une photo au premier
+Leurs droits sont à confirmer avant publication. Le portrait de Charlotte
+(`src/assets/charlotte-charles-mille.jpeg`) est en place dans `About.astro`, avec son texte
+alternatif dans `about.portraitAlt` (`fr.yaml` / `en.yaml`). Pour ajouter une photo au premier
 écran d'une page de phase 2, passer `image={…}` et `imageAlt` à `PageHero` (voir
 `src/pages/accompagnements.astro`).
 
@@ -445,12 +441,13 @@ Le menu et le pied de page pointent alors vers ces pages au lieu des sections de
 pages entrent dans le plan du site. L'accueil reste autonome.
 
 Les fichiers des pages sont dans `src/pages/` (`accompagnements.astro`…) et leurs composants dans
-`src/components/page/` : `PageHero`, `Statement` (bandeau de déclaration), `CtaSection` (appel final),
+`src/components/page/` : `PageHero`, `Statement` (bandeau de déclaration),
 `Chips` (étiquettes besoins / livrables), `AzureDivider`.
 
 **Page Contact** : elle réutilise la section contact de l'accueil (`Contact.astro` avec
-`tone="dark"` et `headingLevel="h1"`) : fond Navy, cartes blanches sans filet, comme la maquette.
-Seuls les libellés de la carte de réservation diffèrent (`src/content/contact/fr.yaml` → `booking`).
+`tone="dark"` et `headingLevel="h1"`) : fond Navy, formulaire sur carte blanche sans filet.
+Seuls le titre et la description pour les moteurs de recherche sont propres à la page
+(`src/content/contact/fr.yaml` → `meta`).
 Écarts volontaires avec la maquette : texte d'introduction en Ivory à 75 % au lieu de Stone (contraste
 AA sur Navy) ; mention de confidentialité commune avec l'accueil (« Consultez la page Confidentialité »,
 sans le mot « uniquement » des calques, choix validé) et
@@ -487,7 +484,7 @@ saisie conservée en cas d'échec, annonce du résultat aux lecteurs d'écran, c
 
 Il manque **l'envoi** : un site statique ne peut pas envoyer d'e-mail lui-même. Tant que
 `contactFormEndpoint` est vide dans `settings.yaml`, le formulaire est affiché mais désactivé, avec
-un message invitant à réserver un échange. Une fois le service choisi, renseigner son adresse :
+le message « Le formulaire sera activé prochainement » (`form.unavailable`). Une fois le service choisi, renseigner son adresse :
 
 ```yaml
 links:
@@ -513,7 +510,7 @@ tableau des prestataires.
 ### 6.2 Statistiques de visite
 
 Exigences du cahier des charges : outil sobre, sans publicité ni suivi entre sites, avec export CSV,
-comparaison de périodes et comptage des clics vers Bookings.
+comparaison de périodes et comptage des prises de contact.
 
 | Outil | Coût | Hébergement |
 |---|---|---|
@@ -521,10 +518,10 @@ comparaison de périodes et comptage des clics vers Bookings.
 | **Plausible** Cloud | Environ 9 €/mois | Union européenne |
 | **Umami** auto-hébergé ou cloud | Gratuit / palier gratuit | Selon le choix |
 
-Le suivi des clics est **déjà préparé** : chaque bouton Bookings porte un attribut `data-track`
-indiquant son emplacement (`header`, `menu-mobile`, `hero`, `contact`, et sur les pages de phase 2 `services-hero`, `services-cta`, `approach-hero`, `approach-cta`, `examples-cta`). Un envoi réussi du formulaire
-déclenche l'événement `contact:sent`, sans aucun contenu du message. Il suffira de relier ces
-attributs et cet événement à l'outil retenu. Ne jamais envoyer de nom, d'e-mail ni de
+Le suivi est **déjà préparé** : un envoi réussi du formulaire déclenche l'événement
+`contact:sent`, sans aucun contenu du message. Pour suivre aussi un lien externe, lui donner un
+emplacement avec la propriété `track` d'`ExternalLink.astro` (attribut `data-track`). Il suffira de
+relier cet événement et ces attributs à l'outil retenu. Ne jamais envoyer de nom, d'e-mail ni de
 contenu de message à l'outil de statistiques. La politique de confidentialité (sections 5 et 8)
 doit décrire l'outil réellement installé.
 

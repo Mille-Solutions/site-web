@@ -82,7 +82,7 @@ about:
     - "Basée à Monaco, j’interviens auprès d’organisations de toutes tailles, sur des projets structurants comme sur des besoins ponctuels."
   # Phase 1 : ouvre le profil LinkedIn ; phase 2 : page « Approche et parcours ».
   cta: "Découvrir mon parcours"
-  portraitCaption: "Portrait de Charlotte à fournir"
+  portraitAlt: "Portrait de Charlotte Charles Mille"
 
 contact:
   eyebrow: "Contact"

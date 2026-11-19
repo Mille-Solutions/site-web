@@ -23,7 +23,7 @@ Pour modifier les textes, liens et photos sans toucher au code : [docs/MODIFIER-
 
 | Quoi | Où |
 |---|---|
-| Liens Bookings et LinkedIn, adresse du formulaire, activation de l'anglais | `src/content/settings.yaml` |
+| Lien LinkedIn, adresse du formulaire, activation de l'anglais et de la phase 2 | `src/content/settings.yaml` |
 | Textes de l'accueil | `src/content/home/fr.yaml` et `en.yaml` |
 | Mentions légales, confidentialité | `src/content/legal/<langue>/*.md` |
 | Libellés de navigation, menus, adresses des pages | `src/i18n/ui.ts` |
@@ -38,11 +38,10 @@ Pour modifier les textes, liens et photos sans toucher au code : [docs/MODIFIER-
 
 ## Reste à faire
 
-- [ ] Lien Bookings et LinkedIn définitifs (`settings.yaml`)
-- [ ] Portrait et photos (emplacements réservés ; photos de l'accueil et des pages de phase 2 reprises de Figma, droits à vérifier)
+- [ ] Droits des photos à vérifier (portrait ; photos de l'accueil et des pages de phase 2 reprises de Figma)
 - [ ] Formulaire de contact : service d'envoi côté serveur (`contactFormEndpoint`)
 - [ ] Relecture et validation de la traduction anglaise par Charlotte, puis `englishEnabled: true` ; pages légales en anglais
 - [ ] Compléter les informations entre crochets des pages légales, puis retirer `draft: true`
-- [ ] Outil de statistiques (suivi des clics Bookings déjà balisé via `data-track`)
+- [ ] Outil de statistiques (envoi du formulaire déjà signalé par l'événement `contact:sent`)
 - [ ] Image de partage `public/og-image.png` (1200×630)
 - [ ] Phase 2 : pages FR construites (non publiées, `phase2Enabled`) ; styles détaillés à confirmer sur Figma ; versions anglaises

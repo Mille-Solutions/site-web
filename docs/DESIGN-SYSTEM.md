@@ -23,8 +23,9 @@ Implémentation : Astro + Tailwind CSS 4. Les jetons sont définis **une seule f
   bordures de cartes, pastilles, boutons d'action).
 - **Interdits** : dégradés, ombres marquées, or, fond de page sombre généralisé, coins arrondis sur
   les boutons, Playfair Display hors du logo.
-- Fonds Navy autorisés seulement pour des **bandeaux** ponctuels : section Contact, appel final
-  (`CtaSection`).
+- Fonds Navy autorisés seulement pour des **bandeaux** ponctuels : section Contact.
+- Pas d'appel commercial (réservation, « Réserver un échange ») : la prise de contact passe par le
+  formulaire de la section Contact.
 - Mobile d'abord : les classes sans préfixe règlent le mobile (maquette 390 px), `sm:` rétablit
   tablette/ordinateur, `lg:` / `xl:` règlent l'ordinateur (maquette 1440 px).
 
@@ -43,7 +44,7 @@ Implémentation : Astro + Tailwind CSS 4. Les jetons sont définis **une seule f
 | `mist`           | `#e3e8eb` | Emplacements photo provisoires                                     |
 
 Valeurs ponctuelles (pas de jeton) : survol `btn-primary` `#62b4d1`, survol `btn-dark` `#1e293b`,
-erreur de formulaire `#b42318`, fond du portrait provisoire `#e8f0f2`.
+erreur de formulaire `#b42318`.
 
 Sur fond Navy : texte secondaire en `text-ivory/75` (et non Stone, contraste insuffisant), notes
 en `text-ivory/70`, halo décoratif `bg-azur/10 blur-[50px]`.
@@ -87,12 +88,13 @@ en `text-ivory/70`, halo décoratif `bg-azur/10 blur-[50px]`.
 - Largeur de lecture : `max-w-[53rem]` pour les blocs titre + texte, `max-w-[60rem]` pour le texte
   juridique.
 - Grilles : cartes en 1 colonne puis 3 colonnes à partir de `md` ; deux colonnes asymétriques en
-  `lg` (ex. contact `515fr / 733fr`, à propos `22.5rem / 1fr`, légal `15rem / 1fr`).
+  `lg` (ex. à propos `22.5rem / 1fr`, légal `15rem / 1fr`). Formulaire de contact seul, largeur max.
+  `45.8125rem` (733 px).
 - Points de rupture : Tailwind par défaut (`sm` 640, `md` 768, `lg` 1024, `xl` 1280). La navigation
   complète apparaît en `xl` ; en dessous, bouton « Menu ». Liens du menu sur une seule ligne
   (`whitespace-nowrap`), espacés de 24 px jusqu'à 1440 px puis de 32 px (maquette).
-- Menu en phase 1 (sections de l'accueil) : Accueil, Accompagnements, Approche, Exemples de projets,
-  À propos, Contact. En phase 2 (pages) : « Approche et parcours » remplace « Approche » et
+- Menu en phase 1 (sections de l'accueil) : Accueil, Approche, Exemples de projets, À propos,
+  Contact. Pas de bouton dans l'en-tête ni dans le menu mobile. En phase 2 (pages) : « Approche et parcours » remplace « Approche » et
   « À propos » disparaît, le parcours étant présenté sur cette page.
 - En-tête collant de 88 px (`h-[5.5rem]`), filet Azure en bas ; `scroll-padding-top: 6.5rem`.
 - Rayon unique : `--radius-card` = 16 px (cartes arrondies, images, emplacements photo). Champs de
@@ -104,11 +106,12 @@ en `text-ivory/70`, halo décoratif `bg-azur/10 blur-[50px]`.
 ### Boutons — `.btn` + variante
 - `.btn` : hauteur min. 56 px mobile / 53 px `sm+`, texte 14 SemiBold, angles droits, pleine
   largeur sur mobile (`w-full sm:w-auto` ou empilés en colonne).
-- `.btn-dark` : fond Navy, texte Ivory → **action principale du premier écran** (hero, menu mobile).
-- `.btn-primary` : fond Azure, texte **Navy** (jamais blanc) → réservation dans les cartes, appel
-  final, en-tête ordinateur, LinkedIn.
+- `.btn-dark` : fond Navy, texte Ivory → action principale sur fond clair (aucun bouton dans le
+  premier écran de l'accueil ni dans les premiers écrans des pages).
+- `.btn-primary` : fond Azure, texte **Navy** (jamais blanc) → LinkedIn (section À propos), envoi du
+  formulaire.
 - `.btn-secondary` : contour Navy 1 px, texte Navy → action secondaire (ancre interne).
-- Tout lien vers Microsoft Bookings ou un site externe passe par `ExternalLink.astro`
+- Tout lien vers un site externe passe par `ExternalLink.astro`
   (nouvel onglet annoncé aux lecteurs d'écran, attribut `data-track`).
 
 ### Cartes
@@ -117,6 +120,9 @@ en `text-ivory/70`, halo décoratif `bg-azur/10 blur-[50px]`.
 - `.card-square` : fond Ivory, bordure Azure, angles droits, padding 24 → 40 (Accompagnements).
 - `.card-soft` : blanc, bordure `line`, rayon 16 (Approche et parcours).
 - Composant : `home/CardSection.astro`, `variant="rounded" | "square" | "soft"`, `tone="ivory" | "white"`.
+- Contenu d'une carte : titre, puis `text` (un paragraphe) ou `paragraphs` (plusieurs, espacés de
+  12 px) ; cartes d'exemples (variante `rounded`) : `category` au-dessus du texte (14 SemiBold
+  Stone) et `context` en dessous (14 italique Stone). Note de section facultative (`note`, 14 Stone).
 
 ### Pastilles d'icônes
 - `.icon-badge` : 48 px, `azur-mist`, icône Navy (accueil).
@@ -130,12 +136,13 @@ en `text-ivory/70`, halo décoratif `bg-azur/10 blur-[50px]`.
 - `SectionHeading.astro` : repère + H2 + sous-titre, `size="lg" | "md"`.
 - `PageHero.astro` : premier écran des pages, `layout="stacked" | "split"`, `imageRatio`.
 - `Statement.astro` : phrase centrée entre deux filets Azure à 60 %.
-- `CtaSection.astro` : bandeau final Navy centré, halo Azure, `size="lg" | "md"`.
 - `AzureDivider.astro` : filet Azure court (64 × 1 px).
-- `home/Contact.astro` : `tone="dark"` (fond Navy, utilisé sur l'accueil et la page Contact).
+- `home/Contact.astro` : `tone="dark"` (fond Navy, utilisé sur l'accueil et la page Contact) ;
+  repère facultatif (`eyebrow`, `text-ivory/75` sur Navy), titre, texte, puis formulaire.
 - `home/ContactForm.astro` : champs blancs, bordure Azure, rayon 8, padding 16 ; libellés 14
   SemiBold ; astérisque pour les champs obligatoires ; message d'erreur sous le champ en `#b42318`
-  (`aria-invalid`, `aria-describedby`) ; encadré d'information `border-l-2 border-azur bg-azur-mist`.
+  (`aria-invalid`, `aria-describedby`) ; encadré d'information `border-l-2 border-azur bg-azur-mist` ;
+  phrase d'introduction facultative sous le repère (`intro`, 16 Stone).
 - Encadrés d'avertissement : `border-l-3 border-azur bg-azur-mist p-6`.
 - Pages légales : `.prose-legal` (rubriques `##` ouvertes par un filet `rule`, informations à
   compléter en `<span class="missing">[…]</span>`, voir GUIDE § 4.3).
@@ -167,7 +174,8 @@ en `text-ivory/70`, halo décoratif `bg-azur/10 blur-[50px]`.
   1920 px ; sources redimensionnées à 2560 px max., métadonnées EXIF supprimées.
 - Formats : hero accueil 342/240 mobile → 1280/520 ; hero pages 1280/520 ou 1280/480 ; hero
   « split » 342/320 → 720/688 ; portrait 342/380 → 360/480.
-- Rayon 16 px sur les images de l'accueil ; texte alternatif dans les fichiers de contenu.
+- Rayon 16 px sur les images de l'accueil ; texte alternatif dans les fichiers de contenu, dans
+  chaque langue (jamais en dur dans un composant ; portrait : `about.portraitAlt`).
 - En attendant les vraies photos : `PhotoPlaceholder.astro` (fond `mist`, légende Stone).
 
 ## 9. Accessibilité (WCAG 2.2 AA)
@@ -191,7 +199,7 @@ en `text-ivory/70`, halo décoratif `bg-azur/10 blur-[50px]`.
 | Repère (eyebrow) en Azure                    | Stone                                  | Azure jamais en texte           |
 | « ALL RIGHTS RESERVED »                      | « Tous droits réservés. » en français  | Cohérence de langue             |
 | Pieds de page différents selon les pages     | Un pied de page unique                 | Cohérence, maintenance          |
-| « EN » cliquable                             | « EN » visible mais inactif            | Traduction non validée          |
+| « EN » cliquable                             | Inactif tant que `englishEnabled: false` | Traduction non validée          |
 
 ## 11. Rédaction et contenus
 

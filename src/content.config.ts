@@ -44,7 +44,8 @@ const home = defineCollection({
       introTitle: z.string().optional(),
       paragraphs: z.array(z.string()).min(1),
       cta: z.string(),
-      portraitCaption: z.string(),
+      /** Texte alternatif du portrait. */
+      portraitAlt: z.string(),
     }),
     contact: z.object({
       eyebrow: z.string().optional(),

@@ -22,7 +22,7 @@ const [first, ...rest] = content.paragraphs;
     <div class="mt-8 grid items-start gap-8 lg:mt-16 lg:grid-cols-[22.5rem_1fr]">
       <Image
         src={portraitImage}
-        alt="Portrait de Charlotte Charles Mille"
+        alt={content.portraitAlt}
         widths={[360, 720]}
         sizes="(min-width: 1024px) 360px, calc(100vw - 3rem)"
         loading="lazy"

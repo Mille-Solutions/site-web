@@ -121,6 +121,8 @@ en `text-ivory/70`, halo décoratif `bg-azur/10 blur-[50px]`.
 - `.card-square` : fond Ivory, bordure Azure, angles droits, padding 24 → 40 (Accompagnements).
 - `.card-soft` : blanc, bordure `line`, rayon 16 (Approche et parcours).
 - Composant : `home/CardSection.astro`, `variant="rounded" | "square" | "soft"`, `tone="ivory" | "white"`.
+- Sur une même ligne, les cartes `rounded` et `soft` ont toutes la même hauteur (celle de la plus
+  haute, `items-stretch`) ; les cartes `square` gardent leur hauteur propre.
 - Contenu d'une carte : titre, puis `text` (un paragraphe) ou `paragraphs` (plusieurs, espacés de
   12 px) ; cartes d'exemples (variante `rounded`) : `category` au-dessus du texte (14 SemiBold
   Stone) et `context` en dessous (14 italique Stone). Note de section facultative (`note`, 14 Stone).

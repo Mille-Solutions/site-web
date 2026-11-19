@@ -3,14 +3,14 @@
 # Rester désactivée (settings.yaml → englishEnabled: false) tant qu'elle n'est pas validée.
 meta:
   title: "Mille Solutions — Structure. Prioritize. Deliver. | Monaco"
-  description: "I help small and medium-sized businesses and institutions in Monaco and the surrounding region clarify their needs, structure their projects and coordinate their delivery."
+  description: "Mille Solutions helps businesses and organisations manage projects, improve operations and deliver practical results."
 
 hero:
   title:
     - "Move your projects forward."
     - "Simplify the way you work."
-  lead: "I help companies and organisations structure their projects, improve how they operate and turn their ideas into reality."
-  leadSecondary: "I also take on one-off operational assignments, according to your needs and available resources."
+  lead: "I help businesses and organisations manage projects, improve the way they operate and turn ideas into practical results."
+  leadSecondary: "I also take on specific operational assignments, providing additional support when time, resources or expertise are limited."
   engagementLabel: "My commitment"
   signature: "Structure. Prioritize. Deliver."
   # Photo provisoire issue de la maquette Figma : origine et droits à valider avant publication.
@@ -18,79 +18,79 @@ hero:
 
 situations:
   eyebrow: "Your needs"
-  title: "Do you need to move a subject forward?"
+  title: "Need to get something moving?"
   items:
     - icon: coordination
-      title: "A project that is struggling to move forward"
+      title: "A project that's not moving forward"
       text: ""
       paragraphs:
-        - "Objectives may lack clarity, decisions may be delayed or stakeholders may struggle to coordinate."
-        - "I help identify the blockers, organise the next steps and get the project moving again."
+        - "Unclear objectives, delayed decisions or difficulties coordinating the people involved can slow progress."
+        - "I help identify what's holding things back, organise the next steps and get things moving again."
     - icon: structuration
-      title: "An organisation that could operate more simply"
+      title: "Ways of working that could be simpler"
       text: ""
       paragraphs:
-        - "Complex processes, unsuitable tools, repetitive tasks or unclear responsibilities complicate day-to-day work."
-        - "I help identify useful improvements and put them in place."
+        - "Complex processes, unsuitable tools, repetitive tasks or unclear responsibilities can make everyday work unnecessarily difficult."
+        - "I help identify practical improvements and support their implementation."
     - icon: priorisation
-      title: "A one-off need to deliver"
+      title: "A specific task that needs attention"
       text: ""
       paragraphs:
-        - "A study to conduct, an event to prepare, an opportunity to explore or an action to coordinate?"
-        - "I can take responsibility for preparing, organising and monitoring these assignments according to your needs."
+        - "Research to carry out, an event to prepare, an opportunity to explore or an activity to coordinate?"
+        - "I can take care of the planning, organisation and follow-up, depending on what you need."
 
 method:
   eyebrow: "My approach"
-  title: "A practical approach, from need to delivery."
+  title: "A practical approach, from planning to delivery."
   steps:
     - icon: structuration
       title: "01 — Structure"
-      text: "Understand your situation, clarify objectives and identify constraints and stakeholders."
+      text: "Understand your situation, clarify objectives and identify key constraints and stakeholders."
     - icon: priorisation
       title: "02 — Prioritize"
-      text: "Explore options, define essential actions and build a realistic plan."
+      text: "Explore the options, identify what matters most and develop a realistic action plan."
     - icon: coordination
       title: "03 — Deliver"
-      text: "Implement actions, coordinate stakeholders and monitor delivery through to a concrete result."
-  note: "Every assignment is different. I work on a complete project, a specific stage or a one-off operational need, in collaboration with your teams and partners."
+      text: "Put plans into action, coordinate the people involved and follow through to achieve tangible results."
+  note: "Every assignment is different. I can support an entire project, a specific phase or a one-off operational task, working alongside your teams and partners."
 
 examples:
-  eyebrow: "Examples of work"
-  title: "A few examples of concrete projects."
+  eyebrow: "Selected projects"
+  title: "A few examples of my work."
   items:
-    - title: "Development of an international event focused on maritime innovation"
+    - title: "Developing an international maritime innovation event"
       category: "Project management · Events · Innovation"
-      text: "Project coordination, development of new initiatives, mobilisation of industry and university stakeholders, programme enhancement and handover of activities."
-      context: "Experience gained over several years as part of my salaried career."
-    - title: "Digitalisation of the recruitment process"
+      text: "Project coordination, development of new initiatives, engagement with industry and academic partners, programme development and handover to new teams."
+      context: "Experience gained over several years during my previous employment."
+    - title: "Digitalising the recruitment process"
       category: "Human resources · Digitalisation · Organisation"
-      text: "Needs analysis, deployment of an applicant management tool, adaptation of internal practices and user training."
-      context: "Project completed in three months as part of my salaried career."
-    - title: "Business development and prospecting structure"
+      text: "Needs assessment, implementation of an applicant tracking system, adaptation of internal processes and user training."
+      context: "Three-month project completed during my previous employment."
+    - title: "Business development and prospecting support"
       category: "Business development · Operational coordination"
-      text: "Review of opportunities in the yachting sector, identification of commercial and institutional prospects, creation of targeted contact databases and monitoring tools to prepare and organise commercial and event activities."
-      context: "Assignment completed as part of Mille Solutions."
+      text: "Research into business opportunities in the yachting sector, identification of commercial and institutional contacts, development of targeted prospect databases and tracking tools to support business development and event preparation."
+      context: "Assignment delivered through Mille Solutions."
   note: ""
 
 about:
   eyebrow: "About"
-  title: "Hands-on experience in the service of your projects."
+  title: "Practical experience, applied to your projects."
   introTitle: "Who am I?"
   paragraphs:
-    - "I founded Mille Solutions to apply my experience in project management, coordination and organisational improvement to the needs of companies and professionals."
-    - "My career has taken me through very different worlds: offshore operations, humanitarian missions, yachting, events, human resources, digitalisation and sustainability."
-    - "These experiences have taught me to adapt quickly, work with a wide range of stakeholders and find practical solutions, even in complex situations."
-    - "Based in Monaco, I work with organisations of all sizes, on strategic projects as well as one-off needs."
-  cta: "Discover my background"
+    - "I founded Mille Solutions to bring my experience in project management, coordination and organisational improvement to businesses and professionals who need practical support."
+    - "My career has taken me across very different sectors, from offshore operations and humanitarian missions to yachting, events, human resources, digitalisation and sustainability."
+    - "These experiences have taught me to adapt quickly, work with people from different backgrounds and find practical solutions, even in complex situations."
+    - "Based in Monaco, I work with organisations of all sizes, supporting both larger projects and specific operational needs."
+  cta: "View my professional background on LinkedIn"
   portraitAlt: "Portrait of Charlotte Charles Mille"
 
 contact:
   eyebrow: "Contact"
   title: "Let’s talk about your project."
-  text: "Do you have a project to launch, an organisation to improve or a one-off need to address?\n\nPresent me with your situation and needs. We can discuss how I can support you."
+  text: "Have a project to launch, a process to improve or a specific task that needs attention?\n\nTell me about your situation and what you're looking to achieve. We can discuss how I might be able to help."
   form:
-    eyebrow: "Contact me"
-    intro: "Use the form below to present me with your request."
+    eyebrow: "Get in touch"
+    intro: "Use the contact form to tell me a little more about your needs."
     name: "Name"
     namePlaceholder: "Your name"
     email: "Email address"
@@ -101,8 +101,8 @@ contact:
     messagePlaceholder: "Briefly describe your situation or need."
     submit: "Send my message"
     sending: "Sending…"
-    notice: "Your information is used to respond to your request."
-    noticeLink: "See our privacy policy"
+    notice: "Your information will only be used to respond to your enquiry."
+    noticeLink: "Please refer to our Privacy Policy"
     requiredNote: "Fields marked with an asterisk are required."
     success: "Your message has been sent. Thank you for getting in touch. I will reply as soon as possible."
     error: "Something went wrong. Your message could not be sent. What you typed has been kept in this form. Please try again in a few moments."

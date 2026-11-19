@@ -35,4 +35,4 @@ Unauthorised reproduction or use is prohibited, except where permitted by law.
 Photography and graphic credits: Mille Solutions and Daniel Mille.
 
 ### Personal Data
-Information about how personal data is processed is available in our [Privacy Policy](/en/privacy/).
+Information about how personal data is processed is available in our [Privacy Policy](../privacy/).

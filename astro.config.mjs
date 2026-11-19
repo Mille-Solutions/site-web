@@ -12,7 +12,10 @@ const phase2Enabled = /^\s*phase2Enabled:\s*true\b/m.test(settings);
 const phase2Paths = ['/accompagnements/', '/approche-et-parcours/', '/exemples-de-projets/', '/contact/'];
 
 export default defineConfig({
-  site: 'https://millesolutions.mc',
+  // Adresse du site et préfixe des pages. Par défaut : domaine final, à la racine.
+  // Le déploiement GitHub Pages (.github/workflows/deploy.yml) fournit SITE_URL et SITE_BASE.
+  site: process.env.SITE_URL || 'https://millesolutions.mc',
+  base: process.env.SITE_BASE || '/',
   trailingSlash: 'always',
   i18n: {
     defaultLocale: 'fr',

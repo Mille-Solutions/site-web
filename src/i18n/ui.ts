@@ -1,18 +1,23 @@
 export const languages = { fr: 'Français', en: 'English' } as const;
 export type Lang = keyof typeof languages;
 
+/** Préfixe des adresses : vide sur le domaine final, « /site-web » sur GitHub Pages (astro.config.mjs → base). */
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+/** Adresse interne précédée du préfixe du site (pages, favicon, plan du site…). */
+export const url = (path: string): string => `${base}${path}`;
+
 /**
  * Pages et leur équivalent dans l'autre langue (sélecteur FR / EN, hreflang).
  * `en: null` : pas encore de version anglaise (pages de phase 2).
  */
 export const routes = {
-  home: { fr: '/', en: '/en/' },
-  legal: { fr: '/mentions-legales/', en: '/en/legal-notice/' },
-  privacy: { fr: '/confidentialite/', en: '/en/privacy/' },
-  services: { fr: '/accompagnements/', en: null },
-  approach: { fr: '/approche-et-parcours/', en: null },
-  examples: { fr: '/exemples-de-projets/', en: null },
-  contact: { fr: '/contact/', en: null },
+  home: { fr: url('/'), en: url('/en/') },
+  legal: { fr: url('/mentions-legales/'), en: url('/en/legal-notice/') },
+  privacy: { fr: url('/confidentialite/'), en: url('/en/privacy/') },
+  services: { fr: url('/accompagnements/'), en: null },
+  approach: { fr: url('/approche-et-parcours/'), en: null },
+  examples: { fr: url('/exemples-de-projets/'), en: null },
+  contact: { fr: url('/contact/'), en: null },
 } as const satisfies Record<string, { fr: string; en: string | null }>;
 export type RouteKey = keyof typeof routes;
 

@@ -46,7 +46,7 @@ about:
 
 - `## Titre` crée une rubrique (et une entrée du sommaire).
 - Une ligne vide sépare deux paragraphes ; `- ` crée une liste ; `**texte**` met en gras ;
-  `[texte du lien](/confidentialite/)` crée un lien.
+  `[texte du lien](../confidentialite/)` crée un lien.
 - Le bloc entre les deux lignes `---` en haut du fichier contient le titre, la description et la
   date de mise à jour.
 

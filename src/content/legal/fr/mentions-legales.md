@@ -35,4 +35,4 @@ Toute reproduction ou utilisation non autorisée est interdite, sauf exception p
 Crédits photographiques et graphiques : Mille Solutions et Daniel Mille.
 
 ### Données personnelles
-Les informations relatives au traitement des données personnelles sont disponibles dans la [Politique de confidentialité](/confidentialite/).
+Les informations relatives au traitement des données personnelles sont disponibles dans la [Politique de confidentialité](../confidentialite/).

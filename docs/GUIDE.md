@@ -149,6 +149,19 @@ en place. Deux solutions possibles :
 Dans les deux cas, ajouter un en-tête `X-Robots-Tag: noindex` ou un `robots.txt` qui interdit
 l'indexation **sur la prévisualisation uniquement**.
 
+### 3.5 bis Version publique sur GitHub Pages
+
+En attendant le domaine définitif, le site est publié sur **https://mille-solutions.github.io/site-web/**
+à chaque push sur `main` (workflow `.github/workflows/deploy.yml`, onglet « Actions » de GitHub).
+Le workflow compile le site avec `SITE_URL` et `SITE_BASE=/site-web` : toutes les adresses internes
+passent par `url()` / `routes` (`src/i18n/ui.ts`), qui ajoutent ce préfixe. Dans le code, ne jamais
+écrire de lien commençant par `/` ; dans les pages Markdown, utiliser un lien relatif
+(ex. `../../confidentialite/`).
+
+Quand `millesolutions.mc` sera prêt : soit le faire pointer vers GitHub Pages (Settings → Pages →
+Custom domain) et retirer `SITE_URL` et `SITE_BASE` du workflow, soit publier `dist/` chez
+l'hébergeur retenu (§ 3.2 à 3.4).
+
 ### 3.6 Liste de contrôle avant publication
 
 - [ ] `npm run build` se termine sans erreur
@@ -253,7 +266,7 @@ Avec quatre exemples, la grille passe sur deux lignes. Pour un affichage équili
 ```markdown
 ## Titre de section
 
-Paragraphe de texte. Un [lien](/confidentialite/).
+Paragraphe de texte. Un [lien](../confidentialite/).
 
 - élément de liste ;
 - autre élément.

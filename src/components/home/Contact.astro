@@ -1,6 +1,5 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import ExternalLink from '../ExternalLink.astro';
 import ContactForm from './ContactForm.astro';
 import type { Lang } from '../../i18n/ui';
 
@@ -8,14 +7,13 @@ interface Props {
   lang: Lang;
   content: CollectionEntry<'home'>['data']['contact'];
   id: string;
-  bookingsUrl: string;
   formEndpoint: string;
   /** h1 sur la page Contact, h2 sur l'accueil. */
   headingLevel?: 'h1' | 'h2';
   /** « dark » : fond Navy des maquettes « Accueil — FR » et « Contact — FR » ; « light » : fond blanc. */
   tone?: 'dark' | 'light';
 }
-const { lang, content, id, bookingsUrl, formEndpoint, headingLevel = 'h2', tone = 'light' } = Astro.props;
+const { lang, content, id, formEndpoint, headingLevel = 'h2', tone = 'light' } = Astro.props;
 const Heading = headingLevel;
 const dark = tone === 'dark';
 ---
@@ -27,15 +25,7 @@ const dark = tone === 'dark';
     <!-- Maquette : Stone sur Navy ; éclairci ici pour atteindre le contraste AA (4,5:1). -->
     <p class:list={['mt-8 max-w-[53rem] leading-6 sm:mt-6 sm:text-lg sm:leading-[1.6]', dark ? 'text-ivory/75' : 'text-stone']}>{content.text}</p>
 
-    <div class="mt-8 grid items-start gap-8 sm:gap-6 lg:mt-16 lg:grid-cols-[515fr_733fr] lg:gap-8">
-      <div class:list={['card flex flex-col gap-5 text-navy sm:gap-6 lg:sticky lg:top-32', dark && 'border-0']}>
-        <p class="eyebrow">{content.booking.eyebrow}</p>
-        <p class="leading-6 text-stone sm:leading-[1.6]">{content.booking.text}</p>
-        <ExternalLink href={bookingsUrl} lang={lang} icon={false} track="contact" class="btn btn-primary w-full">
-          {content.booking.cta}
-        </ExternalLink>
-      </div>
-
+    <div class="mt-8 max-w-[733px] sm:gap-6 lg:mt-16">
       <ContactForm lang={lang} content={content.form} endpoint={formEndpoint} bordered={!dark} />
     </div>
   </div>

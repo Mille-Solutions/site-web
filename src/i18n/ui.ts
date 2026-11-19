@@ -70,7 +70,7 @@ export const ui = {
     logoHome: 'Mille Solutions — retour à l’accueil',
     footerNav: 'Navigation',
     footerContact: 'Contact',
-    footerContactLines: ['Charlotte Charles Mille', 'Monaco et sa région', 'millesolutions.mc'],
+    footerContactLines: ['Charlotte Charles Mille', 'Monaco et international', 'millesolutions.mc'],
     legalNav: 'Informations légales',
     legal: 'Mentions légales',
     privacy: 'Confidentialité',
@@ -113,7 +113,7 @@ export const ui = {
     logoHome: 'Mille Solutions — back to home page',
     footerNav: 'Navigation',
     footerContact: 'Contact',
-    footerContactLines: ['Charlotte Charles Mille', 'Monaco and the surrounding region', 'millesolutions.mc'],
+    footerContactLines: ['Charlotte Charles Mille', 'Monaco and international', 'millesolutions.mc'],
     legalNav: 'Legal information',
     legal: 'Legal notice',
     privacy: 'Privacy',
@@ -146,7 +146,6 @@ export function navItems(lang: Lang, phase2: boolean) {
     phase2 && (lang === 'fr' || routes[route][lang]) ? pathFor(route, lang) : `${home}#${anchor}`;
   return [
     { key: 'home' as RouteKey, label: t.home, href: home },
-    { key: 'services' as RouteKey, label: t.nav.services, href: target('services', s.services) },
     { key: 'approach' as RouteKey, label: phase2 ? t.nav.approach : t.nav.approachSection, href: target('approach', s.approach) },
     { key: 'examples' as RouteKey, label: t.nav.examples, href: target('examples', s.examples) },
     ...(phase2 ? [] : [{ key: 'about' as const, label: t.nav.about, href: `${home}#${s.about}` }]),

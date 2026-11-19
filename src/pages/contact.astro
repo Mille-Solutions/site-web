@@ -12,9 +12,8 @@ const settings = (await getEntry('settings', 'links'))!.data;
 <Base lang={lang} route="contact" title={page.meta.title} description={page.meta.description}>
   <Contact
     lang={lang}
-    content={{ ...home.contact, booking: page.booking }}
+    content={home.contact}
     id="contact"
-    bookingsUrl={settings.bookingsUrl}
     formEndpoint={settings.contactFormEndpoint}
     headingLevel="h1"
     tone="dark"

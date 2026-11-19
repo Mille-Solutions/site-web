@@ -49,7 +49,7 @@ services:
       text: "Understand what is holding things back, explore the options and build a realistic way forward."
 
 method:
-  eyebrow: "Approach and background"
+  eyebrow: "Approach"
   title: "A simple, structured method adapted to your context."
   steps:
     - icon: structuration

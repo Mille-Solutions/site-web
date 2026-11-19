@@ -17,7 +17,7 @@ const settings = (await getEntry('settings', 'links'))!.data;
 
 const items = navItems(lang, settings.phase2Enabled);
 // Page active (pages de phase 2 uniquement : sur l'accueil, le menu renvoie à des sections).
-const isCurrent = (key: RouteKey) => key === route && key !== 'home';
+const isCurrent = (key: RouteKey | 'about') => key === route && key !== 'home';
 ---
 
 <header class="sticky top-0 z-40 border-b border-azur bg-ivory">
@@ -30,8 +30,9 @@ const isCurrent = (key: RouteKey) => key === route && key !== 'home';
       <LangSwitch lang={lang} route={route} enabled={settings.englishEnabled} />
     </div>
 
+    <!-- Espacement de 24 px jusqu'à 1440 px pour que les six rubriques tiennent sur une ligne dès 1280 px -->
     <nav aria-label={t.mainNav} class="hidden xl:block">
-      <ul class="flex items-center gap-8 text-sm text-stone">
+      <ul class="flex items-center gap-6 text-sm whitespace-nowrap text-stone min-[90rem]:gap-8">
         {
           items.map((item) => (
             <li>

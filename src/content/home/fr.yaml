@@ -48,7 +48,7 @@ services:
       text: "Comprendre les freins, explorer les options et construire une voie d’action réaliste."
 
 method:
-  eyebrow: "Approche et parcours"
+  eyebrow: "Approche"
   title: "Une méthode simple, structurée et adaptée à votre contexte."
   steps:
     - icon: structuration

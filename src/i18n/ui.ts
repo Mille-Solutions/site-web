@@ -51,8 +51,11 @@ export const ui = {
     home: 'Accueil',
     nav: {
       services: 'Accompagnements',
+      // Page « Approche et parcours » (phase 2) ; la section de l'accueil ne traite que de l'approche.
       approach: 'Approche et parcours',
+      approachSection: 'Approche',
       examples: 'Exemples de projets',
+      about: 'À propos',
       contact: 'Contact',
     },
     book: 'Réserver un échange',
@@ -93,7 +96,9 @@ export const ui = {
     nav: {
       services: 'Services',
       approach: 'Approach and background',
+      approachSection: 'Approach',
       examples: 'Project examples',
+      about: 'About',
       contact: 'Contact',
     },
     book: 'Book a call',
@@ -130,6 +135,8 @@ export const ui = {
 
 /**
  * Entrées du menu : sections de l'accueil en phase 1, pages dédiées en phase 2.
+ * Phase 1 : « Approche » (la section ne présente que la méthode) et « À propos » (portrait et
+ * parcours). Phase 2 : la page « Approche et parcours » réunit les deux, sans entrée « À propos ».
  */
 export function navItems(lang: Lang, phase2: boolean) {
   const t = ui[lang];
@@ -140,8 +147,9 @@ export function navItems(lang: Lang, phase2: boolean) {
   return [
     { key: 'home' as RouteKey, label: t.home, href: home },
     { key: 'services' as RouteKey, label: t.nav.services, href: target('services', s.services) },
-    { key: 'approach' as RouteKey, label: t.nav.approach, href: target('approach', s.approach) },
+    { key: 'approach' as RouteKey, label: phase2 ? t.nav.approach : t.nav.approachSection, href: target('approach', s.approach) },
     { key: 'examples' as RouteKey, label: t.nav.examples, href: target('examples', s.examples) },
+    ...(phase2 ? [] : [{ key: 'about' as const, label: t.nav.about, href: `${home}#${s.about}` }]),
     { key: 'contact' as RouteKey, label: t.nav.contact, href: target('contact', s.contact) },
   ];
 }

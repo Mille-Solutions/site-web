@@ -40,6 +40,7 @@ const inputClass =
   data-messages={JSON.stringify({ success: f.success, error: f.error, invalid: f.invalid, sending: f.sending, submit: f.submit, required: t.fieldRequired, email: t.fieldEmail })}
 >
   <p class="eyebrow">{f.eyebrow}</p>
+  {f.intro && <p class="leading-6 text-stone">{f.intro}</p>}
 
   {
     !enabled && (

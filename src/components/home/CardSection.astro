@@ -13,7 +13,7 @@ interface Props {
   eyebrow?: string;
   title: string;
   subtitle?: string;
-  items: { icon: IconName; title: string; text: string; id?: string }[];
+  items: { icon: IconName; title: string; text: string; paragraphs?: string[]; category?: string; context?: string; id?: string }[]
   /** Ordre significatif (étapes de la méthode). */
   ordered?: boolean;
   tone?: 'ivory' | 'white';
@@ -51,17 +51,37 @@ const List = ordered ? 'ol' : 'ul';
             {square ? (
               <>
                 <h3 class="text-xl leading-[1.3] font-medium">{item.title}</h3>
-                <p class="leading-6 text-stone">{item.text}</p>
+                {item.paragraphs ? (
+                  <div class="flex flex-col gap-3">
+                    {item.paragraphs.map((paragraph) => <p class="leading-6 text-stone">{paragraph}</p>)}
+                  </div>
+                ) : (
+                  <p class="leading-6 text-stone">{item.text}</p>
+                )}
               </>
             ) : soft ? (
               <>
                 <h3 class="text-xl leading-[1.25] font-semibold lg:text-2xl lg:leading-[1.2]">{item.title}</h3>
-                <p class="leading-[1.6] text-stone">{item.text}</p>
+                {item.paragraphs ? (
+                  <div class="flex flex-col gap-3">
+                    {item.paragraphs.map((paragraph) => <p class="leading-[1.6] text-stone">{paragraph}</p>)}
+                  </div>
+                ) : (
+                  <p class="leading-[1.6] text-stone">{item.text}</p>
+                )}
               </>
             ) : (
               <div class="flex flex-col gap-5 sm:gap-3">
                 <h3 class="h3 font-medium sm:font-semibold">{item.title}</h3>
-                <p class="leading-6 text-stone sm:leading-[1.6]">{item.text}</p>
+                {item.category && <p class="text-sm font-semibold text-stone">{item.category}</p>}
+                {item.paragraphs ? (
+                  <div class="flex flex-col gap-3">
+                    {item.paragraphs.map((paragraph) => <p class="leading-6 text-stone sm:leading-[1.6]">{paragraph}</p>)}
+                  </div>
+                ) : (
+                  <p class="leading-6 text-stone sm:leading-[1.6]">{item.text}</p>
+                )}
+                {item.context && <p class="text-sm italic leading-[1.6] text-stone">{item.context}</p>}
               </div>
             )}
           </li>

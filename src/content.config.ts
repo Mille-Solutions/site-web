@@ -15,7 +15,7 @@ const settings = defineCollection({
 });
 
 const icon = z.enum(['coordination', 'structuration', 'priorisation', 'solutions', 'collaboration', 'resultats']);
-const card = z.object({ icon, title: z.string(), text: z.string() });
+const card = z.object({ icon, title: z.string(), text: z.string(), paragraphs: z.array(z.string()).optional() });
 const section = { eyebrow: z.string(), title: z.string() };
 
 /** Textes de la page d'accueil, un fichier par langue : src/content/home/fr.yaml, en.yaml */
@@ -27,6 +27,7 @@ const home = defineCollection({
       /** Une entrée par ligne du titre. */
       title: z.array(z.string()).min(1),
       lead: z.string(),
+      leadSecondary: z.string().optional(),
       engagementLabel: z.string(),
       signature: z.string(),
       cta: z.string(),
@@ -35,24 +36,27 @@ const home = defineCollection({
     }),
     situations: z.object({ ...section, items: z.array(card) }),
     services: z.object({ ...section, items: z.array(card.extend({ id: z.string() })) }).optional(),
-    method: z.object({ ...section, steps: z.array(card) }),
+    method: z.object({ ...section, steps: z.array(card), note: z.string().optional() }),
     examples: z.object({
       ...section,
-      items: z.array(z.object({ title: z.string(), text: z.string() })),
+      items: z.array(z.object({ title: z.string(), text: z.string(), category: z.string().optional(), context: z.string().optional() })),
       note: z.string(),
     }),
     about: z.object({
       ...section,
+      introTitle: z.string().optional(),
       paragraphs: z.array(z.string()).min(1),
       cta: z.string(),
       portraitCaption: z.string(),
     }),
     contact: z.object({
+      eyebrow: z.string().optional(),
       title: z.string(),
       text: z.string(),
       booking: z.object({ eyebrow: z.string(), text: z.string(), cta: z.string() }),
       form: z.object({
         eyebrow: z.string(),
+        intro: z.string().optional(),
         name: z.string(),
         namePlaceholder: z.string(),
         email: z.string(),

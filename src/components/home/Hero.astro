@@ -23,7 +23,10 @@ const { lang, content, bookingsUrl, servicesId, bookingNote } = Astro.props;
       <h1 class="text-[2rem] leading-[1.25] font-semibold sm:text-5xl sm:leading-[1.1] sm:tracking-[-0.015em] lg:text-[4rem] lg:leading-[1.05]">
         {content.title.map((line) => <span class="block">{line}</span>)}
       </h1>
-      <p class="leading-6 text-stone sm:text-lg sm:leading-[1.6] lg:text-xl">{content.lead}</p>
+      <div class="flex flex-col gap-4">
+        <p class="leading-6 text-stone sm:text-lg sm:leading-[1.6] lg:text-xl">{content.lead}</p>
+        {content.leadSecondary && <p class="leading-6 text-stone sm:text-lg sm:leading-[1.6] lg:text-xl">{content.leadSecondary}</p>}
+      </div>
 
       <div class="flex flex-col gap-3">
         <p class="eyebrow">{content.engagementLabel}</p>

@@ -8,73 +8,95 @@ hero:
   title:
     - "Faire avancer vos projets."
     - "Simplifier votre fonctionnement."
-  lead: "J’accompagne les TPE, PME et institutions pour clarifier leurs besoins, structurer leurs projets et coordonner leur mise en œuvre jusqu’à un résultat concret."
+  lead: "J’accompagne les entreprises et les organisations dans la gestion de leurs projets, l’amélioration de leur fonctionnement et la mise en œuvre de solutions concrètes."
+  leadSecondary: "J’interviens également sur des besoins opérationnels ponctuels, lorsque vous manquez de temps, de ressources ou simplement d’un regard extérieur pour avancer."
   engagementLabel: "Mon engagement"
   signature: "Structurer. Prioriser. Concrétiser."
-  cta: "Réserver un échange gratuit de 30 minutes"
+  cta: "Parlons de votre projet"
   secondary: "Découvrir mon approche"
   # Photo provisoire issue de la maquette Figma : origine et droits à valider avant publication.
   imageAlt: "Vue de Monaco : la ville, le port Hercule et la mer en lumière du matin."
 
 situations:
-  eyebrow: "Vous vous reconnaissez"
-  title: "Trois situations où mon accompagnement peut vous aider."
+  eyebrow: "Vos besoins"
+  title: "Vous avez besoin de faire avancer un sujet ?"
   items:
     - icon: coordination
-      title: "Votre projet  avance trop lentement."
-      text: "Je vous aide à clarifier l’objectif, organiser les étapes et coordonner les intervenants pour faire progresser votre projet."
+      title: "Un projet qui peine à avancer"
+      text: ""
+      paragraphs:
+        - "Les objectifs manquent de clarté, les décisions tardent ou les intervenants peinent à se coordonner."
+        - "Je vous aide à identifier les blocages, organiser les étapes et remettre le projet en mouvement."
     - icon: structuration
-      title: "Vos équipes consacrent trop de temps à un fonctionnement compliqué."
-      text: "Je vous accompagne pour revoir les processus, les responsabilités et les outils afin de faciliter le travail quotidien."
+      title: "Une organisation qui pourrait fonctionner plus simplement"
+      text: ""
+      paragraphs:
+        - "Processus complexes, outils inadaptés, tâches répétitives ou responsabilités mal définies compliquent votre quotidien."
+        - "Je vous accompagne pour identifier les améliorations utiles et les mettre en place."
     - icon: priorisation
-      title: "Vous avez une idée, mais manquez de temps pour la structurer et la mettre en œuvre."
-      text: "Je vous aide à comprendre les freins, explorer les options et construire une voie d’action réaliste."
+      title: "Un besoin ponctuel, mais pas les ressources pour le traiter"
+      text: ""
+      paragraphs:
+        - "Une étude à réaliser, un événement à préparer, une opportunité à explorer ou une action à coordonner ?"
+        - "Je peux prendre en charge ces missions, de leur préparation jusqu’à leur réalisation."
 
 method:
-  eyebrow: "Approche"
-  title: "Une méthode simple, structurée et adaptée à votre contexte."
+  eyebrow: "Mon approche"
+  title: "Une approche pragmatique, du besoin à la réalisation."
   steps:
     - icon: structuration
-      title: "Structurer"
-      text: "Clarifier le besoin, l’objectif et les contraintes."
+      title: "01 — Structurer"
+      text: "Comprendre votre situation, clarifier les objectifs et identifier les contraintes et les acteurs concernés."
     - icon: priorisation
-      title: "Prioriser"
-      text: "Comparer les options et définir les actions utiles."
+      title: "02 — Prioriser"
+      text: "Explorer les options, définir les actions essentielles et construire un plan réaliste."
     - icon: coordination
-      title: "Concrétiser"
-      text: "Coordonner la mise en œuvre et préparer la continuité."
+      title: "03 — Concrétiser"
+      text: "Mettre en œuvre les actions, coordonner les intervenants et assurer le suivi jusqu’à un résultat concret."
+  note: "Chaque mission est différente. J’interviens aussi bien sur un projet complet que sur une étape précise ou un besoin opérationnel ponctuel, en collaboration avec vos équipes et partenaires."
 
 examples:
-  eyebrow: "Exemples de projets"
-  title: "Trois exemples de situations concrètes."
+  eyebrow: "Exemples de réalisations"
+  title: "Quelques exemples de projets concrets."
   items:
-    - title: "Développement d’un événement lié à l’innovation dans le yachting et de son écosystème*"
-      text: "Accompagnement sur plusieurs années, développement des réseaux industrie et universitaire, enrichissement du programme et transmission aux successeurs."
-    - title: "Outil de recrutement*"
-      text: "Analyse des besoins, déploiement, formation et adaptation des pratiques sur trois mois."
-    - title: "Développement commercial & évènementiel"
-      text: "Identification de nouvelles opportunités commerciales et constitution d’une base de prospection ciblée dans le secteur du yachting. Création d’un outil de suivi pour prospects institutionnels entre Monaco et St-Tropez."
-  note: "* Expériences réalisées dans le cadre de mon parcours salarié, avant la création de Mille Solutions."
+    - title: "Développement d’un événement international dédié à l’innovation maritime"
+      category: "Gestion de projet · Événementiel · Innovation"
+      text: "Coordination de projets, développement de nouvelles initiatives, mobilisation d’acteurs industriels et universitaires, enrichissement du programme et transmission des activités."
+      context: "Expérience menée sur plusieurs années dans le cadre de mon parcours salarié."
+    - title: "Digitalisation du processus de recrutement"
+      category: "Ressources humaines · Digitalisation · Organisation"
+      text: "Analyse des besoins, déploiement d’un outil de gestion des candidatures, adaptation des pratiques internes et formation des utilisateurs."
+      context: "Projet réalisé en trois mois dans le cadre de mon parcours salarié."
+    - title: "Prospection commerciale et préparation d’un événement professionnel"
+      category: "Développement commercial · Coordination opérationnelle"
+      text: "Étude d’opportunités commerciales dans le secteur du yachting, identification de prospects et d’interlocuteurs institutionnels, constitution de bases de contacts ciblées et création d’outils de suivi."
+      context: "Mission réalisée dans le cadre de Mille Solutions."
+  note: ""
 
 about:
   eyebrow: "À propos"
-  title: "Qui suis-je ?"
+  title: "Une expérience de terrain au service de vos projets."
+  introTitle: "Qui suis-je ?"
   paragraphs:
-    - "J’ai créé Mille Solutions pour mettre mon expérience de la coordination, du management et du pilotage de projets au service de vos besoins."
-    - "Mon parcours, des opérations offshore et des missions humanitaires au yachting, à l’événementiel et aux projets RH, digitaux et de durabilité, nourrit ma créativité autant que mon sens pratique."
+    - "J’ai créé Mille Solutions pour mettre mon expérience en gestion de projets, coordination d’équipes et amélioration des organisations au service des entreprises et des professionnels."
+    - "Mon parcours m’a amenée à évoluer dans des environnements très différents : opérations offshore, missions humanitaires, yachting, événementiel, ressources humaines, digitalisation et durabilité."
+    - "Ce qui relie ces expériences : comprendre rapidement une situation, réunir les bonnes personnes, trouver des solutions pratiques et faire avancer les projets jusqu’à leur réalisation."
+    - "Basée à Monaco, j’interviens auprès d’organisations aux besoins et aux moyens variés."
   # Phase 1 : ouvre le profil LinkedIn ; phase 2 : page « Approche et parcours ».
   cta: "Découvrir mon parcours"
   portraitCaption: "Portrait de Charlotte à fournir"
 
 contact:
-  title: "Parlons de votre situation."
-  text: "Vous avez un projet à structurer, un fonctionnement à simplifier ou une situation à débloquer ? Un premier échange gratuit de 30 minutes permet de comprendre votre besoin et de voir si mon intervention peut vous être utile."
+  eyebrow: "Contact"
+  title: "Parlons de votre projet."
+  text: "Vous avez un projet à lancer, une organisation à améliorer ou un besoin ponctuel à traiter ? Prenons 30 minutes pour échanger sur votre situation et voir comment je peux vous aider."
   booking:
     eyebrow: "Réservation externe"
-    text: "Microsoft Bookings — ouverture dans un nouvel onglet."
-    cta: "Échange gratuit de 30 minutes"
+    text: ""
+    cta: "Réserver un échange gratuit de 30 minutes"
   form:
-    eyebrow: "Formulaire"
+    eyebrow: "Vous préférez m’écrire ?"
+    intro: "Présentez-moi votre besoin à l’aide du formulaire ci-dessous."
     name: "Nom"
     namePlaceholder: "Votre nom"
     email: "Adresse e-mail"
@@ -85,8 +107,8 @@ contact:
     messagePlaceholder: "Décrivez brièvement votre situation ou votre besoin."
     submit: "Envoyer mon message"
     sending: "Envoi en cours…"
-    notice: "Vos informations sont utilisées pour répondre à votre demande. Consultez la page"
-    noticeLink: "Confidentialité"
+    notice: "Vos informations sont utilisées pour répondre à votre demande."
+    noticeLink: "Consultez notre politique de confidentialité"
     requiredNote: "Les champs marqués d’un astérisque sont obligatoires."
     success: "Votre message a bien été envoyé. Merci pour votre prise de contact. Je vous répondrai dès que possible."
     error: "Une erreur s’est produite. Votre message n’a pas pu être envoyé. Votre saisie a été conservée dans ce formulaire. Réessayez dans quelques instants."

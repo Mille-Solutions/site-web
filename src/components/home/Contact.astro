@@ -22,6 +22,7 @@ const dark = tone === 'dark';
 
 <section id={id} aria-labelledby={`${id}-title`} class:list={['section', dark ? 'bg-navy text-ivory' : 'bg-white']}>
   <div class="container-site">
+    {content.eyebrow && <p class:list={['eyebrow mb-4', dark ? 'text-ivory/75' : 'text-stone']}>{content.eyebrow}</p>}
     <Heading id={`${id}-title`} class="text-[2rem] leading-[1.25] font-semibold text-balance sm:text-[2.5rem] sm:leading-[1.1] lg:text-[5rem]">{content.title}</Heading>
     <!-- Maquette : Stone sur Navy ; éclairci ici pour atteindre le contraste AA (4,5:1). -->
     <p class:list={['mt-8 max-w-[53rem] leading-6 sm:mt-6 sm:text-lg sm:leading-[1.6]', dark ? 'text-ivory/75' : 'text-stone']}>{content.text}</p>

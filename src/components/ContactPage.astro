@@ -20,6 +20,7 @@ const settings = (await getEntry('settings', 'links'))!.data;
       content={page.form}
       endpoint={contactEndpoint(settings.contactFormEndpoint)}
       bordered={false}
+      fallbackUrl={settings.contactFormsUrl}
     />
   </Contact>
 </Base>

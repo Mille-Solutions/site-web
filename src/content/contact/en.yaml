@@ -38,4 +38,6 @@ form:
   phoneRequired: "Please enter a phone number so I can contact you by WhatsApp or phone."
   phoneInvalid: "This number does not look right. Please include the country code, e.g. +377 6 12 34 56 78."
   captchaError: "The anti-robot check did not succeed. Please tick “I’m not a robot” again, then resend your enquiry."
-  unavailable: "The form will be available soon."
+  unavailable: "This form will be available soon."
+  unavailableFallback: "In the meantime, you can send me your enquiry using the online form below."
+  unavailableCta: "Fill in the online form"

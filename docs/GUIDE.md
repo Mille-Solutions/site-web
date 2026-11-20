@@ -86,8 +86,8 @@ docker run -d --name millesolutions -p 4321:4321 --env-file .env --restart unles
   l'environnement ; adresse http://localhost:4321).
 
 Les options A et B ci-dessous (hébergement statique) restent possibles pour les pages seules :
-publier alors `dist/client/` et construire avec `CONTACT_FORM=off` (formulaire désactivé, bouton de
-l'accueil vers Microsoft Forms).
+publier alors `dist/client/` et construire avec `CONTACT_FORM=off` (formulaire désactivé, page Contact
+avec un bouton vers Microsoft Forms).
 
 ### 3.2 Option A — Hébergement SMASH / NUMERICA (Monaco Cloud)
 
@@ -180,7 +180,7 @@ l'indexation **sur la prévisualisation uniquement**.
 En attendant le domaine définitif, le site est publié sur **https://mille-solutions.github.io/site-web/**
 à chaque push sur `main` (workflow `.github/workflows/deploy.yml`, onglet « Actions » de GitHub).
 GitHub Pages ne fait tourner aucun serveur : le workflow construit avec `CONTACT_FORM=off`
-(formulaire de la page Contact désactivé, bouton de l'accueil vers Microsoft Forms) et publie
+(formulaire de la page Contact désactivé, avec un bouton vers Microsoft Forms) et publie
 `dist/client/`. Le workflow compile le site avec `SITE_URL` et `SITE_BASE=/site-web` : toutes les adresses internes
 passent par `url()` / `routes` (`src/i18n/ui.ts`), qui ajoutent ce préfixe. Dans le code, ne jamais
 écrire de lien commençant par `/` ; dans les pages Markdown, utiliser un lien relatif
@@ -560,7 +560,8 @@ affiché dans le terminal au lieu d'être envoyé.
 
 `contactFormEndpoint` (`settings.yaml`) vaut `/api/contact/`. Vide, ou construction avec
 `CONTACT_FORM=off` (GitHub Pages, hébergement statique) : la page Contact affiche le formulaire
-désactivé et le bouton de l'accueil renvoie vers Microsoft Forms (`contactFormsUrl`).
+désactivé, avec un message et un bouton vers Microsoft Forms (`contactFormsUrl`). Le bouton de
+l'accueil mène toujours à la page Contact.
 
 **Captcha ALTCHA** (`src/lib/altcha.ts`, `src/pages/api/altcha.ts`, composant `altcha-widget` dans
 `ContactForm.astro`). Preuve de travail : le serveur fournit un défi signé (`GET /api/altcha/`),

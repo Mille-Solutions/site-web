@@ -66,7 +66,7 @@ doivent garder **la même structure** (même nombre d'éléments dans chaque lis
 | -------------------------------------------------- | --------------------- |
 | Le lien vers le profil LinkedIn (bouton « À propos ») | `linkedinUrl`      |
 | L'adresse d'envoi du formulaire de contact (`/api/contact/`, à ne pas changer) | `contactFormEndpoint` |
-| Le formulaire Microsoft Forms (bouton de l'accueil tant que l'envoi n'est pas configuré) | `contactFormsUrl` |
+| Le formulaire Microsoft Forms (bouton de la page Contact tant que le formulaire du site est désactivé) | `contactFormsUrl` |
 | Activer la version anglaise (après validation)     | `englishEnabled: true` |
 | Publier les pages détaillées (phase 2)             | `phase2Enabled: true` |
 

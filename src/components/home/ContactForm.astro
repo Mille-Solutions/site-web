@@ -7,9 +7,10 @@
  * Envoi : POST vers contactFormEndpoint (settings.yaml), par défaut /api/contact/
  * (src/pages/api/contact.ts), qui contrôle à nouveau les champs et envoie l'e-mail par SMTP.
  * Sans adresse d'envoi (ou CONTACT_FORM=off à la construction), le formulaire reste visible mais
- * désactivé.
+ * désactivé ; si `fallbackUrl` est fourni (Microsoft Forms), un bouton y mène en attendant.
  */
 import type { CollectionEntry } from 'astro:content';
+import ExternalLink from '../ExternalLink.astro';
 import { routes, ui, url, type Lang } from '../../i18n/ui';
 
 interface Props {
@@ -18,8 +19,10 @@ interface Props {
   endpoint: string;
   /** Filet Azure autour de la carte (fond clair) ; sans filet sur fond Navy. */
   bordered?: boolean;
+  /** Formulaire externe proposé tant que celui-ci est désactivé (contactFormsUrl). */
+  fallbackUrl?: string;
 }
-const { lang, content: f, endpoint, bordered = true } = Astro.props;
+const { lang, content: f, endpoint, bordered = true, fallbackUrl = '' } = Astro.props;
 const t = ui[lang];
 const enabled = endpoint.trim() !== '';
 
@@ -87,9 +90,14 @@ const altchaConfig = JSON.stringify({ hideLogo: true, hideFooter: true, humanInt
 
   {
     !enabled && (
-      <p class="border-l-2 border-azur bg-azur-mist px-4 py-3 text-sm leading-relaxed" data-unavailable>
-        {f.unavailable}
-      </p>
+      <div class="flex flex-col items-start gap-4 border-l-2 border-azur bg-azur-mist px-4 py-3" data-unavailable>
+        <p class="text-sm leading-relaxed">{f.unavailable}{fallbackUrl && ` ${f.unavailableFallback}`}</p>
+        {fallbackUrl && (
+          <ExternalLink href={fallbackUrl} lang={lang} track="contact-form" class="btn btn-primary w-full sm:w-auto">
+            {f.unavailableCta}
+          </ExternalLink>
+        )}
+      </div>
     )
   }
 

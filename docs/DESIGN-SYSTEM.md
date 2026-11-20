@@ -161,6 +161,8 @@ en `text-ivory/70`, halo décoratif `bg-azur/10 blur-[50px]`.
   captcha ALTCHA (case « Je ne suis pas un robot ») juste avant le bouton d'envoi, pleine largeur,
   bordure Azure, rayon 8, case et état « Vérifié » en Navy (pas de vert), sans logo ni mention
   ALTCHA (variables `--altcha-*` dans `global.css`).
+  Formulaire désactivé (hébergement statique) : en tête, encadré d'information avec le message
+  et un bouton `btn-primary` vers Microsoft Forms (lien externe), champs grisés (`bg-ivory`).
 - Encadrés d'avertissement : `border-l-3 border-azur bg-azur-mist p-6`.
 - Pages légales : `.prose-legal` (rubriques `##` ouvertes par un filet `rule`, informations à
   compléter en `<span class="missing">[…]</span>`, voir GUIDE § 4.3).

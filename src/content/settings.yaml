@@ -1,8 +1,8 @@
 # Réglages du site (FR et EN). Modifier ici suffit : aucune autre modification de code n'est nécessaire.
 links:
   linkedinUrl: "https://www.linkedin.com/in/charlotte-charles-mille-70913144/"
-  # Formulaire Microsoft Forms : utilisé par le bouton de l'accueil tant que
-  # contactFormEndpoint est vide.
+  # Formulaire Microsoft Forms : proposé sur la page Contact tant que le formulaire du site
+  # est désactivé (contactFormEndpoint vide ou construction avec CONTACT_FORM=off).
   contactFormsUrl: "https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=0_74U9ITU0KPen2UcNhdlJfZI9WWvINJn8H-kMHojwtUNjVKN04zRUNSSTdGSldOSkozTEVEUVdYNy4u"
   # Adresse qui reçoit les envois du formulaire de la page Contact : le serveur du site
   # (src/pages/api/contact.ts, réglages SMTP dans les variables d'environnement, voir docs/GUIDE.md

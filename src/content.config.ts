@@ -195,6 +195,9 @@ const contactPage = defineCollection({
       phoneInvalid: z.string(),
       captchaError: z.string(),
       unavailable: z.string(),
+      /** Texte et bouton vers Microsoft Forms (contactFormsUrl) tant que le formulaire est désactivé. */
+      unavailableFallback: z.string(),
+      unavailableCta: z.string(),
     }),
   }),
 });

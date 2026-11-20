@@ -39,4 +39,6 @@ form:
   phoneRequired: "Indiquez un numéro de téléphone pour être recontacté par WhatsApp ou par téléphone."
   phoneInvalid: "Le numéro saisi ne semble pas correct. Indiquez-le avec l’indicatif pays, par exemple +377 6 12 34 56 78."
   captchaError: "La vérification anti-robot n’a pas abouti. Cochez à nouveau la case « Je ne suis pas un robot », puis renvoyez votre demande."
-  unavailable: "Le formulaire sera activé prochainement."
+  unavailable: "Ce formulaire sera activé prochainement."
+  unavailableFallback: "En attendant, vous pouvez me présenter votre demande avec le formulaire en ligne ci-dessous."
+  unavailableCta: "Remplir le formulaire en ligne"

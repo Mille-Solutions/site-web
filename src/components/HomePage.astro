@@ -5,7 +5,7 @@ import Hero from './home/Hero.astro';
 import CardSection from './home/CardSection.astro';
 import About from './home/About.astro';
 import Contact from './home/Contact.astro';
-import { contactEndpoint, routes, sections, type Lang } from '../i18n/ui';
+import { routes, sections, type Lang } from '../i18n/ui';
 
 interface Props {
   lang: Lang;
@@ -15,10 +15,8 @@ const content = (await getEntry('home', lang))!.data;
 const settings = (await getEntry('settings', 'links'))!.data;
 const s = sections[lang];
 const { situations, method, examples } = content;
-// Le bouton du bandeau Contact mène à la page Contact dès que le service d'envoi est configuré ;
-// en attendant, il renvoie vers le formulaire Microsoft Forms.
-const formReady = contactEndpoint(settings.contactFormEndpoint) !== '';
-const formHref = formReady || !settings.contactFormsUrl ? routes.contact[lang] : settings.contactFormsUrl;
+// Toujours la page Contact : si le formulaire y est désactivé, elle propose Microsoft Forms.
+const formHref = routes.contact[lang];
 ---
 
 <Base lang={lang} route="home" title={content.meta.title} description={content.meta.description}>
@@ -33,5 +31,5 @@ const formHref = formReady || !settings.contactFormsUrl ? routes.contact[lang] :
     note={examples.note}
   />
   <About lang={lang} content={content.about} id={s.about} linkedinUrl={settings.linkedinUrl} />
-  <Contact lang={lang} content={content.contact} id={s.contact} formHref={formHref} formExternal={formHref === settings.contactFormsUrl} tone="dark" />
+  <Contact lang={lang} content={content.contact} id={s.contact} formHref={formHref} tone="dark" />
 </Base>

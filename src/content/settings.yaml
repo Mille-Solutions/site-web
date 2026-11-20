@@ -1,15 +1,19 @@
 # Réglages du site (FR et EN). Modifier ici suffit : aucune autre modification de code n'est nécessaire.
 links:
   linkedinUrl: "https://www.linkedin.com/in/charlotte-charles-mille-70913144/"
+  # Formulaire Microsoft Forms : utilisé par le bouton de l'accueil tant que
+  # contactFormEndpoint est vide.
   contactFormsUrl: "https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=0_74U9ITU0KPen2UcNhdlJfZI9WWvINJn8H-kMHojwtUNjVKN04zRUNSSTdGSldOSkozTEVEUVdYNy4u"
-  # Adresse qui reçoit les envois du formulaire (service ou script côté serveur).
-  # Vide = formulaire affiché mais désactivé.
-  contactFormEndpoint: ""
+  # Adresse qui reçoit les envois du formulaire de la page Contact : le serveur du site
+  # (src/pages/api/contact.ts, réglages SMTP dans les variables d'environnement, voir docs/GUIDE.md
+  # § 6.1). Vide, ou construction avec CONTACT_FORM=off (GitHub Pages) = formulaire désactivé, et
+  # le bouton de l'accueil renvoie vers Microsoft Forms.
+  contactFormEndpoint: "/api/contact/"
   # Passer à true uniquement quand la version anglaise a été relue et validée par Charlotte.
   # Tant que false : le sélecteur « EN » est inactif et les pages /en/ ne sont pas indexées.
   englishEnabled: true
-  # Phase 2 : passer à true pour publier les pages Accompagnements, Approche et parcours,
-  # Exemples de projets et Contact. Le menu renvoie alors vers ces pages au lieu des sections
+  # Phase 2 : passer à true pour publier les pages Accompagnements, Approche et parcours et
+  # Exemples de projets (la page Contact est déjà publiée). Le menu renvoie alors vers ces pages au lieu des sections
   # de l'accueil. Tant que false, les pages existent pour la prévisualisation mais ne sont ni liées
   # ni indexées.
   phase2Enabled: false

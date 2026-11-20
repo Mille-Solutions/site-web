@@ -31,9 +31,11 @@ jobs:
         env:
           SITE_URL: https://mille-solutions.github.io
           SITE_BASE: /site-web
+          # Pas de serveur sur GitHub Pages : formulaire désactivé, bouton vers Microsoft Forms.
+          CONTACT_FORM: 'off'
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: dist/client
 
   deploy:
     needs: build

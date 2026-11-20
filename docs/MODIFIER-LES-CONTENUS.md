@@ -65,7 +65,8 @@ doivent garder **la même structure** (même nombre d'éléments dans chaque lis
 | Je veux changer…                                   | Champ                 |
 | -------------------------------------------------- | --------------------- |
 | Le lien vers le profil LinkedIn (bouton « À propos ») | `linkedinUrl`      |
-| L'adresse d'envoi du formulaire de contact         | `contactFormEndpoint` |
+| L'adresse d'envoi du formulaire de contact (`/api/contact/`, à ne pas changer) | `contactFormEndpoint` |
+| Le formulaire Microsoft Forms (bouton de l'accueil tant que l'envoi n'est pas configuré) | `contactFormsUrl` |
 | Activer la version anglaise (après validation)     | `englishEnabled: true` |
 | Publier les pages détaillées (phase 2)             | `phase2Enabled: true` |
 
@@ -81,7 +82,7 @@ Les sections apparaissent dans cet ordre sur la page :
 | « Mon approche »                          | `method:`       | repère, titre, 3 étapes (`steps`), phrase sous les cartes (`note`, facultative) |
 | « Exemples de réalisations »              | `examples:`     | repère, titre, 3 exemples (`items` : `title`, `category` domaines, `text`, `context` mention en italique), mention en bas (`note`, laisser `""` pour n'en afficher aucune) |
 | « À propos »                              | `about:`        | repère, titre, sous-titre (`introTitle`, ex. « Qui suis-je ? »), paragraphes (`paragraphs`, le premier est affiché en grand), bouton LinkedIn (`cta`), description du portrait (`portraitAlt`) |
-| « Parlons de votre projet »               | `contact:`      | repère (`eyebrow`), titre, texte, formulaire (`form` : repère, phrase d'introduction `intro`, libellés, textes d'aide, messages de confirmation et d'erreur) |
+| « Parlons de votre projet »               | `contact:`      | repère (`eyebrow`), titre, texte, encart (`form` : repère, phrase d'introduction `intro`, texte du bouton `cta`, mention de confidentialité) |
 
 ### Pages détaillées (phase 2)
 
@@ -92,7 +93,7 @@ Ces pages ne sont publiées qu'une fois `phase2Enabled: true` dans les réglages
 | Accompagnements `/accompagnements/`     | `src/content/accompagnements/fr.yaml` | `hero`, `statement` (phrase centrale), `list` (les 3 accompagnements : `needs` besoins, `intervention`, `deliverables` livrables), `approach` |
 | Approche et parcours `/approche-et-parcours/` | `src/content/approche/fr.yaml` | `hero`, `statement`, `intro` (« Ma méthode »), `method` (3 étapes), `principles` (6 principes), `background` (« Mon parcours ») |
 | Exemples de projets `/exemples-de-projets/` | `src/content/exemples/fr.yaml`   | `hero`, `projects` (3 fiches : `situation`, `role`, `actions`, `results`, `duration`) |
-| Contact `/contact/`                     | `src/content/contact/fr.yaml`        | `meta` (titre et description pour les moteurs de recherche) — le titre, le texte et le formulaire sont ceux de l'accueil (`contact:` dans `home/fr.yaml`) |
+| Contact `/contact/` (anglais : `/en/contact/`) | `src/content/contact/fr.yaml` (`en.yaml`) | `meta`, repère, titre, texte, puis formulaire (`form` : libellés, textes d'aide, modes de contact, mention de confidentialité, messages de confirmation et d'erreur, dont `captchaError`). Page publiée hors phase 2. |
 
 ### Pages légales — `src/content/legal/`
 

@@ -17,7 +17,7 @@ Charlotte CHARLES MILLE, exerçant en nom personnel sous le nom commercial Mille
 Téléphone : +377 37 70 77 55
 
 ### 2. Données collectées et utilisation
-Lorsque vous utilisez notre formulaire de contact, nous recueillons votre nom, votre adresse e-mail, le nom de votre organisation si vous le renseignez, ainsi que votre message.
+Lorsque vous utilisez notre formulaire de contact, nous recueillons votre nom et prénom, votre adresse e-mail et votre demande, ainsi que, si vous les renseignez, le nom de votre organisation, votre fonction, votre numéro de téléphone, votre mode de contact préféré et le site internet de votre organisation.
 
 Ces informations sont utilisées uniquement pour répondre à votre demande et assurer le suivi de nos échanges.
 

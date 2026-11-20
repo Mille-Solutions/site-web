@@ -9,12 +9,13 @@ Internet REAL » et le cahier des charges du 12/10/2026.
 ```bash
 npm install
 npm run dev      # http://localhost:4321
-npm run build    # génère le site statique dans dist/
-npm run preview  # sert dist/ en local
+npm run build    # pages dans dist/client/, serveur Node dans dist/server/
+node dist/server/entry.mjs   # sert le site construit (pages + /api/contact/)
 ```
 
-Le dossier `dist/` contient uniquement des fichiers HTML/CSS/JS : il se dépose tel quel sur
-n'importe quel hébergement statique (FTP/SFTP, Netlify, etc.).
+Pages statiques, plus une route serveur `/api/contact/` qui envoie le formulaire de contact par
+SMTP (messagerie du domaine). Livraison en image Docker : voir `Dockerfile`, `.env.example` et
+[docs/GUIDE.md § 3.0](docs/GUIDE.md).
 
 Le guide complet de mise en ligne et de modification se trouve dans [docs/GUIDE.md](docs/GUIDE.md).
 Pour modifier les textes, liens et photos sans toucher au code : [docs/MODIFIER-LES-CONTENUS.md](docs/MODIFIER-LES-CONTENUS.md).
@@ -39,7 +40,7 @@ Pour modifier les textes, liens et photos sans toucher au code : [docs/MODIFIER-
 ## Reste à faire
 
 - [ ] Droits des photos à vérifier (portrait ; photos de l'accueil et des pages de phase 2 reprises de Figma)
-- [ ] Formulaire de contact : service d'envoi côté serveur (`contactFormEndpoint`)
+- [ ] Formulaire de contact (page `/contact/`, captcha ALTCHA en place) : boîte d'envoi SMASH, identifiants SMTP et `ALTCHA_HMAC_KEY` dans `.env` du conteneur ; politique de confidentialité (remplacer Microsoft Forms)
 - [ ] Relecture et validation de la traduction anglaise par Charlotte, puis `englishEnabled: true` ; pages légales en anglais
 - [ ] Compléter les informations entre crochets des pages légales, puis retirer `draft: true`
 - [ ] Outil de statistiques (envoi du formulaire déjà signalé par l'événement `contact:sent`)

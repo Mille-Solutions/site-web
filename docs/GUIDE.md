@@ -3,10 +3,11 @@
 Ce document explique comment publier le site sur **millesolutions.mc**, puis comment le faire évoluer :
 modifier un texte, changer un lien, remplacer une image, ajouter du contenu ou adapter la charte.
 
-> **En bref.** Le site est **statique** : la commande `npm run build` produit un dossier `dist/`
-> qui contient uniquement des fichiers HTML, CSS, JavaScript, images et polices. Ce dossier se dépose
-> tel quel chez n'importe quel hébergeur. Il n'y a ni base de données ni PHP, et aucune mise à jour
-> de sécurité côté serveur n'est à prévoir.
+> **En bref.** Les pages du site sont **statiques** (HTML, CSS, JavaScript, images, polices), sans
+> base de données ni PHP. Une seule adresse tourne côté serveur : `/api/contact/`, qui envoie le
+> formulaire de contact par e-mail via la messagerie du domaine. Le site est livré sous forme
+> d'**image Docker** (§ 3.0). Les pages seules (`dist/client/`) peuvent aussi être déposées chez un
+> hébergeur statique, mais le formulaire y est alors désactivé.
 
 ---
 
@@ -48,10 +49,11 @@ s'arrête avec un message qui indique le fichier et le champ concernés. Rien de
 npm run build
 ```
 
-Contenu de `dist/` :
+"Contenu de `dist/` : `dist/server/` (serveur Node : pages + `/api/contact/`) et `dist/client/`
+(pages statiques) :
 
 ```
-dist/
+dist/client/
 ├── index.html                 → /                      (accueil FR)
 ├── en/index.html              → /en/                   (accueil EN)
 ├── mentions-legales/          → /mentions-legales/
@@ -62,6 +64,30 @@ dist/
 ├── sitemap-index.xml          → plan du site pour les moteurs de recherche
 ├── robots.txt, favicon.svg
 ```
+
+### 3.0 Image Docker (hébergement prévu)
+
+Le `Dockerfile` à la racine construit une image Node légère qui sert les pages **et** reçoit le
+formulaire. Docker n'est nécessaire que sur la machine qui construit ou fait tourner l'image.
+
+```bash
+docker build -t millesolutions-site .
+cp .env.example .env        # puis renseigner les identifiants SMTP (voir § 6.1)
+docker run -d --name millesolutions -p 4321:4321 --env-file .env --restart unless-stopped millesolutions-site
+```
+
+- Le conteneur écoute sur le port **4321** en HTTP. Le HTTPS est assuré par le proxy inverse placé
+  devant (nginx, Traefik, Caddy…) ; dans ce cas, mettre `TRUST_PROXY=true` dans `.env`.
+- Adresse publique : `SITE_URL` (défaut `https://millesolutions.mc`) et `SITE_BASE` (défaut `/`) se
+  règlent à la construction : `docker build --build-arg SITE_URL=https://… .`
+- Les identifiants SMTP sont donnés **au lancement** (`--env-file`), jamais dans l'image ni dans Git.
+- Mise à jour : reconstruire l'image, puis `docker rm -f millesolutions` et relancer `docker run`.
+- Tester sans Docker : `npm run build`, puis `node dist/server/entry.mjs` (variables SMTP dans
+  l'environnement ; adresse http://localhost:4321).
+
+Les options A et B ci-dessous (hébergement statique) restent possibles pour les pages seules :
+publier alors `dist/client/` et construire avec `CONTACT_FORM=off` (formulaire désactivé, bouton de
+l'accueil vers Microsoft Forms).
 
 ### 3.2 Option A — Hébergement SMASH / NUMERICA (Monaco Cloud)
 
@@ -153,7 +179,9 @@ l'indexation **sur la prévisualisation uniquement**.
 
 En attendant le domaine définitif, le site est publié sur **https://mille-solutions.github.io/site-web/**
 à chaque push sur `main` (workflow `.github/workflows/deploy.yml`, onglet « Actions » de GitHub).
-Le workflow compile le site avec `SITE_URL` et `SITE_BASE=/site-web` : toutes les adresses internes
+GitHub Pages ne fait tourner aucun serveur : le workflow construit avec `CONTACT_FORM=off`
+(formulaire de la page Contact désactivé, bouton de l'accueil vers Microsoft Forms) et publie
+`dist/client/`. Le workflow compile le site avec `SITE_URL` et `SITE_BASE=/site-web` : toutes les adresses internes
 passent par `url()` / `routes` (`src/i18n/ui.ts`), qui ajoutent ce préfixe. Dans le code, ne jamais
 écrire de lien commençant par `/` ; dans les pages Markdown, utiliser un lien relatif
 (ex. `../../confidentialite/`).
@@ -207,7 +235,7 @@ VS Code…).
 | Je veux modifier… | Fichier |
 |---|---|
 | Le lien **LinkedIn** | `src/content/settings.yaml` |
-| L'adresse d'envoi du **formulaire**, l'activation de l'**anglais** ou de la **phase 2** | `src/content/settings.yaml` (`contactFormEndpoint`, `englishEnabled`, `phase2Enabled`) |
+| L'adresse d'envoi du **formulaire**, l'activation de l'**anglais** ou de la **phase 2** | `src/content/settings.yaml` (`contactFormEndpoint`, `englishEnabled`, `phase2Enabled`) ; identifiants SMTP : variables d'environnement du conteneur (`.env.example`) |
 | Les textes des **pages de phase 2** | `src/content/accompagnements/`, `approche/`, `exemples/`, `contact/` |
 | Un texte de la **page d'accueil** | `src/content/home/fr.yaml` · `src/content/home/en.yaml` |
 | Le **titre et la description** affichés dans Google et sur LinkedIn | `meta:` en haut de `fr.yaml` / `en.yaml` |
@@ -438,7 +466,7 @@ Les quatre pages sont **construites en français** d'après les maquettes Figma 
 | Accompagnements | `/accompagnements/` | `src/content/accompagnements/fr.yaml` |
 | Approche et parcours | `/approche-et-parcours/` | `src/content/approche/fr.yaml` |
 | Exemples de projets | `/exemples-de-projets/` | `src/content/exemples/fr.yaml` |
-| Contact | `/contact/` | `src/content/contact/fr.yaml` (+ titre, texte et formulaire de `home/fr.yaml`) |
+| Contact | `/contact/` | `src/content/contact/fr.yaml` — **déjà publiée**, hors phase 2 (voir § 6.1) |
 
 Elles restent **non publiées** tant que `phase2Enabled: false` dans `settings.yaml` : elles sont
 consultables pour la prévisualisation, mais ni liées, ni indexées, ni listées dans le plan du site.
@@ -488,37 +516,68 @@ pages.
 
 ### 6.1 Formulaire de contact
 
-La partie visible est **en place** (`src/components/home/ContactForm.astro`) : champs de la maquette,
-validation dans le navigateur avec messages près des champs, messages exacts de succès, d'échec, d'adresse e-mail invalide et de champ obligatoire (cadre « États du
-formulaire » de la maquette « Contact — FR » ; textes dans `home/<langue>.yaml` → `form` et
-`src/i18n/ui.ts` → `fieldRequired`, `fieldEmail`),
-saisie conservée en cas d'échec, annonce du résultat aux lecteurs d'écran, champ piège anti-robots
-(`website`).
+Le formulaire est sur la **page Contact** (`/contact/`, `/en/contact/`), à laquelle mène le bouton
+du bandeau Contact de l'accueil. Champs repris du formulaire Microsoft Forms « Contactez-moi » :
+nom et prénom*, organisation, fonction, téléphone, adresse e-mail*, mode de contact préféré
+(WhatsApp, téléphone, e-mail), site internet, demande*. Le téléphone devient obligatoire si
+WhatsApp ou téléphone est choisi. Textes : `src/content/contact/<langue>.yaml` → `form` ;
+composant : `src/components/home/ContactForm.astro`.
 
-Il manque **l'envoi** : un site statique ne peut pas envoyer d'e-mail lui-même. Tant que
-`contactFormEndpoint` est vide dans `settings.yaml`, le formulaire est affiché mais désactivé, avec
-le message « Le formulaire sera activé prochainement » (`form.unavailable`). Une fois le service choisi, renseigner son adresse :
+En place : validation dans le navigateur avec messages près des champs, messages de succès et
+d'échec, saisie conservée en cas d'échec, annonce du résultat aux lecteurs d'écran, case piège
+anti-robots (`botcheck`).
 
-```yaml
-links:
-  contactFormEndpoint: "https://millesolutions.mc/contact.php"
-```
+**L'envoi** est fait par le site lui-même : le formulaire poste vers `/api/contact/`
+(`src/pages/api/contact.ts`, contrôles dans `src/lib/contact.ts`). Le serveur :
+- contrôle à nouveau tous les champs (obligatoires, formats, longueurs, mode de contact connu) ;
+- ignore les envois dont la case piège `botcheck` est cochée (réponse « succès » sans envoi) ;
+- exige une solution **ALTCHA** valide (voir ci-dessous) ;
+- limite à 5 envois par adresse IP et par quart d'heure (`CONTACT_RATE_LIMIT`) ;
+- envoie un e-mail texte en français à `MAIL_TO`, depuis `MAIL_FROM`, avec le visiteur en
+  **Reply-To** : il suffit de cliquer sur « Répondre » ;
+- n'écrit jamais le contenu des messages dans les journaux.
 
-Le formulaire envoie alors une requête `POST` (champs `name`, `email`, `organisation`, `message`,
-`website`, `lang`) et attend une réponse HTTP 2xx en cas de succès. Le service doit, côté serveur :
-valider les champs, formats et longueurs ; rejeter les envois dont `website` est rempli ; limiter les
-envois ; garder l'adresse destinataire secrète ; envoyer depuis une adresse autorisée avec le visiteur
-en Reply-To.
+**Messagerie** : l'e-mail part de la messagerie du domaine (SMASH) en **SMTP authentifié** sur une
+boîte du domaine (ex. `formulaire@millesolutions.mc`). Le message reste ainsi chez SMASH et passe
+les contrôles anti-usurpation du domaine (SPF, DKIM, DMARC). Un envoi direct sans authentification
+finirait en spam ou serait rejeté.
 
-| Solution | Avantages | Points d'attention |
-|---|---|---|
-| **Script PHP chez SMASH** (si l'hébergement accepte PHP) | Gratuit, données à Monaco, contrôle total | Petit développement à faire et à maintenir |
-| **Fonction serverless** (Netlify Functions, Cloudflare Workers) + service d'envoi d'e-mails | Robuste, adapté à l'option B | Prestataires supplémentaires à déclarer |
-| **Service de formulaire** (Formspree, Basin…) | Mise en place très rapide | Abonnement possible, données hors de Monaco |
-| **Microsoft Forms intégré** (prévu dans les mentions légales) | Déjà dans l'environnement Microsoft de Charlotte | Ne respecte ni la charte, ni la confirmation personnalisée, ni le bilinguisme demandés |
+Variables d'environnement (modèle : `.env.example`) :
 
-Quel que soit le choix, il faudra mettre à jour la section 2 de la politique de confidentialité et le
-tableau des prestataires.
+| Variable | Rôle |
+|---|---|
+| `SMTP_HOST`, `SMTP_PORT` | Serveur d'envoi SMASH ; port 587 (STARTTLS) ou 465 (TLS) |
+| `SMTP_SECURE` | `true` pour le port 465 (déduit du port si absent) |
+| `SMTP_USER`, `SMTP_PASS` | Identifiants de la boîte d'envoi |
+| `MAIL_FROM`, `MAIL_TO` | Expéditeur (en général `SMTP_USER`) et destinataire (charlotte@millesolutions.mc) |
+| `TRUST_PROXY` | `true` derrière un proxy inverse (adresse réelle du visiteur pour la limite d'envois) |
+| `CONTACT_RATE_LIMIT` | Envois autorisés par IP et par quart d'heure (défaut 5) |
+| `ALTCHA_HMAC_KEY` | Clé secrète de signature du captcha (facultative, recommandée) : `openssl rand -hex 32` |
+
+Sans SMTP configuré, `/api/contact/` répond « indisponible » (le visiteur voit le message d'échec,
+sa saisie est conservée). En développement (`npm run dev`), sans `SMTP_HOST`, le message est
+affiché dans le terminal au lieu d'être envoyé.
+
+`contactFormEndpoint` (`settings.yaml`) vaut `/api/contact/`. Vide, ou construction avec
+`CONTACT_FORM=off` (GitHub Pages, hébergement statique) : la page Contact affiche le formulaire
+désactivé et le bouton de l'accueil renvoie vers Microsoft Forms (`contactFormsUrl`).
+
+**Captcha ALTCHA** (`src/lib/altcha.ts`, `src/pages/api/altcha.ts`, composant `altcha-widget` dans
+`ContactForm.astro`). Preuve de travail : le serveur fournit un défi signé (`GET /api/altcha/`),
+le navigateur le résout (calcul PBKDF2, environ une seconde sur un ordinateur récent), le serveur
+vérifie la solution avec le formulaire. Aucun cookie, aucun service tiers, aucune donnée collectée.
+- Le calcul démarre dès que le visiteur entre dans le formulaire ; à l'envoi, il est en général
+  terminé. La case « Je ne suis pas un robot » se coche alors toute seule (« Vérifié »).
+- Un défi est valable une heure et ne sert qu'une fois (anti-rejeu en mémoire).
+- Difficulté : `COST` et `counter` dans `src/lib/altcha.ts` (durée proportionnelle à leur produit).
+- `ALTCHA_HMAC_KEY` absente : une clé aléatoire est tirée au démarrage. Ça fonctionne, mais un
+  visiteur dont la page était ouverte avant un redémarrage du conteneur doit refaire la
+  vérification (message dédié, saisie conservée). Avec plusieurs conteneurs, la clé est obligatoire
+  et doit être la même partout.
+
+**Politique de confidentialité** : à la mise en service, remplacer dans la section 3 la mention de
+Microsoft Forms par l'hébergeur du site et SMASH (messagerie). Le captcha ALTCHA ne dépose aucun
+cookie et ne transmet rien à un tiers : rien à ajouter sur les cookies.
 
 ### 6.2 Statistiques de visite
 
@@ -554,7 +613,7 @@ suppose un dépôt Git hébergé (GitHub ou GitLab) et, de préférence, une pub
 |---|---|---|
 | Domaine `millesolutions.mc` | Selon le registraire | Déjà acquis, renouvellement annuel |
 | Hébergement | 0 € (Netlify / Cloudflare, palier gratuit) à l'offre SMASH | À confirmer |
-| Formulaire | 0 € (PHP chez SMASH) à quelques €/mois | Selon la solution (section 6.1) |
+| Formulaire | 0 € (envoi par le site via la messagerie SMASH) | Section 6.1 |
 | Statistiques | 0 € (Matomo, Umami) à environ 9 €/mois (Plausible) | À valider par Charlotte |
 
 Le code n'utilise aucune bibliothèque payante et aucun service externe n'est appelé au chargement

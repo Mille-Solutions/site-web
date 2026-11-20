@@ -7,6 +7,17 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 export const url = (path: string): string => `${base}${path}`;
 
 /**
+ * Adresse d'envoi du formulaire de contact. Vide si non configurée, ou si la construction est faite
+ * avec CONTACT_FORM=off (publication statique sans serveur, ex. GitHub Pages). Une adresse interne
+ * (« /api/contact/ ») reçoit le préfixe du site.
+ */
+export const contactEndpoint = (setting: string): string => {
+  const value = setting.trim();
+  if (!value || process.env.CONTACT_FORM === 'off') return '';
+  return value.startsWith('/') ? url(value) : value;
+};
+
+/**
  * Pages et leur équivalent dans l'autre langue (sélecteur FR / EN, hreflang).
  * `en: null` : pas encore de version anglaise (pages de phase 2).
  */
@@ -17,12 +28,12 @@ export const routes = {
   services: { fr: url('/accompagnements/'), en: null },
   approach: { fr: url('/approche-et-parcours/'), en: null },
   examples: { fr: url('/exemples-de-projets/'), en: null },
-  contact: { fr: url('/contact/'), en: null },
+  contact: { fr: url('/contact/'), en: url('/en/contact/') },
 } as const satisfies Record<string, { fr: string; en: string | null }>;
 export type RouteKey = keyof typeof routes;
 
 /** Pages de phase 2, publiées seulement quand settings.yaml → phase2Enabled: true. */
-export const phase2Routes: RouteKey[] = ['services', 'approach', 'examples', 'contact'];
+export const phase2Routes: RouteKey[] = ['services', 'approach', 'examples'];
 
 /** Adresse d'une page dans une langue, avec repli sur la version française. */
 export const pathFor = (route: RouteKey, lang: Lang): string => routes[route][lang] ?? routes[route].fr;
@@ -92,6 +103,7 @@ export const ui = {
     backHome: 'Revenir à l’accueil',
     required: 'obligatoire',
     fieldRequired: 'Ce champ est obligatoire.',
+    fieldUrl: 'Vérifiez l’adresse du site internet. Exemple : www.exemple.mc',
     // Maquette « États du formulaire » : état « Adresse e-mail invalide »
     fieldEmail: 'Vérifiez votre adresse e-mail avant de réessayer. Le format saisi ne semble pas correct. Corrigez-le pour continuer.',
   },
@@ -134,6 +146,7 @@ export const ui = {
     backHome: 'Back to home page',
     required: 'required',
     fieldRequired: 'This field is required.',
+    fieldUrl: 'Check the website address. Example: www.example.com',
     fieldEmail: 'Check your email address before trying again. The format does not look right. Please correct it to continue.',
   },
 } as const;

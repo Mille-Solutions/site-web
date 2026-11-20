@@ -1,21 +1,38 @@
 ---
-import type { CollectionEntry } from 'astro:content';
+/**
+ * Bandeau Contact : titre, texte, puis
+ * - sur l'accueil : encart renvoyant vers le formulaire (page Contact, ou Microsoft Forms tant que
+ *   le service d'envoi n'est pas configuré) ;
+ * - sur la page Contact : le formulaire lui-même, passé en contenu (slot).
+ */
 import ExternalLink from '../ExternalLink.astro';
 import { routes, type Lang } from '../../i18n/ui';
 
+interface Content {
+  eyebrow?: string;
+  title: string;
+  text: string;
+  form?: { eyebrow: string; intro?: string; cta: string; notice: string; noticeLink: string; requiredNote: string };
+}
+
 interface Props {
   lang: Lang;
-  content: CollectionEntry<'home'>['data']['contact'];
+  content: Content;
   id: string;
-  formsUrl: string;
+  /** Destination du bouton de l'encart (accueil). */
+  formHref?: string;
+  /** true si formHref est un site externe (Microsoft Forms). */
+  formExternal?: boolean;
   /** h1 sur la page Contact, h2 sur l'accueil. */
   headingLevel?: 'h1' | 'h2';
   /** « dark » : fond Navy des maquettes « Accueil — FR » et « Contact — FR » ; « light » : fond blanc. */
   tone?: 'dark' | 'light';
 }
-const { lang, content, id, formsUrl, headingLevel = 'h2', tone = 'light' } = Astro.props;
+const { lang, content, id, formHref, formExternal = false, headingLevel = 'h2', tone = 'light' } = Astro.props;
 const Heading = headingLevel;
 const dark = tone === 'dark';
+const hasForm = Astro.slots.has('default');
+const card = content.form;
 ---
 
 <section id={id} aria-labelledby={`${id}-title`} class:list={['section', dark ? 'bg-navy text-ivory' : 'bg-white']}>
@@ -26,24 +43,33 @@ const dark = tone === 'dark';
     <p class:list={['mt-8 max-w-[53rem] leading-6 sm:mt-6 sm:text-lg sm:leading-[1.6]', dark ? 'text-ivory/75' : 'text-stone']}>{content.text}</p>
 
     <div class="mt-8 max-w-[45.8125rem] lg:mt-16">
-      <div class:list={['card flex flex-col gap-5 text-navy', dark && 'border-0']}>
-        {content.form.eyebrow && <p class="eyebrow">{content.form.eyebrow}</p>}
-        {content.form.intro && <p class="leading-6 text-stone">{content.form.intro}</p>}
-        <ExternalLink
-          href={formsUrl}
-          lang={lang}
-          icon={false}
-          track="contact-form"
-          class="btn btn-primary w-full sm:w-auto"
-        >
-          {lang === 'fr' ? 'Remplir le formulaire' : 'Contact form'}
-        </ExternalLink>
-        <p class="text-sm leading-relaxed text-stone">
-          {content.form.notice}
-          <a href={routes.privacy[lang]} class="link-underline text-navy"> {content.form.noticeLink}</a>.
-          {lang === 'fr' && content.form.requiredNote && <span> {content.form.requiredNote}</span>}
-        </p>
-      </div>
+      {
+        hasForm ? (
+          <slot />
+        ) : (
+          card &&
+          formHref && (
+            <div class:list={['card flex flex-col gap-5 text-navy', dark && 'border-0']}>
+              {card.eyebrow && <p class="eyebrow">{card.eyebrow}</p>}
+              {card.intro && <p class="leading-6 text-stone">{card.intro}</p>}
+              {formExternal ? (
+                <ExternalLink href={formHref} lang={lang} icon={false} track="contact-form" class="btn btn-primary w-full sm:w-auto">
+                  {card.cta}
+                </ExternalLink>
+              ) : (
+                <a href={formHref} class="btn btn-primary w-full sm:w-auto" data-track="contact-page">
+                  {card.cta}
+                </a>
+              )}
+              <p class="text-sm leading-relaxed text-stone">
+                {card.notice}
+                <a href={routes.privacy[lang]} class="link-underline text-navy"> {card.noticeLink}</a>.
+                {lang === 'fr' && card.requiredNote && <span> {card.requiredNote}</span>}
+              </p>
+            </div>
+          )
+        )
+      }
     </div>
   </div>
 </section>

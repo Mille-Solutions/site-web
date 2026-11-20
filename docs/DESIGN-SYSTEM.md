@@ -141,11 +141,18 @@ en `text-ivory/70`, halo décoratif `bg-azur/10 blur-[50px]`.
 - `Statement.astro` : phrase centrée entre deux filets Azure à 60 %.
 - `AzureDivider.astro` : filet Azure court (64 × 1 px).
 - `home/Contact.astro` : `tone="dark"` (fond Navy, utilisé sur l'accueil et la page Contact) ;
-  repère facultatif (`eyebrow`, `text-ivory/75` sur Navy), titre, texte, puis formulaire.
+  repère facultatif (`eyebrow`, `text-ivory/75` sur Navy), titre, texte, puis : sur l'accueil, un
+  encart avec un bouton `btn-primary` vers la page Contact ; sur la page Contact, le formulaire
+  (passé en contenu).
 - `home/ContactForm.astro` : champs blancs, bordure Azure, rayon 8, padding 16 ; libellés 14
   SemiBold ; astérisque pour les champs obligatoires ; message d'erreur sous le champ en `#b42318`
   (`aria-invalid`, `aria-describedby`) ; encadré d'information `border-l-2 border-azur bg-azur-mist` ;
-  phrase d'introduction facultative sous le repère (`intro`, 16 Stone).
+  texte d'aide sous chaque libellé (14 Stone, relié au champ par `aria-describedby`) ; choix
+  uniques en boutons radio natifs (`accent-navy`, 20 px, ligne de 44 px min.) dans un `fieldset`
+  avec `legend` ; mention « Confidentialité » (14, titre SemiBold Navy) sous le bouton d'envoi ;
+  captcha ALTCHA (case « Je ne suis pas un robot ») juste avant le bouton d'envoi, pleine largeur,
+  bordure Azure, rayon 8, case et état « Vérifié » en Navy (pas de vert), sans logo ni mention
+  ALTCHA (variables `--altcha-*` dans `global.css`).
 - Encadrés d'avertissement : `border-l-3 border-azur bg-azur-mist p-6`.
 - Pages légales : `.prose-legal` (rubriques `##` ouvertes par un filet `rule`, informations à
   compléter en `<span class="missing">[…]</span>`, voir GUIDE § 4.3).

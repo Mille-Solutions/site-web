@@ -1,0 +1,25 @@
+---
+import { getEntry } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Contact from './home/Contact.astro';
+import ContactForm from './home/ContactForm.astro';
+import { contactEndpoint, type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const page = (await getEntry('contactPage', lang))!.data;
+const settings = (await getEntry('settings', 'links'))!.data;
+---
+
+<Base lang={lang} route="contact" title={page.meta.title} description={page.meta.description}>
+  <Contact lang={lang} content={{ eyebrow: page.eyebrow, title: page.title, text: page.text }} id="contact" headingLevel="h1" tone="dark">
+    <ContactForm
+      lang={lang}
+      content={page.form}
+      endpoint={contactEndpoint(settings.contactFormEndpoint)}
+      bordered={false}
+    />
+  </Contact>
+</Base>

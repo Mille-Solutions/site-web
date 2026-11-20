@@ -201,3 +201,23 @@
 .prose-legal td .missing {
   @apply bg-azur-mist px-1;
 }
+
+/* Captcha ALTCHA (formulaire de contact) : couleurs et rayon de la charte. */
+altcha-widget {
+  --altcha-max-width: 100%;
+  --altcha-border-width: 1px;
+  --altcha-border-color: var(--color-azur);
+  --altcha-border-radius: 0.5rem;
+  --altcha-color-base: var(--color-white);
+  --altcha-color-base-content: var(--color-navy);
+  --altcha-color-primary: var(--color-navy);
+  --altcha-color-primary-content: var(--color-ivory);
+  --altcha-color-error: #b42318;
+  --altcha-color-success: var(--color-navy);
+  --altcha-color-success-content: var(--color-ivory);
+  --altcha-checkbox-border-color: var(--color-navy);
+  --altcha-checkbox-outline-color: var(--color-azur);
+  --altcha-spinner-color: var(--color-navy);
+  font-family: var(--font-sans);
+  display: block;
+}

@@ -1,21 +1,5 @@
 ---
-import { getEntry } from 'astro:content';
-import Base from '../layouts/Base.astro';
-import Contact from '../components/home/Contact.astro';
-
-const lang = 'fr';
-const page = (await getEntry('contactPage', lang))!.data;
-const home = (await getEntry('home', lang))!.data;
-const settings = (await getEntry('settings', 'links'))!.data;
+import ContactPage from '../components/ContactPage.astro';
 ---
 
-<Base lang={lang} route="contact" title={page.meta.title} description={page.meta.description}>
-  <Contact
-    lang={lang}
-    content={home.contact}
-    id="contact"
-    formsUrl={settings.contactFormsUrl}
-    headingLevel="h1"
-    tone="dark"
-  />
-</Base>
+<ContactPage lang="fr" />

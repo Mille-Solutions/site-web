@@ -17,7 +17,7 @@ Charlotte CHARLES MILLE, operating as a sole proprietor under the trading name M
 Telephone: +377 37 70 77 55
 
 ### 2. Personal Data Collected and Purpose
-When you use our contact form, we collect your name, email address, organisation name (if provided) and message.
+When you use our contact form, we collect your full name, email address and enquiry, as well as, if provided, your organisation name, position, phone number, preferred contact method and your organisation's website.
 
 This information is used solely to respond to your enquiry and manage any related correspondence.
 

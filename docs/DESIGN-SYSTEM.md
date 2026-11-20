@@ -88,7 +88,7 @@ en `text-ivory/70`, halo décoratif `bg-azur/10 blur-[50px]`.
   blocs de texte, 16 px (`gap-4`) mobile / 32 px (`lg:gap-8`) entre cartes.
 - Largeur de lecture : `max-w-[53rem]` pour les blocs titre + texte, `max-w-[60rem]` pour le texte
   juridique.
-- Grilles : cartes en 1 colonne puis 3 colonnes à partir de `md` ; deux colonnes asymétriques en
+- Grilles : cartes en 1 colonne puis 3 colonnes à partir de `md` (2 colonnes s'il y a 2 ou 4 cartes) ; deux colonnes asymétriques en
   `lg` (ex. à propos `22.5rem / 1fr`, légal `15rem / 1fr`). Formulaire de contact seul, largeur max.
   `45.8125rem` (733 px).
 - Points de rupture : Tailwind par défaut (`sm` 640, `md` 768, `lg` 1024, `xl` 1280). La navigation

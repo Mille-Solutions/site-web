@@ -31,6 +31,8 @@ const { id, eyebrow, title, subtitle, items, ordered = false, tone = 'ivory', co
 const square = variant === 'square';
 const soft = variant === 'soft';
 const List = ordered ? 'ol' : 'ul';
+// 2 ou 4 cartes : grille de 2 colonnes, pour ne jamais laisser une carte seule sur une ligne.
+const twoCols = items.length === 2 || items.length === 4;
 ---
 
 <section
@@ -41,7 +43,7 @@ const List = ordered ? 'ol' : 'ul';
   {corner && <CornerAccent size={50} class="top-6 right-6 hidden lg:block" />}
   <div class="container-site">
     <SectionHeading eyebrow={eyebrow} title={title} subtitle={subtitle} id={`${id}-title`} size={square ? 'md' : 'lg'} />
-    <List class:list={['mt-8 grid gap-4 md:grid-cols-3 lg:gap-8', square ? 'items-start' : 'items-stretch', square ? 'lg:mt-20' : 'lg:mt-16']}>
+    <List class:list={['mt-8 grid gap-4 lg:gap-8', twoCols ? 'md:grid-cols-2' : 'md:grid-cols-3', square ? 'items-start' : 'items-stretch', square ? 'lg:mt-20' : 'lg:mt-16']}>
       {
         items.map((item) => (
           <li id={item.id} class:list={['reveal flex flex-col gap-5 lg:gap-6', square ? 'card-square' : soft ? 'card-soft' : 'card']}>

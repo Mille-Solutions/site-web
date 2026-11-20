@@ -82,7 +82,7 @@ en `text-ivory/70`, halo décoratif `bg-azur/10 blur-[50px]`.
 
 - Conteneur : `.container-site` → largeur max 1440 px (`90rem`), marges latérales 24 px mobile,
   80 px à partir de `lg`.
-- Section standard : `.section` → 64 px mobile, 120 px `lg` (haut et bas). Sections de phase 2 à
+- Section standard : `.section` → 48 px mobile, 80 px `lg` (haut et bas). Sections de phase 2 à
   cartes : 80 px → 160 px.
 - Rythme vertical interne : 32 px entre titre de section et contenu (64 px en `lg`), 24–32 px entre
   blocs de texte, 16 px (`gap-4`) mobile / 32 px (`lg:gap-8`) entre cartes.

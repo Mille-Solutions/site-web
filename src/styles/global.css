@@ -68,7 +68,7 @@
   }
 
   .section {
-    @apply py-16 lg:py-30;
+    @apply py-12 lg:py-20;
   }
 
   /* Repère de section (« Vous vous reconnaissez ») */

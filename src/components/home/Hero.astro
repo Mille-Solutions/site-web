@@ -1,45 +1,60 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { Image } from 'astro:assets';
+import Icon from '../Icon.astro';
 import type { Lang } from '../../i18n/ui';
-// Photo provisoire reprise de la maquette Figma (« hero-image ») : origine et droits à valider.
-import heroImage from '../../assets/hero-monaco-nouveau.jpg';
+// Photo originale de Charlotte, la même que dans la section « À propos ».
+import portraitImage from '../../assets/charlotte-charles-mille.jpeg';
 
 interface Props {
   lang: Lang;
   content: CollectionEntry<'home'>['data']['hero'];
+  /** Texte alternatif du portrait (about.portraitAlt). */
+  portraitAlt: string;
+  /** Ancre de la section Contact de l'accueil. */
+  contactHref: string;
 }
-const { content } = Astro.props;
+const { content, portraitAlt, contactHref } = Astro.props;
+const p = content.presentation;
+const leadClass = 'leading-6 text-stone sm:text-lg sm:leading-[1.6] lg:text-xl';
 ---
 
-<section class="bg-ivory pt-14 pb-8 sm:pb-14 lg:py-24">
+<section class="bg-ivory pt-14 pb-16 lg:pt-24 lg:pb-30">
   <div class="container-site">
     <div class="flex max-w-[53rem] flex-col gap-8">
-      <h1 class="text-[2rem] leading-[1.25] font-semibold sm:text-5xl sm:leading-[1.1] sm:tracking-[-0.015em] lg:text-[4rem] lg:leading-[1.05]">
-        {content.title.map((line) => <span class="block">{line}</span>)}
-      </h1>
+      <div class="flex flex-col gap-4 sm:gap-6">
+        {content.eyebrow && <p class="eyebrow uppercase tracking-[0.08em]">{content.eyebrow}</p>}
+        <h1 class="text-[2rem] leading-[1.25] font-semibold sm:text-5xl sm:leading-[1.1] sm:tracking-[-0.015em] lg:text-[4rem] lg:leading-[1.05]">
+          {content.title.map((line) => <span class="block">{line}</span>)}
+        </h1>
+      </div>
       <div class="flex flex-col gap-4">
-        <p class="leading-6 text-stone sm:text-lg sm:leading-[1.6] lg:text-xl">{content.lead}</p>
-        {content.leadSecondary && <p class="leading-6 text-stone sm:text-lg sm:leading-[1.6] lg:text-xl">{content.leadSecondary}</p>}
+        <p class={leadClass}>{content.lead}</p>
+        {content.leadSecondary && <p class={leadClass}>{content.leadSecondary}</p>}
       </div>
 
-      {content.engagementLabel || content.signature && (
-        <div class="flex flex-col gap-3">
-          {content.engagementLabel && <p class="eyebrow">{content.engagementLabel}</p>}
-          <p class="text-xl leading-[1.3] font-medium sm:text-2xl sm:leading-[1.2] sm:font-semibold lg:text-[2rem]">{content.signature}</p>
+      <!-- Présentation personnelle : photo 40 % / texte 60 % à partir de md, empilés sur mobile -->
+      <div class="mt-2 grid items-center gap-6 border-t border-rule pt-8 md:grid-cols-[2fr_3fr] md:gap-10 lg:mt-6 lg:pt-12">
+        <Image
+          src={portraitImage}
+          alt={portraitAlt}
+          widths={[400, 800]}
+          sizes="(min-width: 768px) 340px, calc(100vw - 3rem)"
+          loading="eager"
+          class="aspect-[4/3] w-full rounded-(--radius-card) object-cover object-[center_18%] md:aspect-[4/5] md:object-top"
+        />
+        <div class="flex flex-col items-start gap-4">
+          <div class="flex flex-col gap-1">
+            <p class="text-xl leading-[1.3] font-semibold sm:text-2xl sm:leading-[1.25]">{p.name}</p>
+            <p class="text-sm font-semibold text-stone">{p.role}</p>
+          </div>
+          <p class={leadClass}>{p.text}</p>
+          <a href={contactHref} class="btn btn-primary mt-2 w-full rounded-lg sm:w-auto">
+            {p.cta}
+            <Icon name="arrow" class="size-5" />
+          </a>
         </div>
-      )}
-
+      </div>
     </div>
-
-    <Image
-      src={heroImage}
-      alt={content.imageAlt}
-      widths={[640, 1024]}
-      sizes="(min-width: 1440px) 1280px, calc(100vw - 3rem)"
-      loading="eager"
-      fetchpriority="high"
-      class="mt-8 aspect-[342/240] w-full rounded-(--radius-card) object-cover object-center lg:mt-14 lg:aspect-[1280/520]"
-    />
   </div>
 </section>

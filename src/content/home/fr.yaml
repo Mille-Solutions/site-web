@@ -5,14 +5,17 @@ meta:
   description: "J’accompagne les TPE, PME et institutions à Monaco et dans la région pour clarifier leurs besoins, structurer leurs projets et coordonner leur mise en œuvre."
 
 hero:
+  eyebrow: "Gestion de projets · Organisation · Accompagnement opérationnel"
   title:
     - "Faire avancer vos projets."
     - "Simplifier votre fonctionnement."
-  lead: "J’aide les entreprises et les organisations à piloter leurs projets, améliorer leur fonctionnement et transformer leurs idées en résultats concrets."
-  leadSecondary: "J’interviens également sur des missions opérationnelles ponctuelles, pour apporter un soutien supplémentaire lorsque le temps, les ressources ou les compétences disponibles sont limités."
-  signature: "Structurer. Prioriser. Concrétiser."
-  # Photo provisoire issue de la maquette Figma : origine et droits à valider avant publication.
-  imageAlt: "Vue de Monaco."
+  lead: "J’aide les entreprises et les organisations à structurer leurs projets, améliorer leur fonctionnement et concrétiser leurs idées."
+  leadSecondary: "J’interviens également sur des missions opérationnelles ponctuelles, en fonction de vos besoins et des ressources disponibles."
+  presentation:
+    name: "Charlotte Charles Mille"
+    role: "Fondatrice de Mille Solutions"
+    text: "J’aime transformer les idées en actions, débloquer les situations et trouver des solutions pratiques. C’est dans cet esprit que j’ai créé Mille Solutions."
+    cta: "Parlons de votre projet"
 
 situations:
   eyebrow: "Vos besoins"

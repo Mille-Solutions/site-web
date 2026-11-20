@@ -24,13 +24,17 @@ const home = defineCollection({
   schema: z.object({
     meta: z.object({ title: z.string(), description: z.string() }),
     hero: z.object({
+      /** Repère au-dessus du titre (catégories d'intervention). */
+      eyebrow: z.string().optional(),
       /** Une entrée par ligne du titre. */
       title: z.array(z.string()).min(1),
       lead: z.string(),
       leadSecondary: z.string().optional(),
       engagementLabel: z.string().optional(),
-      signature: z.string(),
-      imageAlt: z.string(),
+      signature: z.string().optional(),
+      imageAlt: z.string().optional(),
+      /** Présentation personnelle sous l'accroche (photo du portrait « À propos »). */
+      presentation: z.object({ name: z.string(), role: z.string(), text: z.string(), cta: z.string() }),
     }),
     situations: z.object({ ...section, items: z.array(card) }),
     services: z.object({ ...section, items: z.array(card.extend({ id: z.string() })) }).optional(),

@@ -54,7 +54,8 @@ en `text-ivory/70`, halo décoratif `bg-azur/10 blur-[50px]`.
 - **Inter** (300, 400, 500, 600) pour tout le texte. Graisses utilisées : 400 courant, 500 Medium,
   600 SemiBold. 300 Light uniquement pour « Solutions » dans le logo.
 - **Playfair Display 600** (`font-wordmark`) **uniquement** pour le mot « Mille » du logo.
-- Titres en `text-balance`. Pas de majuscules forcées sauf la ligne de copyright.
+- Titres en `text-balance`. Pas de majuscules forcées sauf la ligne de copyright et le repère du
+  premier écran de l'accueil.
 
 Échelle (mobile → ordinateur ; taille / interligne) :
 
@@ -107,8 +108,10 @@ en `text-ivory/70`, halo décoratif `bg-azur/10 blur-[50px]`.
 ### Boutons — `.btn` + variante
 - `.btn` : hauteur min. 56 px mobile / 53 px `sm+`, texte 14 SemiBold, angles droits, pleine
   largeur sur mobile (`w-full sm:w-auto` ou empilés en colonne).
-- `.btn-dark` : fond Navy, texte Ivory → action principale sur fond clair (aucun bouton dans le
-  premier écran de l'accueil ni dans les premiers écrans des pages).
+- `.btn-dark` : fond Navy, texte Ivory → action principale sur fond clair (aucun bouton dans les
+  premiers écrans des pages).
+- Exception : le bouton « Parlons de votre projet » de la présentation de l'accueil est un
+  `btn-primary` aux angles arrondis (`rounded-lg`, 8 px) avec flèche, vers `#contact`.
 - `.btn-primary` : fond Azure, texte **Navy** (jamais blanc) → LinkedIn (section À propos), envoi du
   formulaire.
 - `.btn-secondary` : contour Navy 1 px, texte Navy → action secondaire (ancre interne).
@@ -140,6 +143,10 @@ en `text-ivory/70`, halo décoratif `bg-azur/10 blur-[50px]`.
 - `PageHero.astro` : premier écran des pages, `layout="stacked" | "split"`, `imageRatio`.
 - `Statement.astro` : phrase centrée entre deux filets Azure à 60 %.
 - `AzureDivider.astro` : filet Azure court (64 × 1 px).
+- `home/Hero.astro` (premier écran de l'accueil) : repère en capitales (`eyebrow uppercase
+  tracking-[0.08em]`), H1, deux paragraphes, puis présentation personnelle séparée par un filet
+  `rule` : portrait « À propos » (`about.portraitAlt`) 40 % / texte 60 % à partir de `md`, empilés
+  sur mobile (photo 4/3 sur mobile, 4/5 au-delà) ; nom 24 SemiBold, fonction 14 SemiBold Stone.
 - `home/Contact.astro` : `tone="dark"` (fond Navy, utilisé sur l'accueil et la page Contact) ;
   repère facultatif (`eyebrow`, `text-ivory/75` sur Navy), titre, texte, puis : sur l'accueil, un
   encart avec un bouton `btn-primary` vers la page Contact ; sur la page Contact, le formulaire
@@ -182,7 +189,7 @@ en `text-ivory/70`, halo décoratif `bg-azur/10 blur-[50px]`.
 - Photographies de Monaco, lumineuses, sans filtre ; jamais de texte incrusté.
 - Via `<Image>` d'`astro:assets` (formats modernes, `widths` / `sizes`), largeur de sortie max.
   1920 px ; sources redimensionnées à 2560 px max., métadonnées EXIF supprimées.
-- Formats : hero accueil 342/240 mobile → 1280/520 ; hero pages 1280/520 ou 1280/480 ; hero
+- Formats : portrait du premier écran de l'accueil 4/3 mobile → 4/5 ; hero pages 1280/520 ou 1280/480 ; hero
   « split » 342/320 → 720/688 ; portrait 342/380 → 360/480.
 - Rayon 16 px sur les images de l'accueil ; texte alternatif dans les fichiers de contenu, dans
   chaque langue (jamais en dur dans un composant ; portrait : `about.portraitAlt`).

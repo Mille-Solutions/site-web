@@ -22,7 +22,7 @@ const formHref = formReady || !settings.contactFormsUrl ? routes.contact[lang] :
 ---
 
 <Base lang={lang} route="home" title={content.meta.title} description={content.meta.description}>
-  <Hero lang={lang} content={content.hero} />
+  <Hero lang={lang} content={content.hero} portraitAlt={content.about.portraitAlt} contactHref={`#${s.contact}`} />
   <CardSection id={s.situations} eyebrow={situations.eyebrow} title={situations.title} items={situations.items} />
   <CardSection id={s.approach} eyebrow={method.eyebrow} title={method.title} items={method.steps} note={method.note} ordered />
   <CardSection

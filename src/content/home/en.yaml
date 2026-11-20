@@ -6,14 +6,17 @@ meta:
   description: "Mille Solutions helps businesses and organisations manage projects, improve operations and deliver practical results."
 
 hero:
+  eyebrow: "Project management · Organisation · Operational support"
   title:
     - "Move your projects forward."
-    - "Simplify the way you work."
-  lead: "I help businesses and organisations manage projects, improve the way they operate and turn ideas into practical results."
-  leadSecondary: "I also take on one-off operational assignments, providing extra support when time, resources or expertise are limited."
-  signature: "Structure. Prioritize. Deliver."
-  # Photo provisoire issue de la maquette Figma : origine et droits à valider avant publication.
-  imageAlt: "View of Monaco."
+    - "Make your operations simpler."
+  lead: "I help businesses and organisations structure their projects, improve the way they work and turn ideas into concrete results."
+  leadSecondary: "I also provide hands-on support for specific operational needs, depending on your priorities and available resources."
+  presentation:
+    name: "Charlotte Charles Mille"
+    role: "Founder of Mille Solutions"
+    text: "I enjoy turning ideas into action, getting things moving again and finding practical solutions. That’s the spirit in which I created Mille Solutions."
+    cta: "Let’s talk about your project"
 
 situations:
   eyebrow: "Your needs"

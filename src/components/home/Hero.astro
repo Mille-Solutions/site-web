@@ -2,6 +2,7 @@
 import type { CollectionEntry } from 'astro:content';
 import { Image } from 'astro:assets';
 import Icon from '../Icon.astro';
+import Logo from '../Logo.astro';
 import type { Lang } from '../../i18n/ui';
 // Photo originale de Charlotte, la même que dans la section « À propos ».
 import portraitImage from '../../assets/charlotte-charles-mille.jpeg';
@@ -19,9 +20,13 @@ const p = content.presentation;
 const leadClass = 'leading-6 text-stone sm:text-lg sm:leading-[1.6] lg:text-xl';
 ---
 
-<section class="bg-ivory pt-14 pb-12 lg:pt-24 lg:pb-20">
+<section class="bg-ivory pt-10 pb-12 lg:pt-16 lg:pb-20">
   <div class="container-site">
     <div class="flex max-w-[53rem] flex-col gap-8">
+      <!-- Grand logo de marque (le nom est déjà annoncé par l'en-tête) -->
+      <div aria-hidden="true" class="mb-2 lg:mb-6">
+        <Logo accent class="[--logo:52px] sm:[--logo:72px] lg:[--logo:96px]" />
+      </div>
       <div class="flex flex-col gap-4 sm:gap-6">
         {content.eyebrow && <p class="eyebrow uppercase tracking-[0.08em]">{content.eyebrow}</p>}
         <h1 class="text-[2rem] leading-[1.25] font-semibold sm:text-5xl sm:leading-[1.1] sm:tracking-[-0.015em] lg:text-[4rem] lg:leading-[1.05]">

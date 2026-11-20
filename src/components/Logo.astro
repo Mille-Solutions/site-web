@@ -5,18 +5,19 @@
  * Les deux mots restent sur une ligne. Le filet Azure est optionnel, indépendant, espacé d'au moins 12 px.
  */
 interface Props {
-  /** Taille de « Mille » en pixels. */
+  /** Taille de « Mille » en pixels (26 par défaut). Sans `size`, la taille peut venir de `class`
+   * via la variable `--logo` (ex. `[--logo:48px] lg:[--logo:88px]`). */
   size?: number;
   accent?: boolean;
   class?: string;
 }
-const { size = 26, accent = false, class: className = '' } = Astro.props;
+const { size, accent = false, class: className = '' } = Astro.props;
 ---
 
-<span class:list={['inline-flex flex-col items-start text-navy', className]} style={`--logo:${size}px`}>
-  <span class="inline-flex items-baseline gap-[calc(var(--logo)*0.13)] leading-[1.15] whitespace-nowrap">
-    <span class="font-wordmark text-[length:var(--logo)] font-semibold">Mille</span>
-    <span class="text-[length:calc(var(--logo)*0.61)] font-light">Solutions</span>
+<span class:list={['inline-flex flex-col items-start text-navy', className]} style={size ? `--logo:${size}px` : undefined}>
+  <span class="inline-flex items-baseline gap-[calc(var(--logo,26px)*0.13)] leading-[1.15] whitespace-nowrap">
+    <span class="font-wordmark text-[length:var(--logo,26px)] font-semibold">Mille</span>
+    <span class="text-[length:calc(var(--logo,26px)*0.61)] font-light">Solutions</span>
   </span>
-  {accent && <span aria-hidden="true" class="mt-3 block h-px w-[calc(var(--logo)*3.3)] bg-azur"></span>}
+  {accent && <span aria-hidden="true" class="mt-3 block h-px w-[calc(var(--logo,26px)*3.3)] bg-azur"></span>}
 </span>

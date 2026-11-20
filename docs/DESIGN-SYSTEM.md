@@ -167,7 +167,8 @@ en `text-ivory/70`, halo décoratif `bg-azur/10 blur-[50px]`.
 ## 6. Éléments de signature
 
 - **Logo** (`Logo.astro`) : « Mille » Playfair 600 + « Solutions » Inter 300 à 61 % de la taille,
-  sur une seule ligne, Navy. Taille 24 dans l'en-tête et le pied de page. Filet Azure optionnel
+  sur une seule ligne, Navy. Taille 24 dans l'en-tête et le pied de page ; en grand, avec filet
+  Azure, en tête du premier écran de l'accueil (52 → 72 `sm` → 96 `lg`, `aria-hidden`). Filet Azure optionnel
   (`accent`), à 12 px minimum sous le logo.
 - **Angle ouvert** (`CornerAccent.astro`) : deux traits Azure de 1,5 px qui **ne se touchent
   jamais** (cadre 64 × 64 : horizontal 46 px en haut à gauche, vertical 46 px à droite à 18 px du

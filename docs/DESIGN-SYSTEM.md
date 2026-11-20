@@ -98,7 +98,8 @@ en `text-ivory/70`, halo décoratif `bg-azur/10 blur-[50px]`.
   À propos, Contact. Pas de bouton dans l'en-tête ni dans le menu mobile. En phase 2 (pages) :
   « Vos besoins » pointe toujours vers la section de l'accueil, « Approche et parcours » remplace
   « Approche » et « À propos » disparaît, le parcours étant présenté sur cette page.
-- En-tête collant de 88 px (`h-[5.5rem]`), filet Azure en bas ; `scroll-padding-top: 6.5rem`.
+- En-tête collant de 88 px (`h-[5.5rem]`), filet Azure en bas ; `scroll-padding-top: 6.5rem`. Les sections `.section` ciblées par le menu
+  ont un `scroll-margin-top` négatif : le repère arrive à 48 px (64 px en `lg`) sous l'en-tête.
 - Rayon unique : `--radius-card` = 16 px (cartes arrondies, images, emplacements photo). Champs de
   formulaire : 8 px. Boutons, cartes carrées et chips de bord : angles droits (les chips sont en
   pilule).

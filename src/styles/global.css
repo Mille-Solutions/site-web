@@ -70,6 +70,14 @@
   .section {
     @apply py-12 lg:py-20;
   }
+  /* Arrivée par le menu : repère à 48 px (mobile) / 64 px (lg) sous l'en-tête de 88 px,
+     en compensant le scroll-padding-top global (104 px) et le padding de la section. */
+  .section[id] {
+    scroll-margin-top: -1rem;
+    @variant lg {
+      scroll-margin-top: -2rem;
+    }
+  }
 
   /* Repère de section (« Vous vous reconnaissez ») */
   .eyebrow {
